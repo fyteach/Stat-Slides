@@ -1,7 +1,7 @@
 ---
-title: "Slides for MA336 Statistics<br/>"
-author: "Fei Ye <br/> Department of Mathematics and Computer Science<br/>"
-date: "`r format(Sys.time(), '%B %Y')`"
+title: "Slides for MA336 Statistics"
+# author: "Fei Ye <br/> Department of Mathematics and Computer Science"
+date: "Fall 2023"
 output:
   markdown::html_format
 ---
