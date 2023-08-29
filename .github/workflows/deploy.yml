@@ -1,0 +1,16 @@
+name: Build and deploy latex sources to GitHub Pages
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy to public folder for deployment
+        run: |
+          mkdir -p public
+          find . -name '*.html' -exec cp {} public/ \;
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          force_orphan: true # Ensures that not all previous PDFs are kept around forever

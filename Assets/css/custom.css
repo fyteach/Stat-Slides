@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+  font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, .part {
+  font-family: 'Roboto', serif;
+  font-weight: 700;
+}
+
+:root {
+  font-size: 18px;
+}
+
+/* .title-slide {
+  background-position: 95% 95%;
+  background-size: 25%;
+  background-color: #00306d;
+  text-shadow: none;
+} */
+
+h1 {
+  color: rgb(166, 204, 29);
+}
+
+h2 {
+  /* margin-top: max(1%, 6pt); */
+  margin-bottom: auto;
+  color: rgb(166, 204, 29);
+}
+
+.frontmatter h1 {
+  color: rgb(29, 58, 204);
+}
+.frontmatter h2 {
+  color: rgb(140, 176, 10);
+}
+.frontmatter h3 {
+  color: rgb(35, 44, 2);
+}
+
+p, ul {
+  margin-block-start: 0.3em;
+  margin-block-end: 0.3em;
+}
+
+/* .topic {
+  background-color: #00306d;
+}
+
+.topic h1{
+  color: white;
+} */
+
+/* .left-column{
+  height: 100%
+}
+
+.right-column{
+  padding-top: 0px
+} */
+
+code {
+  background: #e7e8e2; /* darker */
+}
+
+/* .MathJax { font-size: 0.9em !important; } */
+
+.red { color: rgb(223, 20, 20); }
+
+.blue { color: rgb(66, 66, 247); }
+
+.green { color: rgb(30, 219, 30); }
+
+.purple {color: rgb(226, 15, 233);}
+
+.gold {color: rgb(255, 215, 0);}
+
+.grey {color: rgb(177, 159, 149)}
+
+.yellow {color: yellowgreen}
+
+.pull-left {
+  width: 49%;
+}
+
+.pull-right {
+  width: 49%;
+}
+
+.row {
+  display: flex;
+  justify-content: top;
+  align-items: flex-start;
+}
+
+.row .left-col {
+  width: 20%;
+  padding-top: 0em;
+  padding-right:1em;
+}
+.row .right-col {
+  width: 75%;
+  padding-top: 0em;
+  padding-right:1em;
+}
+
+iframe {
+  max-height: 564px; /* slide size=1210 by 681*/
+  min-height: 282px;
+  border: none;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.small{
+  font-size: 60%;
+}
+
+.footmark{
+  font-size: 1rem;
+  bottom: 1em;
+  position: absolute;
+  color: #031964;
+}
+
+table, table thead th {
+  border-top: 0px;
+  border-bottom: 0px;
+  padding:0px;
+}
+table thead th[style] {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+thead tr th, tr:nth-child(2n){
+  background: LightCyan;
+}
+
+table thead tr:empty{
+  visibility: hidden;
+}
+
+strong, b {
+    color: DarkBlue;
+}
+
+.DataTable tr:nth-child(2n){
+    background-color: white !important;
+}
+
+.latex-macros{
+  display: none;
+}
+
+table{
+border-collapse: collapse;
+}
+
+.part {
+  color: rgb(15, 11, 227); 
+  font-size: 175%;
+}
+
+.remark::before {
+  content: "Remark:";
+  color: #FBBC05;
+  font-weight: bold;
+}
