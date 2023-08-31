@@ -453,75 +453,76 @@ Lab Instructions in Excel
 
 ---
 
-## Random numbers by Excel (1 of 3)
+## Generating Random Numbers in Excel
 
-- **Example:** Randomly generate a number between 0 and 1.
+- `=RAND()` returns a random real number greater than or equal to 0 and less than 1.  To generate a random real number between $a$ and $b$, one can use `=RAND()*(b-a)+a`.
+- `=RANDBETWEEN(bottom, top)` returns an integer between `bottom` and `top`.
+- `=RANDARRAY([rows],[columns],[min],[max],[whole_number])` returns an array of random numbers. You can specify the number of rows and columns to fill, minimum and maximum values, and whether to return whole numbers or decimal values (TRUE for whole number and FALSE for decimal values).
 
-  - Step 1: Choose a cell, say `A1`
-  
-  - Step 2: click insert function button $f_x$.
-  
-  - Step 3: In the popup window, search "random" and select **RAND**.
-  
-  - Step 4: Click OK, you will get a randomly generated number.
+::: {.remark}
 
-  Alternatively, you may also manually enter the function: `=rand()` in the cell and hit enter.
+- All arguments of `RANDARRAY` are optional. `RANDARRAY()` is equivalent to `RAND()`.
+- To get an array of random values without duplication, one can use `=UNIQUE(RANDARRAY([rows],[columns],[min],[max],[whole_number]))`.
 
----
-
-## Random numbers by Excel (2 of 3)
-
-- **Example:** Generate 10 random integers of 2 digits.
-
-  - Step 1: Generate a random integer, say in the cell `A1`, using the Excel function `randbetween(bottom,top)`.
-  
-  - Step 2: Move the mouse cursor to the lower right corner of the cell `A1`. A solid plus `+` will appear.
-  
-  - Step 3: Hold the left-click of the mouse and drag the cell to horizontally or vertically to get 10 numbers.
-
-Using `randbetween`, you will find that some numbers were repeated. If you are using the latest version of Excel, you may use `randarray` to generate numbers without repetition.
+:::
 
 ---
 
-## Random numbers by Excel (3 of 3)
+## Example: Usage of `RAND()`
 
-- **Example:** Generate 10 random integers of 2 digits without repetition.
+Randomly generate a number between 0 and 1.
 
-  - In the cell with 10 empty cells below it, say `A1`, apply the Excel function `=randarray(rows,columns,min,max,integer)`. In this case, you should set rows=10, columns=1, min=10, max=99, and choose integer to be TRUE.
+**Howto:**
 
-<!-- --- -->
+- Step 1: Choose a cell, say `A1`
 
-<!-- ## Table in Excel -->
+- Step 2: click insert function button $f_x$.
 
-<!-- - **Insert a table** -->
+- Step 3: In the popup window, search "random" and select **RAND**.
 
-<!--   - Step 1: In the menu bar, select Insert. -->
+- Step 4: Click OK, you will get a randomly generated number.
 
-<!--   - Step 2: Look for Table and click it. -->
-
-<!--   - Step 3: In the popup windows, you may enter the two diagonal cell locators. For that, press Shift and select the two diagonal cells of you table. -->
-
-<!--   - Step 4: Click OK. You will see the table. -->
-
-<!-- - **Remark:** Tables are normally used for more than one variables, that are characteristic or attributes being studied, such as attendance rate and grade. In table, a column is usually used to put entries of a data set for a certain variable. Rows are used as labels of individual entries. -->
-
-<!-- --- -->
-
-<!-- ## Insert or delete cells -->
-
-<!-- - **Insert or delete cells, rows or columns** -->
-
-<!--   - Step 1: Highlight by left clicking the cell(s), row, or column that you want to insert or delete. -->
-
-<!--   - Step 2: Right-click the highlighted cell, row or column -->
-
-<!--   - Step 3: In the popup window, select insert or delete and follow the instruction. -->
+Alternatively, you may also manually enter the function: `=rand()` in the cell and hit enter.
 
 ---
 
-## Install the Analysis ToolPak
+## Example: Usage of `RANDBETWEEN()`
 
-- We will use analysis toolpak frequently for analyzing data.
+Generate 10 random integers of 2 digits.
+
+**Howto:**
+
+- Step 1: Generate a random integer, say in the cell `A1`, using the Excel function `=RANDBETWEEN(10,99)`.
+
+- Step 2: Move the mouse cursor to the lower right corner of the cell `A1`. A solid plus `+` will appear.
+
+- Step 3: Hold the left-click of the mouse and drag the cell to horizontally or vertically to autofill the selected array with 10 random numbers of 2 digits.
+
+---
+
+## Example: Usage of `RANDARRAY()`
+
+Generate 10 random integers of 2 digits without repetition.
+
+**Howto:**
+
+In the cell with 9 empty cells below it, say `A1`, apply the Excel function `=UNIQUE(RANDARRAY(10, 1, 10, 99, TRUE))`. You will get a column array of 10 integers without duplication.
+
+---
+
+## Practice: Random Numbers {.unnumbered}
+
+1. Generate a real number between 1 and 2.
+
+2. Generate 10 integers of 2 digits that are less than 50.
+
+3. Generate 10 integers of 2 digits that are less than 50 and without duplication.
+
+---
+
+## Install the Analysis ToolPak (Optional)
+
+If you have a desktop version Excel, you may install the Excel add-in, Analysis Toolpak which is frequently used for analyzing data.
 
 - To install the add-in `The Analysis ToolPak`:
 
