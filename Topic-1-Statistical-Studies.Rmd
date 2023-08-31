@@ -1,12 +1,12 @@
 ---
-title: "Topic 1: Statistical Studies <br/> MA336 Statistics<br/>"
-author: "Fei Ye <br/> Department of Mathematics and Computer Science<br/>"
+title: "Topic 1: Statistical Studies<br/><br/>"
+author: "Fei Ye<br/>Department of Mathematics and Computer Science<br/>"
 date: "`r format(Sys.time(), '%B %Y')`"
 output:
   markdown::html_format:
     meta:
-      css: [default, slides, "Assets/css/custom.css"]
-      js: [slides, "Assets/js/resize.js"]
+      css: [default, slides, "Assets/css/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css"]
+      js: [slides, "Assets/js/resize.js", "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js"]
     options:
       # number_sections: true
       js_math:
@@ -17,10 +17,10 @@ output:
           package: prism
           style: dark
           languages: [r, latex, excel]
+      # smart: false
 ---
 
 ## References
-
 ::: {style="font-size: 125%;"}
 
 - Introduction to Statistics and Data Analysis by Roxy Peck, Chris Olsen, Tom Short
@@ -46,7 +46,7 @@ ___
 
 ## Why study statistics?
 
-- Allow you to critically evaluate the work of others and reports appeared in journals or media by.
+- Allow you to critically evaluate the work of others and reports appeared in journals or media.
 - Provide you with the tools you need to make informed judgments.
 - Understand and use data to make decisions.
 - Success in your professional life.
@@ -111,11 +111,12 @@ Image source: [Concepts in Statistics (lumen learning)](https://courses.lumenlea
   **Answer:**  
   1. Population
   2. Sample.
+
 :::
 
 ::: {.pull-right}
 
-2. Identify statistic concepts in the following study: To learn the percentage of students go to school by public transportation, 500 students at a college were surveyed. 50% say they go to school by public transportation  
+1. Identify statistic concepts in the following study: To learn the percentage of students go to school by public transportation, 500 students at a college were surveyed. 50% say they go to school by public transportation  
 
    **Answer:**
     - Population: all students at the college  
@@ -148,7 +149,7 @@ Image source: [Concepts in Statistics (lumen learning)](https://courses.lumenlea
 
 :::: {.row}
 ::: {.pull-left}
-**Questions:**
+**Question:**
 
 1. Identify a variable in the study. Is it categorical or numerical?
 2. Identify a data set. Is it univariate or bivariate or multivariate?
@@ -183,7 +184,7 @@ A statistical study can usually be categorized as an **observational study** or 
   - An experiment intentionally manipulates one variable in an attempt to cause an effect on another variable. The primary goal of an experiment is to provide evidence for a cause-and-effect relationship between two variables.
 
 ::: {.remark}
-In an observational study, it is not possible to draw clear cause-and-effect conclusions because we cannot rule out the possibility that the observed effect is due to some variable other than the explanatory variable being studied, called **confounding variables**.
+In an observational study, it is not possible to draw clear cause-and-effect conclusions because we cannot rule out the possibility that the observed effect is due to some other variables not being studied, known as **extraneous variables**.
 :::
 
 ---
@@ -223,7 +224,7 @@ Source: [Khan Academy](https://www.khanacademy.org/math/probability/study-design
 
 ---
 
-## Questions about population (`1/2`)
+## Questions about population (1 of 2)
 
 | **Type of Research Question**                                | **Examples**                                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -232,7 +233,7 @@ Source: [Khan Academy](https://www.khanacademy.org/math/probability/study-design
 
 ---
 
-## Questions about population (2/2)
+## Questions about population (2 of 2)
 
 | **Type of Research Question**                                | **Examples**                                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -251,7 +252,7 @@ Source: [Khan Academy](https://www.khanacademy.org/math/probability/study-design
 
 - To establish a cause-and-effect relationship, we want to get rid of confounding variable and make sure the explanatory variable is the only thing that impacts the response variable.
   
-  **Confounding variable:** An extra variable that affects both the explanatory variable and the response variable of interest.
+  **Confounding variable:** An extra variable that may have impact on the response variable of interest.
 
 ---
 
@@ -270,15 +271,14 @@ Determine if the question is a cause-and-effect question? What are the explanato
 
 ---
 
-## Example: appropriate conclusions of a study
+## Example: appropriate conclusion
 
 ***In general, we should not make cause-and-effect statements from observational studies unless impact of confounding variables can be significantly decreased.***
 
-- A researcher studies the medical records of 500 randomly selected patients. Based on the information in the records, he divides the patients into two groups: those given the recommendation to take an aspirin every day and those with no such recommendation. He reports the percentage of each group that developed heart disease.
+**Example:** A researcher studies the medical records of 500 randomly selected patients. Based on the information in the records, he divides the patients into two groups: those given the recommendation to take an aspirin every day and those with no such recommendation. He reports the percentage of each group that developed heart disease.  
+Determine whether the study supports the conclusion that taking aspirin lowers the risk of heart attacks.
 
-  Determine whether the study supports the conclusion that taking aspirin lowers the risk of heart attacks.
-
-- **Answer:** The conclusion claims a cause-and-effect relationship. To answer the question, we need an experimental study. However, the study has no control on data which makes it inappropriate.
+**Answer:** The conclusion claims a cause-and-effect relationship. To answer the question, we need an experimental study. However, the study has no control on data which makes it inappropriate.
 
 ---
 
@@ -304,7 +304,7 @@ To make accurate inference, the sample must be representative of the population.
 
 ---
 
-## Methods of random sampling (1/2)
+## Methods of random sampling (1 of 2)
 
 - **Simple random sample**: groups of the same size are randomly selected. Table of random numbers, calculator and softwares are often used to generate random numbers.
   ::: {.center}
@@ -313,12 +313,12 @@ To make accurate inference, the sample must be representative of the population.
 
 - **Stratified random sample**: The population is first split into groups. Then subjects from each group are selected randomly.
   ::: {.center}
-  ![Stratified Sample](Figures/Stratified-Random-Sample.png)]
+  ![Stratified Sample](Figures/Stratified-Random-Sample.png)
   :::
 
 ---
 
-## Methods of random sampling (2/2)
+## Methods of random sampling (2 of 2)
 
 - **Cluster sample**: The population is first split into groups. Then some groups are selected randomly.
   ::: {.center}
@@ -364,17 +364,12 @@ Determine the type of sampling method.
 
 Suppose that you want to estimate the proportion of students at your college that use the library.
 
-  Which sampling plan will produce the most reliable results?
+Which sampling plan will produce the most reliable results?
   
-  1. Select 100 students at random from students in the library.
-  
+  1. Select 100 students at random from students in the library. 
   2. Select 200 students at random from students who use the Tutoring Center.
-  
   3. Select 300 students who have checked out a book from the library.
-  
   4. Select 50 students at random from the college.
-
---
 
 **Answer:** The 4th sampling plan is the most reliable plan. The first three and undercover the college.
 
@@ -382,7 +377,7 @@ In general, the larger sample size, the more accurate of conclusion. However, we
 
 ---
 
-## Elements of experimental design (`1/2`)
+## Elements of experimental design (1 of 2)
 
 - **Control** reduces the effects of extraneous variables (i.e., variables other than the independent variable and the dependent variable). These extraneous variables are called lurking variables.
 
@@ -392,11 +387,11 @@ In general, the larger sample size, the more accurate of conclusion. However, we
 
   - A neutral treatment that has no "real" effect on the dependent variable is called a **placebo**, and a participant's positive response to a placebo is called the **placebo effect**.
 
-  - **Blinding** is the practice of not telling participants whether they are receiving a placebo. **Double-blinding** is the practice of not telling both  both the participants and the researchers which group receiving a treatment or a placebo.
+  - **Blinding** is the practice of not telling participants whether they are receiving a placebo. **Double-blinding** is the practice of not telling both the participants and the researchers which group receiving a treatment or a placebo.
 
 ---
 
-## Elements of experimental design (2/2)
+## Elements of experimental design (2 of 2)
 
 - **Randomization** ensures that this estimate is statistically valid.
 
@@ -436,6 +431,7 @@ Source: [Khan Academy](https://www.khanacademy.org/math/ap-statistics/gathering-
 :::
 
 ---
+
 <!--# class="middle center"-->
 
 ::: {.part}
@@ -444,7 +440,20 @@ Lab Instructions in Excel
 
 ---
 
-## Random numbers by Excel (`1/3`)
+## Introduction to Excel spreadsheets
+
+<iframe style="object-fit: fill; min-height: 60vh; allow" src="Lab-1.html"></iframe>
+
+::: {.footmark}
+
+<a target="_blank" href="Lab-1.html" >Click the link to open in a new window.
+</a>
+
+:::
+
+---
+
+## Random numbers by Excel (1 of 3)
 
 - **Example:** Randomly generate a number between 0 and 1.
 
@@ -460,7 +469,7 @@ Lab Instructions in Excel
 
 ---
 
-## Random numbers by Excel (`2/3`)
+## Random numbers by Excel (2 of 3)
 
 - **Example:** Generate 10 random integers of 2 digits.
 
@@ -474,7 +483,7 @@ Using `randbetween`, you will find that some numbers were repeated. If you are u
 
 ---
 
-## Random numbers by Excel (`3/3`)
+## Random numbers by Excel (3 of 3)
 
 - **Example:** Generate 10 random integers of 2 digits without repetition.
 

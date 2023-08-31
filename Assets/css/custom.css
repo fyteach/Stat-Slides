@@ -1,68 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital@0;1&family=Noto+Sans+Mono&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Source+Code+Pro&display=swap');
 
 body {
-  font-family: 'Roboto', 'Open Sans', sans-serif;
+  font-family: 'Noto Sans', 'Open Sans', sans-serif;
+  padding-left: 3vw;
+  padding-right: 3vw;
 }
 
 h1, h2, h3, .part {
-  font-family: 'Roboto', serif;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
+  color: #6296ff;
 }
 
 :root {
-  font-size: 18px;
+  font-size: 16px;
+  font-size: calc(8px + 1vmin);
 }
 
-/* .title-slide {
-  background-position: 95% 95%;
-  background-size: 25%;
-  background-color: #00306d;
-  text-shadow: none;
-} */
-
-h1 {
-  color: rgb(166, 204, 29);
+h1, h2, h2 {
+  margin-block-start: 0.6em;
+  margin-block-end: 0.6em;
 }
 
-h2 {
-  /* margin-top: max(1%, 6pt); */
-  margin-bottom: auto;
-  color: rgb(166, 204, 29);
+p, ul, ol, div {
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
 }
-
-.frontmatter h1 {
-  color: rgb(29, 58, 204);
-}
-.frontmatter h2 {
-  color: rgb(140, 176, 10);
-}
-.frontmatter h3 {
-  color: rgb(35, 44, 2);
-}
-
-p, ul {
-  margin-block-start: 0.3em;
-  margin-block-end: 0.3em;
-}
-
-/* .topic {
-  background-color: #00306d;
-}
-
-.topic h1{
-  color: white;
-} */
-
-/* .left-column{
-  height: 100%
-}
-
-.right-column{
-  padding-top: 0px
-} */
 
 code {
-  background: #e7e8e2; /* darker */
+  font-family: 'Noto Sans Mono', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
 }
 
 /* .MathJax { font-size: 0.9em !important; } */
@@ -119,10 +85,22 @@ iframe {
 }
 
 .footmark{
-  font-size: 1rem;
-  bottom: 1em;
+  font-size: 70%;
+  bottom: 0.8em;
   position: absolute;
-  color: #031964;
+  color: #6296ff;;
+  /* background-color: #ffeec4; */
+}
+
+.page-number {
+  font-size: 70%;
+}
+
+div.footmark p,
+div.footmark {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0;
 }
 
 table, table thead th {
@@ -160,12 +138,13 @@ border-collapse: collapse;
 }
 
 .part {
-  color: rgb(15, 11, 227); 
-  font-size: 175%;
+  /* color: rgb(15, 11, 227); */
+  font-size: 200%;
 }
 
 .remark::before {
   content: "Remark:";
-  color: #FBBC05;
+  color: #Feec01;
   font-weight: bold;
+  font-size: 120%;
 }

@@ -9,3 +9,5 @@ output:
 ## List of slides
 
 - [Topic 1: Statistical Studies](Topic-1-Statistical-Studies.html)
+
+- [Topic 2: Summarizing Quantitative Data Graphically](Topic-2-Graphical-Descriptions.html)
