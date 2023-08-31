@@ -252,7 +252,7 @@ Source: [Khan Academy](https://www.khanacademy.org/math/probability/study-design
 
 - To establish a cause-and-effect relationship, we want to get rid of confounding variable and make sure the explanatory variable is the only thing that impacts the response variable.
   
-  **Confounding variable:** An extra variable that may have impact on the response variable of interest.
+  **Confounding variable:** An extra variable that may have effect on the response variable of interest.
 
 ---
 
@@ -282,7 +282,7 @@ Determine whether the study supports the conclusion that taking aspirin lowers t
 
 ---
 
-## Practice: cause-and-effect
+## Practice: cause-and-effect or correlation
 
 Does higher education attainment lead to higher salary?
 
@@ -379,7 +379,7 @@ In general, the larger sample size, the more accurate of conclusion. However, we
 
 ## Elements of experimental design (1 of 2)
 
-- **Control** reduces the effects of extraneous variables (i.e., variables other than the independent variable and the dependent variable). These extraneous variables are called lurking variables.
+- **Control** reduces the effects of variables other than the explanatory variables and the response variables, known as extraneous variables.
 
 - Three control strategies are control groups, placebos, and blinding.
 
@@ -489,33 +489,33 @@ Using `randbetween`, you will find that some numbers were repeated. If you are u
 
   - In the cell with 10 empty cells below it, say `A1`, apply the Excel function `=randarray(rows,columns,min,max,integer)`. In this case, you should set rows=10, columns=1, min=10, max=99, and choose integer to be TRUE.
 
----
+<!-- --- -->
 
-## Table in Excel
+<!-- ## Table in Excel -->
 
-- **Insert a table**
+<!-- - **Insert a table** -->
 
-  - Step 1: In the menu bar, select Insert.
-  
-  - Step 2: Look for Table and click it.
-  
-  - Step 3: In the popup windows, you may enter the two diagonal cell locators. For that, press Shift and select the two diagonal cells of you table.
-  
-  - Step 4: Click OK. You will see the table.
+<!--   - Step 1: In the menu bar, select Insert. -->
 
-- **Remark:** Tables are normally used for more than one variables, that are characteristic or attributes being studied, such as attendance rate and grade. In table, a column is usually used to put entries of a data set for a certain variable. Rows are used as labels of individual entries.
+<!--   - Step 2: Look for Table and click it. -->
 
----
+<!--   - Step 3: In the popup windows, you may enter the two diagonal cell locators. For that, press Shift and select the two diagonal cells of you table. -->
 
-## Insert or delete cells
+<!--   - Step 4: Click OK. You will see the table. -->
 
-- **Insert or delete cells, rows or columns**
+<!-- - **Remark:** Tables are normally used for more than one variables, that are characteristic or attributes being studied, such as attendance rate and grade. In table, a column is usually used to put entries of a data set for a certain variable. Rows are used as labels of individual entries. -->
 
-  - Step 1: Highlight by left clicking the cell(s), row, or column that you want to insert or delete.
-  
-  - Step 2: Right-click the highlighted cell, row or column
-  
-  - Step 3: In the popup window, select insert or delete and follow the instruction.
+<!-- --- -->
+
+<!-- ## Insert or delete cells -->
+
+<!-- - **Insert or delete cells, rows or columns** -->
+
+<!--   - Step 1: Highlight by left clicking the cell(s), row, or column that you want to insert or delete. -->
+
+<!--   - Step 2: Right-click the highlighted cell, row or column -->
+
+<!--   - Step 3: In the popup window, select insert or delete and follow the instruction. -->
 
 ---
 
