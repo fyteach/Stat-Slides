@@ -4,6 +4,7 @@ author: "Fei Ye<br/>Department of Mathematics and Computer Science<br/>"
 date: '`r format(Sys.time(), "%B %Y")`'
 output:
   markdown::html_format:
+    keep_md: true
     meta:
       css: [default, slides, "Assets/css/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css"]
       js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js"]

@@ -1,7 +1,7 @@
 ---
 title: "Topic 1: Statistical Studies<br/><br/>"
 author: "Fei Ye<br/>Department of Mathematics and Computer Science<br/>"
-date: "`r format(Sys.time(), '%B %Y')`"
+date: "August 2023"
 output:
   markdown::html_format:
     keep_md: true
