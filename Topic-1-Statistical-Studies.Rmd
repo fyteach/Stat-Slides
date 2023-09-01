@@ -95,8 +95,6 @@ Image source: [Concepts in Statistics (lumen learning)](https://courses.lumenlea
 - **Parameter:** A number that is a property of the population.
 
 - **Statistic:** A number, such as a percentage, that represents a property of a sample.
-<!-- - **Descriptive statistics:** the branch of statistics that includes methods for organizing and summarizing data.
-- **Inferential statistics:** The branch of statistics that involves generalizing from a sample to the population from which the sample was selected and assessing the reliability of such generalizations. -->
 
 ---
 
@@ -142,6 +140,8 @@ Image source: [Concepts in Statistics (lumen learning)](https://courses.lumenlea
 - **Univariate data:** a collection of observations on a single variable.
 - **Bivariate data:** a collection of pairs of numbers.
 - **Multivariate data:** a collection of arrays of values of two or more variables.
+
+- A numerical variable is called a **discrete variable** if its values are countable. It is called a **continuous variable** if it can take values over intervals.
 
 ---
 
@@ -254,7 +254,7 @@ Source: [Khan Academy](https://www.khanacademy.org/math/probability/study-design
 
 - To establish a cause-and-effect relationship, we want to get rid of confounding variable and make sure the explanatory variable is the only thing that impacts the response variable.
   
-  **Confounding variable:** An extra variable that may have impact on the response variable of interest.
+  **Confounding variable:** An extra variable that may have effect on the response variable of interest.
 
 ---
 
@@ -284,7 +284,7 @@ Determine whether the study supports the conclusion that taking aspirin lowers t
 
 ---
 
-## Practice: Cause-and-Effect {.unnumbered}
+## Practice: Cause-and-Effect or Correlation {.unnumbered}
 
 Does higher education attainment lead to higher salary?
 
@@ -381,7 +381,7 @@ In general, the larger sample size, the more accurate of conclusion. However, we
 
 ## Elements of Experimental Design (1 of 2)
 
-- **Control** reduces the effects of extraneous variables (i.e., variables other than the independent variable and the dependent variable). These extraneous variables are called lurking variables.
+- **Control** reduces the effects of variables other than the explanatory variables and the response variables, known as extraneous variables.
 
 - Three control strategies are control groups, placebos, and blinding.
 
@@ -457,73 +457,74 @@ Lab Instructions in Excel
 
 ## Random Numbers by Excel (1 of 3)
 
-- **Example:** Randomly generate a number between 0 and 1.
+- `=RAND()` returns a random real number greater than or equal to 0 and less than 1.  To generate a random real number between $a$ and $b$, one can use `=RAND()*(b-a)+a`.
+- `=RANDBETWEEN(bottom, top)` returns an integer between `bottom` and `top`.
+- `=RANDARRAY([rows],[columns],[min],[max],[whole_number])` returns an array of random numbers. You can specify the number of rows and columns to fill, minimum and maximum values, and whether to return whole numbers or decimal values (TRUE for whole number and FALSE for decimal values).
 
-  - Step 1: Choose a cell, say `A1`
-  
-  - Step 2: click insert function button $f_x$.
-  
-  - Step 3: In the popup window, search "random" and select **RAND**.
-  
-  - Step 4: Click OK, you will get a randomly generated number.
+::: {.remark}
 
-  Alternatively, you may also manually enter the function: `=rand()` in the cell and hit enter.
+- All arguments of `RANDARRAY` are optional. `RANDARRAY()` is equivalent to `RAND()`.
+- To get an array of random values without duplication, one can use `=UNIQUE(RANDARRAY([rows],[columns],[min],[max],[whole_number]))`.
 
----
-
-## Random Numbers by Excel (2 of 3)
-
-- **Example:** Generate 10 random integers of 2 digits.
-
-  - Step 1: Generate a random integer, say in the cell `A1`, using the Excel function `randbetween(bottom,top)`.
-  
-  - Step 2: Move the mouse cursor to the lower right corner of the cell `A1`. A solid plus `+` will appear.
-  
-  - Step 3: Hold the left-click of the mouse and drag the cell to horizontally or vertically to get 10 numbers.
-
-Using `randbetween`, you will find that some numbers were repeated. If you are using the latest version of Excel, you may use `randarray` to generate numbers without repetition.
+:::
 
 ---
 
-## Random Numbers by Excel (3 of 3)
+## Example: Usage of `RAND()`
 
-- **Example:** Generate 10 random integers of 2 digits without repetition.
+Randomly generate a number between 0 and 1.
 
-  - In the cell with 10 empty cells below it, say `A1`, apply the Excel function `=randarray(rows,columns,min,max,integer)`. In this case, you should set rows=10, columns=1, min=10, max=99, and choose integer to be TRUE.
+**Howto:**
 
----
+- Step 1: Choose a cell, say `A1`
 
-## Table in Excel
+- Step 2: click insert function button $f_x$.
 
-- **Insert a table**
+- Step 3: In the popup window, search "random" and select **RAND**.
 
-  - Step 1: In the menu bar, select Insert.
-  
-  - Step 2: Look for Table and click it.
-  
-  - Step 3: In the popup windows, you may enter the two diagonal cell locators. For that, press Shift and select the two diagonal cells of you table.
-  
-  - Step 4: Click OK. You will see the table.
+- Step 4: Click OK, you will get a randomly generated number.
 
-- **Remark:** Tables are normally used for more than one variables, that are characteristic or attributes being studied, such as attendance rate and grade. In table, a column is usually used to put entries of a data set for a certain variable. Rows are used as labels of individual entries.
+Alternatively, you may also manually enter the function: `=rand()` in the cell and hit enter.
 
 ---
 
-## Insert or Delete Cells
+## Example: Usage of `RANDBETWEEN()`
 
-- **Insert or delete cells, rows or columns**
+Generate 10 random integers of 2 digits.
 
-  - Step 1: Highlight by left clicking the cell(s), row, or column that you want to insert or delete.
-  
-  - Step 2: Right-click the highlighted cell, row or column
-  
-  - Step 3: In the popup window, select insert or delete and follow the instruction.
+**Howto:**
+
+- Step 1: Generate a random integer, say in the cell `A1`, using the Excel function `=RANDBETWEEN(10,99)`.
+
+- Step 2: Move the mouse cursor to the lower right corner of the cell `A1`. A solid plus `+` will appear.
+
+- Step 3: Hold the left-click of the mouse and drag the cell to horizontally or vertically to autofill the selected array with 10 random numbers of 2 digits.
 
 ---
 
-## Install the Analysis ToolPak
+## Example: Usage of `RANDARRAY()`
 
-- We will use analysis toolpak frequently for analyzing data.
+Generate 10 random integers of 2 digits without repetition.
+
+**Howto:**
+
+In the cell with 9 empty cells below it, say `A1`, apply the Excel function `=UNIQUE(RANDARRAY(10, 1, 10, 99, TRUE))`. You will get a column array of 10 integers without duplication.
+
+---
+
+## Practice: Random Numbers {.unnumbered}
+
+1. Generate a real number between 1 and 2.
+
+2. Generate 10 integers of 2 digits that are less than 50.
+
+3. Generate 10 integers of 2 digits that are less than 50 and without duplication.
+
+---
+
+## Install the Analysis ToolPak (Optional)
+
+If you have a desktop version Excel, you may install the Excel add-in, Analysis Toolpak which is frequently used for analyzing data.
 
 - To install the add-in `The Analysis ToolPak`:
 

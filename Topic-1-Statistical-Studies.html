@@ -585,7 +585,7 @@ border-collapse: collapse;
 </li>
 <li>
 <p>To establish a cause-and-effect relationship, we want to get rid of confounding variable and make sure the explanatory variable is the only thing that impacts the response variable.</p>
-<p><strong>Confounding variable:</strong> An extra variable that may have impact on the response variable of interest.</p>
+<p><strong>Confounding variable:</strong> An extra variable that may have effect on the response variable of interest.</p>
 </li>
 </ul>
 <hr />
@@ -611,7 +611,11 @@ border-collapse: collapse;
 Determine whether the study supports the conclusion that taking aspirin lowers the risk of heart attacks.</p>
 <p><strong>Answer:</strong> The conclusion claims a cause-and-effect relationship. To answer the question, we need an experimental study. However, the study has no control on data which makes it inappropriate.</p>
 <hr />
+<<<<<<< HEAD
 <h2 id="practice-cause-and-effect" class="unnumbered">Practice: Cause-and-Effect</h2>
+=======
+<h2 id="practice-cause-and-effect-or-correlation">Practice: cause-and-effect or correlation</h2>
+>>>>>>> 3f8e44aac6dea2f3179bea787c13cabdc5620f6f
 <p>Does higher education attainment lead to higher salary?</p>
 <ol>
 <li>Determine if the question is a cause-and-effect question?</li>
@@ -714,7 +718,7 @@ Example: random survey math students to estimate the average GPA or a college.</
 <h2 id="elements-of-experimental-design-1-of-2"><span class="section-number">19.</span> Elements of Experimental Design (1 of 2)</h2>
 <ul>
 <li>
-<p><strong>Control</strong> reduces the effects of extraneous variables (i.e., variables other than the independent variable and the dependent variable). These extraneous variables are called lurking variables.</p>
+<p><strong>Control</strong> reduces the effects of variables other than the explanatory variables and the response variables, known as extraneous variables.</p>
 </li>
 <li>
 <p>Three control strategies are control groups, placebos, and blinding.</p>
@@ -786,10 +790,26 @@ Example: random survey math students to estimate the average GPA or a college.</
 </a></p>
 </div>
 <hr />
+<<<<<<< HEAD
 <h2 id="random-numbers-by-excel-1-of-3"><span class="section-number">23.</span> Random Numbers by Excel (1 of 3)</h2>
+=======
+<h2 id="generating-random-numbers-in-excel">Generating Random Numbers in Excel</h2>
+>>>>>>> 3f8e44aac6dea2f3179bea787c13cabdc5620f6f
 <ul>
-<li>
-<p><strong>Example:</strong> Randomly generate a number between 0 and 1.</p>
+<li><code>=RAND()</code> returns a random real number greater than or equal to 0 and less than 1.  To generate a random real number between \(a\) and \(b\), one can use <code>=RAND()*(b-a)+a</code>.</li>
+<li><code>=RANDBETWEEN(bottom, top)</code> returns an integer between <code>bottom</code> and <code>top</code>.</li>
+<li><code>=RANDARRAY([rows],[columns],[min],[max],[whole_number])</code> returns an array of random numbers. You can specify the number of rows and columns to fill, minimum and maximum values, and whether to return whole numbers or decimal values (TRUE for whole number and FALSE for decimal values).</li>
+</ul>
+<div class="remark">
+<ul>
+<li>All arguments of <code>RANDARRAY</code> are optional. <code>RANDARRAY()</code> is equivalent to <code>RAND()</code>.</li>
+<li>To get an array of random values without duplication, one can use <code>=UNIQUE(RANDARRAY([rows],[columns],[min],[max],[whole_number]))</code>.</li>
+</ul>
+</div>
+<hr />
+<h2 id="example-usage-of-rand">Example: Usage of <code>RAND()</code></h2>
+<p>Randomly generate a number between 0 and 1.</p>
+<p><strong>Howto:</strong></p>
 <ul>
 <li>
 <p>Step 1: Choose a cell, say <code>A1</code></p>
@@ -805,21 +825,23 @@ Example: random survey math students to estimate the average GPA or a college.</
 </li>
 </ul>
 <p>Alternatively, you may also manually enter the function: <code>=rand()</code> in the cell and hit enter.</p>
-</li>
-</ul>
 <hr />
+<<<<<<< HEAD
 <h2 id="random-numbers-by-excel-2-of-3"><span class="section-number">24.</span> Random Numbers by Excel (2 of 3)</h2>
+=======
+<h2 id="example-usage-of-randbetween">Example: Usage of <code>RANDBETWEEN()</code></h2>
+<p>Generate 10 random integers of 2 digits.</p>
+<p><strong>Howto:</strong></p>
+>>>>>>> 3f8e44aac6dea2f3179bea787c13cabdc5620f6f
 <ul>
 <li>
-<p><strong>Example:</strong> Generate 10 random integers of 2 digits.</p>
-<ul>
-<li>
-<p>Step 1: Generate a random integer, say in the cell <code>A1</code>, using the Excel function <code>randbetween(bottom,top)</code>.</p>
+<p>Step 1: Generate a random integer, say in the cell <code>A1</code>, using the Excel function <code>=RANDBETWEEN(10,99)</code>.</p>
 </li>
 <li>
 <p>Step 2: Move the mouse cursor to the lower right corner of the cell <code>A1</code>. A solid plus <code>+</code> will appear.</p>
 </li>
 <li>
+<<<<<<< HEAD
 <p>Step 3: Hold the left-click of the mouse and drag the cell to horizontally or vertically to get 10 numbers.</p>
 </li>
 </ul>
@@ -863,27 +885,37 @@ Example: random survey math students to estimate the average GPA or a college.</
 <hr />
 <h2 id="insert-or-delete-cells"><span class="section-number">27.</span> Insert or Delete Cells</h2>
 <ul>
-<li>
-<p><strong>Insert or delete cells, rows or columns</strong></p>
-<ul>
-<li>
-<p>Step 1: Highlight by left clicking the cell(s), row, or column that you want to insert or delete.</p>
-</li>
-<li>
-<p>Step 2: Right-click the highlighted cell, row or column</p>
-</li>
-<li>
-<p>Step 3: In the popup window, select insert or delete and follow the instruction.</p>
-</li>
-</ul>
+=======
+<p>Step 3: Hold the left-click of the mouse and drag the cell to horizontally or vertically to autofill the selected array with 10 random numbers of 2 digits.</p>
 </li>
 </ul>
 <hr />
-<h2 id="install-the-analysis-toolpak"><span class="section-number">28.</span> Install the Analysis ToolPak</h2>
-<ul>
+<h2 id="example-usage-of-randarray">Example: Usage of <code>RANDARRAY()</code></h2>
+<p>Generate 10 random integers of 2 digits without repetition.</p>
+<p><strong>Howto:</strong></p>
+<p>In the cell with 9 empty cells below it, say <code>A1</code>, apply the Excel function <code>=UNIQUE(RANDARRAY(10, 1, 10, 99, TRUE))</code>. You will get a column array of 10 integers without duplication.</p>
+<hr />
+<h2 id="practice-random-numbers" class="unnumbered">Practice: Random Numbers</h2>
+<ol>
+>>>>>>> 3f8e44aac6dea2f3179bea787c13cabdc5620f6f
 <li>
-<p>We will use analysis toolpak frequently for analyzing data.</p>
+<p>Generate a real number between 1 and 2.</p>
 </li>
+<li>
+<p>Generate 10 integers of 2 digits that are less than 50.</p>
+</li>
+<li>
+<p>Generate 10 integers of 2 digits that are less than 50 and without duplication.</p>
+</li>
+</ol>
+<hr />
+<<<<<<< HEAD
+<h2 id="install-the-analysis-toolpak"><span class="section-number">28.</span> Install the Analysis ToolPak</h2>
+=======
+<h2 id="install-the-analysis-toolpak-optional">Install the Analysis ToolPak (Optional)</h2>
+<p>If you have a desktop version Excel, you may install the Excel add-in, Analysis Toolpak which is frequently used for analyzing data.</p>
+>>>>>>> 3f8e44aac6dea2f3179bea787c13cabdc5620f6f
+<ul>
 <li>
 <p>To install the add-in <code>The Analysis ToolPak</code>:</p>
 <ul>
