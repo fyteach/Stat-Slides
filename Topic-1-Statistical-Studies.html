@@ -407,8 +407,6 @@ border-collapse: collapse;
 <p><strong>Statistic:</strong> A number, such as a percentage, that represents a property of a sample.</p>
 </li>
 </ul>
-<!-- - **Descriptive statistics:** the branch of statistics that includes methods for organizing and summarizing data.
-- **Inferential statistics:** The branch of statistics that involves generalizing from a sample to the population from which the sample was selected and assessing the reliability of such generalizations. -->
 <hr />
 <h2 id="example-identify-statistic-concepts"><span class="section-number">4.</span> Example: Identify Statistic Concepts</h2>
 <div class="row">
@@ -460,6 +458,9 @@ border-collapse: collapse;
 </li>
 <li>
 <p><strong>Multivariate data:</strong> a collection of arrays of values of two or more variables.</p>
+</li>
+<li>
+<p>A numerical variable is called a <strong>discrete variable</strong> if its values are countable. It is called a <strong>continuous variable</strong> if it can take values over intervals.</p>
 </li>
 </ul>
 <hr />
@@ -611,11 +612,7 @@ border-collapse: collapse;
 Determine whether the study supports the conclusion that taking aspirin lowers the risk of heart attacks.</p>
 <p><strong>Answer:</strong> The conclusion claims a cause-and-effect relationship. To answer the question, we need an experimental study. However, the study has no control on data which makes it inappropriate.</p>
 <hr />
-<<<<<<< HEAD
-<h2 id="practice-cause-and-effect" class="unnumbered">Practice: Cause-and-Effect</h2>
-=======
-<h2 id="practice-cause-and-effect-or-correlation">Practice: cause-and-effect or correlation</h2>
->>>>>>> 3f8e44aac6dea2f3179bea787c13cabdc5620f6f
+<h2 id="practice-cause-and-effect-or-correlation" class="unnumbered">Practice: Cause-and-Effect or Correlation</h2>
 <p>Does higher education attainment lead to higher salary?</p>
 <ol>
 <li>Determine if the question is a cause-and-effect question?</li>
@@ -790,11 +787,7 @@ Example: random survey math students to estimate the average GPA or a college.</
 </a></p>
 </div>
 <hr />
-<<<<<<< HEAD
 <h2 id="random-numbers-by-excel-1-of-3"><span class="section-number">23.</span> Random Numbers by Excel (1 of 3)</h2>
-=======
-<h2 id="generating-random-numbers-in-excel">Generating Random Numbers in Excel</h2>
->>>>>>> 3f8e44aac6dea2f3179bea787c13cabdc5620f6f
 <ul>
 <li><code>=RAND()</code> returns a random real number greater than or equal to 0 and less than 1.  To generate a random real number between \(a\) and \(b\), one can use <code>=RAND()*(b-a)+a</code>.</li>
 <li><code>=RANDBETWEEN(bottom, top)</code> returns an integer between <code>bottom</code> and <code>top</code>.</li>
@@ -807,7 +800,7 @@ Example: random survey math students to estimate the average GPA or a college.</
 </ul>
 </div>
 <hr />
-<h2 id="example-usage-of-rand">Example: Usage of <code>RAND()</code></h2>
+<h2 id="example-usage-of-rand"><span class="section-number">24.</span> Example: Usage of <code>RAND()</code></h2>
 <p>Randomly generate a number between 0 and 1.</p>
 <p><strong>Howto:</strong></p>
 <ul>
@@ -826,13 +819,9 @@ Example: random survey math students to estimate the average GPA or a college.</
 </ul>
 <p>Alternatively, you may also manually enter the function: <code>=rand()</code> in the cell and hit enter.</p>
 <hr />
-<<<<<<< HEAD
-<h2 id="random-numbers-by-excel-2-of-3"><span class="section-number">24.</span> Random Numbers by Excel (2 of 3)</h2>
-=======
-<h2 id="example-usage-of-randbetween">Example: Usage of <code>RANDBETWEEN()</code></h2>
+<h2 id="example-usage-of-randbetween"><span class="section-number">25.</span> Example: Usage of <code>RANDBETWEEN()</code></h2>
 <p>Generate 10 random integers of 2 digits.</p>
 <p><strong>Howto:</strong></p>
->>>>>>> 3f8e44aac6dea2f3179bea787c13cabdc5620f6f
 <ul>
 <li>
 <p>Step 1: Generate a random integer, say in the cell <code>A1</code>, using the Excel function <code>=RANDBETWEEN(10,99)</code>.</p>
@@ -841,63 +830,17 @@ Example: random survey math students to estimate the average GPA or a college.</
 <p>Step 2: Move the mouse cursor to the lower right corner of the cell <code>A1</code>. A solid plus <code>+</code> will appear.</p>
 </li>
 <li>
-<<<<<<< HEAD
-<p>Step 3: Hold the left-click of the mouse and drag the cell to horizontally or vertically to get 10 numbers.</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>Using <code>randbetween</code>, you will find that some numbers were repeated. If you are using the latest version of Excel, you may use <code>randarray</code> to generate numbers without repetition.</p>
-<hr />
-<h2 id="random-numbers-by-excel-3-of-3"><span class="section-number">25.</span> Random Numbers by Excel (3 of 3)</h2>
-<ul>
-<li>
-<p><strong>Example:</strong> Generate 10 random integers of 2 digits without repetition.</p>
-<ul>
-<li>In the cell with 10 empty cells below it, say <code>A1</code>, apply the Excel function <code>=randarray(rows,columns,min,max,integer)</code>. In this case, you should set rows=10, columns=1, min=10, max=99, and choose integer to be TRUE.</li>
-</ul>
-</li>
-</ul>
-<hr />
-<h2 id="table-in-excel"><span class="section-number">26.</span> Table in Excel</h2>
-<ul>
-<li>
-<p><strong>Insert a table</strong></p>
-<ul>
-<li>
-<p>Step 1: In the menu bar, select Insert.</p>
-</li>
-<li>
-<p>Step 2: Look for Table and click it.</p>
-</li>
-<li>
-<p>Step 3: In the popup windows, you may enter the two diagonal cell locators. For that, press Shift and select the two diagonal cells of you table.</p>
-</li>
-<li>
-<p>Step 4: Click OK. You will see the table.</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Remark:</strong> Tables are normally used for more than one variables, that are characteristic or attributes being studied, such as attendance rate and grade. In table, a column is usually used to put entries of a data set for a certain variable. Rows are used as labels of individual entries.</p>
-</li>
-</ul>
-<hr />
-<h2 id="insert-or-delete-cells"><span class="section-number">27.</span> Insert or Delete Cells</h2>
-<ul>
-=======
 <p>Step 3: Hold the left-click of the mouse and drag the cell to horizontally or vertically to autofill the selected array with 10 random numbers of 2 digits.</p>
 </li>
 </ul>
 <hr />
-<h2 id="example-usage-of-randarray">Example: Usage of <code>RANDARRAY()</code></h2>
+<h2 id="example-usage-of-randarray"><span class="section-number">26.</span> Example: Usage of <code>RANDARRAY()</code></h2>
 <p>Generate 10 random integers of 2 digits without repetition.</p>
 <p><strong>Howto:</strong></p>
 <p>In the cell with 9 empty cells below it, say <code>A1</code>, apply the Excel function <code>=UNIQUE(RANDARRAY(10, 1, 10, 99, TRUE))</code>. You will get a column array of 10 integers without duplication.</p>
 <hr />
 <h2 id="practice-random-numbers" class="unnumbered">Practice: Random Numbers</h2>
 <ol>
->>>>>>> 3f8e44aac6dea2f3179bea787c13cabdc5620f6f
 <li>
 <p>Generate a real number between 1 and 2.</p>
 </li>
@@ -909,12 +852,8 @@ Example: random survey math students to estimate the average GPA or a college.</
 </li>
 </ol>
 <hr />
-<<<<<<< HEAD
-<h2 id="install-the-analysis-toolpak"><span class="section-number">28.</span> Install the Analysis ToolPak</h2>
-=======
-<h2 id="install-the-analysis-toolpak-optional">Install the Analysis ToolPak (Optional)</h2>
+<h2 id="install-the-analysis-toolpak-optional"><span class="section-number">27.</span> Install the Analysis ToolPak (Optional)</h2>
 <p>If you have a desktop version Excel, you may install the Excel add-in, Analysis Toolpak which is frequently used for analyzing data.</p>
->>>>>>> 3f8e44aac6dea2f3179bea787c13cabdc5620f6f
 <ul>
 <li>
 <p>To install the add-in <code>The Analysis ToolPak</code>:</p>
