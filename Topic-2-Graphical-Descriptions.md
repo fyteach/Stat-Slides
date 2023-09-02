@@ -1,7 +1,7 @@
 ---
 title: "Topic 2: Describing Data Graphical"
 author: "Fei Ye"
-date: '`r format(Sys.time(), "%B %Y")`'
+date: 'September 2023'
 output:
   markdown::html_format:
     keep_md: true
@@ -18,20 +18,7 @@ output:
       # smart: false
 ---
 
-```{r, echo=FALSE, warning=FALSE}
-knitr::opts_chunk$set(comment="#", fig.retina=2)
-library(stats)
-library(kableExtra)
-library(knitr)
-library(formattable)
-library(ggplot2)
-library(ggthemes)
-library(ggExtra)
-library(data.table)
-library(dplyr, warn.conflicts = FALSE)
-set.seed(3)
-load("Data-Frames-SUNY-Concepts-in-Statistics/actor.RData")
-```
+
 
 ## Learning Goals {.unnumbered}
 
@@ -74,41 +61,13 @@ A **dot plot** includes all values from the data set, with one dot for each occu
 The data set contains 15 petal lengths of iris flower. Create a dot plot to describe the distribution of petal lengths.
 
 ::: {.center}
-```{r echo=FALSE, results = 'asis'} 
-cat(paste(head(iris$Petal.Length,15), collapse=", "))
-```
+1.4, 1.4, 1.3, 1.5, 1.4, 1.7, 1.4, 1.5, 1.4, 1.5, 1.5, 1.6, 1.4, 1.1, 1.2
 :::
 
 **Solution:** For each number in the data set, we draw a dot. We stack dots of the same value from bottom to up.
 
 ::: {.center}
-```{r echo=FALSE, results = 'asis', fig.width=6, fig.asp=0.5} 
-# use the preloaded iris package in R
-irisdot <- head(iris["Petal.Length"],15)
-# find the max frequency (used `plyr` package)
-yheightPL <- max(plyr::count(irisdot, vars = "Petal.Length"))
-# basic dotplot (binwidth = the accuracy of the data)
-dotchart = ggplot(irisdot, aes(x=Petal.Length), dpi = 600)
-dotchart = dotchart + geom_dotplot(binwidth=0.1, method="histodot", dotsize = 0.6, fill="blue")
-# dotchart = dotchart + stat_density(aes(y=0.1/7*..count..), geom="line", colour="red", linetype="dashed", size=1,adjust=1.2)
-# use coor_fixed(ration=binwidth*dotsize*max frequency) to setup the right y axis height.
-dotchart = dotchart + theme_bw() + coord_fixed(ratio=0.1*0.6*yheightPL)
-# tweak the theme a little bit
-dotchart = dotchart + theme(panel.background=element_blank(),
-                            panel.border = element_blank(),
-                            panel.grid.minor = element_blank(),
-                            # plot.margin=unit(c(-4,0,-4,0), "cm"),
-                            axis.line = element_line(colour = "black"),
-                            axis.line.y = element_blank(),
-)
-# add more tick mark on x axis
-dotchart = dotchart + scale_x_continuous(breaks = seq(1,1.8,0.1))
-# add tick mark on y axis to reflect frequencies. Note yheightPL is max frequency.
-dotchart = dotchart + scale_y_continuous(limits=c(0, 1), expand = c(0, 0), breaks = seq(0, 1,1/yheightPL), labels=seq(0,yheightPL))
-# remove x y lables and remove vertical grid lines
-dotchart = dotchart + labs(x=NULL, y=NULL) + removeGridX()
-dotchart
-```
+<img src="Topic-2-Graphical-Descriptions_files/figure-html/unnamed-chunk-3-1.png" width="432" />
 :::
 
 ---
@@ -118,9 +77,7 @@ dotchart
 The data set contains the heights of 20 Black Cherry Trees. Create a dot plot to describe the distribution of the heights.
 
 ::: {.center}
-```{r echo=FALSE, results = 'asis'} 
-cat(paste(sort(tail(trees$Height,20)), collapse=", "))
-```
+64, 69, 71, 72, 74, 74, 75, 76, 76, 77, 78, 80, 80, 80, 80, 81, 82, 85, 86, 87
 :::
 
 ---
@@ -177,20 +134,17 @@ cat(paste(sort(tail(trees$Height,20)), collapse=", "))
 
 ## Example: Histogram of mpg (1 of 2)
 
-The following data set show the mpg (mile per gallon) of $`r SampleSize<-30`30$ cars.  Construct a frequency table and frequency histogram for the data set using $`r Nbins<-ceiling(2*SampleSize^(1/3)); Nbins`$ bins.
+The following data set show the mpg (mile per gallon) of $30$ cars.  Construct a frequency table and frequency histogram for the data set using $7$ bins.
 
 ::: {.center}
-```{r echo=FALSE, results = 'asis'}
-cars <- head(mtcars$mpg,SampleSize)
-cat(paste(cars, collapse=", "))
-```
+21, 21, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5, 15.5, 15.2, 13.3, 19.2, 27.3, 26, 30.4, 15.8, 19.7
 :::
 
 **Solution:**
 
-- Find the range using $\text{Range}=\text{maximum}-\text{minimum}$. In this example, the minimum is $`r sm<-min(cars); sm`$, the maximum is $`r lg<-max(cars); lg`$, and the range is $`r lg`-`r sm`=`r rg<-lg-sm; rg`$.
-- The bin width can be taken between $\frac{\mathrm{range}}{k}$ and $\frac{\mathrm{range}}{k-1}$, where $k$ is the number of bins. In this example, we may take the bin width as $`r Bwidth<-ceiling(10*rg/Nbins)/10; Bwidth`$ which is between $\frac{`r rg`}{`r Nbins`}\approx `r round(rg/Nbins, 3)`$ and $\frac{`r rg`}{`r Nbins`-1}\approx `r round(rg/(Nbins-1), 3)`$.
-- Take the first lower bin limit as the minimum $`r sm`$. Add the bin width $`r Bwidth`$ recursively to get all lower bin limits: `r lowerbins<- sm+Bwidth*c(0:(Nbins-1)); lowerbins`. The upper limits can be taken as `r upperbins<-lowerbins+Bwidth; upperbins`.
+- Find the range using $\text{Range}=\text{maximum}-\text{minimum}$. In this example, the minimum is $10.4$, the maximum is $33.9$, and the range is $33.9-10.4=23.5$.
+- The bin width can be taken between $\frac{\mathrm{range}}{k}$ and $\frac{\mathrm{range}}{k-1}$, where $k$ is the number of bins. In this example, we may take the bin width as $3.4$ which is between $\frac{23.5}{7}\approx 3.357$ and $\frac{23.5}{7-1}\approx 3.917$.
+- Take the first lower bin limit as the minimum $10.4$. Add the bin width $3.4$ recursively to get all lower bin limits: 10.4, 13.8, 17.2, 20.6, 24, 27.4, 30.8. The upper limits can be taken as 13.8, 17.2, 20.6, 24, 27.4, 30.8, 34.2.
 
 ---
 
@@ -203,14 +157,44 @@ cat(paste(cars, collapse=", "))
 
 - Construct a frequency distribution table
 
-```{r echo=FALSE}
-br = seq(from=sm, to=sm+Nbins*Bwidth, by=Bwidth)
-bins = paste("[", head(br,-1), "," , br[-1], ")")
-freq   = hist(cars, breaks=br, right=FALSE, include.lowest=TRUE, plot=FALSE)
-freq.table <- data.frame(range = bins, frequency = freq$counts)
-names(freq.table) <-c("Bin","Frequency")
-kable(freq.table, align="cc")
-```
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:center;"> Bin </th>
+   <th style="text-align:center;"> Frequency </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;"> [ 10.4 , 13.8 ) </td>
+   <td style="text-align:center;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> [ 13.8 , 17.2 ) </td>
+   <td style="text-align:center;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> [ 17.2 , 20.6 ) </td>
+   <td style="text-align:center;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> [ 20.6 , 24 ) </td>
+   <td style="text-align:center;"> 6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> [ 24 , 27.4 ) </td>
+   <td style="text-align:center;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> [ 27.4 , 30.8 ) </td>
+   <td style="text-align:center;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> [ 30.8 , 34.2 ) </td>
+   <td style="text-align:center;"> 2 </td>
+  </tr>
+</tbody>
+</table>
 :::
 
 :::: {.pull-right}
@@ -218,29 +202,7 @@ kable(freq.table, align="cc")
 - Graph the histogram using the frequency distribution table.
 
 ::: {.center}
-```{r echo=FALSE, results = 'asis', fig.width=9, fig.asp=0.5} 
-carshist <- head(mtcars["mpg"],30)
-ggplot(carshist, aes(x=mpg), dpi=600) +
-  geom_histogram(binwidth=Bwidth,boundary=sm,
-                 fill="lightblue", col="white",size=1) +
-  stat_density(aes(y=4*..count..), geom="line",
-               colour="blue", linetype="dotdash", size=1, adjust=1.2) +
-  geom_vline(aes(xintercept=mean(mpg)),
-          color="brown", linetype="dashed", size=1) +
-  geom_vline(aes(xintercept=median(mpg)),
-          color="red", linetype="dotted", size=1) +
-  scale_x_continuous(breaks = (head(br,-1)+br[-1])/2, labels=bins) +
-  scale_y_continuous(breaks = seq(0, 9, 1)) +
-  ggtitle("Histogram of Mile Per Gallon of 30 Cars") +
-  xlab("Mile Per Gallon")+
-  ylab("Frequency") +
-  theme_bw(base_size = 16) +
-  theme(panel.grid.minor = element_blank(),
-    axis.text = element_text(face="bold", size=12),
-    plot.title = element_text(face="bold", size=18, hjust=0.5),
-    axis.title = element_text(face="bold", size=12)
-  )
-```
+<img src="Topic-2-Graphical-Descriptions_files/figure-html/unnamed-chunk-7-1.png" width="648" />
 :::
 
 ::: {style="margin-top: 1em; font-size: 75%;"}
@@ -270,13 +232,10 @@ The blue dot-dash curve is called the density curve, the brown dashed line is ov
 
 ## Practice: Petal Lengths of Irises {.unnumbered}
 
-The following data set show the petal length of 20 irises. Construct a frequency table and frequency histogram for the data set using `r ceiling(2*20^(1/3))` bins.
+The following data set show the petal length of 20 irises. Construct a frequency table and frequency histogram for the data set using 6 bins.
 
 ::: {.center}
-```{r echo=FALSE, results = 'asis'} 
-irispetal <- sample(iris$Petal.Length,20)
-cat(paste(irispetal, collapse=", "))
-```
+1.4, 5.4, 1.2, 4.5, 6.1, 1.5, 4.7, 1.4, 5.6, 5.2, 1.3, 6.3, 5.1, 5.6, 5, 6.7, 1.4, 1.6, 1.5, 1.5
 :::
 
 ---
@@ -299,19 +258,21 @@ A stem-and-leaf plot is a kind of histogram that lets you see all your data inst
 Consider the following data of heights of 10 cherry trees. Create a stem-and-leaf plot and describe the distribution.
 
 ::: {.center}
-```{r echo=FALSE, results = 'asis'} 
-cat(paste(irispetal, collapse=", "))
-```
+1.4, 5.4, 1.2, 4.5, 6.1, 1.5, 4.7, 1.4, 5.6, 5.2, 1.3, 6.3, 5.1, 5.6, 5, 6.7, 1.4, 1.6, 1.5, 1.5
 :::
 
 **Solution:**  
 ::: {style="width:45%; margin-top: -1em;"}
 
-```{r echo=FALSE, comment=NA}
-out <- capture.output(stem(irispetal, scale = 2))
-stemout <- paste(out[nzchar(out)], collapse="\n")
-cat(stemout, sep="\n")
 
+```
+  The decimal point is at the |
+  1 | 234445556
+  2 | 
+  3 | 
+  4 | 57
+  5 | 012466
+  6 | 137
 ```
 :::
 
@@ -370,7 +331,7 @@ the data when all the values are listed in order. The median divides the data in
 
 ## Mean and Median for Distributions in Different Shapes
 
-`r knitr::include_url("https://istats.shinyapps.io/MeanvsMedian/", height="550px")`
+<iframe src="https://istats.shinyapps.io/MeanvsMedian/" width="100%" height="550px" data-external="1"></iframe>
 
 ::: {.footmark}
 Source: https://istats.shinyapps.io/MeanvsMedian/
@@ -384,33 +345,7 @@ A student survey was conducted at a major university. The following histogram sh
 1. What is the typical number of drinks a student has during a week?
 2. Do the data suggest that drinking is a problem in this university?
 ::: {.center}
-```{r echo=FALSE, results = 'asis', fig.width=12, fig.asp=0.5} 
-load("Data-Frames-SUNY-Concepts-in-Statistics/drinking.rdata")
-drinking <- rename(data)
-drinkinghabit<- drinking$Alcohol[!is.na(drinking$Alcohol)]
-dfdrk <- data.frame(drinkinghabit)
-colnames(dfdrk) <- c("Alcohol")
-drhist <- ggplot(dfdrk, aes(x=Alcohol), dpi=600) +
-  geom_histogram(binwidth=4, boundary=0,fill="lightblue", col="white") + 
-  scale_x_continuous(breaks = seq(0, 36, 1)) + 
-  scale_y_continuous(breaks = seq(0, 140,5)) +
-  theme_bw(base_size = 16) +
-geom_vline(aes(xintercept=mean(Alcohol)),       color="blue", linetype="dashed", size=1) +
-geom_vline(aes(xintercept=median(Alcohol)), color="red", linetype="dashed", size=1) + 
-# geom_vline(aes(xintercept=quantile(Alcohol)[2]), color="black", linetype="dashed", size=1) + 
-#geom_vline(aes(xintercept=quantile(Alcohol)[4]), color="yellow", linetype="dashed", size=1) + 
-ylab("Frequency")
-#ggplot(dfdrk, aes(x="", y=Alcohol), dpi=600)+
-#geom_boxplot(fill = "green")
-drhist + 
-  ggtitle("Histogram of alcoholic beverages consumed per week") +
-  theme_bw(base_size = 16) +
-  theme(panel.grid.minor = element_blank(),
-    axis.text = element_text(face="bold"),
-    plot.title = element_text(face="bold", size=18, hjust=0.5),
-    axis.title = element_text(face="bold")
-  )
-```
+<img src="Topic-2-Graphical-Descriptions_files/figure-html/unnamed-chunk-11-2.png" width="864" />
 :::
 
 ::: {.footmark}
@@ -494,13 +429,13 @@ Stacked bar chart
 
 The following data table summarize passengers on Titanic. Using a chart to describe the data table.
 
-```{r echo=FALSE}
-titanic <- data.frame(
-  Class = c("1st", "2nd", "3rd", "Crew"),
-  Passengers = c(325, 285, 706, 885)
-)
-knitr::kable(titanic, 'pipe', align = "cc")
-```
+
+| Class | Passengers |
+|:-----:|:----------:|
+|  1st  |    325     |
+|  2nd  |    285     |
+|  3rd  |    706     |
+| Crew  |    885     |
 
 ---
 

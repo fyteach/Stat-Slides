@@ -10,4 +10,6 @@ output:
 
 - [Topic 1: Statistical Studies](Topic-1-Statistical-Studies.html)
 
-- [Topic 2: Summarizing Quantitative Data Graphically](Topic-2-Graphical-Descriptions.html)
+- [Topic 2: Summarizing Data Graphically](Topic-2-Graphical-Descriptions.html)
+
+- [Topic 3: Summarizing Data Numerically](Topic-3-Numercial-Descriptions.html)

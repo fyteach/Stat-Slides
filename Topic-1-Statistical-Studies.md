@@ -141,7 +141,7 @@ Image source: [Concepts in Statistics (lumen learning)](https://courses.lumenlea
 - **Bivariate data:** a collection of pairs of numbers.
 - **Multivariate data:** a collection of arrays of values of two or more variables.
 
-- A numerical variable is called a **discrete variable** if its values are countable. It is called a **continuous variable** if it can take values over intervals.
+- A numerical variable is called a **discrete variable** if its values are countable. It is called a **continuous variable** if it can take all values in certain intervals.
 
 ---
 
