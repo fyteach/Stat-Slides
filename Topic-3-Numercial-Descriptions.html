@@ -323,16 +323,26 @@ border-collapse: collapse;
   background-attachment: local;
 }
 
-.slide iframe[src^="https://www.myopenmath.com"] {
+
+.iframecontainer {
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+}
+
+iframe {
   border: none;
-  max-width: 75vw;
-  min-height: 60vh;
-  max-height: 75vh;
-  -webkit-transform: scale(1.2);  /* Saf3.1+, Chrome */
-     -moz-transform: scale(1.2);  /* FF3.5+ */
-      -ms-transform: scale(1.2);  /* IE9 */
-       -o-transform: scale(1.2);  /* Opera 10.5+ */
-          transform: scale(1.2);   /* IE8+ - must be on one line, unfortunately */
+  flex: 1;
+}
+
+iframe[src^="https://www.myopenmath.com"] {
+  flex: 0.8;
+  max-width: 72vw;
+  -webkit-transform: scale(1.25);  /* Saf3.1+, Chrome */
+     -moz-transform: scale(1.25);  /* FF3.5+ */
+      -ms-transform: scale(1.25);  /* IE9 */
+       -o-transform: scale(1.25);  /* Opera 10.5+ */
+          transform: scale(1.25);   /* IE8+ - must be on one line, unfortunately */
   -moz-transform-origin: 0 0;
   -webkit-transform-origin: 0 0;
   -o-transform-origin: 0 0;
@@ -434,7 +444,9 @@ border-collapse: collapse;
 </ul>
 <hr />
 <h2 id="practice-five-number-summary-range-and-iqr" class="unnumbered">Practice: Five-number Summary, Range and IQR</h2>
+<div class="iframecontainer">
 <iframe src="https://www.myopenmath.com/embedq2.php?id=899254&amp;seed=2020&amp;showansafter" width="100%" height="550px" data-external="1"></iframe>
+</div>
 <hr />
 <h2 id="box-plot"><span class="section-number">4.</span> Box Plot</h2>
 <ul>
@@ -477,13 +489,17 @@ border-collapse: collapse;
 <ul>
 <li>Based on the five-number summary, the boxplot is shown below.</li>
 </ul>
-<div class="center">
-<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-baa65e3d4114232e72db" style="width:864px;height:345.6px;"></div>
-<script type="application/json" data-for="htmlwidget-baa65e3d4114232e72db">{"x":{"data":[{"x":[43,40,48,48,56,38,60,32,40,42,37,76,39,55,45,35,61,33,51,32,43,55,42,37,38,31,45,60,46,40,36,47],"y":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"hoverinfo":"x","type":"box","fillcolor":"rgba(255,255,255,1)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"},"size":5.6692913385826778},"line":{"color":"rgba(51,51,51,1)","width":1.8897637795275593},"showlegend":false,"xaxis":"x","yaxis":"y","orientation":"h","frame":null}],"layout":{"margin":{"t":42.574729712925304,"r":10.62681610626816,"b":70.144675748624763,"l":15.940224159402241},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[28.75,78.25],"tickmode":"array","ticktext":["31.0","37.5","42.5","49.5","61.0","76.0"],"tickvals":[31,37.5,42.5,49.5,61,76],"categoryorder":"array","categoryarray":["31.0","37.5","42.5","49.5","61.0","76.0"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":5.3134080531340802,"tickwidth":0.96607419147892382,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":17.002905770029063},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":1.594022415940225,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Age","font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,1.6000000000000001],"tickmode":"array","ticktext":[""],"tickvals":[1],"categoryorder":"array","categoryarray":[""],"nticks":null,"ticks":"","tickcolor":null,"ticklen":5.3134080531340802,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":2.7487473156764488,"font":{"color":"rgba(0,0,0,1)","family":"","size":17.002905770029063}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"d204bdc59c7":{"x":{},"y":{},"type":"box"}},"cur_data":"d204bdc59c7","visdat":{"d204bdc59c7":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="iframecontainer" style="height: 60vh;">
+<iframe src="boxplot1.html" width="100%" height="400px" data-external="1"></iframe>
 </div>
+<!-- 
+
+-->
 <hr />
 <h2 id="practice-five-number-summary-from-the-boxplot" class="unnumbered">Practice: Five-Number Summary from the Boxplot</h2>
-<iframe src="https://www.myopenmath.com/embedq2.php?id=899261&amp;seed=5824&amp;showansafter&amp;height=550px&amp;frame_id=boxplot" width="100%" height="550px" data-external="1"></iframe>
+<div class="iframecontainer">
+<iframe src="https://www.myopenmath.com/embedq2.php?id=899261&amp;seed=5824&amp;showansafter&amp;height=550px&amp;frame_id=boxplot" width="100%" height="400px" data-external="1"></iframe>
+</div>
 <hr />
 <h2 id="notations-and-calculations-about-mean"><span class="section-number">7.</span> Notations and Calculations about Mean</h2>
 <ul>
@@ -537,7 +553,9 @@ border-collapse: collapse;
 </div>
 <hr />
 <h2 id="practice-course-overall-grade" class="unnumbered">Practice: Course Overall Grade</h2>
+<div class="iframecontainer">
 <iframe src="https://www.myopenmath.com/embedq2.php?id=279978&amp;seed=2020&amp;showansafter" width="100%" height="550px" data-external="1"></iframe>
+</div>
 <hr />
 <h2 id="population-standard-deviation"><span class="section-number">11.</span> Population Standard Deviation</h2>
 <ul>
@@ -572,7 +590,9 @@ where \(n\) is the sample size.</li>
 The mean is 44.7. The sample standard deviation is 10.3.</p>
 <hr />
 <h2 id="example-mean-and-sd-best-oscar-winners-2-of-2"><span class="section-number">14.</span> Example: Mean and SD - Best Oscar Winners (2 of 2)</h2>
+<div class="iframecontainer">
 <iframe src="https://www.geogebra.org/material/iframe/id/DS6PUaXy/width/1300/height/800/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="100%" height="600px" data-external="1"></iframe>
+</div>
 <div class="footmark">
 <p>Source: <a href="https://www.geogebra.org/m/DS6PUaXy">https://www.geogebra.org/m/DS6PUaXy</a></p>
 </div>
@@ -586,16 +606,27 @@ The mean is 44.7. The sample standard deviation is 10.3.</p>
 <hr />
 <h2 id="mean-and-sd-under-linear-transformation"><span class="section-number">15.</span> Mean and SD under Linear Transformation</h2>
 <ul>
-<li>When we increase values in a data set by a fixed number \(c\), the standard deviation of a data set won’t change. However, the mean increases by \(c\) too.</li>
-<li>When we multiply values in a data set by a factor \(k\), the mean and the standard deviation both scale by the factor \(k\).</li>
+<li>
+<p>When we increase values in a data set by a fixed number \(c\), the standard deviation of a data set won’t change. However, the mean increases by \(c\) too.</p>
+</li>
+<li>
+<p>When we multiply values in a data set by a factor \(k\), the mean and the standard deviation both scale by the factor \(k\).</p>
+</li>
 </ul>
-<iframe src="https://www.geogebra.org/material/iframe/id/r25rDxYZ/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="100%" height="350px" data-external="1"></iframe>
+<!-- ---
+
+## Mean and SD under Linear Transformation (2 of 2) -->
+<div class="iframecontainer" style="height: 40vh;">
+<iframe src="https://www.geogebra.org/material/iframe/id/r25rDxYZ/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="100%" height="80%" data-external="1"></iframe>
+</div>
 <div class="footmark">
 <p>Source: <a href="https://www.geogebra.org/m/r25rDxYZ">https://www.geogebra.org/m/r25rDxYZ</a></p>
 </div>
 <hr />
 <h2 id="effect-of-changes-of-data"><span class="section-number">16.</span> Effect of Changes of Data</h2>
+<div class="iframecontainer">
 <iframe src="https://www.geogebra.org/material/iframe/id/fenbj3qZ/width/910/height/628/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="100%" height="600px" data-external="1"></iframe>
+</div>
 <div class="footmark">
 <p>Source: <a href="https://www.geogebra.org/m/fenbj3qZ">https://www.geogebra.org/m/fenbj3qZ</a></p>
 </div>
@@ -652,7 +683,9 @@ between 2 and 10.</p>
 <p>Apply Chebyshev’s theorem, there are 75% of data are between \(\bar{x}-2s=2\) amd \(\bar{x}+2s=10\).</p>
 <hr />
 <h2 id="practice-the-empirical-rule" class="unnumbered">Practice: The Empirical Rule</h2>
-<iframe src="https://www.myopenmath.com/embedq2.php?id=25941&amp;frame_id=303&amp;resizer=true&amp;seed=2020" width="100%" height="75vh" data-external="1"></iframe>
+<div class="iframecontainer">
+<iframe src="https://www.myopenmath.com/embedq2.php?id=25941&amp;frame_id=303&amp;resizer=true&amp;seed=2020" width="100%" height="400px" data-external="1"></iframe>
+</div>
 <hr />
 <h2 id="practice-chebyshev-s-theorem" class="unnumbered">Practice: Chebyshev’s Theorem</h2>
 <p>A sample data set has mean \(\bar{x}=10\) and standard deviation \(s = 3\). Find the minimum proportion of observations in the data set that must lie between 1 and 19.</p>

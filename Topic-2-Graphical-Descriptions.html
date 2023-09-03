@@ -208,6 +208,12 @@ code {
   font-family: 'Noto Sans Mono', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
 }
 
+.part {
+  /* color: rgb(15, 11, 227); */
+  font-size: 200%;
+  /* align-self: center; */
+}
+
 /* .MathJax { font-size: 0.9em !important; } */
 
 .red { color: rgb(223, 20, 20); }
@@ -247,36 +253,6 @@ code {
   width: 75%;
   padding-top: 0em;
   padding-right:1em;
-}
-
-iframe {
-  border: none;
-  min-height: 30vmin;
-  left: 0;
-  top: 0;
-  width: 75vw;
-  -webkit-transform: scale(1.2);  /* Saf3.1+, Chrome */
-     -moz-transform: scale(1.2);  /* FF3.5+ */
-      -ms-transform: scale(1.2);  /* IE9 */
-       -o-transform: scale(1.2);  /* Opera 10.5+ */
-          transform: scale(1.2);   /* IE8+ - must be on one line, unfortunately */
-  -moz-transform-origin: 0 0;
-  -webkit-transform-origin: 0 0;
-  -o-transform-origin: 0 0;
-  -ms-transform-origin: 0 0;
-  transform-origin: 0 0;
-}
-
-.small{
-  font-size: 60%;
-}
-
-.footmark{
-  font-size: 70%;
-  bottom: 0.8em;
-  position: absolute;
-  color: #6296ff;;
-  /* background-color: #ffeec4; */
 }
 
 .page-number {
@@ -324,11 +300,6 @@ table{
 border-collapse: collapse;
 }
 
-.part {
-  /* color: rgb(15, 11, 227); */
-  font-size: 200%;
-}
-
 .remark::before {
   content: "Remark:";
   color: #Feec01;
@@ -346,11 +317,62 @@ border-collapse: collapse;
 
 .slide-container .slide {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAABGdBTUEAANbY1E9YMgAAAJZQTFRF////7u7u3d3dys7KzMzMyMzIxsrGxcbFur+6u7u7s7iyq7GqqqqqmZmZlJmTj5CPiIiIh4eHhoaGgICAfYJ9d3d3cnZxZ2tnZmZmW15bVVVVS0xLREREQ0NDQkJCQUJBOz07OTs5MzMzMTMxLjAuJygnJCUjIiIiISEhICAgGRkZERERDxAPDg4ODQ4NDQ0NDQ0MAAAADbeuvgAAAOhJREFUeNqtk+tyAiEMhQ+6XtroutZiveBdu+p2tXn/l3OQy8roL5fMMENC+HIIAI5sYEQ1DSRtP5zZkCpToubf2/oMMC0zX0QdiLqjmsD1sVKd8JSoNa8HvGRIclZCcZ5A7Yiag/s6oJPMYD8FKgIC3wG/+QP5DFIWot+DvBB1OxYAk+W2W88HqqwAOOZE6FuZbfWZZUn02fb1rTAHc3izZgQCrxWqSSFkH/IaKuSHEzEChfyk2PbwmqFX8EQo3jaw2Ac9DIFhD12Tn4CbU+RbTv+HHrj8jfAOacxflrc61/0psf9yZLsBr5WUrhUa3hEAAAAASUVORK5CYII=);
-  background-size: 6%;
+  background-size: 7.5%;
   background-repeat: no-repeat;
   background-position: 5% 100%;
   background-attachment: local;
 }
+
+
+.iframecontainer {
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+}
+
+iframe {
+  border: none;
+  flex: 1;
+}
+
+iframe[src^="https://www.myopenmath.com"] {
+  flex: 0.8;
+  max-width: 72vw;
+  -webkit-transform: scale(1.25);  /* Saf3.1+, Chrome */
+     -moz-transform: scale(1.25);  /* FF3.5+ */
+      -ms-transform: scale(1.25);  /* IE9 */
+       -o-transform: scale(1.25);  /* Opera 10.5+ */
+          transform: scale(1.25);   /* IE8+ - must be on one line, unfortunately */
+  -moz-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+/* .slide:has(iframe[src^="https://www.myopenmath.com"]) {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.slide iframe[src^="https://www.myopenmath.com"] {
+  flex: 1;
+} */
+
+.small{
+  font-size: 60%;
+}
+
+.footmark{
+  font-size: 70%;
+  bottom: 0.8em;
+  position: absolute;
+  color: #6296ff;;
+  /* background-color: #ffeec4; */
+}
+
+
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils/css/key-buttons.min.css">
 </head>
@@ -445,7 +467,7 @@ $$</p>
 <p>The difference between the maximum and the minimum data entries is called the <strong>range</strong>.</p>
 </li>
 <li>
-<p>The relation between number of bins, bin width, and the range is roughly \(\text{number of bins}\times \text{bin width} \approx \text{range}\).</p>
+<p>The relation between number of bins, bin width, and the range is roughly \(\text{number of bins}\times \text{bin width}\).</p>
 </li>
 <li>
 <p>The <strong>midpoint</strong> of a bin is the half of the sum of the lower and upper limits of the bin.</p>
@@ -476,8 +498,8 @@ $$</p>
 </ol>
 </div>
 <hr />
-<h2 id="example-histogram-of-mpg-1-of-2"><span class="section-number">7.</span> Example: Histogram of mpg (1 of 2)</h2>
-<p>The following data set show the mpg (mile per gallon) of \(30\) cars.  Construct a frequency table and frequency histogram for the data set using \(7\) bins.</p>
+<h2 id="example-histogram-of-mpg-1-of-3"><span class="section-number">7.</span> Example: Histogram of mpg (1 of 3)</h2>
+<p>The following data set show the mpg (mile per gallon) of \(30\) cars.  Construct a frequency table and frequency histogram for the data set using \(7\) bins. What can be concluded from the histogram?</p>
 <div class="center">
 <p>21, 21, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5, 15.5, 15.2, 13.3, 19.2, 27.3, 26, 30.4, 15.8, 19.7</p>
 </div>
@@ -488,7 +510,7 @@ $$</p>
 <li>Take the first lower bin limit as the minimum \(10.4\). Add the bin width \(3.4\) recursively to get all lower bin limits: 10.4, 13.8, 17.2, 20.6, 24, 27.4, 30.8. The upper limits can be taken as 13.8, 17.2, 20.6, 24, 27.4, 30.8, 34.2.</li>
 </ul>
 <hr />
-<h2 id="example-histogram-of-mpg-2-of-2"><span class="section-number">8.</span> Example: Histogram of mpg (2 of 2)</h2>
+<h2 id="example-histogram-of-mpg-2-of-3"><span class="section-number">8.</span> Example: Histogram of mpg (2 of 3)</h2>
 <!-- 
 **Solution:**(continued) -->
 <div class="row">
@@ -548,49 +570,55 @@ $$</p>
 </div>
 </div>
 <hr />
-<h2 id="some-remarks-on-histogram"><span class="section-number">9.</span> Some Remarks on Histogram</h2>
+<h2 id="example-histogram-of-mpg-3-of-3"><span class="section-number">9.</span> Example: Histogram of mpg (3 of 3)</h2>
+<p>The following information can be obtained from the histogram.</p>
 <ul>
-<li>
-<p>Avoid histograms with large bin widths and small bin widths. <a href="https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/histograms-2-of-4/">See Histogram 2 of 4 in Concepts in Statistics for an interactive demonstration</a></p>
-</li>
-<li>
-<p>Tet the bin width for \(k\) bins, one convention is to choose a number with the same or one more decimal place that is greater than \(\frac{\text{range}}{k}\), but no more than \(\frac{\text{range}}{k-1}\) as the bin width.</p>
-</li>
-<li>
-<p>To determine the number of bins, there are practical rules. For example, the Rice rule takes the bin number \(k\) as the <strong>round up of \(n^{1 / 3}\)</strong>.</p>
-<p>See the <a href="https://www.statisticshowto.datasciencecentral.com/choose-bin-sizes-statistics/">Statistic How To</a> page for rules on choosing bin width.</p>
-</li>
-<li>
-<p>The convenient starting point should not be too much smaller than the minimum. The choice of a starting point together with a bin width affects the shape of the histogram. It is better to experiment with different choices.</p>
-</li>
-<li>
-<p>The area of a bar represents the relative frequency for the bin. There should be <em>no space</em> between any two bars.</p>
-</li>
+<li>The histogram has a single peak within the interval 13.8 and 20.6.</li>
+<li>Marjority of cars in the sample has mpg lower than 20.6.</li>
+<li>The mean mpg is around 20.6.</li>
+<li>The range of the mpg is between 13.8 and 34.2.</li>
+<li>The right tail is longer.</li>
+</ul>
+<hr />
+<h2 id="some-remarks-on-histogram"><span class="section-number">10.</span> Some Remarks on Histogram</h2>
+<ul>
+<li>There should be <em>no space</em> between any two bars.</li>
+<li>The area of a bar represents the relative frequency for the bin. Equivalently,
+$$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)}\times \text{bar width}.$$</li>
+<li>The vertical axis is called the density scale.</li>
+<li>For continuous variables, unequal bin width may also be used.</li>
+</ul>
+<!-- - Avoid histograms with large bin widths and small bin widths. [See Histogram 2 of 4 in Concepts in Statistics for an interactive demonstration](https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/histograms-2-of-4/) -->
+<!-- - The the bin width for $k$ bins, one convention is to choose a number with the same or one more decimal place that is greater than $\frac{\text{range}}{k}$, but no more than $\frac{\text{range}}{k-1}$ as the bin width. -->
+<ul>
+<li>To determine the number of bins, there are practical rules. For example, the Rice rule takes the bin number \(k\) as the <strong>round up of \(n^{1 / 3}\)</strong>. The webpage <a href="https://www.statisticshowto.datasciencecentral.com/choose-bin-sizes-statistics/">Statistic How To</a> has more information.</li>
+<li>The convenient starting point can be a value smaller but not too much smaller than the minimum.</li>
+<li>The bin width can significantly affect the shape of the histogram. It is better to experiment with different choices.</li>
 </ul>
 <hr />
 <h2 id="practice-petal-lengths-of-irises" class="unnumbered">Practice: Petal Lengths of Irises</h2>
-<p>The following data set show the petal length of 20 irises. Construct a frequency table and frequency histogram for the data set using 6 bins.</p>
+<p>The following data set show the petal length of 20 irises. Construct a frequency table and frequency histogram for the data set using 6 bins. What can you conclude from the histogram?</p>
 <div class="center">
 <p>1.4, 5.4, 1.2, 4.5, 6.1, 1.5, 4.7, 1.4, 5.6, 5.2, 1.3, 6.3, 5.1, 5.6, 5, 6.7, 1.4, 1.6, 1.5, 1.5</p>
 </div>
 <hr />
-<h2 id="stem-and-leaf-plots"><span class="section-number">10.</span> Stem-and-Leaf Plots</h2>
+<h2 id="stem-and-leaf-plots"><span class="section-number">11.</span> Stem-and-Leaf Plots</h2>
 <p>A stem-and-leaf plot is a kind of histogram that lets you see all your data instead of just class frequency information. The leading digit(s) form stems and the “tailing digits” form leaves.</p>
 <p><strong>How to Construct</strong></p>
 <ul>
-<li>Select one or more leading digits for the stem values. The trailing digits become the leaves. Trailing digits for the same stem may further break into two leaves.</li>
+<li>Select one or more leading digits for the stem values. The trailing digits become the leaves. Trailing digits for the same stem may further break into two leaves, L or H.</li>
 <li>List possible stem values in a vertical column.</li>
 <li>Record the leaf for every observation beside the corresponding stem value.</li>
 <li>Indicate the units for stems and leaves someplace in the display.</li>
 </ul>
 <hr />
-<h2 id="example-heights-of-cherry-trees"><span class="section-number">11.</span> Example: Heights of Cherry Trees</h2>
+<h2 id="example-heights-of-cherry-trees"><span class="section-number">12.</span> Example: Heights of Cherry Trees</h2>
 <p>Consider the following data of heights of 10 cherry trees. Create a stem-and-leaf plot and describe the distribution.</p>
 <div class="center">
 <p>1.4, 5.4, 1.2, 4.5, 6.1, 1.5, 4.7, 1.4, 5.6, 5.2, 1.3, 6.3, 5.1, 5.6, 5, 6.7, 1.4, 1.6, 1.5, 1.5</p>
 </div>
 <p><strong>Solution:</strong></p>
-<div style="width:45%; margin-top: -1em;">
+<div style="width:45%; padding: 0 auto; margin-top: -1em;">
 <pre><code>  The decimal point is at the |
   1 | 234445556
   2 | 
@@ -601,7 +629,7 @@ $$</p>
 </code></pre>
 </div>
 <hr />
-<h2 id="common-descriptions-of-shape-distribution"><span class="section-number">12.</span> Common Descriptions of Shape Distribution</h2>
+<h2 id="common-descriptions-of-shape-distribution"><span class="section-number">13.</span> Common Descriptions of Shape Distribution</h2>
 <ul>
 <li>
 <p><strong>Right skewed</strong> (or reverse \(J\)-shaped): A right-skewed distribution has a lot of data at lower variable values. (Example: the histogram example.)</p>
@@ -632,7 +660,7 @@ data for each variable value.</p>
 <p>Source: <a href="https://stats.libretexts.org/Bookshelves/Introductory_Statistics">Example 2.7.1, OpenStax Introductory Statistics</a></p>
 </div>
 <hr />
-<h2 id="measure-of-centers"><span class="section-number">13.</span> Measure of Centers</h2>
+<h2 id="measure-of-centers"><span class="section-number">14.</span> Measure of Centers</h2>
 <ul>
 <li>
 <p><strong>Mean</strong>: The mean is the average, this is the quotient of the total sum by the total number.</p>
@@ -655,7 +683,7 @@ the data when all the values are listed in order. The median divides the data in
 </li>
 </ul>
 <hr />
-<h2 id="mean-and-median-for-distributions-in-different-shapes"><span class="section-number">14.</span> Mean and Median for Distributions in Different Shapes</h2>
+<h2 id="mean-and-median-for-distributions-in-different-shapes"><span class="section-number">15.</span> Mean and Median for Distributions in Different Shapes</h2>
 <iframe src="https://istats.shinyapps.io/MeanvsMedian/" width="100%" height="550px" data-external="1"></iframe>
 <div class="footmark">
 <p>Source: <a href="https://istats.shinyapps.io/MeanvsMedian/">https://istats.shinyapps.io/MeanvsMedian/</a></p>
@@ -674,7 +702,7 @@ the data when all the values are listed in order. The median divides the data in
 <p><em>The red line is over the median and the blue line is over the mean.</em></p>
 </div>
 <hr />
-<h2 id="frequency-distribution-for-categorical-data"><span class="section-number">15.</span> Frequency Distribution for Categorical Data</h2>
+<h2 id="frequency-distribution-for-categorical-data"><span class="section-number">16.</span> Frequency Distribution for Categorical Data</h2>
 <ul>
 <li>
 <p>A <strong>frequency distribution for categorical data</strong> is a table that displays the possible categories along with the associated frequencies and/or relative frequencies.</p>
@@ -690,7 +718,7 @@ the data when all the values are listed in order. The median divides the data in
 </li>
 </ul>
 <hr />
-<h2 id="visualization-of-categorical-data"><span class="section-number">16.</span> Visualization of Categorical Data</h2>
+<h2 id="visualization-of-categorical-data"><span class="section-number">17.</span> Visualization of Categorical Data</h2>
 <ul>
 <li>
 <p>A <strong>bar chart</strong> consists of bars (rectangles), each represent a category and the area of each bar is constantly proportional to the relative frequency of that category.</p>
@@ -703,60 +731,66 @@ the data when all the values are listed in order. The median divides the data in
 </li>
 </ul>
 <hr />
-<h2 id="example-distribution-of-majors-1-of-2"><span class="section-number">17.</span> Example: Distribution of Majors (1 of 2)</h2>
-<p><strong>Example:</strong> The counts of majors of 100 students in a sample are shown in the table. Visualize the data using a bar, pie and stacked bar chart.</p>
+<h2 id="example-distribution-of-majors-1-of-2"><span class="section-number">18.</span> Example: Distribution of Majors (1 of 2)</h2>
+<div class="row">
+<div class="pull-left">
+<p>The counts of majors of 100 students in a sample are shown in the table on the right. Visualize the data using a bar, pie and stacked bar chart.</p>
+</div>
+<div class="pull-right">
 <div class="center">
 <table>
 <thead>
 <tr>
-<th>Grade</th>
+<th align="left">Grade</th>
 <th>Frequency (Counts)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Art</td>
+<td align="left">Art</td>
 <td>30</td>
 </tr>
 <tr>
-<td>Engineering</td>
+<td align="left">Engineering</td>
 <td>50</td>
 </tr>
 <tr>
-<td>Science</td>
+<td align="left">Science</td>
 <td>20</td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 </div>
 <p><strong>Solution:</strong> The relative frequency table is shown below.</p>
 <div class="center">
 <table>
 <thead>
 <tr>
-<th>Major</th>
+<th align="left">Major</th>
 <th>Frequency</th>
 <th>Relative Frequency</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Art</td>
+<td align="left">Art</td>
 <td>30</td>
 <td>30%</td>
 </tr>
 <tr>
-<td>Engineering</td>
+<td align="left">Engineering</td>
 <td>50</td>
 <td>50%</td>
 </tr>
 <tr>
-<td>Science</td>
+<td align="left">Science</td>
 <td>20</td>
 <td>20%</td>
 </tr>
 <tr>
-<td>Total</td>
+<td align="left">Total</td>
 <td>100</td>
 <td>100%</td>
 </tr>
@@ -764,8 +798,8 @@ the data when all the values are listed in order. The median divides the data in
 </table>
 </div>
 <hr />
-<h2 id="example-distribution-of-majors-2-of-2"><span class="section-number">18.</span> Example: Distribution of Majors (2 of 2)</h2>
-<p><strong>Solution:</strong></p>
+<h2 id="example-distribution-of-majors-2-of-2"><span class="section-number">19.</span> Example: Distribution of Majors (2 of 2)</h2>
+<p>The following are the charts created in Excel.</p>
 <div class="row">
 <div class="center" width=32%>
 <p>Bar chart
@@ -773,7 +807,7 @@ the data when all the values are listed in order. The median divides the data in
 </div>
 <div class="center" width=32%>
 <p>Pie chart
-<img src="data:image/png;base64,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" alt="" width=85% /></p>
+<img src="data:image/png;base64,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" alt="" width=100% /></p>
 </div>
 <div class="center" width=32%>
 <p>Stacked bar chart
@@ -815,7 +849,7 @@ the data when all the values are listed in order. The median divides the data in
 <p>Lab Instructions in Excel</p>
 </div>
 <hr />
-<h2 id="frequency-tables"><span class="section-number">19.</span> Frequency Tables</h2>
+<h2 id="frequency-tables"><span class="section-number">20.</span> Frequency Tables</h2>
 <p>In Excel, to create a frequency table for a data array, we need a bin array. The values in a bin array in Excel are the first \(k-1\) upper bin limits. For example, if the bin array consists of 30, 40, and 50, then the bins will be \([\text{min},30]\), \((30,40]\), \((40, 50]\), \((50, \infty)\).</p>
 <p>With a data array and a bin array, the Excel function <code>FREQUENCY(data_array, bins_array)</code> can be used to create a frequency table.</p>
 <p>Suppose the data set is in <code>column A</code> and the bin array is in <code>column B</code>.</p>
@@ -828,7 +862,7 @@ the data when all the values are listed in order. The median divides the data in
 </ol>
 <p>Hit the <code>Enter</code> (<code>Ctrl + Enter</code> in older versions), you will get a frequency table.</p>
 <hr />
-<h2 id="charts-in-excel"><span class="section-number">20.</span> Charts in Excel</h2>
+<h2 id="charts-in-excel"><span class="section-number">21.</span> Charts in Excel</h2>
 <p>Excel has many built-in chart functions. To create a charts,</p>
 <ol>
 <li>Select the data array/table</li>
@@ -836,7 +870,7 @@ the data when all the values are listed in order. The median divides the data in
 </ol>
 <p>The appearance of chart can be changed after being created.</p>
 <hr />
-<h2 id="histogram-1-of-2"><span class="section-number">21.</span> Histogram (1 of 2)</h2>
+<h2 id="histogram-1-of-2"><span class="section-number">22.</span> Histogram (1 of 2)</h2>
 <ol>
 <li>
 <p>Select the data</p>
@@ -856,7 +890,7 @@ the data when all the values are listed in order. The median divides the data in
 </li>
 </ol>
 <hr />
-<h2 id="histogram-2-of-2"><span class="section-number">22.</span> Histogram (2 of 2)</h2>
+<h2 id="histogram-2-of-2"><span class="section-number">23.</span> Histogram (2 of 2)</h2>
 <div class="remark">
 <ul>
 <li>
@@ -874,7 +908,7 @@ the data when all the values are listed in order. The median divides the data in
 </ul>
 </div>
 <hr />
-<h2 id="the-analysis-toolpak"><span class="section-number">23.</span> The <code>Analysis ToolPak</code></h2>
+<h2 id="the-analysis-toolpak"><span class="section-number">24.</span> The <code>Analysis ToolPak</code></h2>
 <p>Suppose your data set is in <code>Column A</code> in Excel.</p>
 <ul>
 <li>
@@ -897,7 +931,7 @@ the data when all the values are listed in order. The median divides the data in
 </li>
 </ul>
 <hr />
-<h2 id="dotplot"><span class="section-number">24.</span> Dotplot</h2>
+<h2 id="dotplot"><span class="section-number">25.</span> Dotplot</h2>
 <ul>
 <li>
 <p>If you have a raw data set, follow the same procedure a creating a histogram but with a bin width equal the same accuracy of the data. For example, if you data set consists of integers, then choose 1 as the bin-width.</p>
@@ -921,7 +955,7 @@ the data when all the values are listed in order. The median divides the data in
 </li>
 </ul>
 <hr />
-<h2 id="lab-example" class="unnumbered">Lab Example</h2>
+<h2 id="lab-examplel-home-state-attending-rates" class="unnumbered">Lab ExampleL Home State Attending Rates</h2>
 <p>Describe the distribution of percentage of college students attending college in home states. (To be demonstrated in-class)</p>
 <div class="center">
 <p>93, 92, 91, 91, 90, 90, 90, 90, 89, 89,
@@ -934,7 +968,73 @@ the data when all the values are listed in order. The median divides the data in
 <p>Data is taken from Example 3.15 in <a href="https://faculty.cengage.com/titles/9781337793612">Introduction to Statistics and Data Analysis</a>.</p>
 </div>
 <hr />
-<h2 id="lab-practice" class="unnumbered">Lab Practice</h2>
+<h2 id="lab-practice-sleep-deficit-and-school-start-time"><span class="section-number">26.</span> Lab Practice: Sleep Deficit and School Start Time</h2>
+<div class="row">
+<div class="pull-left">
+<p>Consider the frequency table on the right.</p>
+<ol>
+<li>Draw histograms for the distribution of sleep deficit for morning start schools and afternoon start schools.</li>
+<li>What conclusion can you draw from the histograms?</li>
+</ol>
+</div>
+<div class="pull-right">
+<table>
+<thead>
+<tr>
+<th>Sleep Deficit</th>
+<th>Morning Start</th>
+<th>Afternoon Start</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(in hours)</td>
+<td>Relative Frequency</td>
+<td>Relative Frequency</td>
+</tr>
+<tr>
+<td>−6 to &lt; −4</td>
+<td>0.007</td>
+<td>0.02</td>
+</tr>
+<tr>
+<td>−4 to &lt; −2</td>
+<td>0.028</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>−2 to &lt; 0</td>
+<td>0.065</td>
+<td>0.19</td>
+</tr>
+<tr>
+<td>0 to &lt; 2</td>
+<td>0.442</td>
+<td>0.57</td>
+</tr>
+<tr>
+<td>2 to &lt; 4</td>
+<td>0.364</td>
+<td>0.12</td>
+</tr>
+<tr>
+<td>4 to &lt; 6</td>
+<td>0.078</td>
+<td>0.04</td>
+</tr>
+<tr>
+<td>6 to &lt; 8</td>
+<td>0.015</td>
+<td>0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="footmark">
+<p>Source: Example 3.16 in Textbook <a href="https://www.cengage.com/c/introduction-to-statistics-and-data-analysis-6e-peck/9781337793612PF/?filterBy=Student">Introduction to Statistics and Data Analysis | 6th Edition</a>.</p>
+</div>
+<h2 id="lab-practice-distribution-of-random-numbers" class="unnumbered">Lab Practice: Distribution of Random Numbers</h2>
 <p>Use Excel to complete the following tasks:</p>
 <ol>
 <li>
