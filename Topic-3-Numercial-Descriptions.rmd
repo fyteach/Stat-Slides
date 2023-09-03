@@ -83,7 +83,9 @@ cat(paste(as.vector(head(trees$Height,15)), collapse=", "))
 
 ## Practice: Five-number Summary, Range and IQR {.unnumbered}
 
+::: {.iframecontainer}
 `r knitr::include_url('https://www.myopenmath.com/embedq2.php?id=899254&seed=2020&showansafter', height="550px")`
+:::
 
 ---
 
@@ -125,32 +127,39 @@ cat(paste(sort(actor_age$Age), collapse=", "))
 
 - Based on the five-number summary, the boxplot is shown below.
 
-::: {.center}
+::: {.iframecontainer style="height: 60vh;"}
+`r knitr::include_url('boxplot1.html')`
+:::
+
+<!-- 
 ```{r echo=FALSE, results = 'asis', fig.width=12, fig.asp=0.4} 
 # load("Data-Frames-SUNY-Concepts-in-Statistics/actor.rdata")
 
-boxplot1<-ggplot(actor_age, aes(x="", y=Age)) +
+#boxplot1<-ggplot(actor_age, aes(x="", y=Age)) +
   # stat_boxplot(geom = "errorbar") +
-  geom_boxplot(outlier.size=5) +
-  scale_y_continuous(breaks = c(31, 37.5, 42.5, 49.5, 61, 76)) +
-  theme_classic(base_size = 16) +
-  xlab("") + 
-  coord_flip() +
-  theme(# panel.border=element_blank(), 
-        axis.line.x = element_line(size = 1.2),
-        axis.line.y = element_blank(),
-        axis.ticks.y = element_blank(),
-        axis.text.y=element_blank())
+#  geom_boxplot(outlier.size=5) +
+#  scale_y_continuous(breaks = c(31, 37.5, 42.5, 49.5, 61, 76)) +
+#  theme_classic(base_size = 16) +
+#  xlab("") + 
+#  coord_flip() +
+#  theme(# panel.border=element_blank(), 
+#        axis.line.x = element_line(size = 1.2),
+#        axis.line.y = element_blank(),
+#        axis.ticks.y = element_blank(),
+#        axis.text.y=element_blank())
 
-ggplotly(boxplot1)
+# ggplotly(boxplot1)
+#boxplot1
 ```
-:::
+-->
 
 ---
 
 ## Practice: Five-Number Summary from the Boxplot {.unnumbered}
 
-`r knitr::include_url('https://www.myopenmath.com/embedq2.php?id=899261&seed=5824&showansafter&height=550px&frame_id=boxplot', height="550px")`
+::: {.iframecontainer}
+`r knitr::include_url('https://www.myopenmath.com/embedq2.php?id=899261&seed=5824&showansafter&height=550px&frame_id=boxplot')`
+:::
 
 ---
 
@@ -255,7 +264,9 @@ irisPL
 
 ## Practice: Course Overall Grade {.unnumbered}
 
+::: {.iframecontainer}
 `r knitr::include_url('https://www.myopenmath.com/embedq2.php?id=279978&seed=2020&showansafter', height="550px")`
+:::
 
 ---
 
@@ -304,7 +315,9 @@ The mean is `r round(mean(actor_age$Age),1)`. The sample standard deviation is `
 
 ## Example: Mean and SD - Best Oscar Winners (2 of 2)
 
+::: {.iframecontainer}
 `r knitr::include_url('https://www.geogebra.org/material/iframe/id/DS6PUaXy/width/1300/height/800/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false', height='600px')`
+:::
 
 ::: {.footmark}
 Source: https://www.geogebra.org/m/DS6PUaXy
@@ -327,9 +340,16 @@ Find the standard deviation of this sample.
 ## Mean and SD under Linear Transformation
 
 - When we increase values in a data set by a fixed number $c$, the standard deviation of a data set won't change. However, the mean increases by $c$ too.
+
 - When we multiply values in a data set by a factor $k$, the mean and the standard deviation both scale by the factor $k$.
 
-`r knitr::include_url('https://www.geogebra.org/material/iframe/id/r25rDxYZ/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false', height="350px")`
+<!-- ---
+
+## Mean and SD under Linear Transformation (2 of 2) -->
+
+::: {.iframecontainer style="height: 40vh;"}
+`r knitr::include_url('https://www.geogebra.org/material/iframe/id/r25rDxYZ/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false', height='80%')`
+:::
 
 ::: {.footmark}
 Source: https://www.geogebra.org/m/r25rDxYZ
@@ -339,7 +359,9 @@ Source: https://www.geogebra.org/m/r25rDxYZ
 
 ## Effect of Changes of Data
 
+::: {.iframecontainer}
 `r knitr::include_url('https://www.geogebra.org/material/iframe/id/fenbj3qZ/width/910/height/628/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false', height='600px')`
+:::
 
 ::: {.footmark}
 Source: https://www.geogebra.org/m/fenbj3qZ
@@ -417,7 +439,9 @@ Apply Chebyshev's theorem, there are 75% of data are between $\bar{x}-2s=2$ amd 
 
 ## Practice: The Empirical Rule {.unnumbered}
 
-`r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=25941&frame_id=303&resizer=true&seed=2020", height="75vh")`
+::: {.iframecontainer}
+`r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=25941&frame_id=303&resizer=true&seed=2020")`
+:::
 
 ---
 
@@ -490,7 +514,7 @@ For more information, see [Create a box and whisker chart in Excel 365](https://
 Consider the following sample that consists of speeds of 20 cars.
 
 ::: {.center}
-```{r carspeed, echo=FALSE, results = 'asis'}
+```{r echo=FALSE, results = 'asis'}
 cat(paste(sample(cars, 20, replace = TRUE), collapse=", "))
 ```
 :::

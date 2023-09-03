@@ -1,7 +1,7 @@
 ---
-title: "Topic 1: Statistical Studies<br/><br/>"
-author: "Fei Ye<br/>Department of Mathematics and Computer Science<br/>"
-date: "August 2023"
+title: "Topic 1: Statistical Studies"
+author: "Fei Ye"
+date: "September 2023"
 output:
   markdown::html_format:
     keep_md: true
@@ -25,7 +25,7 @@ output:
 
 ::: {style="font-size: 125%;"}
 
-- Introduction to Statistics and Data Analysis by Roxy Peck, Chris Olsen, Tom Short
+- [Introduction to Statistics and Data Analysis 6th Edition](https://www.cengage.com/c/introduction-to-statistics-and-data-analysis-6e-peck/9781337793612PF/?filterBy=Student) by Roxy Peck, Chris Olsen, Tom Short
 
 - [MA336 Statistics on https://stats.libretexts.org](https://stats.libretexts.org/Courses/Queensborough_Community_College/MA336%3A_Statistics)
 
@@ -444,7 +444,9 @@ Lab Instructions in Excel
 
 ## Introduction to Excel Spreadsheets
 
-<iframe style="object-fit: fill; min-height: 60vh; allow" src="Lab-1.html"></iframe>
+::: {.iframecontainer}
+<iframe style="width=100%" src="Lab-1.html"></iframe>
+:::
 
 ::: {.footmark}
 
@@ -455,7 +457,7 @@ Lab Instructions in Excel
 
 ---
 
-## Random Numbers by Excel (1 of 3)
+## Random Numbers by Excel
 
 - `=RAND()` returns a random real number greater than or equal to 0 and less than 1.  To generate a random real number between $a$ and $b$, one can use `=RAND()*(b-a)+a`.
 - `=RANDBETWEEN(bottom, top)` returns an integer between `bottom` and `top`.

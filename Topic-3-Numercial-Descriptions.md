@@ -65,7 +65,9 @@ Find the median, quartiles, IQR and outliers (if they exist) of the sample heigh
 
 ## Practice: Five-number Summary, Range and IQR {.unnumbered}
 
+::: {.iframecontainer}
 <iframe src="https://www.myopenmath.com/embedq2.php?id=899254&amp;seed=2020&amp;showansafter" width="100%" height="550px" data-external="1"></iframe>
+:::
 
 ---
 
@@ -105,19 +107,21 @@ Create the boxplot for the ages of 32 best actor oscar winners (1970–2001).
 
 - Based on the five-number summary, the boxplot is shown below.
 
-::: {.center}
-
-```{=html}
-<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-baa65e3d4114232e72db" style="width:864px;height:345.6px;"></div>
-<script type="application/json" data-for="htmlwidget-baa65e3d4114232e72db">{"x":{"data":[{"x":[43,40,48,48,56,38,60,32,40,42,37,76,39,55,45,35,61,33,51,32,43,55,42,37,38,31,45,60,46,40,36,47],"y":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"hoverinfo":"x","type":"box","fillcolor":"rgba(255,255,255,1)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"},"size":5.6692913385826778},"line":{"color":"rgba(51,51,51,1)","width":1.8897637795275593},"showlegend":false,"xaxis":"x","yaxis":"y","orientation":"h","frame":null}],"layout":{"margin":{"t":42.574729712925304,"r":10.62681610626816,"b":70.144675748624763,"l":15.940224159402241},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[28.75,78.25],"tickmode":"array","ticktext":["31.0","37.5","42.5","49.5","61.0","76.0"],"tickvals":[31,37.5,42.5,49.5,61,76],"categoryorder":"array","categoryarray":["31.0","37.5","42.5","49.5","61.0","76.0"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":5.3134080531340802,"tickwidth":0.96607419147892382,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":17.002905770029063},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":1.594022415940225,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Age","font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,1.6000000000000001],"tickmode":"array","ticktext":[""],"tickvals":[1],"categoryorder":"array","categoryarray":[""],"nticks":null,"ticks":"","tickcolor":null,"ticklen":5.3134080531340802,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":2.7487473156764488,"font":{"color":"rgba(0,0,0,1)","family":"","size":17.002905770029063}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"d204bdc59c7":{"x":{},"y":{},"type":"box"}},"cur_data":"d204bdc59c7","visdat":{"d204bdc59c7":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-```
+::: {.iframecontainer style="height: 60vh;"}
+<iframe src="boxplot1.html" width="100%" height="400px" data-external="1"></iframe>
 :::
+
+<!-- 
+
+-->
 
 ---
 
 ## Practice: Five-Number Summary from the Boxplot {.unnumbered}
 
-<iframe src="https://www.myopenmath.com/embedq2.php?id=899261&amp;seed=5824&amp;showansafter&amp;height=550px&amp;frame_id=boxplot" width="100%" height="550px" data-external="1"></iframe>
+::: {.iframecontainer}
+<iframe src="https://www.myopenmath.com/embedq2.php?id=899261&amp;seed=5824&amp;showansafter&amp;height=550px&amp;frame_id=boxplot" width="100%" height="400px" data-external="1"></iframe>
+:::
 
 ---
 
@@ -190,7 +194,9 @@ Find the mean from the dot plot of sepal length for a sample of 10 iris flowers.
 
 ## Practice: Course Overall Grade {.unnumbered}
 
+::: {.iframecontainer}
 <iframe src="https://www.myopenmath.com/embedq2.php?id=279978&amp;seed=2020&amp;showansafter" width="100%" height="550px" data-external="1"></iframe>
+:::
 
 ---
 
@@ -237,7 +243,9 @@ The mean is 44.7. The sample standard deviation is 10.3.
 
 ## Example: Mean and SD - Best Oscar Winners (2 of 2)
 
+::: {.iframecontainer}
 <iframe src="https://www.geogebra.org/material/iframe/id/DS6PUaXy/width/1300/height/800/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="100%" height="600px" data-external="1"></iframe>
+:::
 
 ::: {.footmark}
 Source: https://www.geogebra.org/m/DS6PUaXy
@@ -260,9 +268,16 @@ Find the standard deviation of this sample.
 ## Mean and SD under Linear Transformation
 
 - When we increase values in a data set by a fixed number $c$, the standard deviation of a data set won't change. However, the mean increases by $c$ too.
+
 - When we multiply values in a data set by a factor $k$, the mean and the standard deviation both scale by the factor $k$.
 
-<iframe src="https://www.geogebra.org/material/iframe/id/r25rDxYZ/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="100%" height="350px" data-external="1"></iframe>
+<!-- ---
+
+## Mean and SD under Linear Transformation (2 of 2) -->
+
+::: {.iframecontainer style="height: 40vh;"}
+<iframe src="https://www.geogebra.org/material/iframe/id/r25rDxYZ/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="100%" height="80%" data-external="1"></iframe>
+:::
 
 ::: {.footmark}
 Source: https://www.geogebra.org/m/r25rDxYZ
@@ -272,7 +287,9 @@ Source: https://www.geogebra.org/m/r25rDxYZ
 
 ## Effect of Changes of Data
 
+::: {.iframecontainer}
 <iframe src="https://www.geogebra.org/material/iframe/id/fenbj3qZ/width/910/height/628/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="100%" height="600px" data-external="1"></iframe>
+:::
 
 ::: {.footmark}
 Source: https://www.geogebra.org/m/fenbj3qZ
@@ -350,7 +367,9 @@ Apply Chebyshev's theorem, there are 75% of data are between $\bar{x}-2s=2$ amd 
 
 ## Practice: The Empirical Rule {.unnumbered}
 
-<iframe src="https://www.myopenmath.com/embedq2.php?id=25941&amp;frame_id=303&amp;resizer=true&amp;seed=2020" width="100%" height="75vh" data-external="1"></iframe>
+::: {.iframecontainer}
+<iframe src="https://www.myopenmath.com/embedq2.php?id=25941&amp;frame_id=303&amp;resizer=true&amp;seed=2020" width="100%" height="400px" data-external="1"></iframe>
+:::
 
 ---
 

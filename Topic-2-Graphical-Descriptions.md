@@ -105,7 +105,7 @@ The data set contains the heights of 20 Black Cherry Trees. Create a dot plot to
 
 - The difference between the maximum and the minimum data entries is called the **range**.
 
-- The relation between number of bins, bin width, and the range is roughly $\text{number of bins}\times \text{bin width} \approx \text{range}$.
+- The relation between number of bins, bin width, and the range is roughly $\text{number of bins}\times \text{bin width}$.
   
 - The **midpoint** of a bin is the half of the sum of the lower and upper limits of the bin.
 
@@ -132,9 +132,9 @@ The data set contains the heights of 20 Black Cherry Trees. Create a dot plot to
 
 ---
 
-## Example: Histogram of mpg (1 of 2)
+## Example: Histogram of mpg (1 of 3)
 
-The following data set show the mpg (mile per gallon) of $30$ cars.  Construct a frequency table and frequency histogram for the data set using $7$ bins.
+The following data set show the mpg (mile per gallon) of $30$ cars.  Construct a frequency table and frequency histogram for the data set using $7$ bins. What can be concluded from the histogram?
 
 ::: {.center}
 21, 21, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5, 15.5, 15.2, 13.3, 19.2, 27.3, 26, 30.4, 15.8, 19.7
@@ -148,7 +148,7 @@ The following data set show the mpg (mile per gallon) of $30$ cars.  Construct a
 
 ---
 
-## Example: Histogram of mpg (2 of 2)
+## Example: Histogram of mpg (2 of 3)
 <!-- 
 **Solution:**(continued) -->
 
@@ -214,25 +214,36 @@ The blue dot-dash curve is called the density curve, the brown dashed line is ov
 
 ---
 
+## Example: Histogram of mpg (3 of 3)
+
+The following information can be obtained from the histogram.
+
+- The histogram has a single peak within the interval 13.8 and 20.6.
+- Marjority of cars in the sample has mpg lower than 20.6.
+- The mean mpg is around 20.6.
+- The range of the mpg is between 13.8 and 34.2.
+- The right tail is longer.
+
+---
+
 ## Some Remarks on Histogram
 
-- Avoid histograms with large bin widths and small bin widths. [See Histogram 2 of 4 in Concepts in Statistics for an interactive demonstration](https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/histograms-2-of-4/)
-
-- Tet the bin width for $k$ bins, one convention is to choose a number with the same or one more decimal place that is greater than $\frac{\text{range}}{k}$, but no more than $\frac{\text{range}}{k-1}$ as the bin width.
-
-- To determine the number of bins, there are practical rules. For example, the Rice rule takes the bin number $k$ as the **round up of $n^{1 / 3}$**.
-  
-  See the [Statistic How To](https://www.statisticshowto.datasciencecentral.com/choose-bin-sizes-statistics/) page for rules on choosing bin width.
-
-- The convenient starting point should not be too much smaller than the minimum. The choice of a starting point together with a bin width affects the shape of the histogram. It is better to experiment with different choices.
-
-- The area of a bar represents the relative frequency for the bin. There should be *no space* between any two bars.
+- There should be *no space* between any two bars.
+- The area of a bar represents the relative frequency for the bin. Equivalently,
+  $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)}\times \text{bar width}.$$
+- The vertical axis is called the density scale.
+- For continuous variables, unequal bin width may also be used.
+<!-- - Avoid histograms with large bin widths and small bin widths. [See Histogram 2 of 4 in Concepts in Statistics for an interactive demonstration](https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/histograms-2-of-4/) -->
+<!-- - The the bin width for $k$ bins, one convention is to choose a number with the same or one more decimal place that is greater than $\frac{\text{range}}{k}$, but no more than $\frac{\text{range}}{k-1}$ as the bin width. -->
+- To determine the number of bins, there are practical rules. For example, the Rice rule takes the bin number $k$ as the **round up of $n^{1 / 3}$**. The webpage [Statistic How To](https://www.statisticshowto.datasciencecentral.com/choose-bin-sizes-statistics/) has more information.
+- The convenient starting point can be a value smaller but not too much smaller than the minimum.
+- The bin width can significantly affect the shape of the histogram. It is better to experiment with different choices.
 
 ---
 
 ## Practice: Petal Lengths of Irises {.unnumbered}
 
-The following data set show the petal length of 20 irises. Construct a frequency table and frequency histogram for the data set using 6 bins.
+The following data set show the petal length of 20 irises. Construct a frequency table and frequency histogram for the data set using 6 bins. What can you conclude from the histogram?
 
 ::: {.center}
 1.4, 5.4, 1.2, 4.5, 6.1, 1.5, 4.7, 1.4, 5.6, 5.2, 1.3, 6.3, 5.1, 5.6, 5, 6.7, 1.4, 1.6, 1.5, 1.5
@@ -246,7 +257,7 @@ A stem-and-leaf plot is a kind of histogram that lets you see all your data inst
 
 **How to Construct**
 
-- Select one or more leading digits for the stem values. The trailing digits become the leaves. Trailing digits for the same stem may further break into two leaves.
+- Select one or more leading digits for the stem values. The trailing digits become the leaves. Trailing digits for the same stem may further break into two leaves, L or H.
 - List possible stem values in a vertical column.
 - Record the leaf for every observation beside the corresponding stem value.
 - Indicate the units for stems and leaves someplace in the display.
@@ -262,7 +273,7 @@ Consider the following data of heights of 10 cherry trees. Create a stem-and-lea
 :::
 
 **Solution:**  
-::: {style="width:45%; margin-top: -1em;"}
+::: {style="width:45%; padding: 0 auto; margin-top: -1em;"}
 
 
 ```
@@ -378,22 +389,28 @@ A student survey was conducted at a major university. The following histogram sh
 
 ## Example: Distribution of Majors (1 of 2)
 
-**Example:** The counts of majors of 100 students in a sample are shown in the table. Visualize the data using a bar, pie and stacked bar chart.
+::::: {.row}
+::: {.pull-left}
+The counts of majors of 100 students in a sample are shown in the table on the right. Visualize the data using a bar, pie and stacked bar chart.
+:::
 
+:::: {.pull-right}
 ::: {.center}
 | Grade | Frequency (Counts) |
-| ----- | ------ |
+| :----- | ------ |
 | Art     | 30      |
 | Engineering | 50      |
 | Science    | 20      |
 :::
+::::
+:::::
 
 **Solution:** The relative frequency table is shown below.  
 
 ::: {.center}
 
 | Major       | Frequency| Relative Frequency|
-| ----------- | -------------------- | ------------------------------- |
+| :----------- | -------------------- | ------------------------------- |
 | Art         | 30                   | 30%                             |
 | Engineering | 50                   | 50%                             |
 | Science     | 20                   | 20%                             |
@@ -404,7 +421,7 @@ A student survey was conducted at a major university. The following histogram sh
 
 ## Example: Distribution of Majors (2 of 2)
 
-**Solution:**
+The following are the charts created in Excel.
 
 :::: {.row}
 ::: {.center width=32%}
@@ -414,7 +431,7 @@ Bar chart
 
 ::: {.center width=32%}
 Pie chart
-![](Figures/piechart.png){width=85%}
+![](Figures/piechart.png){width=100%}
 :::
 
 ::: {.center width=32%}
@@ -541,7 +558,7 @@ Suppose your data set is in `Column A` in Excel.
 
 ---
 
-## Lab Example {.unnumbered}
+## Lab ExampleL Home State Attending Rates {.unnumbered}
 
 Describe the distribution of percentage of college students attending college in home states. (To be demonstrated in-class)
 
@@ -561,7 +578,35 @@ Data is taken from Example 3.15 in [Introduction to Statistics and Data Analysis
 
 ---
 
-## Lab Practice {.unnumbered}
+## Lab Practice: Sleep Deficit and School Start Time
+
+:::: {.row}
+::: {.pull-left}
+Consider the frequency table on the right.
+
+1. Draw histograms for the distribution of sleep deficit for morning start schools and afternoon start schools.
+2. What conclusion can you draw from the histograms?
+
+:::
+::: {.pull-right}
+| Sleep Deficit | Morning Start      | Afternoon Start    |
+|---------------|--------------------|--------------------|
+| (in hours)    | Relative Frequency | Relative Frequency |
+| −6 to < −4    | 0.007              | 0.02               |
+| −4 to < −2    | 0.028              | 0.05               |
+| −2 to < 0     | 0.065              | 0.19               |
+| 0 to < 2      | 0.442              | 0.57               |
+| 2 to < 4      | 0.364              | 0.12               |
+| 4 to < 6      | 0.078              | 0.04               |
+| 6 to < 8      | 0.015              | 0.01               |
+:::
+::::
+
+::: {.footmark}
+Source: Example 3.16 in Textbook [Introduction to Statistics and Data Analysis | 6th Edition](https://www.cengage.com/c/introduction-to-statistics-and-data-analysis-6e-peck/9781337793612PF/?filterBy=Student).
+:::
+
+## Lab Practice: Distribution of Random Numbers {.unnumbered}
 
 Use Excel to complete the following tasks:
 
