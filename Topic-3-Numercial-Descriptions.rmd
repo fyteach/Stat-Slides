@@ -7,7 +7,7 @@ output:
     keep_md: true
     meta:
       css: [default, slides, "Assets/css/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js"]
+      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js", "Assets/js/lastupdated.js"]
     options:
       number_sections: true
       latex_math: true
@@ -15,7 +15,6 @@ output:
         package: mathjax
         version: 3
         js: es5/tex-svg.js
-      # smart: false
 ---
 
 ```{r, echo=FALSE, warning=FALSE}

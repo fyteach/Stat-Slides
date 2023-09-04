@@ -7,7 +7,7 @@ output:
     keep_md: true
     meta:
       css: [default, slides, "Assets/css/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js"]
+      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js", "Assets/js/lastupdated.js"]
     options:
       number_sections: true
       latex_math: true
@@ -31,16 +31,13 @@ output:
 ## Distribution of Numerical Data
 
 - In data analysis, one goal is to describe **patterns** (known as the **distribution**) of the variable in the data set and create a useful summary about the set.
-
 - To describe patterns in data, we use descriptions of **shape**, **center**,
 and **spread**. We also describe exceptions to the pattern. We call these exceptions **outliers**.
-
 ::: {.center}
   ![Concepts used in the description of a distribution](Figures/Graph-of-Distribution.png){height=60%}
 :::
-
-::: {.remark}
-The center of a distribution may refer to the mean, that is, the weight balancing point; the median, that is, the 50/50 breaking points; or a mode, that is, a peak. For a geometric explanation, see [Mean, Median and Mode in Distributions: Geometric Aspects](https://openpress.usask.ca/introtoappliedstatsforpsych/chapter/3-1-central-tendency-mean-median-mode/)
+::: {.remark style="margin-top: -1em"}
+The center of a distribution may refer to the mean, the weight balancing point; the median, the 50/50 breaking points; or a mode, a peak. For a geometric explanation, see [Mean, Median and Mode in Distributions: Geometric Aspects](https://openpress.usask.ca/introtoappliedstatsforpsych/chapter/3-1-central-tendency-mean-median-mode/)
 :::
 
 ---
@@ -86,14 +83,11 @@ The data set contains the heights of 20 Black Cherry Trees. Create a dot plot to
 
 - Histograms are frequently used to describe large sets of numerical data, in particular, data of a continuous variable.
 
-- A **histogram** consists of a horizontal axis, a vertical axis and adjoining vertical bars. All bars have the same width. The horizontal axis is labeled and scaled so that the width of a bar is 1. The vertical axis is then scaled accordingly so that the area of the bar is the frequency or the relative frequency.
+- A **histogram** consists of a horizontal axis, a vertical axis and adjoining vertical bars. The horizontal axis is labeled to break data values into **bins (classes)**. The vertical axis is then scaled accordingly so that the area of a bar is the frequency or the relative frequency of values in the bin.
 
-- To construct a histogram, we need to decide boundary of bars which forms intervals, called bins or classes and find the **frequency** of values in each bin.
+- To construct a histogram, we need to decide boundary of bars which forms intervals, called **bins or classes** and find the **frequency** of values in each bin.
 
-- A **frequency distribution** is a table which contains bins, frequencies and **relative frequencies** which are proportions (percentage) defined by the formula
-  $$
-    \text{Relative frequency} =\frac{\text{Class frequency}}{\text{Sample size}}.
-  $$
+- A **frequency distribution** is a table which contains bins, frequencies and **relative frequencies** which are proportions (percentage) defined by the formula $\text{Relative frequency} =\dfrac{\text{Class frequency}}{\text{Sample size}}$.
 
 ---
 
@@ -115,10 +109,8 @@ The data set contains the heights of 20 Black Cherry Trees. Create a dot plot to
 
 ## Conventions on Constructing Bins
 
-- Textbook convention for a continuous variable: Take an appropriate bin width, take the first lower bin as the minimum, and then take left closed and right opened intervals as bins.
-
-- Textbook convention for a discrete variable: Take an appropriate bin width and take the first lower bin limit to be a value slightly smaller than the minimum minus of the data set.
-
+- For a continuous variable: Take an appropriate bin width, take the first lower bin as the minimum, and then take left closed and right opened intervals as bins.
+- For a discrete variable: Take an appropriate bin width and take the first lower bin limit to be a value slightly smaller than the minimum minus of the data set.
 - Excel convention (roughly): take left opened and right closed intervals.
 
 ::: {.remark}
@@ -142,17 +134,17 @@ The following data set show the mpg (mile per gallon) of $30$ cars.  Construct a
 
 **Solution:**
 
-- Find the range using $\text{Range}=\text{maximum}-\text{minimum}$. In this example, the minimum is $10.4$, the maximum is $33.9$, and the range is $33.9-10.4=23.5$.
-- The bin width can be taken between $\frac{\mathrm{range}}{k}$ and $\frac{\mathrm{range}}{k-1}$, where $k$ is the number of bins. In this example, we may take the bin width as $3.4$ which is between $\frac{23.5}{7}\approx 3.357$ and $\frac{23.5}{7-1}\approx 3.917$.
-- Take the first lower bin limit as the minimum $10.4$. Add the bin width $3.4$ recursively to get all lower bin limits: 10.4, 13.8, 17.2, 20.6, 24, 27.4, 30.8. The upper limits can be taken as 13.8, 17.2, 20.6, 24, 27.4, 30.8, 34.2.
+- Find the range using $\text{Range}=\text{maximum}-\text{minimum}$. Here, the minimum is $10.4$, the maximum is $33.9$, and the range is $33.9-10.4=23.5$.
+- For $k$ bins, the bin width can be taken between $\frac{\mathrm{range}}{k}$ and $\frac{\mathrm{range}}{k-1}$. Here, we take the bin width as $3.4$ which is between $\frac{23.5}{7}\approx 3.357$ and $\frac{23.5}{7-1}\approx 3.917$.
+- Take the first lower bin limit as the minimum $10.4$. Add the bin width $3.4$ recursively to get all lower bin limits: 10.4, 13.8, 17.2, 20.6, 24, 27.4, 30.8.
 
 ---
 
 ## Example: Histogram of mpg (2 of 3)
 <!-- 
 **Solution:**(continued) -->
-
-::::: {.row}
+- The upper limits can be taken as 13.8, 17.2, 20.6, 24, 27.4, 30.8, 34.2.
+::::: {.row style="margin:-0.5em;"}
 ::: {.pull-left}
 
 - Construct a frequency distribution table
@@ -226,17 +218,28 @@ The following information can be obtained from the histogram.
 
 ---
 
-## Some Remarks on Histogram
+## Some Remarks on Histogram (1 of 2)
 
 - There should be *no space* between any two bars.
+
 - The area of a bar represents the relative frequency for the bin. Equivalently,
   $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)}\times \text{bar width}.$$
+
 - The vertical axis is called the density scale.
+
 - For continuous variables, unequal bin width may also be used.
+
+---
+
+## Some Remarks on Histogram (2 of 2)
+
 <!-- - Avoid histograms with large bin widths and small bin widths. [See Histogram 2 of 4 in Concepts in Statistics for an interactive demonstration](https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/histograms-2-of-4/) -->
-<!-- - The the bin width for $k$ bins, one convention is to choose a number with the same or one more decimal place that is greater than $\frac{\text{range}}{k}$, but no more than $\frac{\text{range}}{k-1}$ as the bin width. -->
+- The the bin width for $k$ bins, one convention is to choose a number with the same or one more decimal place that is greater than $\frac{\text{range}}{k}$, but no more than $\frac{\text{range}}{k-1}$ as the bin width.
+
 - To determine the number of bins, there are practical rules. For example, the Rice rule takes the bin number $k$ as the **round up of $n^{1 / 3}$**. The webpage [Statistic How To](https://www.statisticshowto.datasciencecentral.com/choose-bin-sizes-statistics/) has more information.
+
 - The convenient starting point can be a value smaller but not too much smaller than the minimum.
+
 - The bin width can significantly affect the shape of the histogram. It is better to experiment with different choices.
 
 ---
@@ -581,17 +584,17 @@ Data is taken from Example 3.15 in [Introduction to Statistics and Data Analysis
 ## Lab Practice: Sleep Deficit and School Start Time
 
 :::: {.row}
-::: {.pull-left}
+::: {style="width: 30%;"}
 Consider the frequency table on the right.
 
 1. Draw histograms for the distribution of sleep deficit for morning start schools and afternoon start schools.
 2. What conclusion can you draw from the histograms?
 
 :::
-::: {.pull-right}
-| Sleep Deficit | Morning Start      | Afternoon Start    |
+::: {style="width: 68%;"}
+| Sleep Deficit | Morning Start | Afternoon Start|
 |---------------|--------------------|--------------------|
-| (in hours)    | Relative Frequency | Relative Frequency |
+| (in hours)    | Rel. Freq. | Rel Freq. |
 | −6 to < −4    | 0.007              | 0.02               |
 | −4 to < −2    | 0.028              | 0.05               |
 | −2 to < 0     | 0.065              | 0.19               |
@@ -605,6 +608,8 @@ Consider the frequency table on the right.
 ::: {.footmark}
 Source: Example 3.16 in Textbook [Introduction to Statistics and Data Analysis | 6th Edition](https://www.cengage.com/c/introduction-to-statistics-and-data-analysis-6e-peck/9781337793612PF/?filterBy=Student).
 :::
+
+---
 
 ## Lab Practice: Distribution of Random Numbers {.unnumbered}
 

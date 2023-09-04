@@ -191,7 +191,7 @@ h1, h2, h3, .part {
 
 :root {
   font-size: 16px;
-  font-size: calc(8px + 1vmin);
+  font-size: calc(9px + 1vmin);
 }
 
 h1, h2, h2 {
@@ -317,9 +317,9 @@ border-collapse: collapse;
 
 .slide-container .slide {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAABGdBTUEAANbY1E9YMgAAAJZQTFRF////7u7u3d3dys7KzMzMyMzIxsrGxcbFur+6u7u7s7iyq7GqqqqqmZmZlJmTj5CPiIiIh4eHhoaGgICAfYJ9d3d3cnZxZ2tnZmZmW15bVVVVS0xLREREQ0NDQkJCQUJBOz07OTs5MzMzMTMxLjAuJygnJCUjIiIiISEhICAgGRkZERERDxAPDg4ODQ4NDQ0NDQ0MAAAADbeuvgAAAOhJREFUeNqtk+tyAiEMhQ+6XtroutZiveBdu+p2tXn/l3OQy8roL5fMMENC+HIIAI5sYEQ1DSRtP5zZkCpToubf2/oMMC0zX0QdiLqjmsD1sVKd8JSoNa8HvGRIclZCcZ5A7Yiag/s6oJPMYD8FKgIC3wG/+QP5DFIWot+DvBB1OxYAk+W2W88HqqwAOOZE6FuZbfWZZUn02fb1rTAHc3izZgQCrxWqSSFkH/IaKuSHEzEChfyk2PbwmqFX8EQo3jaw2Ac9DIFhD12Tn4CbU+RbTv+HHrj8jfAOacxflrc61/0psf9yZLsBr5WUrhUa3hEAAAAASUVORK5CYII=);
-  background-size: 7.5%;
+  background-size: auto 0.7em;
   background-repeat: no-repeat;
-  background-position: 5% 100%;
+  background-position: 6% 100%;
   background-attachment: local;
 }
 
@@ -349,6 +349,14 @@ iframe[src^="https://www.myopenmath.com"] {
   -ms-transform-origin: 0 0;
   transform-origin: 0 0;
 }
+
+/* span {
+  text-align: center;
+  font-size: 0.7em;
+  bottom: 0;
+  position: absolute;
+  color: #6296ff;
+} */
 
 /* .slide:has(iframe[src^="https://www.myopenmath.com"]) {
   display: flex;
@@ -899,5 +907,31 @@ the following statistic will NOT change:</p>
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
 <script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/key-buttons.min.js,npm/@xiee/utils/js/ external-link.min.js" defer></script>
+<script>
+// Function to format the current date and time as "MM/DD/YYYY HH:MM:SS" format
+function getCurrentDateTime() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1);//.padStart(2, '0');
+  const day = String(now.getDate());//.padStart(2, '0');
+
+  return `${month}/${day}/${year}`;
+}
+
+// Function to add the paragraph at the bottom of the page
+function addLastUpdated() {
+  const DataDiv = document.getElementsByClassName('date');
+  
+  if (DataDiv.length > 0) {
+    const Span = document.createElement('span');
+    const lastUpdatedTime = getCurrentDateTime();
+    Span.textContent = `Last updated: ${lastUpdatedTime}`;
+    Span.style.cssText += 'font: 0.7em monospace; text-align: center; bottom: 0; left: 6%; position: absolute; color: #6296ff;';
+    DataDiv[0].insertAdjacentElement('afterend', Span);
+  }
+}
+
+window.addEventListener('load', addLastUpdated);
+</script>
 </body>
 </html>

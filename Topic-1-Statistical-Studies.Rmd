@@ -7,7 +7,7 @@ output:
     keep_md: true
     meta:
       css: [default, slides, "Assets/css/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css"]
-      js: [slides, "Assets/js/resize.js", "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js"]
+      js: [slides, "Assets/js/resize.js", "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js", "Assets/js/lastupdated.js"]
     options:
       number_sections: true
       js_math:
