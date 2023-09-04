@@ -191,7 +191,7 @@ h1, h2, h3, .part {
 
 :root {
   font-size: 16px;
-  font-size: calc(8px + 1vmin);
+  font-size: calc(9px + 1vmin);
 }
 
 h1, h2, h2 {
@@ -317,9 +317,9 @@ border-collapse: collapse;
 
 .slide-container .slide {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAABGdBTUEAANbY1E9YMgAAAJZQTFRF////7u7u3d3dys7KzMzMyMzIxsrGxcbFur+6u7u7s7iyq7GqqqqqmZmZlJmTj5CPiIiIh4eHhoaGgICAfYJ9d3d3cnZxZ2tnZmZmW15bVVVVS0xLREREQ0NDQkJCQUJBOz07OTs5MzMzMTMxLjAuJygnJCUjIiIiISEhICAgGRkZERERDxAPDg4ODQ4NDQ0NDQ0MAAAADbeuvgAAAOhJREFUeNqtk+tyAiEMhQ+6XtroutZiveBdu+p2tXn/l3OQy8roL5fMMENC+HIIAI5sYEQ1DSRtP5zZkCpToubf2/oMMC0zX0QdiLqjmsD1sVKd8JSoNa8HvGRIclZCcZ5A7Yiag/s6oJPMYD8FKgIC3wG/+QP5DFIWot+DvBB1OxYAk+W2W88HqqwAOOZE6FuZbfWZZUn02fb1rTAHc3izZgQCrxWqSSFkH/IaKuSHEzEChfyk2PbwmqFX8EQo3jaw2Ac9DIFhD12Tn4CbU+RbTv+HHrj8jfAOacxflrc61/0psf9yZLsBr5WUrhUa3hEAAAAASUVORK5CYII=);
-  background-size: 7.5%;
+  background-size: auto 0.7em;
   background-repeat: no-repeat;
-  background-position: 5% 100%;
+  background-position: 6% 100%;
   background-attachment: local;
 }
 
@@ -349,6 +349,14 @@ iframe[src^="https://www.myopenmath.com"] {
   -ms-transform-origin: 0 0;
   transform-origin: 0 0;
 }
+
+/* span {
+  text-align: center;
+  font-size: 0.7em;
+  bottom: 0;
+  position: absolute;
+  color: #6296ff;
+} */
 
 /* .slide:has(iframe[src^="https://www.myopenmath.com"]) {
   display: flex;
@@ -397,19 +405,15 @@ iframe[src^="https://www.myopenmath.com"] {
 <hr />
 <h2 id="distribution-of-numerical-data"><span class="section-number">1.</span> Distribution of Numerical Data</h2>
 <ul>
-<li>
-<p>In data analysis, one goal is to describe <strong>patterns</strong> (known as the <strong>distribution</strong>) of the variable in the data set and create a useful summary about the set.</p>
-</li>
-<li>
-<p>To describe patterns in data, we use descriptions of <strong>shape</strong>, <strong>center</strong>,
-and <strong>spread</strong>. We also describe exceptions to the pattern. We call these exceptions <strong>outliers</strong>.</p>
-</li>
+<li>In data analysis, one goal is to describe <strong>patterns</strong> (known as the <strong>distribution</strong>) of the variable in the data set and create a useful summary about the set.</li>
+<li>To describe patterns in data, we use descriptions of <strong>shape</strong>, <strong>center</strong>,
+and <strong>spread</strong>. We also describe exceptions to the pattern. We call these exceptions <strong>outliers</strong>.</li>
 </ul>
 <div class="center">
 <p><img src="data:image/png;base64,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" alt="Concepts used in the description of a distribution" height=60% /></p>
 </div>
-<div class="remark">
-<p>The center of a distribution may refer to the mean, that is, the weight balancing point; the median, that is, the 50/50 breaking points; or a mode, that is, a peak. For a geometric explanation, see <a href="https://openpress.usask.ca/introtoappliedstatsforpsych/chapter/3-1-central-tendency-mean-median-mode/">Mean, Median and Mode in Distributions: Geometric Aspects</a></p>
+<div class="remark" style="margin-top: -1em">
+<p>The center of a distribution may refer to the mean, the weight balancing point; the median, the 50/50 breaking points; or a mode, a peak. For a geometric explanation, see <a href="https://openpress.usask.ca/introtoappliedstatsforpsych/chapter/3-1-central-tendency-mean-median-mode/">Mean, Median and Mode in Distributions: Geometric Aspects</a></p>
 </div>
 <hr />
 <h2 id="dot-plots"><span class="section-number">2.</span> Dot Plots</h2>
@@ -442,16 +446,13 @@ and <strong>spread</strong>. We also describe exceptions to the pattern. We call
 <p>Histograms are frequently used to describe large sets of numerical data, in particular, data of a continuous variable.</p>
 </li>
 <li>
-<p>A <strong>histogram</strong> consists of a horizontal axis, a vertical axis and adjoining vertical bars. All bars have the same width. The horizontal axis is labeled and scaled so that the width of a bar is 1. The vertical axis is then scaled accordingly so that the area of the bar is the frequency or the relative frequency.</p>
+<p>A <strong>histogram</strong> consists of a horizontal axis, a vertical axis and adjoining vertical bars. The horizontal axis is labeled to break data values into <strong>bins (classes)</strong>. The vertical axis is then scaled accordingly so that the area of a bar is the frequency or the relative frequency of values in the bin.</p>
 </li>
 <li>
-<p>To construct a histogram, we need to decide boundary of bars which forms intervals, called bins or classes and find the <strong>frequency</strong> of values in each bin.</p>
+<p>To construct a histogram, we need to decide boundary of bars which forms intervals, called <strong>bins or classes</strong> and find the <strong>frequency</strong> of values in each bin.</p>
 </li>
 <li>
-<p>A <strong>frequency distribution</strong> is a table which contains bins, frequencies and <strong>relative frequencies</strong> which are proportions (percentage) defined by the formula
-$$
-\text{Relative frequency} =\frac{\text{Class frequency}}{\text{Sample size}}.
-$$</p>
+<p>A <strong>frequency distribution</strong> is a table which contains bins, frequencies and <strong>relative frequencies</strong> which are proportions (percentage) defined by the formula \(\text{Relative frequency} =\dfrac{\text{Class frequency}}{\text{Sample size}}\).</p>
 </li>
 </ul>
 <hr />
@@ -479,15 +480,9 @@ $$</p>
 <hr />
 <h2 id="conventions-on-constructing-bins"><span class="section-number">6.</span> Conventions on Constructing Bins</h2>
 <ul>
-<li>
-<p>Textbook convention for a continuous variable: Take an appropriate bin width, take the first lower bin as the minimum, and then take left closed and right opened intervals as bins.</p>
-</li>
-<li>
-<p>Textbook convention for a discrete variable: Take an appropriate bin width and take the first lower bin limit to be a value slightly smaller than the minimum minus of the data set.</p>
-</li>
-<li>
-<p>Excel convention (roughly): take left opened and right closed intervals.</p>
-</li>
+<li>For a continuous variable: Take an appropriate bin width, take the first lower bin as the minimum, and then take left closed and right opened intervals as bins.</li>
+<li>For a discrete variable: Take an appropriate bin width and take the first lower bin limit to be a value slightly smaller than the minimum minus of the data set.</li>
+<li>Excel convention (roughly): take left opened and right closed intervals.</li>
 </ul>
 <div class="remark">
 <ol>
@@ -505,15 +500,18 @@ $$</p>
 </div>
 <p><strong>Solution:</strong></p>
 <ul>
-<li>Find the range using \(\text{Range}=\text{maximum}-\text{minimum}\). In this example, the minimum is \(10.4\), the maximum is \(33.9\), and the range is \(33.9-10.4=23.5\).</li>
-<li>The bin width can be taken between \(\frac{\mathrm{range}}{k}\) and \(\frac{\mathrm{range}}{k-1}\), where \(k\) is the number of bins. In this example, we may take the bin width as \(3.4\) which is between \(\frac{23.5}{7}\approx 3.357\) and \(\frac{23.5}{7-1}\approx 3.917\).</li>
-<li>Take the first lower bin limit as the minimum \(10.4\). Add the bin width \(3.4\) recursively to get all lower bin limits: 10.4, 13.8, 17.2, 20.6, 24, 27.4, 30.8. The upper limits can be taken as 13.8, 17.2, 20.6, 24, 27.4, 30.8, 34.2.</li>
+<li>Find the range using \(\text{Range}=\text{maximum}-\text{minimum}\). Here, the minimum is \(10.4\), the maximum is \(33.9\), and the range is \(33.9-10.4=23.5\).</li>
+<li>For \(k\) bins, the bin width can be taken between \(\frac{\mathrm{range}}{k}\) and \(\frac{\mathrm{range}}{k-1}\). Here, we take the bin width as \(3.4\) which is between \(\frac{23.5}{7}\approx 3.357\) and \(\frac{23.5}{7-1}\approx 3.917\).</li>
+<li>Take the first lower bin limit as the minimum \(10.4\). Add the bin width \(3.4\) recursively to get all lower bin limits: 10.4, 13.8, 17.2, 20.6, 24, 27.4, 30.8.</li>
 </ul>
 <hr />
 <h2 id="example-histogram-of-mpg-2-of-3"><span class="section-number">8.</span> Example: Histogram of mpg (2 of 3)</h2>
 <!-- 
 **Solution:**(continued) -->
-<div class="row">
+<ul>
+<li>The upper limits can be taken as 13.8, 17.2, 20.6, 24, 27.4, 30.8, 34.2.</li>
+</ul>
+<div class="row" style="margin:-0.5em;">
 <div class="pull-left">
 <ul>
 <li>Construct a frequency distribution table</li>
@@ -580,20 +578,38 @@ $$</p>
 <li>The right tail is longer.</li>
 </ul>
 <hr />
-<h2 id="some-remarks-on-histogram"><span class="section-number">10.</span> Some Remarks on Histogram</h2>
+<h2 id="some-remarks-on-histogram-1-of-2"><span class="section-number">10.</span> Some Remarks on Histogram (1 of 2)</h2>
 <ul>
-<li>There should be <em>no space</em> between any two bars.</li>
-<li>The area of a bar represents the relative frequency for the bin. Equivalently,
-$$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)}\times \text{bar width}.$$</li>
-<li>The vertical axis is called the density scale.</li>
-<li>For continuous variables, unequal bin width may also be used.</li>
+<li>
+<p>There should be <em>no space</em> between any two bars.</p>
+</li>
+<li>
+<p>The area of a bar represents the relative frequency for the bin. Equivalently,
+$$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)}\times \text{bar width}.$$</p>
+</li>
+<li>
+<p>The vertical axis is called the density scale.</p>
+</li>
+<li>
+<p>For continuous variables, unequal bin width may also be used.</p>
+</li>
 </ul>
+<hr />
+<h2 id="some-remarks-on-histogram-2-of-2"><span class="section-number">11.</span> Some Remarks on Histogram (2 of 2)</h2>
 <!-- - Avoid histograms with large bin widths and small bin widths. [See Histogram 2 of 4 in Concepts in Statistics for an interactive demonstration](https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/histograms-2-of-4/) -->
-<!-- - The the bin width for $k$ bins, one convention is to choose a number with the same or one more decimal place that is greater than $\frac{\text{range}}{k}$, but no more than $\frac{\text{range}}{k-1}$ as the bin width. -->
 <ul>
-<li>To determine the number of bins, there are practical rules. For example, the Rice rule takes the bin number \(k\) as the <strong>round up of \(n^{1 / 3}\)</strong>. The webpage <a href="https://www.statisticshowto.datasciencecentral.com/choose-bin-sizes-statistics/">Statistic How To</a> has more information.</li>
-<li>The convenient starting point can be a value smaller but not too much smaller than the minimum.</li>
-<li>The bin width can significantly affect the shape of the histogram. It is better to experiment with different choices.</li>
+<li>
+<p>The the bin width for \(k\) bins, one convention is to choose a number with the same or one more decimal place that is greater than \(\frac{\text{range}}{k}\), but no more than \(\frac{\text{range}}{k-1}\) as the bin width.</p>
+</li>
+<li>
+<p>To determine the number of bins, there are practical rules. For example, the Rice rule takes the bin number \(k\) as the <strong>round up of \(n^{1 / 3}\)</strong>. The webpage <a href="https://www.statisticshowto.datasciencecentral.com/choose-bin-sizes-statistics/">Statistic How To</a> has more information.</p>
+</li>
+<li>
+<p>The convenient starting point can be a value smaller but not too much smaller than the minimum.</p>
+</li>
+<li>
+<p>The bin width can significantly affect the shape of the histogram. It is better to experiment with different choices.</p>
+</li>
 </ul>
 <hr />
 <h2 id="practice-petal-lengths-of-irises" class="unnumbered">Practice: Petal Lengths of Irises</h2>
@@ -602,7 +618,7 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 <p>1.4, 5.4, 1.2, 4.5, 6.1, 1.5, 4.7, 1.4, 5.6, 5.2, 1.3, 6.3, 5.1, 5.6, 5, 6.7, 1.4, 1.6, 1.5, 1.5</p>
 </div>
 <hr />
-<h2 id="stem-and-leaf-plots"><span class="section-number">11.</span> Stem-and-Leaf Plots</h2>
+<h2 id="stem-and-leaf-plots"><span class="section-number">12.</span> Stem-and-Leaf Plots</h2>
 <p>A stem-and-leaf plot is a kind of histogram that lets you see all your data instead of just class frequency information. The leading digit(s) form stems and the “tailing digits” form leaves.</p>
 <p><strong>How to Construct</strong></p>
 <ul>
@@ -612,7 +628,7 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 <li>Indicate the units for stems and leaves someplace in the display.</li>
 </ul>
 <hr />
-<h2 id="example-heights-of-cherry-trees"><span class="section-number">12.</span> Example: Heights of Cherry Trees</h2>
+<h2 id="example-heights-of-cherry-trees"><span class="section-number">13.</span> Example: Heights of Cherry Trees</h2>
 <p>Consider the following data of heights of 10 cherry trees. Create a stem-and-leaf plot and describe the distribution.</p>
 <div class="center">
 <p>1.4, 5.4, 1.2, 4.5, 6.1, 1.5, 4.7, 1.4, 5.6, 5.2, 1.3, 6.3, 5.1, 5.6, 5, 6.7, 1.4, 1.6, 1.5, 1.5</p>
@@ -629,7 +645,7 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 </code></pre>
 </div>
 <hr />
-<h2 id="common-descriptions-of-shape-distribution"><span class="section-number">13.</span> Common Descriptions of Shape Distribution</h2>
+<h2 id="common-descriptions-of-shape-distribution"><span class="section-number">14.</span> Common Descriptions of Shape Distribution</h2>
 <ul>
 <li>
 <p><strong>Right skewed</strong> (or reverse \(J\)-shaped): A right-skewed distribution has a lot of data at lower variable values. (Example: the histogram example.)</p>
@@ -660,7 +676,7 @@ data for each variable value.</p>
 <p>Source: <a href="https://stats.libretexts.org/Bookshelves/Introductory_Statistics">Example 2.7.1, OpenStax Introductory Statistics</a></p>
 </div>
 <hr />
-<h2 id="measure-of-centers"><span class="section-number">14.</span> Measure of Centers</h2>
+<h2 id="measure-of-centers"><span class="section-number">15.</span> Measure of Centers</h2>
 <ul>
 <li>
 <p><strong>Mean</strong>: The mean is the average, this is the quotient of the total sum by the total number.</p>
@@ -683,7 +699,7 @@ the data when all the values are listed in order. The median divides the data in
 </li>
 </ul>
 <hr />
-<h2 id="mean-and-median-for-distributions-in-different-shapes"><span class="section-number">15.</span> Mean and Median for Distributions in Different Shapes</h2>
+<h2 id="mean-and-median-for-distributions-in-different-shapes"><span class="section-number">16.</span> Mean and Median for Distributions in Different Shapes</h2>
 <iframe src="https://istats.shinyapps.io/MeanvsMedian/" width="100%" height="550px" data-external="1"></iframe>
 <div class="footmark">
 <p>Source: <a href="https://istats.shinyapps.io/MeanvsMedian/">https://istats.shinyapps.io/MeanvsMedian/</a></p>
@@ -702,7 +718,7 @@ the data when all the values are listed in order. The median divides the data in
 <p><em>The red line is over the median and the blue line is over the mean.</em></p>
 </div>
 <hr />
-<h2 id="frequency-distribution-for-categorical-data"><span class="section-number">16.</span> Frequency Distribution for Categorical Data</h2>
+<h2 id="frequency-distribution-for-categorical-data"><span class="section-number">17.</span> Frequency Distribution for Categorical Data</h2>
 <ul>
 <li>
 <p>A <strong>frequency distribution for categorical data</strong> is a table that displays the possible categories along with the associated frequencies and/or relative frequencies.</p>
@@ -718,7 +734,7 @@ the data when all the values are listed in order. The median divides the data in
 </li>
 </ul>
 <hr />
-<h2 id="visualization-of-categorical-data"><span class="section-number">17.</span> Visualization of Categorical Data</h2>
+<h2 id="visualization-of-categorical-data"><span class="section-number">18.</span> Visualization of Categorical Data</h2>
 <ul>
 <li>
 <p>A <strong>bar chart</strong> consists of bars (rectangles), each represent a category and the area of each bar is constantly proportional to the relative frequency of that category.</p>
@@ -731,7 +747,7 @@ the data when all the values are listed in order. The median divides the data in
 </li>
 </ul>
 <hr />
-<h2 id="example-distribution-of-majors-1-of-2"><span class="section-number">18.</span> Example: Distribution of Majors (1 of 2)</h2>
+<h2 id="example-distribution-of-majors-1-of-2"><span class="section-number">19.</span> Example: Distribution of Majors (1 of 2)</h2>
 <div class="row">
 <div class="pull-left">
 <p>The counts of majors of 100 students in a sample are shown in the table on the right. Visualize the data using a bar, pie and stacked bar chart.</p>
@@ -798,7 +814,7 @@ the data when all the values are listed in order. The median divides the data in
 </table>
 </div>
 <hr />
-<h2 id="example-distribution-of-majors-2-of-2"><span class="section-number">19.</span> Example: Distribution of Majors (2 of 2)</h2>
+<h2 id="example-distribution-of-majors-2-of-2"><span class="section-number">20.</span> Example: Distribution of Majors (2 of 2)</h2>
 <p>The following are the charts created in Excel.</p>
 <div class="row">
 <div class="center" width=32%>
@@ -849,7 +865,7 @@ the data when all the values are listed in order. The median divides the data in
 <p>Lab Instructions in Excel</p>
 </div>
 <hr />
-<h2 id="frequency-tables"><span class="section-number">20.</span> Frequency Tables</h2>
+<h2 id="frequency-tables"><span class="section-number">21.</span> Frequency Tables</h2>
 <p>In Excel, to create a frequency table for a data array, we need a bin array. The values in a bin array in Excel are the first \(k-1\) upper bin limits. For example, if the bin array consists of 30, 40, and 50, then the bins will be \([\text{min},30]\), \((30,40]\), \((40, 50]\), \((50, \infty)\).</p>
 <p>With a data array and a bin array, the Excel function <code>FREQUENCY(data_array, bins_array)</code> can be used to create a frequency table.</p>
 <p>Suppose the data set is in <code>column A</code> and the bin array is in <code>column B</code>.</p>
@@ -862,7 +878,7 @@ the data when all the values are listed in order. The median divides the data in
 </ol>
 <p>Hit the <code>Enter</code> (<code>Ctrl + Enter</code> in older versions), you will get a frequency table.</p>
 <hr />
-<h2 id="charts-in-excel"><span class="section-number">21.</span> Charts in Excel</h2>
+<h2 id="charts-in-excel"><span class="section-number">22.</span> Charts in Excel</h2>
 <p>Excel has many built-in chart functions. To create a charts,</p>
 <ol>
 <li>Select the data array/table</li>
@@ -870,7 +886,7 @@ the data when all the values are listed in order. The median divides the data in
 </ol>
 <p>The appearance of chart can be changed after being created.</p>
 <hr />
-<h2 id="histogram-1-of-2"><span class="section-number">22.</span> Histogram (1 of 2)</h2>
+<h2 id="histogram-1-of-2"><span class="section-number">23.</span> Histogram (1 of 2)</h2>
 <ol>
 <li>
 <p>Select the data</p>
@@ -890,7 +906,7 @@ the data when all the values are listed in order. The median divides the data in
 </li>
 </ol>
 <hr />
-<h2 id="histogram-2-of-2"><span class="section-number">23.</span> Histogram (2 of 2)</h2>
+<h2 id="histogram-2-of-2"><span class="section-number">24.</span> Histogram (2 of 2)</h2>
 <div class="remark">
 <ul>
 <li>
@@ -908,7 +924,7 @@ the data when all the values are listed in order. The median divides the data in
 </ul>
 </div>
 <hr />
-<h2 id="the-analysis-toolpak"><span class="section-number">24.</span> The <code>Analysis ToolPak</code></h2>
+<h2 id="the-analysis-toolpak"><span class="section-number">25.</span> The <code>Analysis ToolPak</code></h2>
 <p>Suppose your data set is in <code>Column A</code> in Excel.</p>
 <ul>
 <li>
@@ -931,7 +947,7 @@ the data when all the values are listed in order. The median divides the data in
 </li>
 </ul>
 <hr />
-<h2 id="dotplot"><span class="section-number">25.</span> Dotplot</h2>
+<h2 id="dotplot"><span class="section-number">26.</span> Dotplot</h2>
 <ul>
 <li>
 <p>If you have a raw data set, follow the same procedure a creating a histogram but with a bin width equal the same accuracy of the data. For example, if you data set consists of integers, then choose 1 as the bin-width.</p>
@@ -968,16 +984,16 @@ the data when all the values are listed in order. The median divides the data in
 <p>Data is taken from Example 3.15 in <a href="https://faculty.cengage.com/titles/9781337793612">Introduction to Statistics and Data Analysis</a>.</p>
 </div>
 <hr />
-<h2 id="lab-practice-sleep-deficit-and-school-start-time"><span class="section-number">26.</span> Lab Practice: Sleep Deficit and School Start Time</h2>
+<h2 id="lab-practice-sleep-deficit-and-school-start-time"><span class="section-number">27.</span> Lab Practice: Sleep Deficit and School Start Time</h2>
 <div class="row">
-<div class="pull-left">
+<div style="width: 30%;">
 <p>Consider the frequency table on the right.</p>
 <ol>
 <li>Draw histograms for the distribution of sleep deficit for morning start schools and afternoon start schools.</li>
 <li>What conclusion can you draw from the histograms?</li>
 </ol>
 </div>
-<div class="pull-right">
+<div style="width: 68%;">
 <table>
 <thead>
 <tr>
@@ -989,8 +1005,8 @@ the data when all the values are listed in order. The median divides the data in
 <tbody>
 <tr>
 <td>(in hours)</td>
-<td>Relative Frequency</td>
-<td>Relative Frequency</td>
+<td>Rel. Freq.</td>
+<td>Rel Freq.</td>
 </tr>
 <tr>
 <td>−6 to &lt; −4</td>
@@ -1034,6 +1050,7 @@ the data when all the values are listed in order. The median divides the data in
 <div class="footmark">
 <p>Source: Example 3.16 in Textbook <a href="https://www.cengage.com/c/introduction-to-statistics-and-data-analysis-6e-peck/9781337793612PF/?filterBy=Student">Introduction to Statistics and Data Analysis | 6th Edition</a>.</p>
 </div>
+<hr />
 <h2 id="lab-practice-distribution-of-random-numbers" class="unnumbered">Lab Practice: Distribution of Random Numbers</h2>
 <p>Use Excel to complete the following tasks:</p>
 <ol>
@@ -1196,5 +1213,31 @@ the data when all the values are listed in order. The median divides the data in
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
 <script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/key-buttons.min.js,npm/@xiee/utils/js/ external-link.min.js" defer></script>
+<script>
+// Function to format the current date and time as "MM/DD/YYYY HH:MM:SS" format
+function getCurrentDateTime() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1);//.padStart(2, '0');
+  const day = String(now.getDate());//.padStart(2, '0');
+
+  return `${month}/${day}/${year}`;
+}
+
+// Function to add the paragraph at the bottom of the page
+function addLastUpdated() {
+  const DataDiv = document.getElementsByClassName('date');
+  
+  if (DataDiv.length > 0) {
+    const Span = document.createElement('span');
+    const lastUpdatedTime = getCurrentDateTime();
+    Span.textContent = `Last updated: ${lastUpdatedTime}`;
+    Span.style.cssText += 'font: 0.7em monospace; text-align: center; bottom: 0; left: 6%; position: absolute; color: #6296ff;';
+    DataDiv[0].insertAdjacentElement('afterend', Span);
+  }
+}
+
+window.addEventListener('load', addLastUpdated);
+</script>
 </body>
 </html>
