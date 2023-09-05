@@ -19,6 +19,9 @@ output:
 ---
 
 
+```
+## data.table 1.14.8 using 3 threads (see ?getDTthreads).  Latest news: r-datatable.com
+```
 
 ## Learning Goals {.unnumbered}
 
@@ -115,7 +118,7 @@ The data set contains the heights of 20 Black Cherry Trees. Create a dot plot to
 
 ::: {.remark}
 
-1. Histograms are usually used for continuous data. Variables that take discrete numeric values can be plotted with either a bar chart or histogram, depending on context.
+1. Histograms are usually used for continuous data. For discrete numberical variables, using a bar chart or a histogram depends on context.
 2. There are also different conventions to determine the number of bins or bin width.
 3. The choice of bin width (or the number of bins) has a more significant impact on the histogram than the method used to determine bin limits.
 4. It's often helpful to visualize the data using different binning strategies.
@@ -194,6 +197,21 @@ The following data set show the mpg (mile per gallon) of $30$ cars.  Construct a
 - Graph the histogram using the frequency distribution table.
 
 ::: {.center}
+
+```
+# Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+# i Please use `linewidth` instead.
+# This warning is displayed once every 8 hours.
+# Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
+```
+
+```
+# Warning: The dot-dot notation (`..count..`) was deprecated in ggplot2 3.4.0.
+# i Please use `after_stat(count)` instead.
+# This warning is displayed once every 8 hours.
+# Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
+```
+
 <img src="Topic-2-Graphical-Descriptions_files/figure-html/unnamed-chunk-7-1.png" width="648" />
 :::
 
@@ -481,7 +499,7 @@ Suppose the data set is in `column A` and the bin array is in `column B`.
 4. select the bin array
 5. in the formula bar, enter `)`.
 
-Hit the `Enter` (`Ctrl + Enter` in older versions), you will get a frequency table.
+Hit the `Enter` (`Ctrl + Shift + Enter` in older versions), you will get a frequency table.
 
 ---
 
@@ -521,6 +539,7 @@ To **format the histogram chart** is similar to format a Pie chart. For example,
 - Select the **Overflow bin** checkbox and type the number, all values above this number will be added to the last bin.
 
 - Select the **Underflow bin** checkbox and type the number, all values below and equal to this number will be added to the first bin.
+
 - Histograms show the shape and the spread of numerical data. For categorical data, discrete by its definition, bar charts are usually used to represent category frequencies.
 
 :::
@@ -561,7 +580,7 @@ Suppose your data set is in `Column A` in Excel.
 
 ---
 
-## Lab ExampleL Home State Attending Rates {.unnumbered}
+## Lab Practice: Home State Attending Rates {.unnumbered}
 
 Describe the distribution of percentage of college students attending college in home states. (To be demonstrated in-class)
 
