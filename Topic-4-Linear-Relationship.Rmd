@@ -28,6 +28,7 @@ library(ggthemes)
 library(ggExtra)
 library(dplyr,warn.conflicts = FALSE)
 library(latex2exp)
+set.seed(923)
 ```
 
 ## Learning Goals
@@ -145,15 +146,49 @@ The strength of the relationship is a description of how closely the data follow
 
 ::::: {.row}
 :::: {.pull-left}
-::: {.center}
-![A picture shows a strong relationship](Figures/strong-relation.png){width="60%"}
-:::
+```{r rstong, echo=FALSE, result='asis', message=FALSE, fig.align = 'center', fig.width=7.5, fig.asp=1}
+x1  <- rnorm(n = 100, mean = 1, sd = 2)
+v1  <- rnorm(n = 100, mean = 0, sd = 3)
+m1 <- sd(v1)
+err1   <- rnorm(n=100, mean=0, sd = 1)
+y1   <- m1*(x1-mean(x1)) + err1
+dat1   <- data.frame(x=x1, y=y1)
+ggplot(dat1, aes(x=x1, y=y1)) +
+  geom_point(cex=3) +
+  geom_smooth(method=lm, se=FALSE) + 
+  theme_bw() +
+  xlab("x") +
+  ylab("y") -> g1
+cor1 <- format(round(cor(x1, y1, method="pearson"), 3), nsmall=3)
+txt1 <- paste("Stronger Relation ($r=", cor1, "$)")
+g1 + 
+  ggtitle("Stronger Relation") + 
+  # ggtitle(TeX(txt1)) + 
+  theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5, vjust = 1))
+```
 ::::
 
 :::: {.pull-right}
-::: {.center}
-![A picture shows a weaker relationship](Figures/weaker-relationship.png){width="60%"}
-:::
+```{r rweak, echo=FALSE, result='asis', message=FALSE, fig.align = 'center', fig.width=7.5, fig.asp=1}
+x2  <- x1
+v2  <- rnorm(n = 100, mean = 0, sd = 3)
+m2 <- sd(v1)
+err2   <- rnorm(n=100, mean=0, sd = 6)
+y2   <- m2*(x2-mean(x2)) + err2
+dat2   <- data.frame(x=x2, y=y2)
+ggplot(dat1, aes(x=x2, y=y2)) +
+  geom_point(cex=3) +
+  geom_smooth(method=lm, se=FALSE) + 
+  theme_bw() +
+  xlab("x") +
+  ylab("y") -> g2
+cor2 <- format(round(cor(x2, y2, method="pearson"), 3), nsmall=3)
+txt2 <- paste("Weaker Relation ($r=", cor2, "$)")
+g2 +   
+  ggtitle("Weaker Relation") + 
+  # ggtitle(TeX(txt2)) + 
+  theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5, vjust = 1))
+```
 ::::
 :::::
 
@@ -161,11 +196,28 @@ The strength of the relationship is a description of how closely the data follow
 
 ## Outliers
 
-- Outliers are points that deviate from the pattern of the relationship.
+Outliers are points that deviate from the pattern of the relationship.
 
-::: {.center}
-![A picture shows an outlier to a relationship](Figures/outlier-in-relationship.png){width="40%"}
-:::
+```{r outlier, echo=FALSE, result='asis', message=FALSE, fig.align = 'center', fig.width=7.5, fig.asp=1}
+xx  <- rnorm(n = 100, mean = 0, sd = 1.5)
+yy  <- (xx-mean(xx)) + rnorm(n = 100, mean = 0, sd = 0.2)
+outlier_index <- sample(1:100, 1)
+yy[outlier_index] <- yy[outlier_index] + 12
+
+dat   <- data.frame(x=xx, y=yy)
+ggplot(dat, aes(x=xx, y=yy)) +
+  geom_point(cex=3) +
+  geom_smooth(method=lm, se=FALSE) + 
+  theme_bw() +
+  xlab("x") +
+  ylab("y") -> outlier
+cor <- format(round(cor(xx, yy, method="pearson"), 3), nsmall=3)
+# txt <- paste("$r=", cor, "$")
+outlier + 
+  ggtitle("Outlier Affects Regression") + 
+  # ggtitle(TeX(txt)) + 
+  theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5, vjust = 1))
+```
 
 ---
 
@@ -335,7 +387,7 @@ Describe the relationship between Midterm 1 and Final for a sample of 10 student
 
 **Solution:** First we create a scatterplot.
 
-```{r echo=FALSE, result='asis', message=FALSE, fig.align = 'center', fig.width=4, fig.asp=1}
+```{r cor_grade, echo=FALSE, result='asis', message=FALSE, fig.align = 'center', fig.width=4, fig.asp=1}
 ggplot(gradebook[20:30,c("Midterm1", "Final")], aes(x=Midterm1, y=Final)) +
   geom_point(cex=3) +
   geom_smooth(method=lm, se=FALSE) +
@@ -350,7 +402,7 @@ The $r$-value shows a **strong positive linear** relationship.
 :::
 
 ::: {style="width: 30%; margin-top=-1em;"}
-```{r echo=FALSE, result='asis'}
+```{r tab_grade, echo=FALSE, result='asis'}
 kable(gradebook[20:30,c("Midterm1", "Final")],
     format = "html",
     booktabs = TRUE,
@@ -482,7 +534,7 @@ The following sample is taken from data about the Old Faithful geyser.
 ::::: {.row}
 :::: {.pull-left}
 ::: {.center}
-```{r echo=FALSE, result='asis'}
+```{r tab_Geyser, echo=FALSE, result='asis'}
 spring1 <- faithful[12:16, c("eruptions", "waiting")]
 spring2 <- faithful[17:21, c("eruptions", "waiting")]
 kable(cbind(spring1,spring2),
@@ -498,7 +550,7 @@ kable(cbind(spring1,spring2),
 ::::
 
 ::: {.pull-right}
-```{r echo=FALSE, result='asis', message=FALSE, fig.align = 'center', fig.width=5, fig.asp=1}
+```{r scatter_geyser, echo=FALSE, result='asis', message=FALSE, fig.align = 'center', fig.width=5, fig.asp=1}
 spring <- faithful[12:21, c("eruptions", "waiting")]
 ggplot(spring, aes(y=waiting, x=eruptions)) +
   geom_point(cex=3) +
@@ -577,7 +629,10 @@ One measure of the fit of a regression line is the proportion of the variation i
 Find the standard error and coefficient of determination for the data of midterm1 and final.
 
 **Solution:**
-```{r include=FALSE}
+```{r, lm_grade, include=FALSE}
+load("Data-Frames-SUNY-Concepts-in-Statistics/gradebook.rdata")
+gradebook <- rename(data)
+GradeBook <- gradebook[20:30,c("Midterm1", "Final")]
 cor_GradeBook=round(cor(GradeBook$Midterm1, GradeBook$Final),digits=3)
 model=lm(formula = Final ~ ., data=GradeBook)
 ```
@@ -592,9 +647,6 @@ The coefficient determination is $r^2=`r cor_GradeBook`^2\approx `r round(cor_Gr
 :::: {style="35%;"}
 ::: {.center}
 ```{r echo=FALSE, result='asis'}
-load("Data-Frames-SUNY-Concepts-in-Statistics/gradebook.rdata")
-gradebook <- rename(data)
-GradeBook <- gradebook[20:30,c("Midterm1", "Final")]
 kable(GradeBook,
     format = "html",
     booktabs = TRUE,

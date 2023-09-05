@@ -90,15 +90,11 @@ The strength of the relationship is a description of how closely the data follow
 
 ::::: {.row}
 :::: {.pull-left}
-::: {.center}
-![A picture shows a strong relationship](Figures/strong-relation.png){width="60%"}
-:::
+<img src="Topic-4-Linear-Relationship_files/figure-html/rstong-1.png" width="540" style="display: block; margin: auto;" />
 ::::
 
 :::: {.pull-right}
-::: {.center}
-![A picture shows a weaker relationship](Figures/weaker-relationship.png){width="60%"}
-:::
+<img src="Topic-4-Linear-Relationship_files/figure-html/rweak-1.png" width="540" style="display: block; margin: auto;" />
 ::::
 :::::
 
@@ -106,11 +102,9 @@ The strength of the relationship is a description of how closely the data follow
 
 ## Outliers
 
-- Outliers are points that deviate from the pattern of the relationship.
+Outliers are points that deviate from the pattern of the relationship.
 
-::: {.center}
-![A picture shows an outlier to a relationship](Figures/outlier-in-relationship.png){width="40%"}
-:::
+<img src="Topic-4-Linear-Relationship_files/figure-html/outlier-1.png" width="540" style="display: block; margin: auto;" />
 
 ---
 
@@ -248,7 +242,7 @@ Describe the relationship between Midterm 1 and Final for a sample of 10 student
 
 **Solution:** First we create a scatterplot.
 
-<img src="Topic-4-Linear-Relationship_files/figure-html/unnamed-chunk-2-2.png" width="288" style="display: block; margin: auto;" />
+<img src="Topic-4-Linear-Relationship_files/figure-html/cor_grade-2.png" width="288" style="display: block; margin: auto;" />
 
 Using the Excel function `CORREL(x, y)`, we find the correlation coefficient is
 $r=0.905$ .
@@ -480,7 +474,7 @@ The following sample is taken from data about the Old Faithful geyser.
 ::::
 
 ::: {.pull-right}
-<img src="Topic-4-Linear-Relationship_files/figure-html/unnamed-chunk-5-1.png" width="360" style="display: block; margin: auto;" />
+<img src="Topic-4-Linear-Relationship_files/figure-html/scatter_geyser-1.png" width="360" style="display: block; margin: auto;" />
 :::
 :::::
 
