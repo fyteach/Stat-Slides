@@ -158,7 +158,7 @@ cat(paste(sort(tail(trees$Height,20)), collapse=", "))
 
 ::: {.remark}
 
-1. Histograms are usually used for continuous data. For discrete numberical variables, using a bar chart or a histogram depends on context.
+1. Histograms are usually used for continuous data. For discrete numerical variables, using a bar chart or a histogram depends on context.
 2. There are also different conventions to determine the number of bins or bin width.
 3. The choice of bin width (or the number of bins) has a more significant impact on the histogram than the method used to determine bin limits.
 4. It's often helpful to visualize the data using different binning strategies.
@@ -214,13 +214,13 @@ kable(freq.table, align="cc")
 carshist <- head(mtcars["mpg"],30)
 ggplot(carshist, aes(x=mpg), dpi=600) +
   geom_histogram(binwidth=Bwidth,boundary=sm,
-                 fill="lightblue", col="white",size=1) +
+                 fill="lightblue", col="white",linewidth=1) +
   stat_density(aes(y=4*..count..), geom="line",
-               colour="blue", linetype="dotdash", size=1, adjust=1.2) +
+               colour="blue", linetype="dotdash", linewidth=1, adjust=1.2) +
   geom_vline(aes(xintercept=mean(mpg)),
-          color="brown", linetype="dashed", size=1) +
+          color="brown", linetype="dashed", linewidth=1) +
   geom_vline(aes(xintercept=median(mpg)),
-          color="red", linetype="dotted", size=1) +
+          color="red", linetype="dotted", linewidth=1) +
   scale_x_continuous(breaks = (head(br,-1)+br[-1])/2, labels=bins) +
   scale_y_continuous(breaks = seq(0, 9, 1)) +
   ggtitle("Histogram of Mile Per Gallon of 30 Cars") +

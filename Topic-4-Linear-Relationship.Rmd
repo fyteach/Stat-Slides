@@ -510,7 +510,7 @@ Source: [Causation and Lurking Variables in Concepts in Statistics for more exam
 
 - The regression line is unique and passes though $(\bar{x}, \bar{y})$. An equation is given by
   $$\hat{y}=m(x-\bar{x})+\bar{y}=m x+b,$$
-  where the slope is $$m=\frac{\sum(x-\bar{x})(y-\bar{y})}{\sum(x-\bar{x})^2}=r\frac{s_y}{s_x}$$ and the $y$-intercept is
+  where the slope is $m=\frac{\sum(x-\bar{x})(y-\bar{y})}{\sum(x-\bar{x})^2}=r\frac{s_y}{s_x}$ and the $y$-intercept is
   $b=\bar{y}-m\bar{x}.$
 
 ---
@@ -686,12 +686,22 @@ Lab Instruction in Excel
 
 ---
 
-## Slope, Intercept, Coefficient of Determination and Standard Error
+## Slope, Intercept, $r^2$ and $s_e$
 
 - The slope of a linear regression can be calculated by the Excel function `SLOPE()`.
 
 - The $y$-intercept of a linear regression can be calculated by the Excel function `INTERCEPT()`.
 
-- The coefficient of determination can be calculated by first finding $r$, then applying the formula `r^2`.
+- The coefficient of determination $r^2$ can be calculated by first finding $r$, then applying the formula `r^2`.
 
-- The standard error of the regression (residual standard error) can be calculated by the Excel function `STEYX()`.
+- The standard error $s_e$ of the regression (residual standard error) can be calculated by the Excel function `STEYX()`.
+
+---
+
+## Lab Practice: Annual Maximum Wind Speed {.unnumbered}
+
+The annual maximum wind speed (in meters per second) in Hong Kong for each year in a 45-year period were in the linked file [HK Max Wind Speed](HKWindSpeed.xlsx).
+
+1. Use the annual maximum wind speed data to construct a histogram.
+
+2. Describe pattern (shape, center, spread, outliers) of the histogram.
