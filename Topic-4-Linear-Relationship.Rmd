@@ -6,8 +6,8 @@ output:
   markdown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "Assets/css/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js", "Assets/js/lastupdated.js"]
+      css: [default, slides, "Assets/css/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css, heading-anchor.min.css"]
+      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "Assets/js/lastupdated.js"]
     options:
       number_sections: true
       latex_math: true
@@ -67,7 +67,7 @@ set.seed(923)
  load("Data-Frames-SUNY-Concepts-in-Statistics/gradebook.rdata")
  gradebook <- rename(data)
  ggplot(head(gradebook,20), aes(x=Midterm1, y=Final)) +
-   geom_point(cex=3) +
+   geom_point(size = 5) +
    geom_smooth(method=lm, se=FALSE) +
    theme_bw()
 ```
@@ -78,7 +78,7 @@ set.seed(923)
   
 ```{r mtcar, echo=FALSE, result='asis', message=FALSE, fig.align = 'center', fig.width=6, fig.asp=1}
 ggplot(head(mtcars,20), aes(x=wt, y=mpg)) +
-  geom_point(cex=3) +
+  geom_point(size = 5) +
   geom_smooth(method=lm, se=FALSE) +
   theme_bw()
 ```  
@@ -96,7 +96,7 @@ ggplot(head(mtcars,20), aes(x=wt, y=mpg)) +
 load("Data-Frames-SUNY-Concepts-in-Statistics/cell_phones.RData")
 cellphone <- rename(data)
 ggplot(na.omit(head(cellphone,20)), aes(x=Math, y=Verbal)) +
-  geom_point(cex=3) +
+  geom_point(size = 5) +
   geom_smooth(method=lm, se=FALSE) +
   theme_bw() +
   ggtitle("Linear Form") +
@@ -111,7 +111,7 @@ Anscombe.II.x<- c(10.0, 8.0, 13.0, 9.0, 11.0, 14.0, 6.0, 4.0, 12.0, 7.0, 5.0)
 Anscombe.II.y<- c(9.14, 8.14, 8.74, 8.77, 9.26, 8.10, 6.13, 3.10, 9.13, 7.26, 4.74)
 Anscombe.data <- data.frame(Anscombe.II.x, Anscombe.II.y)
 ggplot(Anscombe.data, aes(x=Anscombe.II.x, y=Anscombe.II.y)) +
-  geom_point(cex=3) +
+  geom_point(size = 5) +
   geom_smooth(method=loess, se=FALSE) +
   theme_bw() +
   ggtitle("Curvilinear Form") +
@@ -127,7 +127,7 @@ dat <- data.frame(cond = rep(c("A", "B"), each=10),
                   xvar = 1:10 + rnorm(20,sd=2),
                   yvar = 1:10 + rnorm(10,sd=5))
 ggplot(dat, aes(x=xvar, y=yvar)) +
-  geom_point(cex=3) +
+  geom_point(size = 5) +
   geom_smooth(method=lm, se=FALSE) +
   theme_bw()  +
   xlab("x") +
@@ -154,7 +154,7 @@ err1   <- rnorm(n=100, mean=0, sd = 1)
 y1   <- m1*(x1-mean(x1)) + err1
 dat1   <- data.frame(x=x1, y=y1)
 ggplot(dat1, aes(x=x1, y=y1)) +
-  geom_point(cex=3) +
+  geom_point(size = 5) +
   geom_smooth(method=lm, se=FALSE) + 
   theme_bw() +
   xlab("x") +
@@ -177,7 +177,7 @@ err2   <- rnorm(n=100, mean=0, sd = 6)
 y2   <- m2*(x2-mean(x2)) + err2
 dat2   <- data.frame(x=x2, y=y2)
 ggplot(dat1, aes(x=x2, y=y2)) +
-  geom_point(cex=3) +
+  geom_point(size = 5) +
   geom_smooth(method=lm, se=FALSE) + 
   theme_bw() +
   xlab("x") +
@@ -206,7 +206,7 @@ yy[outlier_index] <- yy[outlier_index] + 12
 
 dat   <- data.frame(x=xx, y=yy)
 ggplot(dat, aes(x=xx, y=yy)) +
-  geom_point(cex=3) +
+  geom_point(size = 5) +
   geom_smooth(method=lm, se=FALSE) + 
   theme_bw() +
   xlab("x") +
@@ -290,7 +290,7 @@ Anscombe.I.x<- c(10.00,8.00,13.00,9.00,11.00,14.00,6.00,4.00,12.00,7.00,5.00)
 Anscombe.I.y<- c(8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68)
 Anscombe.data <- data.frame(Anscombe.I.x, Anscombe.I.y)
 ggplot(Anscombe.data, aes(x=Anscombe.I.x, y=Anscombe.I.y)) +
-  geom_point(cex=3) +
+  geom_point(size = 5) +
   geom_smooth(method=lm, se=FALSE) + 
   geom_vline(xintercept=mean(Anscombe.data$Anscombe.I.x))+
   geom_hline(yintercept=mean(Anscombe.data$Anscombe.I.y))+
@@ -312,7 +312,7 @@ dat <- data.frame(cond = rep(c("A", "B"), each=10),
                   xvar = 1:10 + rnorm(20,sd=2),
                   yvar = 1:10 + rnorm(10,sd=5))
 p2 <- ggplot(dat, aes(x=xvar, y=yvar)) +
-  geom_point(cex=3) +
+  geom_point(size = 5) +
   theme_bw()  +
   xlab("x") +
   ylab("y") + 
@@ -389,7 +389,7 @@ Describe the relationship between Midterm 1 and Final for a sample of 10 student
 
 ```{r cor_grade, echo=FALSE, result='asis', message=FALSE, fig.align = 'center', fig.width=4, fig.asp=1}
 ggplot(gradebook[20:30,c("Midterm1", "Final")], aes(x=Midterm1, y=Final)) +
-  geom_point(cex=3) +
+  geom_point(size = 5) +
   geom_smooth(method=lm, se=FALSE) +
   theme_bw()
 ```
@@ -510,17 +510,26 @@ Source: [Causation and Lurking Variables in Concepts in Statistics for more exam
 
 - The regression line is unique and passes though $(\bar{x}, \bar{y})$. An equation is given by
   $$\hat{y}=m(x-\bar{x})+\bar{y}=m x+b,$$
-  where the slope is $$m=\frac{\sum(x-\bar{x})(y-\bar{y})}{\sum(x-\bar{x})^2}=r\frac{s_y}{s_x}$$ and the $y$-intercept is
+  where the slope is $m=\frac{\sum(x-\bar{x})(y-\bar{y})}{\sum(x-\bar{x})^2}=r\frac{s_y}{s_x}$ and the $y$-intercept is
   $b=\bar{y}-m\bar{x}.$
 
 ---
 
 ## Predication Error
 
-- The **error of a prediction** is
-  $$\text{Error}=\text{Observed}-\text{Predicted}=y-\hat{y}.$$
+- The **error of a prediction** also known as **residual** is
+  $$\text{Error}=\text{Residual}=\text{Observed}-\text{Predicted}=y-\hat{y}.$$
 
 - A prediction beyond the range of the data is called **extrapolation**.
+
+::: {.center}
+![A image of positive and negative residuals](Figures/residual.png)  
+**Positive and Negative Residuals**
+:::
+
+::: {.footmark}
+Image source: [Figure 5.14 in Introduction to Statistics and Data Analysis](https://www.cengage.com/c/introduction-to-statistics-and-data-analysis-6e-peck/9781337793612PF/?searchIsbn=9780357686522)
+:::
 
 ---
 
@@ -553,7 +562,7 @@ kable(cbind(spring1,spring2),
 ```{r scatter_geyser, echo=FALSE, result='asis', message=FALSE, fig.align = 'center', fig.width=5, fig.asp=1}
 spring <- faithful[12:21, c("eruptions", "waiting")]
 ggplot(spring, aes(y=waiting, x=eruptions)) +
-  geom_point(cex=3) +
+  geom_point(size = 5) +
   geom_smooth(method=lm, se=FALSE) +
   theme_bw()
 ```
@@ -588,7 +597,7 @@ The error is $y-\hat{y}=`r spring[10, ]$waiting`-`r ypred`=`r error=spring[10,]$
 
 ---
 
-## Residuals
+## Residual Standard Error
 
 - The prediction error is also called a **residual**. Another way to express the previous equation is $y=\hat{y}+\text{residual}$.
 - **Residual plots** are used to determine if a linear model is appropriate.
@@ -686,12 +695,22 @@ Lab Instruction in Excel
 
 ---
 
-## Slope, Intercept, Coefficient of Determination and Standard Error
+## Slope, Intercept, $r^2$ and $s_e$
 
 - The slope of a linear regression can be calculated by the Excel function `SLOPE()`.
 
 - The $y$-intercept of a linear regression can be calculated by the Excel function `INTERCEPT()`.
 
-- The coefficient of determination can be calculated by first finding $r$, then applying the formula `r^2`.
+- The coefficient of determination $r^2$ can be calculated by first finding $r$, then applying the formula `r^2`.
 
-- The standard error of the regression (residual standard error) can be calculated by the Excel function `STEYX()`.
+- The standard error $s_e$ of the regression (residual standard error) can be calculated by the Excel function `STEYX()`.
+
+---
+
+## Lab Practice: Annual Maximum Wind Speed {.unnumbered}
+
+The annual maximum wind speed (in meters per second) in Hong Kong for each year in a 45-year period were in the linked file [HK Max Wind Speed](HKWindSpeed.xlsx).
+
+1. Use the annual maximum wind speed data to construct a histogram.
+
+2. Describe pattern (shape, center, spread, outliers) of the histogram.

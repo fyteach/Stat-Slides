@@ -6,8 +6,8 @@ output:
   markdown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "Assets/css/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css"]
-      js: [slides, "Assets/js/resize.js", "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js", "Assets/js/lastupdated.js"]
+      css: [default, slides, "Assets/css/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css, heading-anchor.min.css"]
+      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "Assets/js/lastupdated.js"]
     options:
       number_sections: true
       js_math:
