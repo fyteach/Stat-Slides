@@ -382,7 +382,7 @@ iframe[src^="https://www.myopenmath.com"] {
 
 
 </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils/css/key-buttons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css,npm/@xiee/utils/css/ heading-anchor.min.css">
 </head>
 <body>
 <div class="include-before">
@@ -406,21 +406,13 @@ iframe[src^="https://www.myopenmath.com"] {
 </li>
 </ul>
 <hr />
-<h2 id="median-quartiles-interquartile-range-and-outliers"><span class="section-number">2.</span> Median, Quartiles, Interquartile Range and Outliers</h2>
+<h2 id="quartiles-interquartile-range-and-outliers"><span class="section-number">2.</span> Quartiles, Interquartile Range and Outliers</h2>
 <ul>
-<li>
-<p>The three <strong>quartiles</strong>, \(Q_1\), \(Q_2\), and \(Q_3\) are numbers in an ordered data set that divide the data set into four equal parts. The second quartile is known as the <strong>median</strong>.</p>
-</li>
-<li>
-<p><strong>Interquartile Range (IQR for short)</strong> is the measure of variation when using the median to measure center. It is defined as the difference of the third and the first quartiles: \(\text{IQR}=Q_3-Q_1\).</p>
-</li>
-<li>
-<p>When the center and the spread are measured by the median and the IQR, a value in the data is considered an <strong>outlier</strong> if the value is greater than \(Q_3 + 1.5 \cdot \text{IQR}\) or less than \(Q_1 − 1.5 \cdot \text{IQR}\).</p>
-<p><strong>Note:</strong> An outlier in this definition is also called a <strong>mild outlier</strong>. An outlier that is more extreme than \(Q_1 + 3 \cdot \text{IQR}\) or \(Q_3 - 3 \cdot \text{IQR}\) is also called <strong>extreme outlier</strong>.</p>
-</li>
-<li>
-<p>The minimum, \(Q_1\), \(Q_2\), \(Q_3\) and maximum are known as the “<strong>five-number summary</strong>” of the data set.</p>
-</li>
+<li>The <strong>second quartile</strong> \(Q_2\) of a data set is the median. The <strong>first (lower) quartiles</strong> \(Q_1\) is the median of the lower half of the data set. The <strong>third (upper) quartile</strong> \(Q_3\) is the median of the upper quartile.</li>
+<li>The <strong>Interquartile Range (IQR for short)</strong> of a data set is the difference of the third and the first quartiles: \(\text{IQR}=\text{upper quartile} - \text{lower quartile}\).</li>
+<li>An <strong>outlier</strong> is an observation that is more than \(1.5\text{IQR}\) away from the nearest quartile.</li>
+<li>An outlier is an <strong>extreme outlier</strong> if it is more than \(3\text{IQR}\) from the nearest quartile and it is a <strong>mild outlier</strong> otherwise.</li>
+<li>The minimum, \(Q_1\), \(Q_2\), \(Q_3\) and maximum are known as the “<strong>five-number summary</strong>” of the data set.</li>
 </ul>
 <!-- - The difference of maximum and minimum is called the **range**. -->
 <hr />
@@ -441,7 +433,7 @@ iframe[src^="https://www.myopenmath.com"] {
 <p>Find the median \(Q_2\): The sample size is 15. The \(Q_2\) is the 8-th value 75 in the sorted data.</p>
 </li>
 <li>
-<p>Find \(Q_1\) and \(Q_3\): \(Q_1\) is the median of the values lower that the median that is 4-th value 69. \(Q_3\) is the median of the values higher than the median that is the 4-th to the last value 79.</p>
+<p>Find \(Q_1\) and \(Q_3\): \(Q_1\) is the median of the lower half of values, that is, 4-th value 69. \(Q_3\) is the median of the upper half values, that is, the 4-th to the last value 79.</p>
 </li>
 <li>
 <p>Find the IQR: \(\text{IQR}=Q_3-Q_1=79-69=10\).</p>
@@ -472,7 +464,7 @@ iframe[src^="https://www.myopenmath.com"] {
 </li>
 </ul>
 <hr />
-<h2 id="example-box-plot-best-oscar-winners"><span class="section-number">5.</span> Example: Box Plot - Best Oscar Winners (½)</h2>
+<h2 id="example-box-plot-best-oscar-winners-1-of-2"><span class="section-number">5.</span> Example: Box Plot - Best Oscar Winners (1 of 2)</h2>
 <p>Create the boxplot for the ages of 32 best actor oscar winners (1970–2001).</p>
 <div class="center">
 <p>31, 32, 32, 33, 35, 36, 37, 37, 38, 38, 39, 40, 40, 40, 42, 42, 43, 43, 45, 45, 46, 47, 48, 48, 51, 55, 55, 56, 60, 60, 61, 76</p>
@@ -483,7 +475,7 @@ iframe[src^="https://www.myopenmath.com"] {
 <p>The quartiles are \(Q_2=42.5\), \(Q_1=37.5\), \(Q_3=49.5\).</p>
 </li>
 <li>
-<p>The interquartile range and the bounds for mild outliers are  \(\text{IQR}=12\) \(Q_1-1.5\text{IQR}= 19.5\), and \(Q_3+1.5\text{IQR}=67.5\) respectively.</p>
+<p>The interquartile range is \(\text{IQR}=12\), and the bounds for outliers are \(Q_1-1.5\text{IQR}= 19.5\) and \(Q_3+1.5\text{IQR}=67.5\).</p>
 </li>
 <li>
 <p>The smallest number that is not an outlier is 31. The largest number that is not an outlier is 61. Those two numbers bound the whiskers.</p>
@@ -493,7 +485,7 @@ iframe[src^="https://www.myopenmath.com"] {
 </li>
 </ul>
 <hr />
-<h2 id="example-box-plot-best-oscar-winners-2-2"><span class="section-number">6.</span> Example: Box Plot - Best Oscar Winners (2/2)</h2>
+<h2 id="example-box-plot-best-oscar-winners-2-of-2"><span class="section-number">6.</span> Example: Box Plot - Best Oscar Winners (2 of 2)</h2>
 <ul>
 <li>Based on the five-number summary, the boxplot is shown below.</li>
 </ul>
@@ -749,7 +741,7 @@ the following statistic will NOT change:</p>
 </ul>
 <p>For more information, see <a href="https://support.microsoft.com/en-us/office/create-a-box-and-whisker-chart-62f4219f-db4b-4754-aca8-4743f6190f0d">Create a box and whisker chart in Excel 365</a></p>
 <hr />
-<h2 id="lab-practice" class="unnumbered">Lab Practice</h2>
+<h2 id="lab-practice-speeds-of-cars" class="unnumbered">Lab Practice: Speeds of Cars</h2>
 <p>Consider the following sample that consists of speeds of 20 cars.</p>
 <div class="center">
 <p>18.7, 21, 15.8, 16.4, 17.3, 18.7, 24.4, 18.7, 22.8, 22.8, 13.3, 15.5, 32.4, 10.4, 19.2, 16.4, 24.4, 15.5, 30.4, 30.4</p>
@@ -906,7 +898,7 @@ the following statistic will NOT change:</p>
 })(document);
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
-<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/key-buttons.min.js,npm/@xiee/utils/js/ external-link.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/key-buttons.min.js,npm/@xiee/utils/js/ external-link.min.js,npm/@xiee/utils/js/ heading-anchor.min.js" defer></script>
 <script>
 // Function to format the current date and time as "MM/DD/YYYY HH:MM:SS" format
 function getCurrentDateTime() {
