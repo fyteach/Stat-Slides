@@ -1,5 +1,5 @@
 ---
-title: "Topic 2: Describing Data Graphical"
+title: "Topic 2: Describing Data Graphically"
 author: "Fei Ye"
 date: '`r format(Sys.time(), "%B %Y")`'
 output:
@@ -116,7 +116,7 @@ The data set contains the heights of 20 Black Cherry Trees. Create a dot plot to
 
 ::: {.center}
 ```{r echo=FALSE, results = 'asis'} 
-cat(paste(sort(tail(trees$Height,20)), collapse=", "))
+cat(paste(sort(sample(trees$Height,20)), collapse=", "))
 ```
 :::
 
@@ -142,26 +142,26 @@ cat(paste(sort(tail(trees$Height,20)), collapse=", "))
 
 - The difference between the maximum and the minimum data entries is called the **range**.
 
-- The relation between number of bins, bin width, and the range is roughly $\text{number of bins}\times \text{bin width}$.
+- The range is roughly, indeed slightly smaller than, $\text{number of bins}\times \text{bin width}$.
   
 - The **midpoint** of a bin is the half of the sum of the lower and upper limits of the bin.
 
-- Bin limits should be chosen so that each value of the data is in exactly one bin. There are different conventions to construct bins.
+- Bin limits should be chosen so that each value of the data is in exactly one bin.
 
 ---
 
 ## Conventions on Constructing Bins
 
-- For a continuous variable: Take an appropriate bin width, take the first lower bin as the minimum, and then take left closed and right opened intervals as bins.
-- For a discrete variable: Take an appropriate bin width and take the first lower bin limit to be a value slightly smaller than the minimum minus of the data set.
+- For a continuous variable: take an appropriate bin width, take the first lower bin as the minimum, and then take left closed and right opened intervals as bins.
+- For a discrete variable: take an appropriate bin width and take the first lower bin limit to be a value slightly smaller than the minimum minus of the data set.
 - Excel convention (roughly): take left opened and right closed intervals.
 
 ::: {.remark}
 
-1. Histograms are usually used for continuous data. For discrete numerical variables, using a bar chart or a histogram depends on context.
-2. There are also different conventions to determine the number of bins or bin width.
-3. The choice of bin width (or the number of bins) has a more significant impact on the histogram than the method used to determine bin limits.
-4. It's often helpful to visualize the data using different binning strategies.
+1. Histograms are usually used for continuous data. For discrete numerical variables, the using of a bar chart or a histogram depends on context.
+2. The choice of bin width (or the number of bins) has a more significant impact on the histogram than the method used to determine bin limits.
+3. It's often helpful to visualize the data using different binning strategies.
+<!-- 4. There are also different conventions to determine the number of bins or bin width. -->
 
 :::
 
@@ -169,13 +169,15 @@ cat(paste(sort(tail(trees$Height,20)), collapse=", "))
 
 ## Example: Histogram of mpg (1 of 3)
 
-The following data set show the mpg (mile per gallon) of $`r SampleSize<-30`30$ cars.  Construct a frequency table and frequency histogram for the data set using $`r Nbins<-ceiling(2*SampleSize^(1/3)); Nbins`$ bins. What can be concluded from the histogram?
+The following data set show the mpg (mile per gallon) of $`r SampleSize<-30; SampleSize`$ cars.  Construct a frequency table and frequency histogram for the data set using $`r Nbins<-ceiling(2*SampleSize^(1/3)); Nbins`$ bins. What can be concluded from the histogram?
 
 ::: {.center}
+
 ```{r echo=FALSE, results = 'asis'}
 cars <- head(mtcars$mpg,SampleSize)
 cat(paste(cars, collapse=", "))
 ```
+
 :::
 
 **Solution:**
@@ -249,9 +251,13 @@ The blue dot-dash curve is called the density curve, the brown dashed line is ov
 The following information can be obtained from the histogram.
 
 - The histogram has a single peak within the interval 13.8 and 20.6.
-- Marjority of cars in the sample has mpg lower than 20.6.
+
+- Majority of cars in the sample has mpg lower than 20.6.
+
 - The mean mpg is around 20.6.
+
 - The range of the mpg is between 13.8 and 34.2.
+
 - The right tail is longer.
 
 ---
@@ -271,10 +277,9 @@ The following information can be obtained from the histogram.
 
 ## Some Remarks on Histogram (2 of 2)
 
-<!-- - Avoid histograms with large bin widths and small bin widths. [See Histogram 2 of 4 in Concepts in Statistics for an interactive demonstration](https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/histograms-2-of-4/) -->
-- The the bin width for $k$ bins, one convention is to choose a number with the same or one more decimal place that is greater than $\frac{\text{range}}{k}$, but no more than $\frac{\text{range}}{k-1}$ as the bin width.
+- One convention about the bin width for $k$ bins is to choose a number with the same or one more decimal place that is greater than $\frac{\text{range}}{k}$, but no more than $\frac{\text{range}}{k-1}$ as the bin width.
 
-- To determine the number of bins, there are practical rules. For example, the Rice rule takes the bin number $k$ as the **round up of $n^{1 / 3}$**. The webpage [Statistic How To](https://www.statisticshowto.datasciencecentral.com/choose-bin-sizes-statistics/) has more information.
+- To determine the number of bins, there are practical rules. For example, the Rice rule takes the bin number $k$ as the **round up of $n^{1 / 3}$**. The webpage [Statistic How To](https://www.statisticshowto.com/choose-bin-sizes-statistics/) has more information.
 
 - The convenient starting point can be a value smaller but not too much smaller than the minimum.
 
@@ -301,7 +306,7 @@ A stem-and-leaf plot is a kind of histogram that lets you see all your data inst
 
 **How to Construct**
 
-- Select one or more leading digits for the stem values. The trailing digits become the leaves. Trailing digits for the same stem may further break into two leaves, L or H.
+- Select one or more leading digits for the stem values. The trailing digits become the leaves. **Trailing digits for the same stem may further break into two leaves, lower or higher.**
 - List possible stem values in a vertical column.
 - Record the leaf for every observation beside the corresponding stem value.
 - Indicate the units for stems and leaves someplace in the display.
@@ -310,40 +315,40 @@ A stem-and-leaf plot is a kind of histogram that lets you see all your data inst
 
 ## Example: Heights of Cherry Trees
 
-Consider the following data of heights of 10 cherry trees. Create a stem-and-leaf plot and describe the distribution.
+Consider the following data of heights of 15 cherry trees. Create a stem-and-leaf plot and describe the distribution.
 
 ::: {.center}
-```{r echo=FALSE, results = 'asis'} 
-cat(paste(irispetal, collapse=", "))
+```{r echo=FALSE, results = 'asis'}
+cherrytrees <- sample(trees$Height,15)
+cat(paste(sort(cherrytrees), collapse=", "))
 ```
 :::
 
-**Solution:**  
-::: {style="width:45%; padding: 0 auto; margin-top: -1em;"}
+**Solution:**
 
-```{r echo=FALSE, comment=NA}
-out <- capture.output(stem(irispetal, scale = 2))
-stemout <- paste(out[nzchar(out)], collapse="\n")
-cat(stemout, sep="\n")
+:::: {style="display: flex; align-items: center; justify-content: center;"}
 
+```{r stem1, echo=FALSE, comment=NA}
+out1 <- capture.output(stem(cherrytrees, scale = 0.5))
+stemout1 <- paste(out1[nzchar(out1)], collapse="\n")
+cat(stemout1, sep="\n")
 ```
-:::
+
+::::
 
 ---
 
 ## Common Descriptions of Shape Distribution
 
-- **Right skewed** (or reverse $J$-shaped): A right-skewed distribution has a lot of data at lower variable values. (Example: the histogram example.)
+- **Right skewed** (or reverse $J$-shaped): A right-skewed distribution has a lot of data at lower variable values.
 
 - **Left skewed** (or $J$-shaped): A left skewed distribution has a lot of data at higher variable values with smaller amounts of data at lower variable values.
 
-- **Symmetric with a central peak (or bell-shaped)**: A
-central peak with a tail in both directions. A bell-shaped distribution has a lot of data in the center with smaller amounts of data tapering off in each direction. (Example: the petal length example.)
+- **Symmetric with a central peak (or bell-shaped)**: A central peak with a tail in both directions. A bell-shaped distribution has a lot of data in the center with smaller amounts of data tapering off in each direction.
 
-- **Uniform**: A rectangular shape, the same amount of
-data for each variable value.
+- **Uniform**: A rectangular shape, the same amount of data for each variable value.
 
-- For examples of left skewed and uniform distributions, please see the example in [dotpolt 2 of 2 in Concepts in Statistics](https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/dotplots-2-of-2/)
+- For examples of left skewed and uniform distributions, please see the example in [Dotplot 2 of 2 in Concepts in Statistics](https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/dotplots-2-of-2/)
 
 ---
 
@@ -365,20 +370,18 @@ Source: [Example 2.7.1, OpenStax Introductory Statistics](https://stats.libretex
 
 ---
 
-## Measure of Centers
+## Centers of a Data Set
 
 - **Mean**: The mean is the average, this is the quotient of the total sum by the total number.
+- **Median**: The median is a value that separates the data set into the lower half set and the upper half set.
+- **Mode**: The mode is the data value that has the most occurrence in the data set.
 
-- **Median**: The median is the middle of
-the data when all the values are listed in order. The median divides the data into two equal-sized groups.
+::: {.remark}
 
-- **Mode**: The mode is the value that has the most occurrence in the data set.
+- When the distribution is **approximately symmetric** with a single central peak, the *mean* is usually used to measure the center. The *median* is used as a measure of center for all *other cases*.
+- Before analyzing the center, it's better to graph the data and determine the shape of the distribution.
 
-- Use the *mean* as a measure of center only for distributions that are *reasonably symmetric* with a central peak. When outliers are present, the mean is not a good choice.
-
-- Use the *median* as a measure of center for all *other cases*.
-  
-- We need to use a graph to determine the shape of the distribution. So graph the data first.
+:::
 
 ---
 
@@ -540,13 +543,13 @@ With a data array and a bin array, the Excel function `FREQUENCY(data_array, bin
 
 Suppose the data set is in `column A` and the bin array is in `column B`.
 
-1. In `column C`, select a column array of $k$ cells, then enter `=FEQUENCY(` 
+1. In `column C`, select a column array of $k$ cells, then enter `=FEQUENCY(`
 2. select the data values
 3. in the formula bar, enter the symbol comma `,`
 4. select the bin array
 5. in the formula bar, enter `)`.
 
-Hit the `Enter` (`Ctrl + Shift + Enter` in older versions), you will get a frequency table.
+Hit `Enter` (`Ctrl + Shift + Enter` in older versions), you will get a frequency table.
 
 ---
 
@@ -607,7 +610,7 @@ Suppose your data set is in `Column A` in Excel.
 
 - Check Chart Output and hit OK. You will see the frequency table and histogram in Sheet 2.
 
-- Change the gap between bars. Right click a bar and choose `Format Data Series...` and change the `Gap Width` to 2% or 1%.
+- Change the gap between bars. Right-click a bar and choose `Format Data Series...` and change the `Gap Width` to 2% or 1%.
 
 ---
 
@@ -623,7 +626,7 @@ Suppose your data set is in `Column A` in Excel.
   
   - Click the button `Oneline...` and input *dot* in `search bing` and hit enter.
   
-  - Select a picture you like and you will get a dot-plot.
+  - Select a picture you like, and you will get a dot-plot.
 
 ---
 

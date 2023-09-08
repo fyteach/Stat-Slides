@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Topic 2: Describing Data Graphical</title>
+<title>Topic 2: Describing Data Graphically</title>
 <style type="text/css">
 body {
   font-family: sans-serif;
@@ -388,7 +388,7 @@ iframe[src^="https://www.myopenmath.com"] {
 <div class="include-before">
 </div>
 <div class="frontmatter">
-<div class="title"><h1>Topic 2: Describing Data Graphical</h1></div>
+<div class="title"><h1>Topic 2: Describing Data Graphically</h1></div>
 <div class="author"><h2>Fei Ye</h2></div>
 <div class="date"><h3>September 2023</h3></div>
 </div>
@@ -437,7 +437,7 @@ and <strong>spread</strong>. We also describe exceptions to the pattern. We call
 <h2 id="practice-heights-of-cherry-trees" class="unnumbered">Practice: Heights of Cherry Trees</h2>
 <p>The data set contains the heights of 20 Black Cherry Trees. Create a dot plot to describe the distribution of the heights.</p>
 <div class="center">
-<p>64, 69, 71, 72, 74, 74, 75, 76, 76, 77, 78, 80, 80, 80, 80, 81, 82, 85, 86, 87</p>
+<p>64, 65, 66, 71, 72, 74, 74, 75, 75, 76, 76, 77, 79, 80, 80, 80, 81, 81, 86, 87</p>
 </div>
 <hr />
 <h2 id="histograms-1-of-2"><span class="section-number">4.</span> Histograms (1 of 2)</h2>
@@ -468,29 +468,29 @@ and <strong>spread</strong>. We also describe exceptions to the pattern. We call
 <p>The difference between the maximum and the minimum data entries is called the <strong>range</strong>.</p>
 </li>
 <li>
-<p>The relation between number of bins, bin width, and the range is roughly \(\text{number of bins}\times \text{bin width}\).</p>
+<p>The range is roughly, indeed slightly smaller than, \(\text{number of bins}\times \text{bin width}\).</p>
 </li>
 <li>
 <p>The <strong>midpoint</strong> of a bin is the half of the sum of the lower and upper limits of the bin.</p>
 </li>
 <li>
-<p>Bin limits should be chosen so that each value of the data is in exactly one bin. There are different conventions to construct bins.</p>
+<p>Bin limits should be chosen so that each value of the data is in exactly one bin.</p>
 </li>
 </ul>
 <hr />
 <h2 id="conventions-on-constructing-bins"><span class="section-number">6.</span> Conventions on Constructing Bins</h2>
 <ul>
-<li>For a continuous variable: Take an appropriate bin width, take the first lower bin as the minimum, and then take left closed and right opened intervals as bins.</li>
-<li>For a discrete variable: Take an appropriate bin width and take the first lower bin limit to be a value slightly smaller than the minimum minus of the data set.</li>
+<li>For a continuous variable: take an appropriate bin width, take the first lower bin as the minimum, and then take left closed and right opened intervals as bins.</li>
+<li>For a discrete variable: take an appropriate bin width and take the first lower bin limit to be a value slightly smaller than the minimum minus of the data set.</li>
 <li>Excel convention (roughly): take left opened and right closed intervals.</li>
 </ul>
 <div class="remark">
 <ol>
-<li>Histograms are usually used for continuous data. For discrete numerical variables, using a bar chart or a histogram depends on context.</li>
-<li>There are also different conventions to determine the number of bins or bin width.</li>
+<li>Histograms are usually used for continuous data. For discrete numerical variables, the using of a bar chart or a histogram depends on context.</li>
 <li>The choice of bin width (or the number of bins) has a more significant impact on the histogram than the method used to determine bin limits.</li>
 <li>It’s often helpful to visualize the data using different binning strategies.</li>
 </ol>
+<!-- 4. There are also different conventions to determine the number of bins or bin width. -->
 </div>
 <hr />
 <h2 id="example-histogram-of-mpg-1-of-3"><span class="section-number">7.</span> Example: Histogram of mpg (1 of 3)</h2>
@@ -571,11 +571,21 @@ and <strong>spread</strong>. We also describe exceptions to the pattern. We call
 <h2 id="example-histogram-of-mpg-3-of-3"><span class="section-number">9.</span> Example: Histogram of mpg (3 of 3)</h2>
 <p>The following information can be obtained from the histogram.</p>
 <ul>
-<li>The histogram has a single peak within the interval 13.8 and 20.6.</li>
-<li>Marjority of cars in the sample has mpg lower than 20.6.</li>
-<li>The mean mpg is around 20.6.</li>
-<li>The range of the mpg is between 13.8 and 34.2.</li>
-<li>The right tail is longer.</li>
+<li>
+<p>The histogram has a single peak within the interval 13.8 and 20.6.</p>
+</li>
+<li>
+<p>Majority of cars in the sample has mpg lower than 20.6.</p>
+</li>
+<li>
+<p>The mean mpg is around 20.6.</p>
+</li>
+<li>
+<p>The range of the mpg is between 13.8 and 34.2.</p>
+</li>
+<li>
+<p>The right tail is longer.</p>
+</li>
 </ul>
 <hr />
 <h2 id="some-remarks-on-histogram-1-of-2"><span class="section-number">10.</span> Some Remarks on Histogram (1 of 2)</h2>
@@ -596,13 +606,12 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 </ul>
 <hr />
 <h2 id="some-remarks-on-histogram-2-of-2"><span class="section-number">11.</span> Some Remarks on Histogram (2 of 2)</h2>
-<!-- - Avoid histograms with large bin widths and small bin widths. [See Histogram 2 of 4 in Concepts in Statistics for an interactive demonstration](https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/histograms-2-of-4/) -->
 <ul>
 <li>
-<p>The the bin width for \(k\) bins, one convention is to choose a number with the same or one more decimal place that is greater than \(\frac{\text{range}}{k}\), but no more than \(\frac{\text{range}}{k-1}\) as the bin width.</p>
+<p>One convention about the bin width for \(k\) bins is to choose a number with the same or one more decimal place that is greater than \(\frac{\text{range}}{k}\), but no more than \(\frac{\text{range}}{k-1}\) as the bin width.</p>
 </li>
 <li>
-<p>To determine the number of bins, there are practical rules. For example, the Rice rule takes the bin number \(k\) as the <strong>round up of \(n^{1 / 3}\)</strong>. The webpage <a href="https://www.statisticshowto.datasciencecentral.com/choose-bin-sizes-statistics/">Statistic How To</a> has more information.</p>
+<p>To determine the number of bins, there are practical rules. For example, the Rice rule takes the bin number \(k\) as the <strong>round up of \(n^{1 / 3}\)</strong>. The webpage <a href="https://www.statisticshowto.com/choose-bin-sizes-statistics/">Statistic How To</a> has more information.</p>
 </li>
 <li>
 <p>The convenient starting point can be a value smaller but not too much smaller than the minimum.</p>
@@ -615,54 +624,49 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 <h2 id="practice-petal-lengths-of-irises" class="unnumbered">Practice: Petal Lengths of Irises</h2>
 <p>The following data set show the petal length of 20 irises. Construct a frequency table and frequency histogram for the data set using 6 bins. What can you conclude from the histogram?</p>
 <div class="center">
-<p>1.4, 5.4, 1.2, 4.5, 6.1, 1.5, 4.7, 1.4, 5.6, 5.2, 1.3, 6.3, 5.1, 5.6, 5, 6.7, 1.4, 1.6, 1.5, 1.5</p>
+<p>5.6, 5.1, 5, 6.7, 1.4, 5.9, 1.6, 1.5, 1.5, 3.9, 5.1, 1.2, 4.7, 4.3, 1.4, 4.7, 6.1, 4.2, 4.8, 6</p>
 </div>
 <hr />
 <h2 id="stem-and-leaf-plots"><span class="section-number">12.</span> Stem-and-Leaf Plots</h2>
 <p>A stem-and-leaf plot is a kind of histogram that lets you see all your data instead of just class frequency information. The leading digit(s) form stems and the “tailing digits” form leaves.</p>
 <p><strong>How to Construct</strong></p>
 <ul>
-<li>Select one or more leading digits for the stem values. The trailing digits become the leaves. Trailing digits for the same stem may further break into two leaves, L or H.</li>
+<li>Select one or more leading digits for the stem values. The trailing digits become the leaves. <strong>Trailing digits for the same stem may further break into two leaves, lower or higher.</strong></li>
 <li>List possible stem values in a vertical column.</li>
 <li>Record the leaf for every observation beside the corresponding stem value.</li>
 <li>Indicate the units for stems and leaves someplace in the display.</li>
 </ul>
 <hr />
 <h2 id="example-heights-of-cherry-trees"><span class="section-number">13.</span> Example: Heights of Cherry Trees</h2>
-<p>Consider the following data of heights of 10 cherry trees. Create a stem-and-leaf plot and describe the distribution.</p>
+<p>Consider the following data of heights of 15 cherry trees. Create a stem-and-leaf plot and describe the distribution.</p>
 <div class="center">
-<p>1.4, 5.4, 1.2, 4.5, 6.1, 1.5, 4.7, 1.4, 5.6, 5.2, 1.3, 6.3, 5.1, 5.6, 5, 6.7, 1.4, 1.6, 1.5, 1.5</p>
+<p>64, 66, 70, 71, 72, 74, 75, 75, 76, 77, 80, 80, 81, 83, 85</p>
 </div>
 <p><strong>Solution:</strong></p>
-<div style="width:45%; padding: 0 auto; margin-top: -1em;">
-<pre><code>  The decimal point is at the |
-  1 | 234445556
-  2 | 
-  3 | 
-  4 | 57
-  5 | 012466
-  6 | 137
+<div style="display: flex; align-items: center; justify-content: center;">
+<pre><code>  The decimal point is 1 digit(s) to the right of the |
+  6 | 46
+  7 | 01245567
+  8 | 00135
 </code></pre>
 </div>
 <hr />
 <h2 id="common-descriptions-of-shape-distribution"><span class="section-number">14.</span> Common Descriptions of Shape Distribution</h2>
 <ul>
 <li>
-<p><strong>Right skewed</strong> (or reverse \(J\)-shaped): A right-skewed distribution has a lot of data at lower variable values. (Example: the histogram example.)</p>
+<p><strong>Right skewed</strong> (or reverse \(J\)-shaped): A right-skewed distribution has a lot of data at lower variable values.</p>
 </li>
 <li>
 <p><strong>Left skewed</strong> (or \(J\)-shaped): A left skewed distribution has a lot of data at higher variable values with smaller amounts of data at lower variable values.</p>
 </li>
 <li>
-<p><strong>Symmetric with a central peak (or bell-shaped)</strong>: A
-central peak with a tail in both directions. A bell-shaped distribution has a lot of data in the center with smaller amounts of data tapering off in each direction. (Example: the petal length example.)</p>
+<p><strong>Symmetric with a central peak (or bell-shaped)</strong>: A central peak with a tail in both directions. A bell-shaped distribution has a lot of data in the center with smaller amounts of data tapering off in each direction.</p>
 </li>
 <li>
-<p><strong>Uniform</strong>: A rectangular shape, the same amount of
-data for each variable value.</p>
+<p><strong>Uniform</strong>: A rectangular shape, the same amount of data for each variable value.</p>
 </li>
 <li>
-<p>For examples of left skewed and uniform distributions, please see the example in <a href="https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/dotplots-2-of-2/">dotpolt 2 of 2 in Concepts in Statistics</a></p>
+<p>For examples of left skewed and uniform distributions, please see the example in <a href="https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/dotplots-2-of-2/">Dotplot 2 of 2 in Concepts in Statistics</a></p>
 </li>
 </ul>
 <hr />
@@ -676,28 +680,18 @@ data for each variable value.</p>
 <p>Source: <a href="https://stats.libretexts.org/Bookshelves/Introductory_Statistics">Example 2.7.1, OpenStax Introductory Statistics</a></p>
 </div>
 <hr />
-<h2 id="measure-of-centers"><span class="section-number">15.</span> Measure of Centers</h2>
+<h2 id="centers-of-a-data-set"><span class="section-number">15.</span> Centers of a Data Set</h2>
 <ul>
-<li>
-<p><strong>Mean</strong>: The mean is the average, this is the quotient of the total sum by the total number.</p>
-</li>
-<li>
-<p><strong>Median</strong>: The median is the middle of
-the data when all the values are listed in order. The median divides the data into two equal-sized groups.</p>
-</li>
-<li>
-<p><strong>Mode</strong>: The mode is the value that has the most occurrence in the data set.</p>
-</li>
-<li>
-<p>Use the <em>mean</em> as a measure of center only for distributions that are <em>reasonably symmetric</em> with a central peak. When outliers are present, the mean is not a good choice.</p>
-</li>
-<li>
-<p>Use the <em>median</em> as a measure of center for all <em>other cases</em>.</p>
-</li>
-<li>
-<p>We need to use a graph to determine the shape of the distribution. So graph the data first.</p>
-</li>
+<li><strong>Mean</strong>: The mean is the average, this is the quotient of the total sum by the total number.</li>
+<li><strong>Median</strong>: The median is a value that separates the data set into the lower half set and the upper half set.</li>
+<li><strong>Mode</strong>: The mode is the data value that has the most occurrence in the data set.</li>
 </ul>
+<div class="remark">
+<ul>
+<li>When the distribution is <strong>approximately symmetric</strong> with a single central peak, the <em>mean</em> is usually used to measure the center. The <em>median</em> is used as a measure of center for all <em>other cases</em>.</li>
+<li>Before analyzing the center, it’s better to graph the data and determine the shape of the distribution.</li>
+</ul>
+</div>
 <hr />
 <h2 id="mean-and-median-for-distributions-in-different-shapes"><span class="section-number">16.</span> Mean and Median for Distributions in Different Shapes</h2>
 <iframe src="https://istats.shinyapps.io/MeanvsMedian/" width="100%" height="550px" data-external="1"></iframe>
@@ -876,7 +870,7 @@ the data when all the values are listed in order. The median divides the data in
 <li>select the bin array</li>
 <li>in the formula bar, enter <code>)</code>.</li>
 </ol>
-<p>Hit the <code>Enter</code> (<code>Ctrl + Shift + Enter</code> in older versions), you will get a frequency table.</p>
+<p>Hit <code>Enter</code> (<code>Ctrl + Shift + Enter</code> in older versions), you will get a frequency table.</p>
 <hr />
 <h2 id="charts-in-excel"><span class="section-number">22.</span> Charts in Excel</h2>
 <p>Excel has many built-in chart functions. To create a charts,</p>
@@ -943,7 +937,7 @@ the data when all the values are listed in order. The median divides the data in
 <p>Check Chart Output and hit OK. You will see the frequency table and histogram in Sheet 2.</p>
 </li>
 <li>
-<p>Change the gap between bars. Right click a bar and choose <code>Format Data Series...</code> and change the <code>Gap Width</code> to 2% or 1%.</p>
+<p>Change the gap between bars. Right-click a bar and choose <code>Format Data Series...</code> and change the <code>Gap Width</code> to 2% or 1%.</p>
 </li>
 </ul>
 <hr />
@@ -965,7 +959,7 @@ the data when all the values are listed in order. The median divides the data in
 <p>Click the button <code>Oneline...</code> and input <em>dot</em> in <code>search bing</code> and hit enter.</p>
 </li>
 <li>
-<p>Select a picture you like and you will get a dot-plot.</p>
+<p>Select a picture you like, and you will get a dot-plot.</p>
 </li>
 </ul>
 </li>
