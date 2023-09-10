@@ -14,3 +14,6 @@ output:
 - [Topic 3: Summarizing Data Numerically](Topic-3-Numercial-Descriptions.html)
 
 - [Topic 4: Linear Relationship](Topic-4-Linear-Relationship.html)
+
+- [Topic 5: Two-way Tables](Topic-5-Two-Way-Tables.html)
+

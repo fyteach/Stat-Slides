@@ -346,7 +346,7 @@ The idea of using product is from the geometric interpretation of $\mathbf{u}\cd
 
 - The correlation coefficient $r$ is between $-1$ and $1$.
 
-- The closer the absolute value $|r|$ is to $1$, the stronger the linear relationship is.
+- The closer the absolute value $|r|$ is to $1$, the stronger the linear relationship is. Conventionally, the relationship is strong if $|r| > 0.8$, morderate if $0.5< |r|\le 0.8$, and weak if $|r|\le 0.5$.
 
 - The correlation is symmetric in $x$ and $y$, that is `CORREL(x, y)=CORREL(y, x)`.
 
@@ -504,32 +504,14 @@ Source: [Causation and Lurking Variables in Concepts in Statistics for more exam
 
 ## The Regression Line
 
-- The line that best summarizes a linear relationship is **the least squares regression line**, that is, the line with the smallest sum of squares of the errors (**SSE**).
-
+- The line that best summarizes a linear relationship is **the least squares regression line**, that is, the line with the smallest sum of squares of the errors.
 - For a value of the explanatory variable $x$, the corresponding $y$-values, denoted as $\hat{y}$, on the least-squares regression line can be used to predict the real $y$-value.
-
 - The regression line is unique and passes though $(\bar{x}, \bar{y})$. An equation is given by
   $$\hat{y}=m(x-\bar{x})+\bar{y}=m x+b,$$
   where the slope is $m=\frac{\sum(x-\bar{x})(y-\bar{y})}{\sum(x-\bar{x})^2}=r\frac{s_y}{s_x}$ and the $y$-intercept is
   $b=\bar{y}-m\bar{x}.$
-
----
-
-## Predication Error
-
-- The **error of a prediction** also known as **residual** is
-  $$\text{Error}=\text{Residual}=\text{Observed}-\text{Predicted}=y-\hat{y}.$$
-
+- The **residual** is $\text{Residual}=\text{Observed}-\text{Predicted}=y-\hat{y}.$
 - A prediction beyond the range of the data is called **extrapolation**.
-
-::: {.center}
-![A image of positive and negative residuals](Figures/residual.png)  
-**Positive and Negative Residuals**
-:::
-
-::: {.footmark}
-Image source: [Figure 5.14 in Introduction to Statistics and Data Analysis](https://www.cengage.com/c/introduction-to-statistics-and-data-analysis-6e-peck/9781337793612PF/?searchIsbn=9780357686522)
-:::
 
 ---
 
@@ -538,7 +520,7 @@ Image source: [Figure 5.14 in Introduction to Statistics and Data Analysis](http
 The following sample is taken from data about the Old Faithful geyser.
 
 1. Study the linear relationship.
-2. Find the regression line, and the predicated value and the error if the eruption time is 1.8 minutes.
+2. Find the regression line, and the predicated value if the eruption time is 1.8 minutes.
 
 ::::: {.row}
 :::: {.pull-left}
@@ -585,7 +567,7 @@ An equation of the line is then $\hat{y}=`r coefx`x + `r yint`$.
 
 When $x=1.8$, we have $\hat{y}=`r coefx`*1.8 + `r yint`=`r ypred=coefx*1.8+yint` `r ypred`$.
 
-The error is $y-\hat{y}=`r spring[10, ]$waiting`-`r ypred`=`r error=spring[10,]$waiting-ypred` `r error`$. That means the predication over-estimates the eruption time about `r round(error, 2)` minutes.
+<!-- The error is $y-\hat{y}=`r spring[10, ]$waiting`-`r ypred`=`r error=spring[10,]$waiting-ypred` `r error`$. That means the predication over-estimates the eruption time about `r round(error, 2)` minutes. -->
 
 ---
 
@@ -597,25 +579,43 @@ The error is $y-\hat{y}=`r spring[10, ]$waiting`-`r ypred`=`r error=spring[10,]$
 
 ---
 
-## Residual Standard Error
+## Residual Plot
 
-- The prediction error is also called a **residual**. Another way to express the previous equation is $y=\hat{y}+\text{residual}$.
-- **Residual plots** are used to determine if a linear model is appropriate.
-- A random pattern (or no obvious pattern) indicates a good fit of a linear model.  [See Assessing the Fit of a Line (2 of 4) in Concepts in Statistics for examples.](https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/assessing-the-fit-of-a-line-2-of-4/)
-- Another measure of the fit of the regression is the **residual standard errors** (or **standard error of the regression**), calculated by the Excel function `STEYX()`,  is $s_e=\sqrt{\dfrac{SSE}{n-2}}$, where $SSE=\sum (y-\hat{y})^2$ is the sum of square errors.
+- A residual is an observable estimate of the unobservable statistical error.
+  ::: {.center}
+  ![A image of positive and negative residuals](Figures/residual.png){width="30%"}  
+  **Positive and Negative Residuals**
+  :::
+
+- **Residual plots**, a scatterplot of the $(x, \text{residual})$ can be used if a linear model is appropriate. A random pattern (or no obvious pattern) indicates a good fit of a linear model.  [See Assessing the Fit of a Line (2 of 4) in Concepts in Statistics for examples.](https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/assessing-the-fit-of-a-line-2-of-4/)
+
+::: {.footmark}
+Image source: [Figure 5.14 in Introduction to Statistics and Data Analysis](https://www.cengage.com/c/introduction-to-statistics-and-data-analysis-6e-peck/9781337793612PF/?searchIsbn=9780357686522)
+:::
+
+---
+
+## Standard Error
+
+- The **residual standard error** (or **standard error of the regression**), calculated by the Excel function `STEYX()`,  is 
+  $$s_e=\sqrt{\dfrac{SS_{res}}{n-2}},$$
+  where $SS_{res}=\sum (y-\hat{y})^2$ is the **sum of square residuals**.
+
+- The standard error is a typical (average) amount that an observation deviates from the least-squares line.
+
 - The smaller $s_e$ is, the more accurate the prediction is.
 
 ---
 
 ## Coefficient of Determination
 
-One measure of the fit of a regression line is the proportion of the variation in the response variable that is explained by the least-squares regression line.
+**Coefficient of determination** measures the proportion of variability in the response variable $y$ that can be attributed to the linear regression line (a nice explanation can be found in [Explaining The Variance of a Regression Model](https://stats.stackexchange.com/q/203675)).
   
-- The **total variance** is $SSD=\sum(y-\bar{y})^2$
+- The total variance of $y$ is the sum of square deviations $SS_{tot}=\sum(y-\bar{y})^2=(n-1)s_y^2$.
 
-- The **explained variance** is $SSR=\sum(\hat{y}-\bar{y})^2$.
+- The total variance of predicted $y$ is $SS_{reg}=\sum(\hat{y}-\bar{y})^2=(n-1)r^2s_y^2$.
 
-- The **coefficient of determination** is $r^2=\dfrac{SSR}{SSD}=\dfrac{\sum(y-\bar{y})^2}{\sum(\hat{y}-\bar{y})^2}$.
+- The **coefficient of determination** is $\dfrac{SS_{reg}}{SS_{tot}}=\dfrac{(n-1)r^2s_y^2}{(n-1)s_y^2}=r^2$.
 
 ---
 
@@ -623,11 +623,9 @@ One measure of the fit of a regression line is the proportion of the variation i
 
 - The $r$ in the coefficient of determination is the correlation coefficient. Equivalently, $r=\pm\sqrt{r^2}$.
 
-- The smaller the standard error, the larger the coefficient of determination: $r^2=1-\dfrac{SSE}{SSD}=1-\dfrac{(n-2)s_e^2}{SSD}$.
+- The smaller the standard error, the larger the coefficient of determination: $r^2=1-\dfrac{SS_{res}}{SS_{tot}}=1-\dfrac{(n-2)s_e^2}{SS_{tot}}$.
 
-- $n−2$ is the degrees of freedom. We lose two degrees of freedom because we estimate the slope and the $y$-intercept.
-
-- In a linear regression model $Y=\beta_0 + \beta_1 X +\epsilon$, even we have $\beta_0$ and $\beta_1$ from the population, we still need to estimate the standard deviation of error.
+- $n−2$ is the degrees of freedom. We lose two degrees of freedom because both the slope and the $y$-intercept are estimated.
 
 ---
 
