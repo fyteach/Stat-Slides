@@ -380,7 +380,9 @@ iframe[src^="https://www.myopenmath.com"] {
   /* background-color: #ffeec4; */
 }
 
-
+/* .MathJax {
+  font-size: 0.9em;
+} */
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css,npm/@xiee/utils/css/ heading-anchor.min.css">
 </head>
@@ -616,7 +618,7 @@ The mean is 44.7. The sample standard deviation is 10.3.</p>
 <!-- ---
 
 ## Mean and SD under Linear Transformation (2 of 2) -->
-<div class="iframecontainer" style="height: 40vh;">
+<div .iframecontainer, style="height: 40vh;">
 <iframe src="https://www.geogebra.org/material/iframe/id/r25rDxYZ/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="100%" height="80%" data-external="1"></iframe>
 </div>
 <div class="footmark">
@@ -642,7 +644,30 @@ The mean is 44.7. The sample standard deviation is 10.3.</p>
 </li>
 </ol>
 <hr />
-<h2 id="the-empirical-rule"><span class="section-number">17.</span> The Empirical Rule</h2>
+<h2 id="standardization"><span class="section-number">17.</span> Standardization</h2>
+<p>When comparing variables that may have different measurement, it is better to use standardized values. Convert a value to a standard value is called standardization which doesn’t change the distribution of the data set.</p>
+<p>Let \(x\) be a data value, \(\bar{x}\) the mean, and \(s\) the standard deviation of a data set. The <strong>standard value</strong> (or <strong>$z$-score</strong>) of \(x\) is defined as
+$$z = \frac{x-\bar{x}}{s}, \quad\text{equivalently}\quad x=zs+\bar{x}$$</p>
+<p>In Excel, the \(z\)-score can be obtained by <code>=STANDARDIZE(x, mean, sd)</code>.</p>
+<hr />
+<h2 id="example-standardized-test-scores"><span class="section-number">18.</span> Example: Standardized Test Scores</h2>
+<p>Consider a data set of scores on a standardized test with a mean 70 and standard deviation of 15.</p>
+<ul>
+<li>Find the \(z\)-score for a score 94.</li>
+<li>What score corresponds to the \(z\)-score 1.2.</li>
+</ul>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>The \(z\)-score for 90 is \(\dfrac{94-70}{15}\approx 1.6\).</li>
+<li>The score for the \(z\)-score 1.5 is \(1.2*15+70=88\).</li>
+</ul>
+<hr />
+<h2 id="practice-understanding-z-score"><span class="section-number">19.</span> Practice: Understanding \(Z\)-score</h2>
+<div class="iframecontainer">
+<iframe src="https://www.myopenmath.com/multiembedq2.php?id=345978-425748&amp;frame_id=303&amp;resizer=true&amp;seed=2023" width="100%" height="400px" data-external="1"></iframe>
+</div>
+<hr />
+<h2 id="the-empirical-rule"><span class="section-number">20.</span> The Empirical Rule</h2>
 <p>If a data set has an <strong>approximately bell-shaped</strong> distribution, then</p>
 <ol>
 <li>approximately 68% of the data lie within one standard deviation of the mean.</li>
@@ -656,7 +681,7 @@ The mean is 44.7. The sample standard deviation is 10.3.</p>
 <p>Image source: <a href="https://saylordotorg.github.io/text_introductory-statistics/s06-05-the-empirical-rule-and-chebysh.html#fwk-shafer-ch02_s05_s01_f02">Figure 2.16 “The Empirical Rule” in Introductoray Statistics</a></p>
 </div>
 <hr />
-<h2 id="chebyshev-s-theorem"><span class="section-number">18.</span> Chebyshev’s Theorem</h2>
+<h2 id="chebyshev-s-theorem"><span class="section-number">21.</span> Chebyshev’s Theorem</h2>
 <p>For any numerical data set, at least \(1−1/k^2\)
 of the data lie within \(k\) standard deviations of the mean, where \(k\) is any positive whole number that is at least 2.</p>
 <div class="center">
@@ -666,7 +691,7 @@ of the data lie within \(k\) standard deviations of the mean, where \(k\) is any
 <p>Image source: <a href="https://saylordotorg.github.io/text_introductory-statistics/s06-05-the-empirical-rule-and-chebysh.html#fwk-shafer-ch02_s05_s02_f01">Figure 2.19 “Chebyshev’s Theorem” in Introductoray Statistics</a></p>
 </div>
 <hr />
-<h2 id="example-applications-of-the-empirical-rule"><span class="section-number">19.</span> Example: Applications of the Empirical Rule</h2>
+<h2 id="example-applications-of-the-empirical-rule"><span class="section-number">22.</span> Example: Applications of the Empirical Rule</h2>
 <p>A population data set with a bell-shaped distribution has mean \(\mu = 6\) and standard deviation \(\sigma = 2\). Find the approximate proportion of observations in the data set that lie:</p>
 <ol>
 <li>between 4 and 8;</li>
@@ -675,7 +700,7 @@ of the data lie within \(k\) standard deviations of the mean, where \(k\) is any
 <p><strong>Solution:</strong></p>
 <p>Apply the Empirical Rule, there are 68% of data lie between 6-2=4 and 6+2=8. Since the distribution is symmetric, then 34% of data lie between 4 and 6, and 34% of data lie between 6 and 8. Then there are only 50%-34%=26% of data lie below 4.</p>
 <hr />
-<h2 id="example-applications-of-chebyshev-s-theorem"><span class="section-number">20.</span> Example: Applications of Chebyshev’s Theorem</h2>
+<h2 id="example-applications-of-chebyshev-s-theorem"><span class="section-number">23.</span> Example: Applications of Chebyshev’s Theorem</h2>
 <p>A sample data set has mean \(\bar{x}=6\)
 and standard deviation \(s = 2\). Find the minimum proportion of observations in the data set that must lie
 between 2 and 10.</p>
@@ -710,7 +735,7 @@ the following statistic will NOT change:</p>
 <p>Lab Instruction in Excel</p>
 </div>
 <hr />
-<h2 id="mean-median-quartiles-and-standard-deviation"><span class="section-number">21.</span> Mean, Median, Quartiles and Standard Deviation</h2>
+<h2 id="mean-median-quartiles-and-standard-deviation"><span class="section-number">24.</span> Mean, Median, Quartiles and Standard Deviation</h2>
 <ul>
 <li>
 <p>To find the median, you may use the function <code>MEDIAN()</code>.</p>
@@ -730,7 +755,7 @@ the following statistic will NOT change:</p>
 </li>
 </ul>
 <hr />
-<h2 id="how-to-create-a-boxplot-in-excel"><span class="section-number">22.</span> How to Create a Boxplot in Excel</h2>
+<h2 id="how-to-create-a-boxplot-in-excel"><span class="section-number">25.</span> How to Create a Boxplot in Excel</h2>
 <ul>
 <li>
 <p>Select your data—either a single data series, or multiple data series.</p>
@@ -742,9 +767,9 @@ the following statistic will NOT change:</p>
 <p>For more information, see <a href="https://support.microsoft.com/en-us/office/create-a-box-and-whisker-chart-62f4219f-db4b-4754-aca8-4743f6190f0d">Create a box and whisker chart in Excel 365</a></p>
 <hr />
 <h2 id="lab-practice-speeds-of-cars" class="unnumbered">Lab Practice: Speeds of Cars</h2>
-<p>Consider the following sample that consists of speeds of 20 cars.</p>
+<p>Consider the following sample that consists of speeds of 25 cars.</p>
 <div class="center">
-<p>18.7, 21, 15.8, 16.4, 17.3, 18.7, 24.4, 18.7, 22.8, 22.8, 13.3, 15.5, 32.4, 10.4, 19.2, 16.4, 24.4, 15.5, 30.4, 30.4</p>
+<p>19, 4, 17, 22, 23, 8, 20, 19, 10, 10, 13, 13, 15, 12, 20, 14, 9, 20, 12, 11, 11, 17, 14, 7, 19</p>
 </div>
 <ol>
 <li>Use Excel to find the mean, median, quartiles and standard deviation of the sample.</li>

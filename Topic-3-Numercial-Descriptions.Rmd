@@ -345,7 +345,7 @@ Find the standard deviation of this sample.
 
 ## Mean and SD under Linear Transformation (2 of 2) -->
 
-::: {.iframecontainer style="height: 40vh;"}
+::: {.iframecontainer, style="height: 40vh;"}
 `r knitr::include_url('https://www.geogebra.org/material/iframe/id/r25rDxYZ/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false', height='80%')`
 :::
 
@@ -374,7 +374,40 @@ A sample of the highest temperature of 10 days has a standard deviation $5^\circ
 1. If we want to know the standard deviation in Fahrenheit, do we need to recalculate using the sample?
 
 2. What is the standard deviation in Fahrenheit.
-  
+
+---
+
+## Standardization
+
+When comparing variables that may have different measurement, it is better to use standardized values. Convert a value to a standard value is called standardization which doesn't change the distribution of the data set.
+
+Let $x$ be a data value, $\bar{x}$ the mean, and $s$ the standard deviation of a data set. The **standard value** (or **$z$-score**) of $x$ is defined as
+$$z = \frac{x-\bar{x}}{s}, \quad\text{equivalently}\quad x=zs+\bar{x}$$
+
+In Excel, the $z$-score can be obtained by `=STANDARDIZE(x, mean, sd)`.
+
+---
+
+## Example: Standardized Test Scores
+
+Consider a data set of scores on a standardized test with a mean 70 and standard deviation of 15.
+
+- Find the $z$-score for a score 94.
+- What score corresponds to the $z$-score 1.2.
+
+**Solution:**  
+
+- The $z$-score for 90 is $\dfrac{94-70}{15}\approx 1.6$.
+- The score for the $z$-score 1.5 is $1.2*15+70=88$.
+
+---
+
+## Practice: Understanding $Z$-score
+
+::: {.iframecontainer}
+`r knitr::include_url("https://www.myopenmath.com/multiembedq2.php?id=345978-425748&frame_id=303&resizer=true&seed=2023")`
+:::
+
 ---
 
 ## The Empirical Rule
@@ -509,11 +542,11 @@ For more information, see [Create a box and whisker chart in Excel 365](https://
 
 ## Lab Practice: Speeds of Cars {.unnumbered}
 
-Consider the following sample that consists of speeds of 20 cars.
+Consider the following sample that consists of speeds of 25 cars.
 
 ::: {.center}
 ```{r echo=FALSE, results = 'asis'}
-cat(paste(sample(cars, 20, replace = TRUE), collapse=", "))
+cat(sample(cars$speed, 25, replace = TRUE), sep = ", ")
 ```
 :::
 

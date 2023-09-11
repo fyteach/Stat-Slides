@@ -257,15 +257,19 @@ Source: [Scatterplots 2 of 5 in Concepts of Statistics](https://courses.lumenlea
 
 ## The Correlation Coefficient
 
-The **correlation coefficient** $r$ is a numeric measure that measures the strength and direction of a linear relationship between two quantitative variables.
+The **correlation coefficient** $r$ is a numeric measure that measures the strength and direction of a linear relationship between two quantitative variables. One definition is the mean product of standard values.
 $$r=\dfrac{\sum\left(\frac{x-\bar{x}}{s_x}\right)\left(\frac{y-\bar{y}}{s_y}\right)}{\sqrt{\sum\left(\frac{x-\bar{x}}{s_x}\right)^2}\cdot\sqrt{\left(\frac{y-\bar{y}}{s_y}\right)^2}}=\dfrac{\sum\left(\frac{x-\bar{x}}{s_x}\right)\left(\frac{y-\bar{y}}{s_y}\right)}{n-1},$$
 where $n$ is the sample size, $x$ is a data value for the explanatory variable, $\bar{x}$ is the mean of the $x$-values, $s_x$ is the standard deviation of the $x$-values, and similarly, for the notations involving $y$.
+
+::: {.footmark}
+See the paper [Thirteen Ways to Look at the Correlation Coefficient](https://www.stat.berkeley.edu/~rabbee/correlation.pdf) for other definitions.
+:::
 
 ---
 
 ## A Few Remarks on Correlation Coefficient
 
-- The expression $z=\frac{x-\bar{x}}{s_x}$ is known as the **standardized variable (or $z$-score)** which
+- The expression $z=\dfrac{x-\bar{x}}{s_x}$ is known as the **standardized variable (or $z$-score)** which
   
   - doesn't depend on the unit of the variable $x$,
   
@@ -338,7 +342,7 @@ For the scatterplots in the previous slides, we see that
 
 - $r$ is bigger if points are closer to a line.
 
-The idea of using product is from the geometric interpretation of $\mathbf{u}\cdot\mathbf{v}=\lVert \mathbf{u}\rVert\lVert\mathbf{v}\rVert\cos\theta$.
+One idea of using product is from the geometric interpretation of $\mathbf{u}\cdot\mathbf{v}=\lVert \mathbf{u}\rVert\lVert\mathbf{v}\rVert\cos\theta$. There are also other interpretations of $r$.
 
 ---
 
@@ -352,8 +356,8 @@ The idea of using product is from the geometric interpretation of $\mathbf{u}\cd
 
 - The correlation does not change when the units of measurement of either one of the variables change. In other words, if we change the units of measurement of the explanatory variable and/or the response variable, it has no effect on the correlation  $r$.
 
-::: {.remark}
-The reason that $|r|$ is less than $1$ is from the [Cauchy-Schwarz inequality](https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality): $(\sum XY)^2\le \sum X^2\sum Y^2$.
+::: {.footmark}
+After discussing regression lines, you will see why $r^2\le 1$ and $r$ measures linear relationship or you may read [18.4 - More on Understanding Rho](https://online.stat.psu.edu/stat414/lesson/18/18.4#paragraph--775).
 :::
 
 ---
@@ -520,7 +524,8 @@ Source: [Causation and Lurking Variables in Concepts in Statistics for more exam
 The following sample is taken from data about the Old Faithful geyser.
 
 1. Study the linear relationship.
-2. Find the regression line, and the predicated value if the eruption time is 1.8 minutes.
+2. Find an equation of the regression line.
+3. Find the predicated value and the residual when the eruption time is 1.8 minutes.
 
 ::::: {.row}
 :::: {.pull-left}
@@ -567,7 +572,7 @@ An equation of the line is then $\hat{y}=`r coefx`x + `r yint`$.
 
 When $x=1.8$, we have $\hat{y}=`r coefx`*1.8 + `r yint`=`r ypred=coefx*1.8+yint` `r ypred`$.
 
-<!-- The error is $y-\hat{y}=`r spring[10, ]$waiting`-`r ypred`=`r error=spring[10,]$waiting-ypred` `r error`$. That means the predication over-estimates the eruption time about `r round(error, 2)` minutes. -->
+The residual is $y-\hat{y}=`r spring[10, ]$waiting`-`r ypred`=`r error=spring[10,]$waiting-ypred` `r error`$. That means the predication over-estimates the eruption time about `r round(error, 2)` minutes.
 
 ---
 
@@ -615,7 +620,11 @@ Image source: [Figure 5.14 in Introduction to Statistics and Data Analysis](http
 
 - The total variance of predicted $y$ is $SS_{reg}=\sum(\hat{y}-\bar{y})^2=(n-1)r^2s_y^2$.
 
-- The **coefficient of determination** is $\dfrac{SS_{reg}}{SS_{tot}}=\dfrac{(n-1)r^2s_y^2}{(n-1)s_y^2}=r^2$.
+- The **coefficient of determination** is $$\dfrac{SS_{reg}}{SS_{tot}}=\dfrac{(n-1)r^2s_y^2}{(n-1)s_y^2}=r^2.$$
+
+::: {.footmark}
+A visualization by Magnusson, K. can be found at <https://rpsychologist.com/correlation/>.
+:::
 
 ---
 
@@ -674,6 +683,22 @@ kable(GradeBook,
 ::: {.iframecontainer}
 `r knitr::include_url('https://www.myopenmath.com/embedq2.php?id=905035&seed=2020&showansafter')`
 :::
+
+---
+
+## References
+
+- Magnusson, K. (2023). Interpreting Correlations: An interactive visualization (Version 0.7.1) [Web App]. R Psychologist. <https://rpsychologist.com/correlation/>.
+
+- PennState STAT414 Lesson 18: The Correlation Coefficient <https://online.stat.psu.edu/stat414/lesson/18>.
+
+- Wiki Correlation <https://en.wikipedia.org/wiki/Correlation>.
+
+- Wiki Covariance <https://en.wikipedia.org/wiki/Covariance#Discrete_random_variables>
+
+- Joseph Lee Rodgers; W. Alan Nicewander. Thirteen Ways to Look at the Correlation Coefficient <https://www.stat.berkeley.edu/~rabbee/correlation.pdf>.
+
+- Matthew Gunn (<https://stats.stackexchange.com/users/97925/matthew-gunn>), How can the regression error term ever be correlated with the explanatory variables?
 
 ---
 

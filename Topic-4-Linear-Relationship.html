@@ -328,11 +328,13 @@ border-collapse: collapse;
   height: 75vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 iframe {
   border: none;
   flex: 1;
+  align-self: center;
 }
 
 iframe[src^="https://www.myopenmath.com"] {
@@ -495,14 +497,17 @@ iframe[src^="https://www.myopenmath.com"] {
 </div>
 <hr />
 <h2 id="the-correlation-coefficient"><span class="section-number">7.</span> The Correlation Coefficient</h2>
-<p>The <strong>correlation coefficient</strong> \(r\) is a numeric measure that measures the strength and direction of a linear relationship between two quantitative variables.
+<p>The <strong>correlation coefficient</strong> \(r\) is a numeric measure that measures the strength and direction of a linear relationship between two quantitative variables. One definition is the mean product of standard values.
 $$r=\dfrac{\sum\left(\frac{x-\bar{x}}{s_x}\right)\left(\frac{y-\bar{y}}{s_y}\right)}{\sqrt{\sum\left(\frac{x-\bar{x}}{s_x}\right)^2}\cdot\sqrt{\left(\frac{y-\bar{y}}{s_y}\right)^2}}=\dfrac{\sum\left(\frac{x-\bar{x}}{s_x}\right)\left(\frac{y-\bar{y}}{s_y}\right)}{n-1},$$
 where \(n\) is the sample size, \(x\) is a data value for the explanatory variable, \(\bar{x}\) is the mean of the \(x\)-values, \(s_x\) is the standard deviation of the \(x\)-values, and similarly, for the notations involving \(y\).</p>
+<div class="footmark">
+<p>See the paper <a href="https://www.stat.berkeley.edu/~rabbee/correlation.pdf">Thirteen Ways to Look at the Correlation Coefficient</a> for other definitions.</p>
+</div>
 <hr />
 <h2 id="a-few-remarks-on-correlation-coefficient"><span class="section-number">8.</span> A Few Remarks on Correlation Coefficient</h2>
 <ul>
 <li>
-<p>The expression \(z=\frac{x-\bar{x}}{s_x}\) is known as the <strong>standardized variable (or \(z\)-score)</strong> which</p>
+<p>The expression \(z=\dfrac{x-\bar{x}}{s_x}\) is known as the <strong>standardized variable (or \(z\)-score)</strong> which</p>
 <ul>
 <li>
 <p>doesn’t depend on the unit of the variable \(x\),</p>
@@ -546,7 +551,7 @@ where \(n\) is the sample size, \(x\) is a data value for the explanatory variab
 <p>\(r\) is bigger if points are closer to a line.</p>
 </li>
 </ul>
-<p>The idea of using product is from the geometric interpretation of \(\mathbf{u}\cdot\mathbf{v}=\lVert \mathbf{u}\rVert\lVert\mathbf{v}\rVert\cos\theta\).</p>
+<p>One idea of using product is from the geometric interpretation of \(\mathbf{u}\cdot\mathbf{v}=\lVert \mathbf{u}\rVert\lVert\mathbf{v}\rVert\cos\theta\). There are also other interpretations of \(r\).</p>
 <hr />
 <h2 id="properties"><span class="section-number">11.</span> Properties</h2>
 <ul>
@@ -563,8 +568,8 @@ where \(n\) is the sample size, \(x\) is a data value for the explanatory variab
 <p>The correlation does not change when the units of measurement of either one of the variables change. In other words, if we change the units of measurement of the explanatory variable and/or the response variable, it has no effect on the correlation  \(r\).</p>
 </li>
 </ul>
-<div class="remark">
-<p>The reason that \(|r|\) is less than \(1\) is from the <a href="https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality">Cauchy-Schwarz inequality</a>: \((\sum XY)^2\le \sum X^2\sum Y^2\).</p>
+<div class="footmark">
+<p>After discussing regression lines, you will see why \(r^2\le 1\) and \(r\) measures linear relationship or you may read <a href="https://online.stat.psu.edu/stat414/lesson/18/18.4#paragraph--775">18.4 - More on Understanding Rho</a>.</p>
 </div>
 <hr />
 <h2 id="limitations-and-sensitivity-to-outliers"><span class="section-number">12.</span> Limitations and Sensitivity to Outliers</h2>
@@ -834,7 +839,8 @@ where the slope is \(m=\frac{\sum(x-\bar{x})(y-\bar{y})}{\sum(x-\bar{x})^2}=r\fr
 <p>The following sample is taken from data about the Old Faithful geyser.</p>
 <ol>
 <li>Study the linear relationship.</li>
-<li>Find the regression line, and the predicated value if the eruption time is 1.8 minutes.</li>
+<li>Find an equation of the regression line.</li>
+<li>Find the predicated value and the residual when the eruption time is 1.8 minutes.</li>
 </ol>
 <div class="row">
 <div class="pull-left">
@@ -894,7 +900,7 @@ where the slope is \(m=\frac{\sum(x-\bar{x})(y-\bar{y})}{\sum(x-\bar{x})^2}=r\fr
 <p>The \(y\)-intercept \((0,b)\) can be obtained using the Excel function <code>INTERCEPT()</code>. In this example, \(b=  33.68\).</p>
 <p>An equation of the line is then \(\hat{y}=10.836x + 33.68\).</p>
 <p>When \(x=1.8\), we have \(\hat{y}=10.836*1.8 + 33.68= 53.1848\).</p>
-<!-- The error is $y-\hat{y}=51-53.1848= -2.1848$. That means the predication over-estimates the eruption time about -2.18 minutes. -->
+<p>The residual is \(y-\hat{y}=51-53.1848= -2.1848\). That means the predication over-estimates the eruption time about -2.18 minutes.</p>
 <hr />
 <h2 id="practice-find-regression-line" class="unnumbered">Practice: Find Regression Line</h2>
 <div class="iframecontainer">
@@ -943,9 +949,12 @@ where \(SS_{res}=\sum (y-\hat{y})^2\) is the <strong>sum of square residuals</st
 <p>The total variance of predicted \(y\) is \(SS_{reg}=\sum(\hat{y}-\bar{y})^2=(n-1)r^2s_y^2\).</p>
 </li>
 <li>
-<p>The <strong>coefficient of determination</strong> is \(\dfrac{SS_{reg}}{SS_{tot}}=\dfrac{(n-1)r^2s_y^2}{(n-1)s_y^2}=r^2\).</p>
+<p>The <strong>coefficient of determination</strong> is $$\dfrac{SS_{reg}}{SS_{tot}}=\dfrac{(n-1)r^2s_y^2}{(n-1)s_y^2}=r^2.$$</p>
 </li>
 </ul>
+<div class="footmark">
+<p>A visualization by Magnusson, K. can be found at <a href="https://rpsychologist.com/correlation/">https://rpsychologist.com/correlation/</a>.</p>
+</div>
 <hr />
 <h2 id="remarks-on-coefficient-of-determination"><span class="section-number">24.</span> Remarks on Coefficient of Determination</h2>
 <ul>
@@ -1034,12 +1043,34 @@ where \(SS_{res}=\sum (y-\hat{y})^2\) is the <strong>sum of square residuals</st
 <iframe src="https://www.myopenmath.com/embedq2.php?id=905035&amp;seed=2020&amp;showansafter" width="100%" height="400px" data-external="1"></iframe>
 </div>
 <hr />
+<h2 id="references"><span class="section-number">26.</span> References</h2>
+<ul>
+<li>
+<p>Magnusson, K. (2023). Interpreting Correlations: An interactive visualization (Version 0.7.1) [Web App]. R Psychologist. <a href="https://rpsychologist.com/correlation/">https://rpsychologist.com/correlation/</a>.</p>
+</li>
+<li>
+<p>PennState STAT414 Lesson 18: The Correlation Coefficient <a href="https://online.stat.psu.edu/stat414/lesson/18">https://online.stat.psu.edu/stat414/lesson/18</a>.</p>
+</li>
+<li>
+<p>Wiki Correlation <a href="https://en.wikipedia.org/wiki/Correlation">https://en.wikipedia.org/wiki/Correlation</a>.</p>
+</li>
+<li>
+<p>Wiki Covariance <a href="https://en.wikipedia.org/wiki/Covariance#Discrete_random_variables">https://en.wikipedia.org/wiki/Covariance#Discrete_random_variables</a></p>
+</li>
+<li>
+<p>Joseph Lee Rodgers; W. Alan Nicewander. Thirteen Ways to Look at the Correlation Coefficient <a href="https://www.stat.berkeley.edu/~rabbee/correlation.pdf">https://www.stat.berkeley.edu/~rabbee/correlation.pdf</a>.</p>
+</li>
+<li>
+<p>Matthew Gunn (<a href="https://stats.stackexchange.com/users/97925/matthew-gunn">https://stats.stackexchange.com/users/97925/matthew-gunn</a>), How can the regression error term ever be correlated with the explanatory variables?</p>
+</li>
+</ul>
+<hr />
 <!--# class="middle center" -->
 <div class="part">
 <p>Lab Instruction in Excel</p>
 </div>
 <hr />
-<h2 id="scatter-plots-and-correlation-coefficient"><span class="section-number">26.</span> Scatter Plots and Correlation Coefficient</h2>
+<h2 id="scatter-plots-and-correlation-coefficient"><span class="section-number">27.</span> Scatter Plots and Correlation Coefficient</h2>
 <ul>
 <li>
 <p>To create a scatter plot, first select the data sets, and then look for <code>Insert Scatter(X, Y)</code> in the menu <code>Insert</code>-&gt; <code>Charts</code>.</p>
@@ -1049,7 +1080,7 @@ where \(SS_{res}=\sum (y-\hat{y})^2\) is the <strong>sum of square residuals</st
 </li>
 </ul>
 <hr />
-<h2 id="slope-intercept-r-2-and-s-e"><span class="section-number">27.</span> Slope, Intercept, \(r^2\) and \(s_e\)</h2>
+<h2 id="slope-intercept-r-2-and-s-e"><span class="section-number">28.</span> Slope, Intercept, \(r^2\) and \(s_e\)</h2>
 <ul>
 <li>
 <p>The slope of a linear regression can be calculated by the Excel function <code>SLOPE()</code>.</p>
