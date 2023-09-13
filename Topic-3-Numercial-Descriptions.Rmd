@@ -19,14 +19,14 @@ output:
 
 ```{r, echo=FALSE, warning=FALSE}
 knitr::opts_chunk$set(comment="#", fig.retina=2)
-library(stats)
-library(kableExtra)
-library(knitr)
-library(formattable)
+#library(stats)
+#library(kableExtra)
+#library(knitr)
+#library(formattable)
 library(ggplot2)
-library(ggthemes)
-library(ggExtra)
-library(data.table)
+#library(ggthemes)
+#library(ggExtra)
+#library(data.table)
 library(dplyr, warn.conflicts = FALSE)
 library(plotly, warn.conflicts = FALSE)
 set.seed(3)
@@ -125,31 +125,25 @@ cat(paste(sort(actor_age$Age), collapse=", "))
 
 - Based on the five-number summary, the boxplot is shown below.
 
-::: {.iframecontainer style="height: 60vh;"}
-`r knitr::include_url('boxplot1.html')`
-:::
-
-<!-- 
-```{r echo=FALSE, results = 'asis', fig.width=12, fig.asp=0.4} 
+```{r echo=FALSE, results = 'asis', fig.width=12, fig.asp=0.4, fig.align="center"}
 # load("Data-Frames-SUNY-Concepts-in-Statistics/actor.rdata")
 
-#boxplot1<-ggplot(actor_age, aes(x="", y=Age)) +
+boxplot<-ggplot(actor_age, aes(x="", y=Age)) +
   # stat_boxplot(geom = "errorbar") +
-#  geom_boxplot(outlier.size=5) +
-#  scale_y_continuous(breaks = c(31, 37.5, 42.5, 49.5, 61, 76)) +
-#  theme_classic(base_size = 16) +
-#  xlab("") + 
-#  coord_flip() +
-#  theme(# panel.border=element_blank(), 
-#        axis.line.x = element_line(size = 1.2),
-#        axis.line.y = element_blank(),
-#        axis.ticks.y = element_blank(),
-#        axis.text.y=element_blank())
-
-# ggplotly(boxplot1)
-#boxplot1
+  geom_boxplot(outlier.size=5) +
+  scale_y_continuous(breaks = c(31, 37.5, 42.5, 49.5, 61, 76)) +
+  theme_classic(base_size = 16) +
+  xlab("") + 
+  coord_flip() +
+  theme(# panel.border=element_blank(), 
+        axis.line.x = element_line(size = 1.2),
+        axis.line.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.text.y = element_blank()
+        )
+htmlwidgets::saveWidget(ggplotly(boxplot), "boxplot.html", selfcontained=TRUE)
+knitr::include_url("boxplot.html")
 ```
--->
 
 ---
 
