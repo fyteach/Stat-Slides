@@ -449,7 +449,7 @@ event \(E\).</p>
 <p>The <strong>union</strong> \(A\cup B\) of two events \(A\) and \(B\) is the set of all outcomes in the sample space that are either in \(A\) or \(B\).</p>
 </li>
 <li>
-<p>Two events \(A\) and \(B\) are <strong>mutually exclusive</strong> if there intersection \(A\cap B\) is empty.</p>
+<p>Two events \(A\) and \(B\) are <strong>mutually exclusive</strong> if their intersection \(A\cap B\) is empty.</p>
 </li>
 </ul>
 <hr />
@@ -600,7 +600,7 @@ $$</p>
 </li>
 </ul>
 <hr />
-<h2 id="example-six-sided-die-1-of-2"><span class="section-number">17.</span> Example: Six-sided Die (1 of 2)</h2>
+<h2 id="example-rolling-a-six-sided-die-1-of-2"><span class="section-number">17.</span> Example: Rolling a Six-sided Die (1 of 2)</h2>
 <p>A six-sided fair die is rolled. Denote by \(E\) the event of getting a number less than \(3\).</p>
 <ol>
 <li>Find the probability \(P(E)\) of the event \(E\).</li>
@@ -608,7 +608,7 @@ $$</p>
 <li>Verify that \(P(E)+P(E^c)=1\).</li>
 </ol>
 <hr />
-<h2 id="example-six-sided-die-2-of-2"><span class="section-number">18.</span> Example: Six-sided Die (2 of 2)</h2>
+<h2 id="example-rolling-a-six-sided-die-2-of-2"><span class="section-number">18.</span> Example: Rolling a Six-sided Die (2 of 2)</h2>
 <p><strong>Solution:</strong> The sample space of the six-sided die is \(\{1,2,3,4,5,6\}\).</p>
 <p>The event \(E\) consists of 2 numbers: \(E=\{1, 2\}\).</p>
 <p>The probability is
@@ -651,7 +651,7 @@ $$P(E)=1-P(E^c)=\frac{11}{12}.$$</p>
 <iframe src="https://www.myopenmath.com/embedq2.php?id=34681&amp;seed=2020&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
 </div>
 <hr />
-<h2 id="chance-experiment-with-equally-likely-outcomes"><span class="section-number">21.</span> Chance Experiment with Equally Likely Outcomes</h2>
+<h2 id="experiments-with-equally-likely-outcomes"><span class="section-number">21.</span> Experiments with Equally Likely Outcomes</h2>
 <p>When outcomes in the sample spaces are equally likely,</p>
 <ul>
 <li>
@@ -771,6 +771,9 @@ $$</p>
 <p><strong>Fundamental Counting Principle:</strong> if there are \(m\) ways of doing something and \(n\) ways of doing another thing independently, then there are \(m\cdot n\) ways of performing both actions <em>in order</em>.</p>
 </li>
 </ul>
+<div class="footmark">
+<p>See <a href="https://online.stat.psu.edu/stat414/lesson/3">https://online.stat.psu.edu/stat414/lesson/3</a> for more information and examples on counting technique.</p>
+</div>
 <hr />
 <h2 id="example-conditional-probability"><span class="section-number">28.</span> Example: Conditional Probability</h2>
 <p>A fair six-sided die is rolled.</p>
@@ -804,14 +807,14 @@ $$P(D\cap H)=P(H)P(D\mid H)=\frac12\cdot\frac13=\frac16.$$</p>
 $$P(D)=\frac13=P(D\mid H)\quad\text{and then}\quad P(D\cap H)=P(H)P(D|H)=P(H)P(D),$$
 the events \(H\) and \(D\) are independent.</p>
 <hr />
-<h2 id="example-from-multiplication-to-addition-1-of-2"><span class="section-number">31.</span> Example: From Multiplication to Addition (1 of 2)</h2>
+<h2 id="example-multiplication-and-addition-1-of-2"><span class="section-number">31.</span> Example: Multiplication and Addition (1 of 2)</h2>
 <p>The probability that a student borrows a statistics book from the library is 0.3. The probability that a student borrows a biology book is 0.4. Given that a student borrowed a biology book, the probability that he/she borrows a statistics book is 0.6.</p>
 <ol>
 <li>Find the probability that a student borrows a statistics book and a biology book.</li>
 <li>Find the probability that a student barrows a statistics boor or a biology book.</li>
 </ol>
 <hr />
-<h2 id="example-from-multiplication-to-addition-2-of-2"><span class="section-number">32.</span> Example: From Multiplication to Addition (2 of 2)</h2>
+<h2 id="example-multiplication-and-addition-2-of-2"><span class="section-number">32.</span> Example: Multiplication and Addition (2 of 2)</h2>
 <p><strong>Solution:</strong> Denote by \(S\) the event that a student borrows a statistics book, and \(B\) the event that the student borrows a biology book.</p>
 <p>From the given conditions, we know that \(P(S)=0.3\), \(P(B)=0.4\) and \(P(S\mid B)=0.6\).</p>
 <p>By the multiplication rule, we know
@@ -823,7 +826,7 @@ $$
 \begin{aligned} P(S\cup B)=&amp;P(S)+P(B)-P(S\cap B)\\ =&amp;0.3+0.4-0.24=0.46. \end{aligned}
 $$</p>
 <hr />
-<h2 id="sampling-with-replacement-or-without-replacement"><span class="section-number">33.</span> Sampling with Replacement or without Replacement</h2>
+<h2 id="replacement-or-without-replacement"><span class="section-number">33.</span> Replacement or without Replacement</h2>
 <ul>
 <li>
 <p><strong>With replacement:</strong> If each member of a population is replaced after it is picked, then that member has the possibility of being chosen more than once. When sampling is done with replacement, then events are considered to be independent, meaning the result of the first pick will not change the probabilities for the second pick.</p>
@@ -878,7 +881,7 @@ $$</p>
 <iframe src="https://www.myopenmath.com/embedq2.php?id=7151&amp;seed=2020&amp;showansafter" width="100%" height="550px" data-external="1"></iframe>
 </div>
 <hr />
-<h2 id="practice-pens-drawn-from-a-box-without-replacement" class="unnumbered">Practice: Pens Drawn from a Box without Replacement</h2>
+<h2 id="practice-drawing-pens-without-replacement" class="unnumbered">Practice: Drawing Pens without Replacement</h2>
 <p>A box contains 10 pens, 6 black and 4 red. Two pens are drawn without replacement, which means that the first one is not put back.</p>
 <ul>
 <li>What is the probability that both pens are red?</li>
@@ -886,7 +889,7 @@ $$</p>
 <li>What is the probability that at least one pen is red?</li>
 </ul>
 <hr />
-<h2 id="practice-classical-question-on-basic-rules-of-probability" class="unnumbered">Practice: Classical Question on Basic Rules of Probability</h2>
+<h2 id="practice-rules-of-probability" class="unnumbered">Practice: Rules of Probability</h2>
 <div class="iframecontainer">
 <iframe src="https://www.myopenmath.com/embedq2.php?id=162779&amp;seed=2020&amp;showansafter" width="100%" height="550px" data-external="1"></iframe>
 </div>
