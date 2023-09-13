@@ -17,15 +17,6 @@ output:
         js: es5/tex-svg.js
 ---
 
-```{r, echo=FALSE,warning=FALSE}
-knitr::opts_chunk$set(comment="#", fig.retina=2, crayon.enabled = TRUE, echo=FALSE)
-set.seed(15)
-library(kableExtra)
-library(knitr)
-# library(ggthemes)
-# library(ggExtra)
-```
-
 ## Learning Goals
 
 - Construct sample spaces and calculate probabilities for simple and/or compound events.
@@ -69,7 +60,7 @@ event $E$.
 
 - The **union** $A\cup B$ of two events $A$ and $B$ is the set of all outcomes in the sample space that are either in $A$ or $B$.
 
-- Two events $A$ and $B$ are **mutually exclusive** if there intersection $A\cap B$ is empty.
+- Two events $A$ and $B$ are **mutually exclusive** if their intersection $A\cap B$ is empty.
 
 ---
 
@@ -248,7 +239,7 @@ When an event $E$ consists of infinitely many outcomes, the right-hand side of t
 
 ---
 
-## Example: Six-sided Die (1 of 2)
+## Example: Rolling a Six-sided Die (1 of 2)
 
 A six-sided fair die is rolled. Denote by $E$ the event of getting a number less than $3$.
 
@@ -258,7 +249,7 @@ A six-sided fair die is rolled. Denote by $E$ the event of getting a number less
 
 ---
 
-## Example: Six-sided Die (2 of 2)
+## Example: Rolling a Six-sided Die (2 of 2)
 
 **Solution:** The sample space of the six-sided die is $\{1,2,3,4,5,6\}$.
 
@@ -328,7 +319,7 @@ $$P(E)=1-P(E^c)=\frac{11}{12}.$$
 
 ---
 
-## Chance Experiment with Equally Likely Outcomes
+## Experiments with Equally Likely Outcomes
 
 When outcomes in the sample spaces are equally likely,
 
@@ -452,6 +443,11 @@ $P(\text{heart or face})=P(\text{heart})+P(\text{face})-P(\text{heart and face})
 
 - **Fundamental Counting Principle:** if there are $m$ ways of doing something and $n$ ways of doing another thing independently, then there are $m\cdot n$ ways of performing both actions *in order*.
 
+::: {.footmark}
+
+See <https://online.stat.psu.edu/stat414/lesson/3> for more information and examples on counting technique.
+:::
+
 ---
 
 ## Example: Conditional Probability
@@ -500,7 +496,7 @@ the events $H$ and $D$ are independent.
 
 ---
 
-## Example: From Multiplication to Addition (1 of 2)
+## Example: Multiplication and Addition (1 of 2)
 
 The probability that a student borrows a statistics book from the library is 0.3. The probability that a student borrows a biology book is 0.4. Given that a student borrowed a biology book, the probability that he/she borrows a statistics book is 0.6.
 
@@ -509,7 +505,7 @@ The probability that a student borrows a statistics book from the library is 0.3
 
 ---
 
-## Example: From Multiplication to Addition (2 of 2)
+## Example: Multiplication and Addition (2 of 2)
 
 **Solution:** Denote by $S$ the event that a student borrows a statistics book, and $B$ the event that the student borrows a biology book.
 
@@ -530,7 +526,7 @@ $$
 
 ---
 
-## Sampling with Replacement or without Replacement
+## Replacement or without Replacement
 
 - **With replacement:** If each member of a population is replaced after it is picked, then that member has the possibility of being chosen more than once. When sampling is done with replacement, then events are considered to be independent, meaning the result of the first pick will not change the probabilities for the second pick.
 
@@ -600,7 +596,7 @@ Source: [https://saylordotorg.github.io/text_introductory-statistics/s07-03-cond
 
 ---
 
-## Practice: Pens Drawn from a Box without Replacement {.unnumbered}
+## Practice: Drawing Pens without Replacement {.unnumbered}
 
 A box contains 10 pens, 6 black and 4 red. Two pens are drawn without replacement, which means that the first one is not put back.
 
@@ -610,7 +606,7 @@ A box contains 10 pens, 6 black and 4 red. Two pens are drawn without replacemen
 
 ---
 
-## Practice: Classical Question on Basic Rules of Probability {.unnumbered}
+## Practice: Rules of Probability {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=162779&seed=2020&showansafter", height="550px")`

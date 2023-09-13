@@ -15,8 +15,9 @@ output:
 
 - [Topic 4: Linear Relationship](Topic-4-Linear-Relationship.html)
 
-<!-- - [Topic 5: Two-way Tables](Topic-5-Two-Way-Tables.html) -->
-
 - [Topic 5: Introduction to Probability](Topic-5-Probability.html)
 
+- [Topic 6: Two-way Tables](Topic-6-Two-Way-Tables.html)
+
+- [Topic 7: Discrete Random Variables](Topic-7-Discrete-Random-Variables.html)
 

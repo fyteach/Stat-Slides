@@ -17,16 +17,6 @@ output:
         js: es5/tex-svg.js
 ---
 
-```{r, echo=FALSE, warning=FALSE}
-knitr::opts_chunk$set(comment="#", fig.retina=2, crayon.enabled = TRUE)
-library(kableExtra)
-library(knitr)
-# library(formattable)
-# library(ggplot2)
-library(ggthemes)
-library(ggExtra)
-```
-
 ## Learning Goals for Two-way Tables
 
 - Summarize and interpret the relationship between two two qualitative (categorical) variables using two-way tables.
