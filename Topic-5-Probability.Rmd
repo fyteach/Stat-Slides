@@ -16,6 +16,10 @@ output:
         version: 3
         js: es5/tex-svg.js
 ---
+```{r, echo=FALSE, warning=FALSE}
+knitr::opts_chunk$set(comment="#", fig.retina=2, crayon.enabled = TRUE)
+library(knitr)
+```
 
 ## Learning Goals
 

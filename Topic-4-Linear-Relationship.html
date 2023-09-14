@@ -328,13 +328,11 @@ border-collapse: collapse;
   height: 75vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 iframe {
   border: none;
   flex: 1;
-  align-self: center;
 }
 
 iframe[src^="https://www.myopenmath.com"] {
@@ -378,13 +376,17 @@ iframe[src^="https://www.myopenmath.com"] {
   font-size: 70%;
   bottom: 0.8em;
   position: absolute;
-  color: #6296ff;;
+  color: #6296ff;
   /* background-color: #ffeec4; */
 }
 
 /* .MathJax {
   font-size: 0.9em;
 } */
+
+mjx-container[jax="SVG"][display="true"]{
+  margin: 0.6em 0 !important;
+}
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css,npm/@xiee/utils/css/ heading-anchor.min.css">
 </head>

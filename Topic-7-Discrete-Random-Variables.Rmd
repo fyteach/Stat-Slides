@@ -22,11 +22,9 @@ knitr::opts_chunk$set(comment="#", fig.retina=2, crayon.enabled = TRUE)
 set.seed(15)
 library(knitr)
 library(ggplot2)
-library(ggthemes)
-library(ggExtra)
 ```
 
-## Learning Goals for Probability and Probability Distribution
+## Learning Goals
 
 - Demonstrate understanding of random variables
 

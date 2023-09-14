@@ -20,26 +20,10 @@ output:
 ```{r, echo=FALSE, warning=FALSE}
 knitr::opts_chunk$set(comment="#", fig.retina=2, crayon.enabled = TRUE, dpi=600)
 set.seed(15)
-library(stats)
-library(kableExtra)
 library(knitr)
-library(formattable)
 library(ggplot2)
-library(ggthemes)
-library(ggExtra)
 library(dplyr,warn.conflicts = FALSE)
-library(animation)
-library(gifski)
 library(latex2exp)
-```
-
-```{css, echo=F}
-table{
-  border-collapse: collapse;
-}
-thead:empty {
-  display: none;
-}
 ```
 
 ## Learning Goals for Confidence Intervals

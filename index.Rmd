@@ -21,3 +21,16 @@ output:
 
 - [Topic 7: Discrete Random Variables](Topic-7-Discrete-Random-Variables.html)
 
+- [Topic 8: Continuous Random Variables](Topic-8-Continuous-Random-Variables.html)
+
+- [Topic 9: Sampling Distribution](Topic-9-Sampling-Distributions.html)
+
+- [Topic 10: Confidence Interval for a Mean](Topic-10-Confidence-Intervals-Mean.html)
+
+- [Topic 11: Confidence Interval for a Proportion](Topic-11-Confidence-Intervals-Proportion.html)
+
+- [Topic 12: Concepts of Hypothesis Testing](Topic-12-Concepts-of-Hypothesis-Testing.html)
+
+- [Topic 13: Hypothesis Testing for a Mean or a Proportion](Topic-13-Hypothesis-Testing-Mean-Proportion.html)
+
+- [(**optional**) Topic 14: Hypothesis Testing for a Median](Topic-14-Confidence-Intervals-Median.html)

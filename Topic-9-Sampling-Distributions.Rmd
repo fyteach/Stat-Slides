@@ -18,20 +18,11 @@ output:
 ---
 
 ```{r, echo=FALSE, warning=FALSE}
-knitr::opts_chunk$set(comment="#", fig.retina=2, crayon.enabled = TRUE, dpi=300, warning=FALSE)
+knitr::opts_chunk$set(comment="#", fig.retina=2, crayon.enabled = TRUE)
 set.seed(15)
-library(stats)
-library(kableExtra)
 library(knitr)
-library(formattable)
 library(ggplot2)
-library(ggthemes)
-library(ggExtra)
-library(dplyr,warn.conflicts = FALSE)
-library(animation)
-library(gifski)
 library(latex2exp)
-xaringanExtra::use_fit_screen()
 ```
 
 ## Learning Goals for Sampling Distribution

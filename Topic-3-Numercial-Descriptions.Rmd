@@ -50,7 +50,6 @@ load("Data-Frames-SUNY-Concepts-in-Statistics/actor.RData")
 - An **outlier** is an observation that is more than $1.5\text{IQR}$ away from the nearest quartile.
 - An outlier is an **extreme outlier** if it is more than $3\text{IQR}$ from the nearest quartile and it is a **mild outlier** otherwise.
 - The minimum, $Q_1$, $Q_2$, $Q_3$ and maximum are known as the "**five-number summary**" of the data set.
-<!-- - The difference of maximum and minimum is called the **range**. -->
 
 ---
 

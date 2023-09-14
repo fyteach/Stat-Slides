@@ -17,14 +17,12 @@ output:
         js: es5/tex-svg.js
 ---
 
+
 ```{r, echo=FALSE, warning=FALSE}
 knitr::opts_chunk$set(comment="#", fig.retina=2, crayon.enabled = TRUE)
 set.seed(15)
-library(kableExtra)
 library(knitr)
 library(ggplot2)
-library(ggthemes)
-library(ggExtra)
 library(latex2exp)
 ```
 

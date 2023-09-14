@@ -17,9 +17,9 @@ output:
         js: es5/tex-svg.js
 ---
 
-## Learning Goals for Two-way Tables
+## Learning Goals
 
-- Summarize and interpret the relationship between two two qualitative (categorical) variables using two-way tables.
+- Summarize and interpret the relationship between two qualitative (categorical) variables using two-way tables.
 
 - Demonstrate understanding and find conditional, joint and marginal probability from a two-way frequency table.
 

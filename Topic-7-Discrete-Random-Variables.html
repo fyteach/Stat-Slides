@@ -399,7 +399,7 @@ mjx-container[jax="SVG"][display="true"]{
 <div class="date"><h3>September 2023</h3></div>
 </div>
 <div class="body">
-<h2 id="learning-goals-for-probability-and-probability-distribution"><span class="section-number">0.1</span> Learning Goals for Probability and Probability Distribution</h2>
+<h2 id="learning-goals"><span class="section-number">1.</span> Learning Goals</h2>
 <ul>
 <li>
 <p>Demonstrate understanding of random variables</p>
@@ -412,30 +412,28 @@ mjx-container[jax="SVG"][display="true"]{
 </li>
 </ul>
 <hr />
-<h2 id="random-variables"><span class="section-number">0.2</span> Random Variables</h2>
+<h2 id="random-variables"><span class="section-number">2.</span> Random Variables</h2>
 <ul>
 <li>
-<p>A <strong>random variable</strong>, usually written \(X\), is a variable whose values are numerical quantities of possible outcomes a random experiment.</p>
+<p>A <strong>random variable</strong>, usually written \(X\), is a variable whose values are numerical quantities of possible outcomes from a random experiment.</p>
 </li>
 <li>
 <p>A <strong>discrete random variable</strong> takes on only a finite or countable number of distinct values.</p>
 <p><strong>Example:</strong></p>
 <ul>
-<li>Rolling a fair dice, the number of dots on the top faces is a discrete random variable takes on the possible values: 1, 2, 3, ,4, 5, 6.</li>
-<li>Flipping a fair coin 10 times, the number of heads is a discrete random variable takes on the possible values: 1, 2, 3, …, 10.</li>
+<li>Rolling a fair dice, the number of dots on the top faces is a discrete random variable takes on the possible values: 1, 2, 3, 4, 5, 6.</li>
 </ul>
 </li>
 <li>
 <p>A <strong>continuous random variable</strong> takes on values which form an interval of numbers.</p>
 <p><strong>Example:</strong></p>
 <ul>
-<li>The height of a randomly select 10-year-old boy in US is normally between 129 cm and 157 cm. So the height is a continuous random variable.</li>
-<li>The measure the voltage at an randomly electrical outlet normally is between 118 and 122. SO the measure of voltage is a continuous random variable.</li>
+<li>The measure the voltage at a randomly electrical outlet normally is between 118 and 122. SO the measure of voltage is a continuous random variable.</li>
 </ul>
 </li>
 </ul>
 <hr />
-<h2 id="practice-discrete-or-continuous"><span class="section-number">0.3</span> Practice: Discrete or continuous</h2>
+<h2 id="practice-discrete-or-continuous"><span class="section-number">3.</span> Practice: Discrete or continuous</h2>
 <p>Classify each random variable as either discrete or continuous.</p>
 <ol>
 <li>
@@ -452,7 +450,7 @@ mjx-container[jax="SVG"][display="true"]{
 </li>
 </ol>
 <hr />
-<h2 id="probability-distributions"><span class="section-number">0.4</span> Probability Distributions</h2>
+<h2 id="probability-distributions"><span class="section-number">4.</span> Probability Distributions</h2>
 <ul>
 <li>
 <p>The <strong>probability distribution</strong> of a discrete random variable \(X\) is defined by the probability \(P(X=x)\) associated with each possible value \(x\) of the variable \(X\). The function \(p_X(x)=P(X=x)\) is called the <strong>probability mass function</strong>.</p>
@@ -465,7 +463,7 @@ mjx-container[jax="SVG"][display="true"]{
 </li>
 </ul>
 <hr />
-<h2 id="basic-properties-of-probability-distributions"><span class="section-number">0.5</span> Basic Properties of Probability Distributions</h2>
+<h2 id="basic-properties-of-probability-distributions"><span class="section-number">5.</span> Basic Properties of Probability Distributions</h2>
 <ul>
 <li>
 <p>Basic rules of probability:</p>
@@ -474,7 +472,7 @@ mjx-container[jax="SVG"][display="true"]{
 <p>\(0\leq P(X=x)\leq 1\).</p>
 </li>
 <li>
-<p>the sum of all the probabilities is 1, that is \(P(X\leq x_{max})=1\).</p>
+<p>The sum of all the probabilities is 1, that is \(P(X\leq x_{max})=1\).</p>
 </li>
 <li>
 <p>In particular, \(0\leq F_X(x)\leq 1\).</p>
@@ -491,15 +489,14 @@ where \(P(X\le x_i)=\sum\limits_{k=1}^i P(X=x_k)\).</p>
 </li>
 </ul>
 <hr />
-<h2 id="example-probability-distribution-of-flipping-two-fair-coins"><span class="section-number">0.6</span> Example: Probability Distribution of Flipping Two Fair Coins</h2>
+<h2 id="example-probability-distribution-of-flipping-two-fair-coins"><span class="section-number">6.</span> Example: Probability Distribution of Flipping Two Fair Coins</h2>
 <p>Let \(X\) be the number of heads that are observed when tossing two fair coins.</p>
 <ol>
 <li>Construct the probability distribution for \(X\).</li>
 <li>Find \(P(X\le 1)\) and \(P(X\le 2)\).</li>
 </ol>
-<p>–</p>
-<p><strong>Solution:</strong> The possible values of the number of heads are \(0\), \(1\) and \(2\). The probability distribution can be characterized by the following table:
-.center[</p>
+<p><strong>Solution:</strong> The possible values of the number of heads are \(0\), \(1\) and \(2\). The probability distribution can be characterized by the following table:</p>
+<div class="center">
 <table>
 <thead>
 <tr>
@@ -516,41 +513,47 @@ where \(P(X\le x_i)=\sum\limits_{k=1}^i P(X=x_k)\).</p>
 <td>0.5</td>
 <td>0.25</td>
 </tr>
-<tr>
-<td>]</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
+</div>
 <p>From the table, we may find the following cumulative distributions:
 $$P(X\leq 1)=P(X=0)+P(X=1)=0.25+0.5=0.75.$$
 $$P(X\leq 2)= P(X=0)+P(X=1)+P(X=2)=0.25+0.5+0.25=1.$$</p>
 <hr />
-<h2 id="example-probability-histogram-of-an-unfair-coin"><span class="section-number">0.7</span> Example: Probability Histogram of an Unfair Coin</h2>
-<p>The probability distribution of an unfair coin is characterized by the following histogram. Find the probability of getting at most 1 head.
-.center[
+<h2 id="example-probability-histogram-of-an-unfair-coin"><span class="section-number">7.</span> Example: Probability Histogram of an Unfair Coin</h2>
+<p>The probability distribution of an unfair coin is characterized by the following histogram. Find the probability of getting at most 1 head.</p>
+<div class="center">
+<pre><code># Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+# i Please use `linewidth` instead.
+# This warning is displayed once every 8 hours.
+# Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
+</code></pre>
+<pre><code># Warning: `stat(count)` was deprecated in ggplot2 3.4.0.
+# i Please use `after_stat(count)` instead.
+# This warning is displayed once every 8 hours.
+# Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
+</code></pre>
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtAAAAH4CAMAAABUnipoAAABpFBMVEUAAAAAAEAAAEgAAGkAAHQAPEAAPGkAPI0ASEgASHQASJwAYqwAdL8xAAAxPAAxPEAxPGkxYqwxhI0xhKwxhMozMzNIAABISABISEhISHRIdHRIdJxIdL9InL9InN9NTU1NTXJNTZJNcpJNcrBNksxOAABOPABOPEBOhKxOospOouZpPABposppvcppveZyTU1ycnJyksxysOV0AAB0SAB0SEh0dAB0dEh0dHR0dJx0nL90nN90v990v/+CYgCCYkCChECChGmCvcqCveaC2OaSTU2STXKSck2ScnKSsMySzOWSzP+XhECXommXoo2X2OacSACcdACcdEicdHScnJycv7+cv9+c3/+tommtvY2tvayt2Kyt2Mqt2Oawck2wcnKwknKwsJKw5f+/dAC/dEi/nEi/nHS/nJy/nL+/v7+/v9+/39+/3/+////Mkk3MsHLMsJLM5f/M///fnEjfnHTfv3Tfv5zfv7/f37/f39/f3//f///lsHLlzLDl5bDl////v3T/zJL/35z/37//39//5bD/5cz//7///8z//9///+X///8weEbBAAAACXBIWXMAABYlAAAWJQFJUiTwAAAZ70lEQVR4nO2d+3scRXaG24IYbFBugIxZQgvbIllEUMCQZQkIdhet12svdnAC0uqyAQMJxAhsh4tjbWTZlq3LP53p7umZ7tGoe/p0nTn11fO9PzDqaanme+q8W1td1dOO9gkJiMg6ACEuodAkKCg0CQoKTYKCQpOgoNAkKCg0CQoKTYKCQpOgoNAkKBwL/Qwh40dRaLfNEVIPhSZBQaFJUFBoEhQUmgQFhSZBQaFJUFBoEhQUmgQFhSZBQaFJUFBoEhQUmgQFhSZBQaFJUFBoEhQUmgQFhSZBQaFJUFBoEhQUmgQFhZayCot1z6lCoaVYaynHuudUodBSrLWUY91zqlBoKQ4N+/ClKDr6ysCbK7NHXl1dXZ6JujzygauPs+45VSi0FFd6ra4uZsa+XH73YkShBVBoKa70Spx9enXl/QFjlyZTobuszA763gLrnlOFQktx5tfF6InkZb6jdZ+V2aMvFYTu/o4brHtOFQotxZlf89nguzRZdHb+yD/O9oVemnQ34aDQ8rbdNucZrvRamc1kXZ557FLvzcXo6ZWC0OXRuy3WPacKhZbiSq/lmVzo/iicyF0Q2u0ATaHFbbttzjNc6ZWPzPlInTDfcbkgtNsBmkKL23bbnGe40muI0BcTgftCF8duF1j3nCoUWoorvQ5OObLLw77Qiy6XOFYptLxtt815hiu9Dl4UXozKmynzDtegE6x7ThUKLcWZX/PZSNxfthsQ2vWMg0KL23bbnGc482voxkphyrE0WVjPc4F1z6lCoaU482t5Jnrq0oGt777QrqfQFFrcttvmPMOdYIWbkworzj2hL7pdtKPQ8rbdNucZDg3r3z46TGjX14QUWty22+Y8w61k48S651Sh0FKstZRj3XOqUGgp1lrKse45VSi0FGst5Vj3nCoUWoq1lnKse04VCi3FWks51j2nCoWWYq2lHOueU4VCS7HWUo51z6lCoaVYaynHuudUodBSrLWUY91zqlBoKdZayrHuOVUotBRrLeVY95wqFFqKtZZyrHtOFQotxVpLOdY9pwqFlmKtpRzrnlOFQkux1lKOdc+pQqGlWGspx7rnVKHQUqy1lGPdc6pQaCnWWsqx7jlVKLQUay3lWPecKhRairWWcqx7ThUKLcVaSznWPacKhZZiraUc655ThUJLsdZSjnXPqUKhpVhrKce651Sh0FKstZRj3XOqUGgp1lrKse45VSi0FGst5Vj3nCoUWoq1lnKse04VCi3FWks51j2nCoWWYq2lHOueU0Uq9N53c/H0+c3Se1vxhXLb8lgAWGspx7rnVJEKvR4nnCm+tT1HoSGw7jlVhEJvxaeu7z84VzR4by2m0BBY95wqQqHXpz/bT8bkwhC9Mf0phYbAuudUkQm9t3Z6s/+S0plA9+fQz2S4iegp1lrKse45VWRC7yxkQ/P6izcK71BoDKx7ThVXQic/cZUDA+ueU8WR0BuJyxQaA+ueU8WN0Ntzr+9TaBSse04VNxeFG3GXdPGj17abiJ5iraUc655Txc2yHYVGwrrnVHG3scIpBwrWPadK+63vjd6oTKExsO45VcQ3J32b35xEodGw7jlVePuoFGst5Vj3nCoUWoq1lnKse04VCi3FWks51j2nCoWWYq2lHOueU4VCS7HWUo51z6lCoaVYaynHuudUodBSrLWUY91zqlBoKdZayrHuOVUotBRrLeVY95wqFFqKtZZyrHtOFQotxVpLOdY9pwqFlmKtpRzrnlOFQkux1lKOdc+pQqGlWGspx7rnVKHQUqy1lGPdc6pQaCnWWsqx7jlVKLQUay3lWPecKhRairWWcqx7ThUKLcVaSznWPacKhZZiraUc655ThUJLsdZSjnXPqUKhpVhrKce651Sh0FKstZRj3XOqUGgp1lrKse45VSi0FGst5Vj3nCoUWoq1lnKse04VCi3FWks51j2nCoWWYq2lHOueU4VCS7HWUo51z6lCoaVYaynHuudUMRTauq4twI7vtsqeQaElYMd3W2XPoNASsOO7rbJnhCH0hy9F0dFXCm+s/Goyiv76N9nBH/8+io78wyWHn+c4/phxW2XPCELoxSjl5f4784V3LmY/P+bQaLfxx43bKntGCEIvz0RPr668Hz3yQf7OYnT0N/k7S5PRU5dWP5ws+t4Wp/HHjtsqe0YIQl+Mnkhe5jtaZ6zMHnk1fSd5mc/OLmYvbnAaf+y4rbJnhCD0fDb4Lk0OKJt6vTzTH7id4TT+2HFbZc8IQOiV2UzZ5ZnyNHnlvWRQXpp0OXnu4jL++HFbZc8IQOh8DC6PxZ2pczJ3TqYaHbO5ylHAbZU9IwihszE4H6kzlv7qL6PobxKh/3aGqxwl3FbZM4IVusMfZzuXiYud0fmV1WSV4+mhfy3CZfzx47bKnhGE0MOmHAnJ/HkxylY8nM6lXcYfP26r7BkBCH3YRWF2ZjE6ZPxug8v448dtlT0jAKGz5eYhy3bpmJ2PzE6X75zGHztuq+wZIQh9YGNleSZTPBmdV2azVepFl1eFTuOPHbdV9owQhF6eiZ66VNr6nk+2vlf/kG53dybRP1/l1ncBt1X2jBCELt6ctDSZaN0ZllPSIfu97GeHO98U2l+CELpw+2gmdHb7aH5DaXL2L37u8OMotL+EIfS4wY7vtsqeQaElYMd3W2XPoNASsOO7rbJnUGgJ2PHdVtkzKLQE7Phuq+wZFFoCdny3VfYMCi0BO77bKnsGhZaAHd9tlT2DQkvAju+2yp5BoSVgx3dbZc+g0BKw47utsmdQaAnY8d1W2TMotATs+G6r7BkUWgJ2fLdV9gwKLQE7vtsqewaFloAd322VPYNCS8CO77bKnkGhJWDHd1tlz5AKvffdXDx9frN//B9x6Thtu7oJ67q2ADv+6FUGRCr0epxwJj/cOVc+ztqubsK6ri3Ajj96lQERCr0Vn7q+/+BcfKF7vBG/ttk5nv6s1HZ1G9Z1bQF2/JGrjEi10Lv/dXv4n62n6m7PdYfkvbXTyWxjoyd41nb1R1vXtQXY8Ud1A5JqoR+ejR5/e4jTXYG7Lzn/t/DijVLb1R9tXdcWYMcfWQ5Eakboz6eiKDr28aDTOwvZ0LxeMHgjjk9f77WaUv3R1nVtAXb8xpIgUTuH/umjIU4PE3r9nzpGb+atUmh/aW4JEKNcFGZOn/y4/84wofeTQbq0zEGh/WRUNyAZcZXjpyuJ0z+71j08ROi9tdIxhfaTkeVAZDSh7395Invi4fPZzGP4ReGg4BTaTxoJgsYIQt//Mh2d/3t//4ep6MnsvYFlu52F1OydBQoNgMQTGOqEzmzO5893px79Jv1hcGNlPd1YWYtfL7Vd/dHWdW0BdnyJJzDUrkOXVjgenu0KXdj63kgG652F9Lg8A6HQfiJ1BYI6ocv7Kveu5Esde9/mNyelQvPmJCCaWwJEzZTjf1u1XX3auq4twI7fpqbeUyP0/b7R975u3Hb1aeu6tgA7ftM6QlE35cjnzMUfR267+rR1XVuAHb9hGbEYWejeAkeDtqtPW9e1BdjxG5YRi8OFTlc4ihw/5FbSw9uuPm1d1xZgx29YRiwqRug7ZZ+PfdK47erT1nVtAXb8pnWEYuQph6Tt6tPWdW0Bdnx5RQGouR/6yi+bzjOKbVeftq5rC7DjyysKAB9jIAE7vtsqe0bFReGbJ795+OazfU5ylSMHO37DMmJRtcrx6DellQ4u2/XAjt+wjFgcLvTuj1/f3v3xqz5fc9kuBzt+wzJiwTm0BOz4bqvsGRRaAnZ8t1X2jKqLwmfL8KKwB3b8hmXEosHWNy8Ke2DHb1hGLKouCr8qw4vCHtjxG5YRC86hJWDHd1tlz6DQErDju62yZ3CnUAJ2/IZlxII7hRKw4zcsIxbcKZSAHb9hGbHgHFoCdny3VfaMEYT+qTM6ix5nQKH9RFJLGOqE3k0fBRZFE+8I2q4+bV3XFmDHb15JIGqE3r3ckfnZt55NHjzavO3q09Z1bQF2/MaFRKJG6Jv50Px9FL3buO3q09Z1bQF2/KZ1hKLmO4WXexrf5GMM+mDHb1hGLPjkJAnY8RuWEQsKLQE7fsMyYlEzh77am3LcyR/e36Dt6tPWdW0BdvymdYSiRuiHZyeyJ0LfnTrW+JEzFNpPmtYRioqt7ytvdfhFFE10Xk5E0XONnzlDof2kYRmx4DdWJGDHb1hGLPiNFQnY8RuWEQvenCQBO77bKntGA6HvN267+rR1XVuAHb9pHaGo/3cK8y+tcA7dBzt+wzJiUbtsx4vCIWDHb1hGLGo3Viaee2tq4rlfTEX/0rzt6tPWdW0BdvzGhURilJuTku1CybP8KbSfNK0jFKPcy3EzeiHZ+n6hcdvVp63r2gLs+E3rCMUoQqe3cTw8y9tHe2DHb1hGLOqmHAWheVHYAzt+wzJiMcrddum/ucl/eLMAdvyGZcSiRug7UfT87c6l4Qu3rvIbK32w4zcsIxZ1Gys3k+Xn7J/g5HcKe2DHb1pHKGq3vu/9W2dg/uGE5DkGFNpPGhcSCd6cJAE7vtsqewafnCQBO76kljDwyUkSsOM3ryQQfHKSBOz4jQuJBJ+cJAE7ftM6QsEnJ0nAjt+wjFjwQTMSsOM3LCMWFFoCdvyGZcSCT06SgB2/aR2h4JOTJGDHb1pHKPjkJAnY8RuWEQs+OUkCdvyGZcSCT06SgB2/YRmx4M1JErDju62yZ4wg9P0fv/qaNyeVwI4vqSUMtUJ/z5uTDoIdv3klgagT+vPk5qRnT/DmpBLY8RsXEon67xT+XXItuPsFb04qgB2/aR2hqN0pzB8vc5M7hX2w4zetIxR193JMfNL9kY8xKIAdv2EZsZDenLT33Vw8fX6zd/zgd3E8/dpm6a8ptJ80EgSNuvuhCyN06X7o9TjhTH64PZcen7pRarv6o63r2gLs+A0VwaJ2Dt3VePdyaQ69FZ+6vv/gXHwhO9xbi3/fGaXX4tdLbVd/tHVdW4Adv7EkSNQIfXcqOvbxrVu3fngj6o3VCevTn+0n43J3iN5ZOFN46bVd/dHWdW0BdvzmlgBRtw59Z6p7a1LJ572105v9lx49oZ/JqP5o67q2ADu+QBMcancKd79MdlUef7t0Z1Ju7vqLpUnzVj7loNA+01ARLGQ3Jw0XenuuPGBTaD8ZtcqQjLzKUWKo0Ntz6cS60Hb1R1vXtQXY8UcSA5WR16FLDBN6I1n4KLdd/dHWdW0BdvyRxEBFNkIfvCjcW4vL8419Cu0ro7oBSd3NSVPHrw37s4Flu8Tn1w/8EoX2k5HEQKVmhL7yRnr7aMrJwuxjYGNlf733U7Ht6o+2rmsLsOM3MwSMujn0YV+S7W99b3QG6+7OdxyXVj0otJ/IbQGgZoT+8bAvye59m9+clAi9FVNoHOS2AMAvyUrAju+2yp5BoSVgx3dbZc+oFPr7E1F07GN529WnrevaAuz44oIiUCX01exisPm3Y/O2q09b17UF2PGl9YSgQug70cTbt25Jvh2bt1192rquLcCOLywnBhVCd78gK/h2bN529WnrurYAO76wnBhUPNuuu+098N2rJm1Xn7auawuw48uqCULV00eznRTBo/vztqtPW9e1BdjxZdUEgUJLwI4vqyYIFFoCdnxZNUGg0BKw48uqCQKFloAdX1ZNECi0BOz4smqCwH9jRQJ2/IZlxIJCS8COj52+5n+PvNtOAnZ87PQUWgHs+NjpKbQC2PGx01NoBbDju07/4UtRdPSVgTcvPvJB57/LM/kVWHrohBrpKLQA7PiO0y9mxr5cenNpkkIDgR3fbfqOs0+vrrxfNvYPk6XjldkB39tQIx2FFoAd3236i9ETyct8R+uclfeiI5NFobu/44Ya6Si0AOz4btPPZ4Pv0uQThbeO/nq2IPTSpLsJB4XWADu+0/QrXXOXZx67lL/3q1d6b6cUR+/21EhHoQVgx3eafnkmF7o0CheFdjtAU2gFsOM7TZ+PzKUhuXzodoCm0Apgx3eavl7ogbG7NTXSUWgB2PGdpq+fciy6XOJYpdAaYMd3mn7YReFqSeh5h2vQCTXSUWgB2PHdpp8/8mryUly2Wy0K7XrGQaEVwI7vNv2QjZXVotBLk6Whuz010lFoAdjx3aZfnomeujS49V0Q2vUUmkIrgB3fcfrCzUn9Fee+0BfdLtpRaA2w47tO3799dJjQrq8JKbQC2PGx01NoBbDjY6en0Apgx8dOT6EVwI6PnZ5CK4AdHzs9hVYAOz52egqtAHZ87PQUWgHs+NjpKbQC2PGx01NoBbDjY6en0Apgx8dOT6EVwI6PnZ5CK4AdHzs9hVYAOz52egqtAHZ87PQUWgHs+NjpKbQC2PGx01NoBbDjY6en0Apgx8dOT6EVwI6PnZ5CK4AdHzs9hVYAOz52egqtAHZ87PQUWgHs+NjpKbQC2PGx01NoBbDjY6en0Apgx8dOT6EVwI6PnZ5CK4AdHzs9hVYAOz52egqtAHZ87PQUWgHs+NjpKbQC2PGx0ysJvffdXDx9frP41s7ChYG2q5uw7pgWYMfHTq8k9HqccKbwzs65+MJA29VNWHdMC7DjY6fXEXorPnV9/0FR4T/PxRQaA+z0OkKvT3/W+e/2XD5E7/0pPvUphcYAO72K0Htrpzf7Lx12fnt+c6sv9DMZFNpLsNOrCL2zkA3N6y/e6L9JoUHATm8idLft6kasO6YF2PGx01NoBbDjY6en0Apgx8dOP56LwgQKDQJ2+vEs2yVQaBCw049rY4VCw4CdXn3reyMdrCk0DtjptW5O+ja/OYlCo4GdnrePKoAdHzs9hVYAOz52egqtAHZ87PQUWgHs+NjpKbQC2PGx01NoBbDjY6en0Apgx8dOT6EVwI6PnZ5CK4AdHzs9hVYAOz52egqtAHZ87PQUWgHs+NjpKbQC2PGx01NoBbDjY6en0Apgx8dOT6EVwI6PnZ5CK4AdHzs9hVYAOz52egqtAHZ87PQUWgHs+NjpKbQC2PGx01NoBbDjY6en0Apgx8dOT6EVwI6PnZ5CK4AdHzs9hVYAOz52egqtAHZ87PQUWgHs+NjpKbQC2PGx01NoBbDjY6en0Apgx8dOT6EVwI6PnZ5CK4AdHzs9hVYAOz52egqtAHZ87PQUWgHs+NjpKbQC2PGx01NoBbDjY6en0Apgx8dOT6EVwI6PnZ5CK4AdHzs9hVYAOz52egqtAHZ87PQUWgHs+NjpKbQC2PGx01NoBbDjY6en0Apgx8dOT6EVwI6PnZ5CK4AdHzs9hVYAOz52egqtAHZ87PQUWgHs+NjpKbQC2PGx01NoBbDjY6en0Apgx8dOT6EVwI6PnZ5CK4AdHzs9hVYAOz52egqtAHZ87PQUWgHs+NjpKbQC2PGx01NoBbDjY6en0Apgx8dOT6EVwI6PnZ5CK4AdHzs9hVYAOz52egqtAHZ87PRKQu99NxdPn9889JhC+wt2eiWh1+OEM4ceU2h/wU6vI/RWfOr6/oNz8YVDjim0x2Cn1xF6ffqzzn+3584cckyhPQY7vYrQe2unN/svB49HEpoQ98iE3lnIhuL1F28MPX4mw1FGQkaGQpOg0BG623brdIQ0hEKToOBFIQkKw2U7QtxjuLFCiHvab31vpIOzYOubEPeIb076Nr8ZKRO6f1xo20VAQppgePsoIe6h0CQoKDQJCgpNgoJCk6Cg0CQoKDQJCgpNgoJCk6Cg0CQoVIUmZPxQaBIUekIbAv59RsZ3A4X2BMZ3A4X2BMZ3A4X2BMZ3A4X2BMZ3QzhCE7JPoUlgUGgSFBSaBAWFJkFBoUlQUGgSFIEIPexf5MJiZ+GCdQQxD34Xx9Ov+dH7gQg97LFkUOwMPCQQie25tPdP3aj/VX3CEHrogyOR+HPHiQvWIYTsrcW/74zSa/Hr1kkSwhB66KN9cdj7U3zqU1ihu4++z5+Ab0wQQg9/+DoOO789v7kFK3QXCu2O4f88BhbwQm9xyuEMCm3P9pwf//dIoT0BXOjtufQyxh4K7QnYQm8ky0xeEITQ6BeFCchC763F3vR8EEKjL9slAAu958kSdEoYQsNvrEALve5T9DCExt/6Bha6u/Mdx15cwQQi9LB/kQsLXKG3YgpNiBIUmgQFhSZBQaFJUFBoEhQUmgQFhSZBQaFJUFBoEhQUmgQFhSZBQaHHw92pR7/p/vjw7MQnI/3N1ehdvUChQqHHA4UeExR6PFDoMUGhxwOFHhMUejwMEfreR1NRdPJa9uYPb0ZR9Pjbt9OD+593zjx/OxP63kedMyc/NsgMCYUeDweFvtORNiEdhT/Pfo6O305/N/352D8n57oH0Qtm0bGg0OPhgNAPz3bG4P3dL6Lk4E408c7+/u7nqd6dM8euJWfSo6vRk+mv9f6cVEKhx0M+0KYkDt+MnkxPpK9XswF493LyeicbpzuvHaG7w3nnDOfTI0Ghx8Og0LuXu1eGd6cyfRMyobt2JyP1u8lbxzh/bgCFHg+DU46OrTnZid2fvrpyIpkq9wfj9KLwTlS4WiS1UOjxUCP09yei/NqvN3Z3l+1+eCM98TMqPRIUejwcFLq4GN0ZhidO/vLfb10+OEJ32P3PZE3vyfEGRoVCj4dBoUtXednceXAOXfqVm1zmGA0KPR4OLNtd7a1lHL/98Gx28s5UtsrRPUpWOfK/K/w9qYJCj4cDQt+dio5f60yeE4c7E+pksfnLqXT/JFnYuLa/+z9TUbbKkfzavcuccowGhR4Ph+8UPr+fTCiyfcIvUm3vZReMx/+1uFPIAXo0KPR4OOxeju4ic7LK8fg7+Z7Kbvlejs7BBNftRoRCk6Cg0CQoKDQJCgpNgoJCk6Cg0CQoKDQJCgpNgoJCk6Cg0CQoKDQJCgpNgoJCk6Cg0CQoKDQJCgpNguL/AfSH9i9gBRCzAAAAAElFTkSuQmCC" width="360" />
-]</p>
-<p>–</p>
+</div>
 <p><strong>Solution:</strong> Let \(X\) be the number of heads. From the probability histogram, we know that \(P(X=0)=0.36\), and \(P(X=1)=0.47\).</p>
 <p>Then the probability of getting at most 1 head is
 $$
 P(X\le 1)=P(X=0)+P(X=1)=0.36+0.47=0.83.
 $$</p>
 <hr />
-<h2 id="practice-probability-distribution-of-rolling-a-pair-of-fair-dice"><span class="section-number">0.8</span> Practice: Probability Distribution of Rolling a Pair of Fair Dice</h2>
+<h2 id="practice-probability-distribution-of-rolling-a-pair-of-fair-dice"><span class="section-number">8.</span> Practice: Probability Distribution of Rolling a Pair of Fair Dice</h2>
 <p>A pair of fair 6-sided dice were rolled. Let \(X\) denote the sum of the number of dots on the top faces.</p>
 <ol>
 <li>Construct the probability distribution of \(X\).</li>
 <li>Find the probability that \(X\) takes an odd value.</li>
 </ol>
 <hr />
-<h2 id="practice-probability-distribution-of-bus-waiting-time"><span class="section-number">0.9</span> Practice: Probability Distribution of Bus Waiting Time</h2>
+<h2 id="practice-probability-distribution-of-bus-waiting-time"><span class="section-number">9.</span> Practice: Probability Distribution of Bus Waiting Time</h2>
+<div class="iframecontainer">
 <iframe src="https://www.myopenmath.com/embedq2.php?id=916595&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
+</div>
 <hr />
-<h2 id="mean-and-standard-deviation-of-a-discrete-random-variable"><span class="section-number">0.10</span> Mean and Standard Deviation of a Discrete Random Variable</h2>
+<h2 id="mean-and-standard-deviation-of-a-discrete-random-variable"><span class="section-number">10.</span> Mean and Standard Deviation of a Discrete Random Variable</h2>
 <p>Let \(X\) be a discrete random variable and \(p_X(x)=P(X=x)\) the probability mass function.</p>
 <ul>
 <li>
@@ -563,20 +566,32 @@ $$</p>
 <p>The <strong>standard deviation</strong> \(\sigma\) of a discrete random variable \(X\) is the square root of its variance: $$\sigma=\sqrt{\sum (x-E(X))^2p_X(x)}.$$</p>
 </li>
 </ul>
-<!-- --- -->
-<!-- ## Some Properties of Expected Value (Optional) -->
-<!-- - The expected value of a linear combination two random variables $X$ and $Y$ is the linear combination of their expected values, that is `nb$$E(aX+bY)=aE(X)+bE(Y).$$nb` -->
-<!-- - The expected value in general is not multiplicative, that is $E(XY)\ne E(X)E(Y)$. -->
-<!-- - If the two random variable $X$ and $Y$ are independent, then `nb$$E(XY)=E(X)E(Y).$$nb` -->
-<!-- - The variance can be computed using expected values: -->
-<!--   `nb$$\mathrm{Var}(X)=E(X^{2})-(E[X])^{2}.$$nb` -->
-<!-- - Let $X$ and $Y$ be two *independent* variables. Then the variance of a linear combination $aX+bY$ equals -->
-<!-- `nb$$\mathrm{Var}(aX+bY)=a^2\mathrm{Var}(X)+b^2\mathrm{Var}(Y)$$nb` -->
 <hr />
-<h2 id="example-expected-gain"><span class="section-number">0.11</span> Example: Expected Gain</h2>
+<h2 id="some-properties-of-expected-value-optional"><span class="section-number">11.</span> Some Properties of Expected Value (Optional)</h2>
+<ul>
+<li>
+<p>The expected value of a linear combination two random variables \(X\) and \(Y\) is the linear combination of their expected values, that is $$E(aX+bY)=aE(X)+bE(Y).$$</p>
+</li>
+<li>
+<p>The expected value in general is not multiplicative, that is \(E(XY)\ne E(X)E(Y)\).</p>
+</li>
+<li>
+<p>If the two random variable \(X\) and \(Y\) are independent, then $$E(XY)=E(X)E(Y).$$</p>
+</li>
+<li>
+<p>The variance can be computed using expected values:
+$$\mathrm{Var}(X)=E(X^{2})-(E[X])^{2}.$$</p>
+</li>
+<li>
+<p>Let \(X\) and \(Y\) be two <em>independent</em> variables. Then the variance of a linear combination \(aX+bY\) equals
+$$\mathrm{Var}(aX+bY)=a^2\mathrm{Var}(X)+b^2\mathrm{Var}(Y)$$</p>
+</li>
+</ul>
+<hr />
+<h2 id="example-expected-gain"><span class="section-number">12.</span> Example: Expected Gain</h2>
 <p>One thousand raffle tickets are sold for $2 each. Each has an equal chance of winning. First prize is $500, second prize is $300, and third prize is $100. Find the expected value of gain, and interpret its meaning.</p>
-<p><strong>Solution:</strong> Let \(X\) denote the net gain from purchasing one ticket. The probability distribution for \(X\) is<br />
-.center[</p>
+<p><strong>Solution:</strong> Let \(X\) denote the net gain from purchasing one ticket. The probability distribution for \(X\) is</p>
+<div class="center">
 <table>
 <thead>
 <tr>
@@ -595,20 +610,14 @@ $$</p>
 <td>\(\frac{1}{1000}\)</td>
 <td>\(\frac{997}{1000}\)</td>
 </tr>
-<tr>
-<td>]</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
+</div>
 <p>The expected gain is $$E(X)= 498\cdot \frac{1}{1000}+ 298\cdot\frac{1}{1000}+98\cdot \frac{1}{1000}+(-2)\cdot \frac{997}{1000}=-1.1,$$ which means that when buying one ticket, the buyer may expect a loss of $1.1.</p>
 <hr />
-<h2 id="example-waiting-time"><span class="section-number">0.12</span> Example: Waiting Time</h2>
-<p>The wait times (rounded to multiples of 5) in the cafeteria at a Community College has the following probability distribution. Find the expected waiting time and the standard deviation.
-.center[</p>
+<h2 id="example-waiting-time"><span class="section-number">13.</span> Example: Waiting Time</h2>
+<p>The wait times (rounded to multiples of 5) in the cafeteria at a Community College has the following probability distribution. Find the expected waiting time and the standard deviation.</p>
+<div class="center">
 <table>
 <thead>
 <tr>
@@ -629,38 +638,32 @@ $$</p>
 <td>0.21</td>
 <td>0.1</td>
 </tr>
-<tr>
-<td>]</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
+</div>
 <p><strong>Solution:</strong> The expected waiting time is
 $$E(X)= 5\cdot 0.13 +10\cdot 0.25+15\cdot 0.31+20\cdot 0.21 + 25\cdot 0.1 = 14.5.$$
 The standard deviation is then
 $$\scriptsize\begin{aligned}\sigma=&amp;\sqrt{(5-14.5)^2\cdot 0.13 +(10-14.5)^2\cdot 0.25+(15-14.5)^2\cdot 0.31+(20-14.5)^2\cdot 0.21 + (25-14.5)^2\cdot 0.1}\\ \approx&amp; 5.9. \end{aligned}$$</p>
 <hr />
-<h2 id="example-unfair-die"><span class="section-number">0.13</span> Example: Unfair Die (½)</h2>
+<h2 id="example-unfair-die-1-of-2"><span class="section-number">14.</span> Example: Unfair Die (1 of 2)</h2>
 <p>The probability distribution of an unfair die is given in the following table.</p>
+<div class="center">
 <p>| \(x\) | 1| 2| 3| 4| 5| 6|
 |—|—|—|—|—|—|
 | \(P(X=x)\) | 0.18| 0.12| \(\,?\,\) |0.14|0.23|0.17|</p>
+</div>
 <ol>
 <li>Find \(P(X=3)\).</li>
 <li>Find the mean, variance and standard deviation of this probability distribution.</li>
 </ol>
-<p>–</p>
 <p><strong>Solution:</strong> Since the sum of probabilities must be 1, we know that
 $$
 P(X=3)=1-(0.18+0.12+0.14+0.23+0.17)=0.16
 $$</p>
 <hr />
-<h2 id="example-unfair-die-2-2"><span class="section-number">0.14</span> Example: Unfair Die (2/2)</h2>
-<p><strong>Solution: (Continued)</strong> The mean is the weighted sum
+<h2 id="example-unfair-die-2-of-2"><span class="section-number">15.</span> Example: Unfair Die (2 of 2)</h2>
+<p>The mean is the weighted sum
 $$
 % \scriptstyle
 \begin{aligned} \mu=&amp;0.18\cdot 1+0.12\cdot 2+0.16\cdot 3+0.14\cdot 4+0.23\cdot 5+0.17\cdot 6\\ =&amp;3.63. \end{aligned}
@@ -675,18 +678,18 @@ $$
 \sigma=\sqrt{\sigma^2}=\sqrt{3.0331}\approx 1.7416.
 $$</p>
 <hr />
-<h2 id="practice-lottery-tickets"><span class="section-number">0.15</span> Practice: Lottery Tickets</h2>
+<h2 id="practice-lottery-tickets"><span class="section-number">16.</span> Practice: Lottery Tickets</h2>
 <p>Seven thousand lottery tickets are sold for $5 each. One ticket will win $2,000, two tickets will win $750 each, and five tickets will win $100 each. Let \(X\) denote the net gain from the purchase of a randomly selected ticket.</p>
 <ol>
 <li>Construct the probability distribution of \(X\).</li>
 <li>Compute the expected value \(E(X)\) of \(X\). Interpret its meaning.</li>
 <li>Compute the standard deviation \(\sigma\) of \(X\).</li>
 </ol>
-<p>.footmark[
-Source: <a href="https://saylordotorg.github.io/text_introductory-statistics/s08-02-probability-distributions-for-.html">https://saylordotorg.github.io/text_introductory-statistics/s08-02-probability-distributions-for-.html</a>
-]</p>
+<div class="footmark">
+<p>Source: <a href="https://saylordotorg.github.io/text_introductory-statistics/s08-02-probability-distributions-for-.html">https://saylordotorg.github.io/text_introductory-statistics/s08-02-probability-distributions-for-.html</a></p>
+</div>
 <hr />
-<h2 id="binomial-distribution"><span class="section-number">0.16</span> Binomial Distribution</h2>
+<h2 id="binomial-distribution"><span class="section-number">17.</span> Binomial Distribution</h2>
 <ul>
 <li>
 <p>A <strong>binomial experiment</strong> is a probability experiment satisfying:</p>
@@ -708,24 +711,23 @@ where \(n!=n(n-1)\cdots 1\), read as \(n\) factorial, for \(n&gt;0\) and \(0!=1.
 </li>
 </ul>
 <hr />
-<h2 id="example-probability-from-drawing-a-card-multiple-times"><span class="section-number">0.17</span> Example: Probability from Drawing a Card Multiple Times (½)</h2>
+<h2 id="example-probability-from-drawing-a-card-multiple-times-1-of-2"><span class="section-number">18.</span> Example: Probability from Drawing a Card Multiple Times (1 of 2)</h2>
 <p>A card is randomly selected from a standard deck and replaced. This experiment is repeated a total of \(5\) times.</p>
 <ul>
 <li>Find the probability of getting exactly \(3\) clubs.</li>
 <li>Find the probability of getting at least \(3\) clubs.</li>
 </ul>
-<p>–</p>
 <p><strong>Solution:</strong> This is a binomial experiment. The number to total trials is \(n=5\). The number of successes is \(3\). The chance of a success is \(p=\frac{13}{52}=\frac14\). Apply the binomial probability formula, we have
 $$P(X=3)=\frac{5!}{3!2!} \left(\frac{1}{4}\right)^3\left(\frac34\right)^2=10\cdot\frac{9}{4^5}\approx 0.088.$$
 The probability \(P(X=3)\) can also be found from the binomial distribution table or by using the Excel function <code>BINOM.DIST(3,5,&amp;frac14;,FALSE)</code>.</p>
 <p>To probability of getting at least \(3\) club is
 $$P(X\geq 3) =1-P(X\leq 2)=1-(P(0)+P(1)+P(2))\approx 1-0.8965=0.1035.$$</p>
 <hr />
-<h2 id="example-probability-from-drawing-a-card-multiple-times-2-2"><span class="section-number">0.18</span> Example: Probability from Drawing a Card Multiple Times (2/2)</h2>
-<p><strong>Solution:(continued)</strong>
-To calculate \(P(X\leq 2)\), we may also use the binomial distribution table or the Excel function <code>BINOM.DIST()</code>.</p>
-<p><strong>Method 1:</strong> As \(n=5\) and \(p=0.25\), we use the following portion of the cumulative binomial distribution table.
-.center[Binomial Probability Table <em>n=5</em></p>
+<h2 id="example-probability-from-drawing-a-card-multiple-times-2-of-2"><span class="section-number">19.</span> Example: Probability from Drawing a Card Multiple Times (2 of 2)</h2>
+<p>To calculate \(P(X\leq 2)\), we may also use the binomial distribution table or the Excel function <code>BINOM.DIST()</code>.</p>
+<p><strong>Method 1:</strong> As \(n=5\) and \(p=0.25\), we use the following portion of the cumulative binomial distribution table.</p>
+<div class="center">
+<p>Binomial Probability Table <em>n=5</em></p>
 <table>
 <thead>
 <tr>
@@ -785,25 +787,13 @@ To calculate \(P(X\leq 2)\), we may also use the binomial distribution table or 
 <td>0.1811</td>
 <td>0.2304</td>
 </tr>
-<tr>
-<td>]</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
+</div>
 <p>\(P(X\le 2) \approx 0.2373+0.3955+0.2637= 0.8965.\)</p>
 <p><strong>Method 2:</strong> In Excel, \(P(X\le 2)\) <code>=BINOM.DIST(2,5,0.25,TRUE)</code> \(\approx 0.8965\).</p>
-<p>???
-In a calculator, use <code>binompdf(n, p, x)</code> for \(P(X=x)\) and <code>binomcdf(n, p, x)</code> for \(P(X\leq x)\).</p>
 <hr />
-<h2 id="practice-find-probability-of-from-a-binomial-distribution"><span class="section-number">0.19</span> Practice: Find Probability of from a Binomial Distribution</h2>
+<h2 id="practice-find-probability-of-from-a-binomial-distribution"><span class="section-number">20.</span> Practice: Find Probability of from a Binomial Distribution</h2>
 <p>Let \(X\) be a binomial random variable with parameters \(n = 5\), \(p=0.2\). Find the probabilities</p>
 <ol>
 <li>\(P(X=3),\)</li>
@@ -811,10 +801,12 @@ In a calculator, use <code>binompdf(n, p, x)</code> for \(P(X=x)\) and <code>bin
 <li>\(P(X&gt;3).\)</li>
 </ol>
 <hr />
-<h2 id="practice-machine-defect-rate"><span class="section-number">0.20</span> Practice: Machine Defect Rate</h2>
+<h2 id="practice-machine-defect-rate"><span class="section-number">21.</span> Practice: Machine Defect Rate</h2>
+<div class="iframecontainer">
 <iframe src="https://www.myopenmath.com/embedq2.php?id=7211&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
+</div>
 <hr />
-<h2 id="mean-and-standard-deviation-of-binomial-distribution"><span class="section-number">0.21</span> Mean and Standard Deviation of Binomial Distribution (⅘)</h2>
+<h2 id="mean-and-standard-deviation-of-binomial-distribution"><span class="section-number">22.</span> Mean and Standard Deviation of Binomial Distribution (⅘)</h2>
 <ul>
 <li>
 <p>The mean of a binomial distribution of \(n\) trials is $$\mu =\sum xP(X=x)=\sum x\cdot \dfrac{n!}{(n-x)!x!}p^x(1-p)^{n-x} = np.$$</p>
@@ -830,21 +822,20 @@ In a calculator, use <code>binompdf(n, p, x)</code> for \(P(X=x)\) and <code>bin
 </li>
 </ul>
 <hr />
-<h2 id="example-expected-value-and-sd-of-cracked-eggs"><span class="section-number">0.22</span> Example: Expected Value and SD of Cracked Eggs</h2>
+<h2 id="example-expected-value-and-sd-of-cracked-eggs"><span class="section-number">23.</span> Example: Expected Value and SD of Cracked Eggs</h2>
 <p>The probability that an egg in a retail package is cracked or broken is 0.02.</p>
 <ol>
 <li>Find the average number of cracked or broken eggs in a one dozen carton.</li>
 <li>Find the standard deviation.</li>
 <li>Is getting at least two broken eggs unusual?</li>
 </ol>
-<p>–</p>
 <p><strong>Solution:</strong> Since there are 12 eggs and the chance of getting a cracked egg is 0.02, the average number of cracked is
 $$\mu =np=12\cdot 0.02=0.24.$$</p>
 <p>The standard deviation is
 $$\sigma=\sqrt{12\cdot 0.02\cdot(1-0.02)}\approx 0.4850.$$</p>
 <p>Recall the Empirical rule: 95% data are within 2 standard deviation away from the mean. Since \(2&gt;0.24+2\cdot 0.4850\), the chance of getting at least two cracked eggs is less than 5%, which is considered as unusual.</p>
 <hr />
-<h2 id="practice-quality-of-grapefruit"><span class="section-number">0.23</span> Practice: Quality of Grapefruit</h2>
+<h2 id="practice-quality-of-grapefruit"><span class="section-number">24.</span> Practice: Quality of Grapefruit</h2>
 <p>Adverse growing conditions have caused 5% of grapefruit grown in a certain region to be of inferior quality. Grapefruit are sold by the dozen.</p>
 <ol>
 <li>
@@ -855,52 +846,45 @@ $$\sigma=\sqrt{12\cdot 0.02\cdot(1-0.02)}\approx 0.4850.$$</p>
 </li>
 </ol>
 <hr />
-<h2 id="practice-mean-and-sd-of-a-binomial-distribution"><span class="section-number">0.24</span> Practice: Mean and SD of a Binomial Distribution</h2>
+<h2 id="practice-mean-and-sd-of-a-binomial-distribution"><span class="section-number">25.</span> Practice: Mean and SD of a Binomial Distribution</h2>
+<div class="iframecontainer">
 <iframe src="https://www.myopenmath.com/embedq2.php?id=916606&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
-<!-- --- -->
-<!-- # Extra Practice Problems -->
-<!-- --- -->
-<!-- ## Practice: Find the mean of a discrete probability distribution -->
-<!-- <iframe src="https://www.myopenmath.com/embedq2.php?id=7197&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe> -->
-<!-- --- -->
-<!-- ## Practice: Find the standard deviation of a discrete probability distribution -->
-<!-- <iframe src="https://www.myopenmath.com/embedq2.php?id=7198&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe> -->
-<!-- --- -->
-<!-- ## Practice: The number of sales of new employees -->
-<!-- .pull-left[ -->
-<!-- A company tracks the number of sales new employees make each day during a 100-day probationary period. The results for one new employee are shown at the right. -->
-<!--   1. Find the probability of each outcome. -->
-<!--   2. Construct a probability distribution table. -->
-<!--   3. Find the mean of the probability distribution. -->
-<!--   4. Find the variance and standard deviation. -->
-<!-- ]<br> -->
-<!-- .pull-right[ -->
-<!-- | Sales per day $x$ | Number of days $f$ | -->
-<!-- |-------------------|--------------------| -->
-<!-- | 0                 | 16                 | -->
-<!-- | 1                 | 19                 | -->
-<!-- | 2                 | 15                 | -->
-<!-- | 3                 | 21                 | -->
-<!-- | 4                 | 9                  | -->
-<!-- | 5                 | 10                 | -->
-<!-- | 6                 | 8                  | -->
-<!-- | 7                 | 2                  | -->
-<!-- ] -->
-<!-- --- -->
-<!-- ## Practice: Probability within one SD of a discrete probability distribution -->
-<!-- <iframe src="https://www.myopenmath.com/embedq2.php?id=14762&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe> -->
-<!-- --- -->
-<!-- ## Practice: Probability from a poll -->
-<!-- <iframe src="https://www.myopenmath.com/embedq2.php?id=7210&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe> -->
-<!-- --- -->
-<!-- ## Practice: Chance of continuous successes of a type of surgery -->
-<!-- A type of surgery has a 90% chance of success. The surgery is performed on three patients. Find the probability of the surgery being successful on exactly two patients. -->
+</div>
 <hr />
-<p>class: center middle</p>
-<h1 id="lab-instructions-in-excel"><span class="section-number">1.</span> Lab Instructions in Excel</h1>
+<!-- # class = "center middle" -->
+<div class="part">
+<p>Extra Practice</p>
+</div>
 <hr />
-<h2 id="excel-functions-for-binomial"><span class="section-number">1.1</span> Excel Functions for Binomial</h2>
-<p>Let \(X\) be a binomial random variable with parameters \(n\) and \(p\), that is \(X\sim B(n, p)\). In Excel, \(P(X=x)\) is given by <code>BINORM.DIST(x, n, p, FALSE)</code> and \(P(X\le x)\) is given by <code>BINORM.DIST(x, n, p, TRUE)</code>. You may click input function \(f_x\) and then search <code>binorm</code> to find the function.</p>
+<h2 id="practice-find-the-mean-of-a-discrete-probability-distribution"><span class="section-number">26.</span> Practice: Find the mean of a discrete probability distribution</h2>
+<div class="iframecontainer">
+<iframe src="https://www.myopenmath.com/embedq2.php?id=7197&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
+</div>
+<hr />
+<h2 id="practice-find-the-standard-deviation-of-a-discrete-probability-distribution"><span class="section-number">27.</span> Practice: Find the standard deviation of a discrete probability distribution</h2>
+<div class="iframecontainer">
+<iframe src="https://www.myopenmath.com/embedq2.php?id=7198&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
+</div>
+<hr />
+<h2 id="practice-probability-within-one-sd-of-a-discrete-probability-distribution"><span class="section-number">28.</span> Practice: Probability within one SD of a discrete probability distribution</h2>
+<div class="iframecontainer">
+<iframe src="https://www.myopenmath.com/embedq2.php?id=14762&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
+</div>
+<hr />
+<h2 id="practice-probability-from-a-poll"><span class="section-number">29.</span> Practice: Probability from a poll</h2>
+<div class="iframecontainer">
+<iframe src="https://www.myopenmath.com/embedq2.php?id=7210&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
+</div>
+<hr />
+<!--# class = "center middle" -->
+<div class="part">
+<p>Lab Instructions in Excel</p>
+</div>
+<hr />
+<h2 id="excel-functions-for-binomial"><span class="section-number">30.</span> Excel Functions for Binomial</h2>
+<p>Let \(X\) be a binomial random variable with parameters \(n\) and \(p\), that is \(X\sim B(n, p)\). In Excel, \(P(X=x)\) is given by <code>BINOM.DIST(x, n, p, FALSE)</code> and \(P(X\le x)\) is given by <code>BINOM.DIST(x, n, p, TRUE)</code>. You may click input function \(f_x\) and then search <code>binom</code> to find the function.</p>
+<h2 id="practice-binominal-distribution-table"><span class="section-number">31.</span> Practice: Binominal Distribution Table</h2>
+<p>Create a binomial distribution table for \(p=0.5\) and \(n=10\).</p>
 </div>
 <div class="include-after">
 </div>

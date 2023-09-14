@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Two-Way Tables and Relations Between Categorical Variables</title>
+<title>Confidence Intervals for Median</title>
 <style type="text/css">
 body {
   font-family: sans-serif;
@@ -300,6 +300,10 @@ table{
 border-collapse: collapse;
 }
 
+thead:empty {
+  display: none;
+}
+
 .remark::before {
   content: "Remark:";
   color: #Feec01;
@@ -394,636 +398,224 @@ mjx-container[jax="SVG"][display="true"]{
 <div class="include-before">
 </div>
 <div class="frontmatter">
-<div class="title"><h1>Two-Way Tables and Relations Between Categorical Variables</h1></div>
+<div class="title"><h1>Confidence Intervals for Median</h1></div>
 <div class="author"><h2>Fei Ye</h2></div>
 <div class="date"><h3>September 2023</h3></div>
 </div>
 <div class="body">
-<h2 id="learning-goals"><span class="section-number">1.</span> Learning Goals</h2>
+<h2 id="learning-goals-for-confidence-intervals"><span class="section-number">1.</span> Learning Goals for Confidence Intervals</h2>
 <ul>
-<li>
-<p>Summarize and interpret the relationship between two qualitative (categorical) variables using two-way tables.</p>
-</li>
-<li>
-<p>Demonstrate understanding and find conditional, joint and marginal probability from a two-way frequency table.</p>
-</li>
-<li>
-<p>Create and analyze two-way table to answer probability questions.</p>
-</li>
+<li>Construct and interpret a confidence interval for one population median.</li>
 </ul>
 <hr />
-<h2 id="two-way-frequency-tables"><span class="section-number">2.</span> Two-way Frequency Tables</h2>
-<ul>
-<li>
-<p>As we organize and analyze data from two categorical variables, we make use of two-way tables.</p>
-</li>
-<li>
-<p>Information in a <strong>two-way frequency table</strong>:</p>
-<ul>
-<li>
-<p>Values of the two variables are displayed in the left column and the top row.</p>
-</li>
-<li>
-<p>The body of table consists of frequency counts associated to pairs of values of the two variables.</p>
-</li>
-<li>
-<p>The right column and the bottom row, which are called margins of the table, consists of row totals and column totals respectively.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>A number in a margin are called <strong>marginal frequency</strong>.</p>
-</li>
-<li>
-<p>A numbers in the body of the table is called <strong>joint frequency</strong>.</p>
-</li>
-</ul>
+<h2 id="order-statistics"><span class="section-number">2.</span> Order Statistics</h2>
+<p>Suppose \(X_1\), \(\dots\), \(X_n\) is a sample of independent values from a population. The order statistics \(X_{(1)}\), \(\dots\), \(X_{(n)}\) is an ascending ordered arrangement of the sample. The value \(X_{(i)}\) is called the \(i\)-th order statistic.</p>
+<p><strong>Example:</strong></p>
+<p>Find the \(7\)-th order statistic of the following sample of iris petal length</p>
+<p>1.3, 6.6, 1.4, 1.4, 4.5, 5.1, 4.9, 5.4, 5.1, 1.9</p>
+<p><strong>Solution:</strong></p>
+<p>Rearranging the sample in ascending order yields</p>
+<p>1.3, 1.4, 1.4, 1.9, 4.5, 4.9, 5.1, 5.1, 5.4, 6.6</p>
+<p>The \(7\)-th order statistic is 5.1, the 7-th value in this ordered set.</p>
 <hr />
-<h2 id="example-body-image-and-gender"><span class="section-number">3.</span> Example: Body Image and Gender</h2>
-<p>The following table summarize responses of a random sample of 1,200 U.S. college students as part of a larger survey.</p>
-<div class="center">
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="center">About Right</th>
-<th align="center">Overweight</th>
-<th align="center">Underweight</th>
-<th align="center">Row Totals</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Female</td>
-<td align="center">560</td>
-<td align="center">163</td>
-<td align="center">37</td>
-<td align="center">760</td>
-</tr>
-<tr>
-<td align="left">Male</td>
-<td align="center">295</td>
-<td align="center">72</td>
-<td align="center">73</td>
-<td align="center">440</td>
-</tr>
-<tr>
-<td align="left">Column Totals</td>
-<td align="center">855</td>
-<td align="center">235</td>
-<td align="center">110</td>
-<td align="center">1,200</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="footmark">
-<p>Source: <a href="https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/two-way-tables-1-of-5/">https://courses.lumenlearning.com/wmopen-concepts-statistics</a></p>
-</div>
+<h2 id="distribution-free-confidence-intervals-for-medians-method-1-of-2"><span class="section-number">3.</span> Distribution-Free Confidence Intervals for Medians: Method (1 of 2)</h2>
+<p>Suppose \(m\) is the median of the population. Fixed a confidence level \(1-\alpha\) and the size \(n\) of samples, We are looking for \(i\) and \(j\) so that the probability \(P(X_{(i)}\le m\le X_{(j)})\) of \(m\) being contained in the interval \([X_{(i)}, X_{(j)}]\) of a random sample is \(1-\alpha\). For symmetric reason, we may take \(j=n+1-i\).</p>
+<p>The probability that the interval \([X_{(k)}, X_{(k+1)}]\) of a ransom sample contains the median \(m\) is equivalent to that exactly \(k\) values in the sample are no greater than the population median. Denote by \(Z\) the number of \(X_i\) with \(X_i\le m\). Then \(Z\) is a binomial random variable  with \(n\) mutually independent trials and probability of success \(p=P(X_i\le m)=0.5\).
+Then
+$$P(X_{(k)}\le m\le X_{(k+1)}=P(Z=k)={n\choose k}p^k(1-p)^{n-k}={n\choose k}\left(\frac12\right)^n,$$
+and
+$$1-\alpha=P(X_{(i)}\le m\le X_{(n+1-i)})=\sum\limits_{k=i}^{n+1-i}P(Z=k)=\sum\limits_{k=i}^{n+1-i}{n\choose k}\left(\frac12\right)^n.$$</p>
 <hr />
-<h2 id="two-way-relative-frequency-tables-and-probability"><span class="section-number">4.</span> Two-Way Relative Frequency Tables and Probability</h2>
-<div style="font-size:0.9em;">
-<ul>
-<li>A <strong>two-way relative frequency table:</strong> two-way table with relative frequencies.</li>
-<li><strong>Marginal probability:</strong> $$P(X)=\frac{\text{Marginal frequency in}~ X}{\text{Total}}.$$</li>
-<li><strong>Conditional probability:</strong> $$P(X|Y)=\frac{\text{Joint frequency}}{\text{Marginal Frequency in}~Y} \quad \text{or}\quad P(Y|X)=\frac{\text{Joint frequency}}{\text{Marginal Frequency in}~X}.$$</li>
-<li><strong>Joint probability:</strong> $$P(X ~\text{and}~ Y)=\frac{\text{Joint frequency}}{\text{Total}}.$$</li>
-<li>Note that \(P(X~\text{and}~Y)=P(X)\cdot P(Y|X)=P(Y)\cdot P(X|Y).\)</li>
-</ul>
-</div>
-<hr />
-<h2 id="example-joint-and-marginal-probabilities-of-body-image-and-gender"><span class="section-number">5.</span> Example: Joint and marginal probabilities of body image and gender</h2>
-<p>The following table shows joint and marginal probabilities of body image and gender.</p>
-<div class="center">
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="center">About Right</th>
-<th align="center">Overweight</th>
-<th align="center">Underweight</th>
-<th align="center">Row Totals</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Female</td>
-<td align="center">\(\frac{560}{1200}=46.67\%\)</td>
-<td align="center">\(\frac{163}{1200}=13.58\%\)</td>
-<td align="center">\(\frac{37}{1200}=3.08\%\)</td>
-<td align="center">\(\frac{760}{1200}=63.33\%\)</td>
-</tr>
-<tr>
-<td align="left">Male</td>
-<td align="center">\(\frac{295}{1200}=24.58\%\)</td>
-<td align="center">\(\frac{72}{1200}=6.00\%\)</td>
-<td align="center">\(\frac{73}{1200}=6.08\%\)</td>
-<td align="center">\(\frac{440}{1200}=36.67\%\)</td>
-</tr>
-<tr>
-<td align="left">Column   Totals</td>
-<td align="center">\(\frac{855}{1200}=71.25\%\)</td>
-<td align="center">\(\frac{235}{1200}=19.58\%\)</td>
-<td align="center">\(\frac{110}{1200}=9.17\%\)</td>
-<td align="center">\(\frac{1200}{1200}=100.00\%\)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr />
-<h2 id="example-conditional-probabilities-of-body-image-by-gender"><span class="section-number">6.</span> Example: Conditional probabilities of body image by gender</h2>
-<p>The following table shows probabilities of randomly select male or female who has a certain body image.</p>
-<div class="center">
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="center">About Right</th>
-<th align="center">Overweight</th>
-<th align="center">Underweight</th>
-<th align="center">Row Totals</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Female</td>
-<td align="center">\(\frac{560}{760}=73.68\%\)</td>
-<td align="center">\(\frac{163}{760}=21.45\%\)</td>
-<td align="center">\(\frac{37}{760}=4.87\%\)</td>
-<td align="center">\(\frac{760}{760}=100.00\%\)</td>
-</tr>
-<tr>
-<td align="left">Male</td>
-<td align="center">\(\frac{295}{440}=67.05\%\)</td>
-<td align="center">\(\frac{72}{440}=16.36\%\)</td>
-<td align="center">\(\frac{73}{440}=16.59\%\)</td>
-<td align="center">\(\frac{440}{440}=100.00\%\)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr />
-<h2 id="example-community-college-enrollment-1-of-2"><span class="section-number">7.</span> Example: Community College Enrollment (1 of 2)</h2>
-<p>The following table summarizes the full-time enrollment at a community college.</p>
-<div class="center">
-<table>
-<thead>
-<tr>
-<th></th>
-<th align="center">Arts-Sci</th>
-<th align="center">Bus-Econ</th>
-<th align="center">Info Tech</th>
-<th align="center">Health Science</th>
-<th align="center">Graphics Design</th>
-<th align="center">Culinary Arts</th>
-<th align="center">Row Totals</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Female</td>
-<td align="center">4,660</td>
-<td align="center">435</td>
-<td align="center">494</td>
-<td align="center">421</td>
-<td align="center">105</td>
-<td align="center">83</td>
-<td align="center">6,198</td>
-</tr>
-<tr>
-<td>Male</td>
-<td align="center">4,334</td>
-<td align="center">490</td>
-<td align="center">564</td>
-<td align="center">223</td>
-<td align="center">97</td>
-<td align="center">94</td>
-<td align="center">5,802</td>
-</tr>
-<tr>
-<td>Column Totals</td>
-<td align="center">8,994</td>
-<td align="center">925</td>
-<td align="center">1,058</td>
-<td align="center">644</td>
-<td align="center">202</td>
-<td align="center">177</td>
-<td align="center">12,000</td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li>What proportion of the total number of students are male students?</li>
-</ul>
-<p><strong>Solution:</strong>
-\(P(\text{Male})=\dfrac{5802}{12000}\approx 0.4835=48.35\%.\)</p>
-<div class="footmark">
-<p>Source: <a href="https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/two-way-tables-2-of-5/">https://courses.lumenlearning.com/wmopen-concepts-statistics</a></p>
-</div>
-<hr />
-<h2 id="example-community-college-enrollment-2-of-2"><span class="section-number">8.</span> Example: Community College Enrollment (2 of 2)</h2>
-<ul>
-<li>If we select a male student at random, what is the probability that he is in the Info Tech program?</li>
-</ul>
-<p><strong>Solution:</strong>
-\(P(\text{Info Tech}|\text{Male})=\dfrac{564}{5802}\approx 0.097=9.7\%.\)</p>
-<ul>
-<li>If we select a student at random, what is the probability that the student is both a male and in the Info Tech program?</li>
-</ul>
-<p><strong>Solution:</strong>
-\(P(\text{Male and Info Tech})=\dfrac{564}{12000}= 0.047=4.7\%.\)</p>
-<ul>
-<li>The probabilities are related:</li>
-</ul>
-<p><strong>Solution:</strong>
-\(P(\text{Male and Info Tech})=\dfrac{564}{12000}=\dfrac{5802}{12000}\cdot \dfrac{564}{5802}=P(\text{Male})\cdot P(\text{Info Tech}|\text{Male}).\)</p>
-<hr />
-<h2 id="practice-a-table-relates-weights-and-heights"><span class="section-number">9.</span> Practice: A table relates weights and heights</h2>
+<h2 id="distribution-free-confidence-intervals-for-medians-method-2-of-2"><span class="section-number">4.</span> Distribution-Free Confidence Intervals for Medians: Method (2 of 2)</h2>
+<p>To determine \(i\) for a given \(n\), we need to calculate the cumulated probability \(\sum\limits_{k=i}^{n+1-i}P(Z=k)\) for the binomial variable \(Z\).</p>
 <div class="row">
 <div class="pull-left">
-<p>This table on the right relates the weights and heights of a group of individuals participating in an observational study.</p>
-</div>
-<div class="pull-right">
-<div class="center" style="margin-top:-1em;">
 <table>
 <thead>
 <tr>
-<th align="center">Weight/Height</th>
-<th align="center">Tall</th>
-<th align="center">Medium</th>
-<th align="center">Short</th>
+<th align="center">\(n\)</th>
+<th align="center">CI</th>
+<th align="center">Probability</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">Obese</td>
-<td align="center">18</td>
-<td align="center">28</td>
-<td align="center">14</td>
+<td align="center">5</td>
+<td align="center">\([X_{(1)}, X_{(5)}]\)</td>
+<td align="center">0.969</td>
 </tr>
 <tr>
-<td align="center">Normal</td>
-<td align="center">20</td>
-<td align="center">51</td>
-<td align="center">28</td>
+<td align="center">6</td>
+<td align="center">\([X_{(1)}, X_{(6)}]\)</td>
+<td align="center">0.984</td>
 </tr>
 <tr>
-<td align="center">Underweight</td>
-<td align="center">12</td>
-<td align="center">25</td>
+<td align="center">7</td>
+<td align="center">\([X_{(1)}, X_{(7)}]\)</td>
+<td align="center">0.992</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">\([X_{(2)}, X_{(7)}]\)</td>
+<td align="center">0.961</td>
+</tr>
+<tr>
 <td align="center">9</td>
+<td align="center">\([X_{(2)}, X_{(8)}]\)</td>
+<td align="center">0.979</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">\([X_{(2)}, X_{(9)}]\)</td>
+<td align="center">0.988</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="center">\([X_{(3)}, X_{(9)}]\)</td>
+<td align="center">0.961</td>
+</tr>
+<tr>
+<td align="center">12</td>
+<td align="center">\([X_{(3)}, X_{(10)}]\)</td>
+<td align="center">0.978</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-</div>
-<ol>
-<li>Find the total for each row and column</li>
-<li>Find the probability that a randomly chosen individual from this group is Short.</li>
-<li>Find the probability that a randomly chosen individual from this group is Obese and Short.</li>
-<li>Find the probability that a randomly chosen individual from this group is Underweight given that the individual is Tale.</li>
-</ol>
-<div class="footmark">
-<p>Source: <a href="https://courses.lumenlearning.com/introstats1/chapter/contingency-tables/">https://courses.lumenlearning.com/introstats1/chapter/contingency-tables/</a></p>
-</div>
-<hr />
-<h2 id="test-of-no-association"><span class="section-number">10.</span> Test of (No) Association</h2>
-<ul>
-<li>
-<p>To understand association between categorical variables, we may think conversely. How do we test no association?</p>
-</li>
-<li>
-<p>If the conditional probabilities are nearly equal for all categories, there may be no association between the variables. Conversely, if the conditional probabilities are different enough, we are confidence to say there is an association.</p>
-</li>
-<li>
-<p>In general, the bigger the differences in the conditional probabilities, the stronger the association between the variables.</p>
-</li>
-<li>
-<p>Two variables \(X\) and \(Y\) are <strong>independent</strong> if \(P(X~\text{and}~Y)=P(X)\cdot P(Y)\). Equivalently, \(P(X|Y)=P(X)\) and \(P(Y|X)=P(Y)\).</p>
-</li>
-</ul>
-<hr />
-<h2 id="example-association-between-body-image-and-gender-1-of-2"><span class="section-number">11.</span> Example: Association between body image and gender (1 of 2)</h2>
-<p>Is body image related to gender?</p>
-<div class="center">
+<div class="pull-left">
 <table>
 <thead>
 <tr>
-<th align="left"></th>
-<th align="center">About Right</th>
-<th align="center">Overweight</th>
-<th align="center">Underweight</th>
-<th align="center">Row Totals</th>
+<th align="center">\(n\)</th>
+<th align="center">CI</th>
+<th align="center">Probability</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Female</td>
-<td align="center">560</td>
-<td align="center">163</td>
-<td align="center">37</td>
-<td align="center">760</td>
+<td align="center">13</td>
+<td align="center">\([X_{(3)}, X_{(11)}]\)</td>
+<td align="center">0.987</td>
 </tr>
 <tr>
-<td align="left">Male</td>
-<td align="center">295</td>
-<td align="center">72</td>
-<td align="center">73</td>
-<td align="center">440</td>
+<td align="center">14</td>
+<td align="center">\([X_{(4)}, X_{(11)}]\)</td>
+<td align="center">0.965</td>
 </tr>
 <tr>
-<td align="left">Column Totals</td>
-<td align="center">855</td>
-<td align="center">235</td>
-<td align="center">110</td>
-<td align="center">1,200</td>
+<td align="center">15</td>
+<td align="center">\([X_{(4)}, X_{(12)}]\)</td>
+<td align="center">0.979</td>
+</tr>
+<tr>
+<td align="center">16</td>
+<td align="center">\([X_{(5)}, X_{(12)}]\)</td>
+<td align="center">0.951</td>
+</tr>
+<tr>
+<td align="center">17</td>
+<td align="center">\([X_{(5)}, X_{(13)}]\)</td>
+<td align="center">0.969</td>
+</tr>
+<tr>
+<td align="center">18</td>
+<td align="center">\([X_{(5)}, X_{(14)}]\)</td>
+<td align="center">0.981</td>
+</tr>
+<tr>
+<td align="center">19</td>
+<td align="center">\([X_{(6)}, X_{(14)}]\)</td>
+<td align="center">0.959</td>
+</tr>
+<tr>
+<td align="center">20</td>
+<td align="center">\([X_{(6)}, X_{(15)}]\)</td>
+<td align="center">0.973</td>
 </tr>
 </tbody>
 </table>
 </div>
-<hr />
-<h2 id="example-association-between-body-image-and-gender-2-of-2"><span class="section-number">12.</span> Example: Association between body image and gender (2 of 2)</h2>
-<p><strong>Solution:</strong> Using Excel (stacked bar chart), we may compare side-by-side the conditional body image distributions for females and males</p>
-<div class="center">
-<p><img src="data:image/png;base64,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" alt="Stacked Bar Chart for Gender and Body Images" width="75%" /></p>
 </div>
-<p>As a result of our analysis, we know that the conditional distributions of body images for males and females are quite different. We can conclude that there is enough difference to believe that those two categorical variables are in fact related.</p>
 <hr />
-<h2 id="percentage-reduction-of-risk"><span class="section-number">13.</span> Percentage Reduction of Risk</h2>
-<ul>
-<li>
-<p>When calculating the probability of a negative outcome, we often refer to the probability as a <strong>risk</strong>.</p>
-</li>
-<li>
-<p>In general, we are interested in determining how much a new treatment reduces the risk compared to a reference risk</p>
-</li>
-<li>
-<p>The <strong>percentage reduction of risk</strong> is</p>
-<p>$$\text{percentage reduction of risk}=\frac{\text{new treatment risk}-\text{reference risk}}{\text{reference risk}}.$$</p>
-</li>
-</ul>
-<hr />
-<h2 id="example-physicians-health-study-1-of-2"><span class="section-number">14.</span> Example: Physicians’ Health Study (1 of 2)</h2>
-<p>Researchers in the Physicians’ Health Study (1989) designed a randomized double-blind experiment to determine whether aspirin reduces the risk of heart attack. Here are the final results.</p>
-<div class="center">
-<table>
-<thead>
-<tr>
-<th align="center"></th>
-<th align="center"><strong>Heart Attack</strong></th>
-<th align="center"><strong>No Heart Attack</strong></th>
-<th align="center"><strong>Row Totals</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><strong>Aspirin</strong></td>
-<td align="center">139</td>
-<td align="center">10,898</td>
-<td align="center">11,037</td>
-</tr>
-<tr>
-<td align="center"><strong>Placebo</strong></td>
-<td align="center">239</td>
-<td align="center">10,795</td>
-<td align="center">11,034</td>
-</tr>
-<tr>
-<td align="center"><strong>Column Totals</strong></td>
-<td align="center">378</td>
-<td align="center">21,693</td>
-<td align="center">22,071</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><em>Does aspirin lower the risk of having a heart attack?</em></p>
-<p><strong>Solution:</strong> We fisrt compute two conditional probabilities: \(P(\text{heart attack}|\text{aspirin})\) and \(P(\text{heart attack}|\text{placebo})\).</p>
+<h2 id="distribution-free-confidence-intervals-for-medians-by-normal-approximation"><span class="section-number">5.</span> Distribution-Free Confidence Intervals for Medians by Normal Approximation</h2>
+<p>When \(n&gt;21\), the binomial distribution \(Z\) is approximately normal with the mean \(\mu=np=0.5n\) and the standard deviation \(\sigma=\sqrt{np(1-p)}=\sqrt{0.25n}\).</p>
+<p>Then the confidence interval \([X_{(i)}, X_{(j)}]\) at the confidence level \(1-\alpha\) is approximately given by
+$$i=\lfloor \mu-z_{\alpha/2}\sigma \rfloor=\lfloor 0.5n-z_{\alpha/2}\sqrt{0.25n}\rfloor$$
+$$j=\lceil \mu+z_{\alpha/2}\sigma\rceil=\lceil 0.5n+z_{\alpha/2}\sqrt{0.25n}\rceil.$$</p>
 <div class="footmark">
-<p>Source: <a href="https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/two-way-tables-4-of-5/">https://courses.lumenlearning.com/wmopen-concepts-statistics</a></p>
+<p>For more information, see the discussion on the central limit theorem for median.
+<a href="https://stats.stackexchange.com/questions/45124/central-limit-theorem-for-sample-medians?noredirect=1&amp;lq=1">https://stats.stackexchange.com/questions/45124/central-limit-theorem-for-sample-medians?noredirect=1&amp;lq=1</a></p>
 </div>
 <hr />
-<h2 id="example-physicians-health-study-2-of-2"><span class="section-number">15.</span> Example: Physicians’ Health Study (2 of 2)</h2>
-<ul>
-<li>The probability of a heart attack given that aspirin was taken every other day.
-$$P(\text{heart attack}|\text{aspirin}) = 139 / 11,037 = 0.013$$</li>
-<li>The probability of a heart attack given that a placebo was taken every other day.
-$$P(\text{heart attack}|\text{placebo}) = 239 / 11,034 = 0.022$$</li>
-</ul>
-<p>The result shows that taking aspirin reduced the risk from 0.022 to 0.013.</p>
-<p>The percentage reduction of risk is
-$$
-\frac{P(\text{heart attack}|\text{aspirin})-P(\text{heart attack}|\text{placebo})}{P(\text{heart attack}|\text{placebo})}=\frac{\text{0.013}-\text{0.022}}{\text{0.022}}=\frac{-\text{0.009}}{\text{0.022}}\approx -\text{0.41}.
-$$</p>
-<p>Therefore, we conclude that taking aspirin results in a 41% reduction in risk.</p>
-<hr />
-<h2 id="hypothetical-two-way-tables"><span class="section-number">16.</span> Hypothetical Two-way Tables</h2>
-<p>A <strong>hypothetical two-way table</strong>, also known as a hypothetical 1000 two-way table, is a two-way table constructed from given probability conditions with 1000 as the total frequency. It can be used to answer complex probability questions.</p>
-<p>Sometimes, the total frequency can be taken to be 10,000 or a higher power of 10 so that joint frequencies are integers.</p>
-<hr />
-<h2 id="example-birth-gender-prediction-1-of-3"><span class="section-number">17.</span> Example: Birth gender prediction (1 of 3)</h2>
-<p>A pregnant woman often opts to have an ultrasound to predict the gender of her baby.
-Assume the following facts are known:</p>
-<ul>
-<li>Fact 1: 48% of the babies born are female.</li>
-<li>Fact 2: The proportion of girls correctly identified is 9 out of 10.</li>
-<li>Fact 3: The proportion of boys correctly identified is 3 out of 4.</li>
-</ul>
-<p>Use the above facts to answer the following questions.</p>
-<ol>
-<li>
-<p>If the examination predicts a girl, how likely the baby will be a girl?</p>
-</li>
-<li>
-<p>If the examination predicts a boy, how likely the baby will be a boy?</p>
-</li>
-</ol>
-<hr />
-<h2 id="example-birth-gender-prediction-2-of-3"><span class="section-number">18.</span> Example: Birth gender prediction (2 of 3)</h2>
+<h2 id="example-median-house-price-1-of-2"><span class="section-number">6.</span> Example: Median House Price (1 of 2)</h2>
+<p>The following are prices (in thousands) of 24 randomly selected houses in a certain city. Find a confidence interval for the median hourse price in that city.</p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<tbody>
+  <tr>
+   <td style="text-align:center;"> 745 </td>
+   <td style="text-align:center;"> 808 </td>
+   <td style="text-align:center;"> 899 </td>
+   <td style="text-align:center;"> 929 </td>
+   <td style="text-align:center;"> 949 </td>
+   <td style="text-align:center;"> 988 </td>
+   <td style="text-align:center;"> 1090 </td>
+   <td style="text-align:center;"> 1100 </td>
+   <td style="text-align:center;"> 1130 </td>
+   <td style="text-align:center;"> 1140 </td>
+   <td style="text-align:center;"> 1150 </td>
+   <td style="text-align:center;"> 1190 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 1240 </td>
+   <td style="text-align:center;"> 1350 </td>
+   <td style="text-align:center;"> 1430 </td>
+   <td style="text-align:center;"> 1500 </td>
+   <td style="text-align:center;"> 1500 </td>
+   <td style="text-align:center;"> 1600 </td>
+   <td style="text-align:center;"> 1880 </td>
+   <td style="text-align:center;"> 2000 </td>
+   <td style="text-align:center;"> 2450 </td>
+   <td style="text-align:center;"> 2480 </td>
+   <td style="text-align:center;"> 3360 </td>
+   <td style="text-align:center;"> 5600 </td>
+  </tr>
+</tbody>
+</table>
 <p><strong>Solution:</strong></p>
-<p>Assume that we have ultrasound predictions for 1,000 random babies.</p>
-<ul>
-<li>
-<p>Fact 1 means that \(P(\text{Girl})=48\%\).</p>
-</li>
-<li>
-<p>Fact 2 means that \(P(\text{Predicted as girl}|\text{Girl})=9 /10\).</p>
-</li>
-<li>
-<p>Fact 3 means that \(P(\text{Predicted as boy}|\text{Boy})=3 /4\)</p>
-</li>
-</ul>
-<p>Using those facts, we may create a two-way frequency table.</p>
+<p>Since the size of the sample is 24, we may use the normal approximation to get the confidence intervals. The mean and standard deviation for the normal approximation of the binomial distribution with the success rate \(p=0.5\) and \(n=24\) trials are \(\mu=np=12\), \(\sigma=\sqrt{np(1-p)}=\sqrt{6}\). At the \(1-\alpha=95\%\) confidence level, the \(z\)-score \(z_{\alpha/2}\) is approximately 1.96.</p>
 <hr />
-<h2 id="example-birth-gender-prediction-3-of-3"><span class="section-number">19.</span> Example: Birth gender prediction (3 of 3)</h2>
-<div class="center">
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="center">Girl</th>
-<th align="center">Boy</th>
-<th align="center">Row Totals</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Predict Girl</td>
-<td align="center">\(480\cdot\frac{9}{10}= 432\)</td>
-<td align="center">\(520-390 = 130\)</td>
-<td align="center">\(432+130=562\)</td>
-</tr>
-<tr>
-<td align="left">Predict Boy</td>
-<td align="center">\(480-432=48\)</td>
-<td align="center">\(520\cdot\frac34=390\)</td>
-<td align="center">\(48+390=438\)</td>
-</tr>
-<tr>
-<td align="left">Column   Totals</td>
-<td align="center">\(48\%\cdot 1000=480\)</td>
-<td align="center">\(1000-480=520\)</td>
-<td align="center">\(1,000\)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>If the examination predicts a girl, the probability that the born baby is a girl is
-$$P(\text{Girl}|\text{predict girl})=\frac{432}{562} \approx 0.769=76.9\%.$$</p>
-<p>If the examination predicts a boy, the probability that the born baby is a boy is
-$$P(\text{Boy} | \text{predict boy}) = \frac{390}{438} \approx 0.890=89\%.$$</p>
+<h2 id="example-median-house-price-2-of-2"><span class="section-number">7.</span> Example: Median House Price (2 of 2)</h2>
+<p>Then the orders of the bounds of the confidence interval are</p>
+<p>$$i=\lfloor 12-1.96*\sqrt{6} \rfloor \approx 7,$$
+$$j=\lceil 12+1.96*\sqrt{6}\rceil \approx 17.$$</p>
+<p>Then \(X_{(7)}\) is 1090 and \(X_{(17)}\) is 1500.
+The confidence interval can be taken as \([1090, 1500]\).</p>
+<p>The probability that \(m\) is in this interval is
+$$P(X_{(7)}\le m\le X_{(17)})\approx 0.977.$$</p>
+<p>We are \(97.7\%\) confidence that the median house price of this city is between 1090 and 1500.</p>
 <hr />
-<h2 id="practice"><span class="section-number">20.</span> Practice</h2>
-<p>The table below is based on a 1988 study of accident records conducted by the Florida State Department of Highway Safety.</p>
-<div class="center">
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="center"><strong>Nonfatal</strong></th>
-<th align="center"><strong>Fatal</strong></th>
-<th align="center"><strong>Row Totals</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>Seat Belt</strong></td>
-<td align="center">412,368</td>
-<td align="center">510</td>
-<td align="center">412,878</td>
-</tr>
-<tr>
-<td align="left"><strong>No Seat Belt</strong></td>
-<td align="center">162,527</td>
-<td align="center">1,601</td>
-<td align="center">164,128</td>
-</tr>
-<tr>
-<td align="left"><strong>Column Totals</strong></td>
-<td align="center">574,895</td>
-<td align="center">2,111</td>
-<td align="center">577,006</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><em>Does wearing a seat belt lower the risk of an accident resulting in a fatality?</em></p>
-<div class="footmark">
-<p>Source: <a href="https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/two-way-tables-4-of-5/">https://courses.lumenlearning.com/wmopen-concepts-statistics</a></p>
-</div>
-<hr />
-<h2 id="practice-drug-screening"><span class="section-number">21.</span> Practice: Drug screening</h2>
-<p>A large company has instituted a mandatory employee drug screening program. Assume that the drug test used is known to be 99% accurate. That is, if an employee is a drug user, the test will come back positive (“drug detected”) 99% of the time. If an employee is a non-drug user, then the test will come back negative (“no drug detected”) 99% of the time. Assume that 2% of the employees of the company are drug users.</p>
-<p>If an employee’s drug test comes back positive, what is the probability that the test is wrong and the employee is in fact a non drug user?</p>
-<div class="footmark">
-<p>Source: <a href="https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/two-way-tables-5-of-5/">https://courses.lumenlearning.com/wmopen-concepts-statistics</a></p>
-</div>
-<hr />
-<!--# class="middle center" -->
+<!-- # class = "center middle" -->
 <div class="part">
-<p>Lab Instruction in Excel</p>
+<p>Lab Instructions in Excel</p>
 </div>
 <hr />
-<h2 id="create-stacked-bar-chart"><span class="section-number">22.</span> Create Stacked Bar Chart</h2>
+<h2 id="excel-functions-for-normal-distributions-and-marginal-errors"><span class="section-number">8.</span> Excel Functions for Normal Distributions and Marginal Errors</h2>
 <ul>
 <li>
-<p>To create a a stacked bar chart of a two-way table</p>
-<ul>
-<li>
-<p>First select the data table.</p>
+<p>Let \(Z\) be a standard normal random varaible. In Excel, \(P(Z&lt;z)\) is given by <code>NORM.S.DIST(z,TRUE)</code>.</p>
 </li>
 <li>
-<p>Look for and click <code>Insert Column or Bar Chart</code> in the menu <code>Insert</code>-&gt; <code>Charts</code>.</p>
+<p>Let \(X\) be a normal random variable with mean \(\mu\) and standard deviation \(\sigma\), that is \(X\sim \mathcal{N}(\mu, \sigma^2)\). In Excel, \(P(X&lt;x)\) is given by <code>NORM.DIST(x,mean,sd,TRUE)</code>.</p>
 </li>
 <li>
-<p>In the dropdown menu, choose the third option in 2-D Column (<code>100% Stacked Column</code>) or the third option 2-D Bar (<code>100% Stacked Bar</code>).</p>
+<p>When a cumulative probability \(p=P(X&lt;x)\) of a normal random variable \(X\) is given, we can find \(x\) using <code>NORM.INV(p,mean,sd)</code>.</p>
 </li>
 <li>
-<p>To switch row/column, in the output graph, right click the row axis or the column axis, and chose the option <code>Select Data...</code> to make a switch.</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr />
-<h2 id="lab-practice-gender-vs-program-selection"><span class="section-number">23.</span> Lab Practice: Gender vs Program Selection</h2>
-<p>The following table summarize results from a study on program selection and gender.</p>
-<div class="center">
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="center">Arts-Sci</th>
-<th align="center">Bus-Econ</th>
-<th align="center">Info Tech</th>
-<th align="center">Health Science</th>
-<th align="center">Graphics Design</th>
-<th align="center">Culinary Arts</th>
-<th align="center">Row Totals</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Female</td>
-<td align="center">4,660</td>
-<td align="center">435</td>
-<td align="center">494</td>
-<td align="center">421</td>
-<td align="center">105</td>
-<td align="center">83</td>
-<td align="center">6,198</td>
-</tr>
-<tr>
-<td align="left">Male</td>
-<td align="center">4,334</td>
-<td align="center">490</td>
-<td align="center">564</td>
-<td align="center">223</td>
-<td align="center">97</td>
-<td align="center">94</td>
-<td align="center">5,802</td>
-</tr>
-<tr>
-<td align="left">Column Totals</td>
-<td align="center">8,994</td>
-<td align="center">925</td>
-<td align="center">1,058</td>
-<td align="center">644</td>
-<td align="center">202</td>
-<td align="center">177</td>
-<td align="center">12,000</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Use Excel to answer the following question about the study.</p>
-<ul>
-<li>
-<p>Is there an association between gender and program selection? Why or why not?</p>
+<p>When a cumulative probability \(p=P(Z&lt;z)\) of a standard normal random variable \(Z\) is given, we can find \(z\) using <code>NORM.S.INV(p)</code>.</p>
 </li>
 <li>
-<p>If they are associated, is the association strong or week?</p>
+<p>If a sample of size \(n\) has the proportion \(\hat{p}=phat\) and the sampling distribution is approximately normal, the marginal error for the proportion can be obtained by the Excel function
+<code>CONFIDENCE.NORM(1-confidence level, SQRT(phat*(1-phat)/n), n)</code></p>
 </li>
 </ul>
 </div>
