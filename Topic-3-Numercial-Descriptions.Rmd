@@ -19,14 +19,14 @@ output:
 
 ```{r, echo=FALSE, warning=FALSE}
 knitr::opts_chunk$set(comment="#", fig.retina=2)
-#library(stats)
+library(stats)
 #library(kableExtra)
 #library(knitr)
-#library(formattable)
+# library(formattable)
 library(ggplot2)
 #library(ggthemes)
-#library(ggExtra)
-#library(data.table)
+library(ggExtra)
+# library(data.table)
 library(dplyr, warn.conflicts = FALSE)
 library(plotly, warn.conflicts = FALSE)
 set.seed(3)
@@ -74,7 +74,7 @@ cat(paste(as.vector(head(trees$Height,15)), collapse=", "))
 - Find the median $Q_2$: The sample size is 15. The $Q_2$ is the 8-th value 75 in the sorted data.
 - Find $Q_1$ and $Q_3$: $Q_1$ is the median of the lower half of values, that is, 4-th value 69. $Q_3$ is the median of the upper half values, that is, the 4-th to the last value 79.
 - Find the IQR: $\text{IQR}=Q_3-Q_1=79-69=10$.
-- Since $Q_1-1.5\text{IQR}=69-1.5\cdot 10=54$ and $Q_3+1.5\text{IQR}=79-1.5 \cdot 10=94$, there is no outlier in this sample.
+- Since $Q_1-1.5\text{IQR}=69-1.5\cdot 10=54$ and $Q_3+1.5\text{IQR}=79+1.5 \cdot 10=94$, there is no outlier in this sample.
 
 ---
 
@@ -135,13 +135,14 @@ boxplot<-ggplot(actor_age, aes(x="", y=Age)) +
   xlab("") + 
   coord_flip() +
   theme(# panel.border=element_blank(), 
-        axis.line.x = element_line(size = 1.2),
+        axis.line.x = element_line(linewidth = 1.2),
         axis.line.y = element_blank(),
         axis.ticks.y = element_blank(),
         axis.text.y = element_blank()
         )
-htmlwidgets::saveWidget(ggplotly(boxplot), "boxplot.html", selfcontained=TRUE)
-knitr::include_url("boxplot.html")
+ggplotly(boxplot)
+# htmlwidgets::saveWidget(ggplotly(boxplot), "boxplot.html", selfcontained=TRUE)
+# knitr::include_url("boxplot.html")
 ```
 
 ---
@@ -374,7 +375,7 @@ A sample of the highest temperature of 10 days has a standard deviation $5^\circ
 
 When comparing variables that may have different measurement, it is better to use standardized values. Convert a value to a standard value is called standardization which doesn't change the distribution of the data set.
 
-Let $x$ be a data value, $\bar{x}$ the mean, and $s$ the standard deviation of a data set. The **standard value** (or **$z$-score**) of $x$ is defined as
+Let $x$ be a data value, $\bar{x}$ the mean, and $s$ the standard deviation of a data set. The **standard value** (or **\(z\)-score**) of $x$ is defined as
 $$z = \frac{x-\bar{x}}{s}, \quad\text{equivalently}\quad x=zs+\bar{x}$$
 
 In Excel, the $z$-score can be obtained by `=STANDARDIZE(x, mean, sd)`.
