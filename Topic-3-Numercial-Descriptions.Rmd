@@ -21,17 +21,8 @@ output:
 ```{r, echo=FALSE, warning=FALSE}
 knitr::opts_chunk$set(comment="#", fig.retina=2)
 library(stats)
-#library(kableExtra)
-#library(knitr)
-# library(formattable)
 library(ggplot2)
-#library(ggthemes)
 library(ggExtra)
-<<<<<<< HEAD
-#library(data.table)
-=======
-# library(data.table)
->>>>>>> 8a2223f9313b78de5d664a9f91228ca72d3aa582
 library(dplyr, warn.conflicts = FALSE)
 library(plotly, warn.conflicts = FALSE)
 set.seed(3)
@@ -144,14 +135,10 @@ boxplot<-ggplot(actor_age, aes(x="", y=Age)) +
         axis.ticks.y = element_blank(),
         axis.text.y = element_blank()
         )
-<<<<<<< HEAD
 
-ggplotly(boxplot)
-=======
 ggplotly(boxplot)
 # htmlwidgets::saveWidget(ggplotly(boxplot), "boxplot.html", selfcontained=TRUE)
 # knitr::include_url("boxplot.html")
->>>>>>> 8a2223f9313b78de5d664a9f91228ca72d3aa582
 ```
 
 ---
@@ -344,10 +331,6 @@ Find the standard deviation of this sample.
 
 - When we multiply values in a data set by a factor $k$, the mean and the standard deviation both scale by the factor $k$.
 
-<!-- ---
-
-## Mean and SD under Linear Transformation (2 of 2) -->
-
 ::: {.iframecontainer, style="height: 40vh;"}
 `r knitr::include_url('https://www.geogebra.org/material/iframe/id/r25rDxYZ/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false', height='80%')`
 :::
@@ -384,11 +367,7 @@ A sample of the highest temperature of 10 days has a standard deviation $5^\circ
 
 When comparing variables that may have different measurement, it is better to use standardized values. Convert a value to a standard value is called standardization which doesn't change the distribution of the data set.
 
-<<<<<<< HEAD
 Let $x$ be a data value, $\bar{x}$ the mean, and $s$ the standard deviation of a data set. The **standard value** (or $z$-**score**) of $x$ is defined as
-=======
-Let $x$ be a data value, $\bar{x}$ the mean, and $s$ the standard deviation of a data set. The **standard value** (or **\(z\)-score**) of $x$ is defined as
->>>>>>> 8a2223f9313b78de5d664a9f91228ca72d3aa582
 $$z = \frac{x-\bar{x}}{s}, \quad\text{equivalently}\quad x=zs+\bar{x}$$
 
 In Excel, the $z$-score can be obtained by `=STANDARDIZE(x, mean, sd)`.

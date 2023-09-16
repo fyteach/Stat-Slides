@@ -27,12 +27,6 @@ library(dplyr,warn.conflicts = FALSE)
 library(latex2exp)
 ```
 
-<div class="latex-macros">
-$$\require{color}$$
-$$\definecolor{purple}{RGB}{226, 15, 233}$$
-$$\definecolor{grey}{RGB}{177, 159, 149}$$
-</div>
-
 ## Learning Goals for Hypothesis Tests
 
 - Perform an appropriate hypothesis test for a statement about mean using data from a random sample.
