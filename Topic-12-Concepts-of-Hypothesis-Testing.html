@@ -412,11 +412,6 @@ $(document).ready(function(){
 <div class="date"><h3>September 2023</h3></div>
 </div>
 <div class="body">
-<div class="latex-macros">
-`KH$$\require{color}$$KH`
-`KH$$\definecolor{purple}{RGB}{226, 15, 233}$$KH`
-`KH$$\definecolor{grey}{RGB}{177, 159, 149}$$KH`
-</div>
 <h2 id="learning-goals"><span class="section-number">1.</span> Learning Goals</h2>
 <ul>
 <li>
@@ -616,7 +611,7 @@ See also <a href="https://istats.shinyapps.io/power/">the interactive demonstrat
 <p>\(H_{0}: p=0.50\) vs. \(H_{a}: p\ne 0.50, n=360, \hat{p}=0.56\).</p>
 </div>
 <p>Find the \(P\)-value for the test and make a decision at the 5% level of significance.</p>
-<p><strong>Solution:</strong> Because \(H_a\) is \(\color{purple}{p\ne p_0}\) and \(\color{grey}{\hat{p}=0.56&gt;p_0}\), the \(P\)-value is the .purple[double] of the .grey[right tail] area, that is, the \(P\)-value equals \(2P(\hat{p}&gt;0.56)\).</p>
+<p><strong>Solution:</strong> Because \(H_a\) is <span class="purple">(p\ne p_0)</span> and <span class="grey">(\hat{p}=0.56&gt;p_0)</span>, the \(P\)-value is the <span class="purple">double</span> of the <span class="grey">right tail</span> area, that is, the \(P\)-value equals \(2P(\hat{p}&gt;0.56)\).</p>
 <p>We first find the standard error of the null distribution:
 $$\text{SE}=\sqrt{p_0(1-p_0)/n}=\sqrt{0.5\cdot0.5/360}=0.03.$$</p>
 <p>The \(P\)-value is approximately 0.0455 which can be calculated by the Excel function <code>2*(1-NORM.DIST(0.56,0.5,0.03,TRUE)</code>.</p>
