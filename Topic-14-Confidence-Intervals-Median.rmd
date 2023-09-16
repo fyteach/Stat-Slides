@@ -176,7 +176,7 @@ We are $`r 100*prob`\%$ confidence that the median house price of this city is b
 
 ---
 
-<!-- # class = "center middle" -->
+<!--# class="center middle"-->
 
 ::: {.part}
 Lab Instructions in Excel
@@ -184,7 +184,7 @@ Lab Instructions in Excel
 
 ---
 
-## Excel Functions for Normal Distributions and Marginal Errors
+## Normal Distributions and Marginal Errors
 
 - Let $Z$ be a standard normal random varaible. In Excel, $P(Z<z)$ is given by `NORM.S.DIST(z,TRUE)`.
 

@@ -6,8 +6,9 @@ output:
   markdown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "Assets/css/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "Assets/js/lastupdated.js", "Assets/js/mathjax-font.js"]
+      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
+      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "meta-data/lastupdated.js", "meta-data/mathjax-font.js", "meta-data/iframe.js"]
+      header-includes: "meta-data/Hypothesis-config.html"
     options:
       number_sections: true
       latex_math: true
@@ -25,7 +26,7 @@ library(ggplot2)
 library(latex2exp)
 ```
 
-## Learning Goals for Sampling Distribution
+## Learning Goals
 
 - Demonstrate understanding of the sampling distribution of a statistic.
 
@@ -50,7 +51,7 @@ library(latex2exp)
 
 ---
 
-## Visualization: Sampling Distribution from a Discrete Random Variable
+## Sampling Distribution of a Discrete Variable
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://istats.shinyapps.io/SampDist_discrete/", height="550px")`
@@ -62,7 +63,7 @@ Source: [https://istats.shinyapps.io/SampDist_discrete/](https://istats.shinyapp
 
 ---
 
-## Visualization: Sampling Distribution from a Continuous Random Variable
+## Sampling Distribution of a Continuous Variable
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://istats.shinyapps.io/sampdist_cont/", height="550px")`
@@ -84,11 +85,14 @@ Source: [https://istats.shinyapps.io/sampdist_cont/](https://istats.shinyapps.io
 
 ## Central Limit Theorem for Mean
 
-- **The Central Limit Theorem:**
+::: {.theorem title="The Central Limit Theorem for Mean"}
 
-  As the sample size $n$ increases, the sampling distribution of the sample mean, from a population with the mean $\mu$ and the standard deviation $\sigma$, will approach to a normal distribution with the mean $\mu_{\bar{X}}=\mu$ and the standard deviation $\sigma_{\bar{X}}=\dfrac{\sigma}{\sqrt{n}}$.
+As the sample size $n$ increases, the sampling distribution of the sample mean, from a population with the mean $\mu$ and the standard deviation $\sigma$, will approach to a normal distribution with the mean $\mu_{\bar{X}}=\mu$ and the standard deviation $\sigma_{\bar{X}}=\dfrac{\sigma}{\sqrt{n}}$.
+:::
 
-- **Remark:** In terms of standardization, the central limit theorem says that the random variable $\bar{Z}=\dfrac{\bar{x}-\mu}{\sigma/\sqrt{n}}$ has an approximately standard normal distribution.
+::: {.remark}
+In terms of standardization, the central limit theorem says that the random variable $\bar{Z}=\dfrac{\bar{x}-\mu}{\sigma/\sqrt{n}}$ has an approximately standard normal distribution.
+:::
 
 ---
 
@@ -104,7 +108,7 @@ Source: [https://istats.shinyapps.io/sampdist_cont/](https://istats.shinyapps.io
 
 ---
 
-## Required Sample Size to Apply the Central Limit Theorem for Mean
+## Required Sample Size for Mean
 
 - For most distributions (not highly skewed), when sample size $n>30$, the sampling distribution of the sample mean $\bar{X}$ can be approximated reasonably well by a normal distribution. The larger the sample size, the better the approximation will be.
 
@@ -118,7 +122,7 @@ See <https://stats.stackexchange.com/questions/3734> for a discussion on intuiti
 
 ---
 
-## Example: Sampling Distribution of a Small Data Set (1/2)
+## Example: Sampling Distribution of Small Data (1 of 2)
 
 Randomly draw samples of size 2 with replacement from the numbers 1, 3, 4.
 
@@ -134,7 +138,7 @@ Using the Excel function `STDEV.P()`, we may find the standard deviation of the 
 ::: {.left-column}
   | $\color{red}{\mu}$ | $\color{red}{\sigma}$ | $\color{blue}{\mu_{\bar{X}}}$ | $\color{blue}{\sigma_{\bar{X}}}$ |
   | --------- | ----- | ----- | ----- |
-  | <span class="red">[2.7]</span>  | <span class="red">[1.25]</span> |<span class="blue">[2.7]</span>|<span class="blue">[0.88]</span>|
+  | <span class="red">2.7</span>  | <span class="red">1.25</span> |<span class="blue">2.7</span>|<span class="blue">0.88</span>|
 :::
 
 ::: {.right-col}
@@ -148,7 +152,7 @@ It can be verified that $\mu_{\bar{X}}=\mu$ and $\sigma/\sqrt{n}=1.25/\sqrt{2}\a
 
 ---
 
-## Example: Sampling Distribution of a Small Data Set (2/2)
+## Example: Sampling Distribution of Small Data(2 of 2)
 
 The following are the distribution of the population and the distribution of sample means.
 
@@ -156,7 +160,7 @@ The following are the distribution of the population and the distribution of sam
 :::: {.pull-left}
 ::: {.center}
 
-```{r echo=FALSE, results = 'asis', fig.width=5, fig.asp=0.8}
+```{r echo=FALSE, results = 'asis', fig.width=8, fig.asp=0.8}
 
 pop <- c(1,3,4)
 
@@ -177,7 +181,7 @@ popplot
 :::: {.pull-right}
 ::: {.center}
 
-```{r echo=FALSE, results = 'asis', fig.width=5, fig.asp=0.8}
+```{r echo=FALSE, results = 'asis', fig.width=8, fig.asp=0.8}
 
 samplemean <- c(1,2,2.5,2,3,3.5,2.5,3.5,4)
 
@@ -200,25 +204,21 @@ clt +  stat_function( fun = dnorm, args = list(mean=mean(samplemean), sd=sd(samp
 ---
 
 ## Example: Mean Length of Time on Hold
+<!--# style="font-size:0.95em;"-->
 
-**Example:** Suppose the mean length of time that a caller is placed on hold when telephoning a customer service center is 23.8 seconds, with standard deviation 4.6 seconds. Find the probability that the mean length of time on hold in a random sample of 1,000 calls will be within 0.5 second of the population mean.
+Suppose the mean length of time that a caller is placed on hold when telephoning a customer service center is 23.8 seconds, with standard deviation 4.6 seconds. Find the probability that the mean length of time on hold in a random sample of 1,000 calls will be within 0.5 second of the population mean.
 
 **Solution:** Since the sample size $n=1000>30$ is large enough, by the Central Limit Theorem, we know that the mean length of time is approximately normally distributed.
 
-The mean of the sampling distribution is $\mu_{\bar{X}}=\mu=23.8$.
-
-The standard deviation of the sampling distribution is $\mu_{\bar{X}}=\dfrac{\sigma}{\sqrt{n}}=\dfrac{4.6}{\sqrt{1000}}$.
-
-The probability is
-$$
-P(23.8-0.5<\bar{X}<23.8+0.5) = P(\bar{X}<24.3)-P(\bar{X}<23.3) \approx 0.9994
-$$
-which can be obtained by the following Excel formula:
-`NORM.DIST(24.3, 23.8, 4.6/SQRT(1000),TRUE)-NORM.DIST(23.3, 23.8, 4.6/SQRT(1000),TRUE)`
+- The mean of the sampling distribution is $\mu_{\bar{X}}=\mu=23.8$.
+- The standard deviation of the sampling distribution is $\mu_{\bar{X}}=\dfrac{\sigma}{\sqrt{n}}=\dfrac{4.6}{\sqrt{1000}}$.
+- Then the probability is $P(23.8-0.5<\bar{X}<23.8+0.5) = P(\bar{X}<24.3)-P(\bar{X}<23.3) \approx 0.9994$ which can be obtained by the following Excel formula:
+  `NORM.DIST(24.3, 23.8, 4.6/SQRT(1000),TRUE)-NORM.DIST(23.3, 23.8, 4.6/SQRT(1000),TRUE)`
 
 ---
 
-## Example: Normal Distribution vs Sampling of Normal Distribution
+## Example: Normal vs Sampling Distribution
+<!--# style="font-size:0.91em;"-->
 
 Suppose speeds of vehicles on a particular stretch of roadway are normally distributed with mean 36.6 mph and standard deviation 1.7 mph.
 
@@ -227,25 +227,24 @@ Suppose speeds of vehicles on a particular stretch of roadway are normally distr
 
 **Solution:** Since the population is normally distributed $\mu=36.6$ and $\sigma=1.7$, the sampling distribution of the sample mean is also normal distributed but with $\mu_{\bar{x}}=\mu=36.6$ and $\sigma_{\bar{X}}=\sigma/\sqrt{n}=1.7/\sqrt{10}$.
 
-The probability that the speed of a vehicle is between 35 and 40 is $P(35< X< 40)=P(X< 40)-P(X<35)\approx 0.8039$ which can be obtained by `NORM.DIST(40, 36.6, 1.7, TRUE)-NORM.DIST(35, 36.6, 1.7, TRUE)`.
+- The probability that the speed of a vehicle is between 35 and 40 is $P(35< X< 40)=P(X< 40)-P(X<35)\approx 0.8039$ which can be obtained by
+  `NORM.DIST(40, 36.6, 1.7, TRUE)-NORM.DIST(35, 36.6, 1.7, TRUE)`.
 
-The probability getting a sample of size 10 with the mean between 35 and 40 is
-$P(35<\bar{X}< 40)=P(\bar{X}< 40)-P(\bar{X}<35)\approx 0.9985$ which can be obtained by
-`NORM.DIST(40, 36.6, 1.7/SQRT(10), TRUE)-NORM.DIST(35, 36.6, 1.7/SQRT(10), TRUE)`
+- The probability getting a sample of size 10 with the mean between 35 and 40 is $P(35<\bar{X}< 40)=P(\bar{X}< 40)-P(\bar{X}<35)\approx 0.9985$ which can be obtained by
+  `NORM.DIST(40, 36.6, 1.7/SQRT(10), TRUE)-NORM.DIST(35, 36.6, 1.7/SQRT(10), TRUE)`
 
 ---
 
 ## Sampling Distribution of a Sample Proportion
 
-- When working with categorical variables, we often study the proportion of a data set.
-  
-  The proportion of a specific characteristic in a data set can be viewed as the mean of the data set by identifying the specific characteristic with 1 and others with $0$.
+- The proportion of a specific characteristic in a data set can be viewed as the mean of the data set by identifying the specific characteristic with 1 and others with $0$.
 
   **Example:** Consider the following data set
-  .center[<span class="red">[1]</span>, 0, <span class="red">[1]</span>, <span class="red">[1]</span>, 0, 0, <span class="red">[1]</span>, 0, <span class="red">[1]</span>, <span class="red">[1]</span>]
-  Find proportion of <span class="red">[red numbers]</span> and the mean of the data set.
-
-  **Solution:** The proportion of red numbers is $\frac{6}{10}=0.6$. So is the mean: $\frac{6\cdot 1 + 4\cdot 0}{10}=0.6$.
+  <p style="text-align: center;">
+  <span class="red">1</span>, 0, <span class="red">1</span>, <span class="red">1</span>, 0, 0, <span class="red">1</span>, 0, <span class="red">1</span>, <span class="red">1</span>
+  </p>
+  
+  The proportion of <span class="red">red numbers</span> is $\frac{6}{10}=0.6$ which is the same as the mean of the data set: $\frac{6\cdot 1 + 4\cdot 0}{10}=0.6$.
 
 - Consider a population consisting of 1s and 0s. Let $p$ be the proportion of 1s. Then standard deviation is
   $$\sigma=\sqrt{(1-p)^2p+(0-p)^2(1-p)}=\sqrt{p(1-p)}.$$
@@ -254,15 +253,16 @@ $P(35<\bar{X}< 40)=P(\bar{X}< 40)-P(\bar{X}<35)\approx 0.9985$ which can be obta
 
 ## Central Limit Theorem for Proportion
 
-- For a sampling distribution of sample proportion, we write $\hat{P}$ for the random variable of sample proportions.
+For a sampling distribution of sample proportion, we write $\hat{P}$ for the random variable of sample proportions.
 
-- **Central Limit Theorem for Proportion:**
-  
-  For large samples, the distribution of sample proportions $\hat{P}$ is approximately normal, with the mean $\mu_{\hat{P}}=p$ and standard deviation $\sigma_{\hat{P}}=\sqrt{\frac{p(1-p)}{n}}$, where $p$ is the population proportion.
+::: {.theorem title="Central Limit Theorem for Proportion"}
+
+For large samples, the distribution of sample proportions $\hat{P}$ is approximately normal, with the mean $\mu_{\hat{P}}=p$ and standard deviation $\sigma_{\hat{P}}=\sqrt{\frac{p(1-p)}{n}}$, where $p$ is the population proportion.
+:::
 
 ---
 
-## Required Sample Size to Apply the Central Limit Theorem for Proportion
+## Required Sample Size for Proportion
 
 - As a sample proportion is always between 0 and 1, and 99.7% of sample proportions lie within 3 standard deviation away from the population proportion, when using the central limit theorem for proportion, we require the sample size $n$ satisfying the following condition: the interval $\left[p-3\sqrt{\frac{p(1-p)}{n}}, p+3\sqrt{\frac{p(1-p)}{n}}\right]$ lies wholly in the interval $[0, 1]$.
 
@@ -285,38 +285,30 @@ Since $p=0.53$ and $n=900$, $np=900\cdot 0.53>10$ and $n(1-p)=900(1-0.53)>10$. B
 The standard deviation of the sampling distribution is $\sigma_{\hat{P}}=\sqrt{\frac{0.53(1-0.53)}{900}}\approx 0.017$.
 
 Then the probability that the random sample has a proportion at least 2% above 53% is
-$$P(\hat{P}>0.55)=1-P(\hat{P}\le 0.55)\approx 0.1197$$
+$P(\hat{P}>0.55)=1-P(\hat{P}\le 0.55)\approx 0.1197$
 which can be obtained by
 `1-NORM.DIST(0.55, 0.53, SQRT(0.53*(1-0.53)/900),TRUE)`.
 
 ---
 
-## Example: Traffic Accidents Caused by Distraction
+## Example: Traffic Accidents
 
 Suppose that in 36% of all car accidents involve injury. Find the probability that the injury rate in a random sample of 250 car accidents is between 30% and 45%.
 
-**Solution:** Firs we verify that the sample size is large enough to assume the sample proportion is approximately normally distributed by the Central Limit Theorem.
-
-The injury rate of all car accidents is $p=10\%=0.3$ and the sample size is $250$. Because $np=250\cdot 0.36=`r 250*0.36`>10$ and $n(1-p)=250\cdot(1-0.36)=`r 250*(1-0.36)`>10$, the sample size is considered large enough.
-
-Let $\hat{P}$ be the sample proportion of a random sample. By the Central Limit Theorem, the distribution of $\hat{P}$ is approximately normally with the mean $p=0.36$ and standard deviation $\sigma_{\hat{P}}=\sqrt{\frac{p(1-p)}{n}}\approx `r sigma<-round(sqrt(0.36*(1-0.36)/250),3); sigma`$
+**Solution:** The injury rate of all car accidents is $p=10\%=0.3$ and the sample size is $250$. Because $np=250\cdot 0.36=`r 250*0.36`>10$ and $n(1-p)=250\cdot(1-0.36)=`r 250*(1-0.36)`>10$, the sample size is considered large enough. By the Central Limit Theorem, we can assume that the sample proportion $\hat{P}$ is approximately normally distributed with the mean $\mu_{\hat{P}}=p=0.36$ and standard deviation $\sigma_{\hat{P}}=\sqrt{\frac{p(1-p)}{n}}\approx `r sigma<-round(sqrt(0.36*(1-0.36)/250),3); sigma`$
 
 Using the Excel function, `NORM.DIST(x, mean, SD, TRUE)`, we find the probability of a random sample of 250 car accidents with the injury rate between 30% and 45% is
-$$
-  P(0.30<\hat{P}<0.45)=P(\hat{P}<0.45)-P(\hat{P}<0.30)
-  \approx `r p1<-round(pnorm(0.45, 0.36, sigma), 3); p1`-`r p2<-round(pnorm(0.30, 0.36, sigma), 3); p2`
-  =`r p1-p2`
-$$
+$$\textstyle P(0.30<\hat{P}<0.45)=P(\hat{P}<0.45)-P(\hat{P}<0.30) \approx `r p1<-round(pnorm(0.45, 0.36, sigma), 3); p1`-`r p2<-round(pnorm(0.30, 0.36, sigma), 3); p2`  =`r p1-p2`$$
 
 ---
 
-## Practice: Sample mean within an interval
+## Practice: Sample Mean within an Interval {.unnumbered}
 
 An unknown distribution has a mean of 28 and a standard deviation 6. Samples of size n = 30 are drawn randomly from the population. Find the probability that the sample mean is between 27 and 30.
 
 ---
 
-## Practice: Sample mean of GPA
+## Practice: Sample Mean of GPA {.unnumbered}
 
 The numerical population of grade point averages at a college has mean 2.61 and standard deviation 0.5. If a random sample of size 100 is taken from the population, what is the probability that the sample mean will be between 2.51 and 2.71?
 
@@ -326,7 +318,7 @@ The numerical population of grade point averages at a college has mean 2.61 and 
 
 ---
 
-## Practice: Proportion of red candy
+## Practice: Proportion of Red Candy {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=178683&seed=2020&showansafter", height="560px")`
@@ -334,19 +326,21 @@ The numerical population of grade point averages at a college has mean 2.61 and 
 
 ---
 
-## Practice: Proportion of voting
+## Practice: Proportion of Voting {.unnumbered}
 
 In a mayoral election, based on a poll, a newspaper reported that the current mayor received 45% of the vote. If this is true, what is the probability that a random sample of 100 voters had less than 35% voting for the current mayor?
 
 ---
 
-<!-- # class = "center middle" -->
+<!--# class="center middle" -->
 
-# More Practice {.unnumbered}
+::: {.part}
+More Practice
+:::
 
 ---
 
-## Practice: Sampling Distribution of Mean with Unknown Population Distribution
+## Practice: Sampling Unknown Population {.unnumbered}
 
 A population has mean 73.5 and standard deviation 2.5.
 
@@ -359,7 +353,7 @@ A population has mean 73.5 and standard deviation 2.5.
 
 ---
 
-## Practice: Sampling Distribution of Mean with Normal Population Distribution
+## Practice: Sampling Normal Population {.unnumbered}
 
 A normally distributed population has mean 57.7 and standard deviation 12.1.
 
@@ -373,7 +367,7 @@ A normally distributed population has mean 57.7 and standard deviation 12.1.
 
 ---
 
-## Practice: Cholesterol Level in Large Eggs
+## Practice: Cholesterol Level in Large Eggs {.unnumbered}
 
 Suppose the mean amount of cholesterol in eggs labeled “large” is 186 milligrams, with standard deviation 7 milligrams. Find the probability that the mean amount of cholesterol in a sample of 144 eggs will be within 2 milligrams of the population mean.
 
@@ -383,7 +377,7 @@ Suppose the mean amount of cholesterol in eggs labeled “large” is 186 millig
 
 ---
 
-## Practice: Color Blindness Rate
+## Practice: Color Blindness Rate {.unnumbered}
 
 Suppose that 8% of all males suffer some form of color blindness. Find the probability that in a random sample of 250 men at least 10% will suffer some form of color blindness.
 
@@ -393,7 +387,7 @@ Suppose that 8% of all males suffer some form of color blindness. Find the proba
 
 ---
 
-## Practice: Minimal Mean Weight of a Particular Fruit
+## Practice: Minimal Mean Weight of a Particular Fruit {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=33379&seed=2020&showansafter", height="560px")`
@@ -401,9 +395,11 @@ Suppose that 8% of all males suffer some form of color blindness. Find the proba
 
 ---
 
-<!-- # class = "center middle" -->
+<!--# class="center middle" -->
 
-# Lab Instructions in Excel {.unnumbered}
+::: {.part}
+Lab Instructions in Excel
+:::
 
 ---
 
@@ -418,7 +414,7 @@ Suppose that 8% of all males suffer some form of color blindness. Find the proba
 
 ---
 
-## Lab Practice: Testing an Airline's Claim
+## Lab Practice: Testing an Airline's Claim {.unnumbered}
 
 An airline claims that 72% of all its flights to a certain region arrive on time. In a random sample of 30 recent arrivals, 19 were on time. You may assume that the normal distribution applies.
 

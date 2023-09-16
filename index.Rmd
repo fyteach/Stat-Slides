@@ -33,4 +33,4 @@ output:
 
 - [Topic 13: Hypothesis Testing for a Mean or a Proportion](Topic-13-Hypothesis-Testing-Mean-Proportion.html)
 
-- [(**optional**) Topic 14: Hypothesis Testing for a Median](Topic-14-Confidence-Intervals-Median.html)
+<!-- - [(**optional**) Topic 14: Hypothesis Testing for a Median](Topic-14-Confidence-Intervals-Median.html) -->

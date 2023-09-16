@@ -6,8 +6,9 @@ output:
   markdown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "Assets/css/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "Assets/js/lastupdated.js", "Assets/js/mathjax-font.js"]
+      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
+      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "meta-data/lastupdated.js", "meta-data/mathjax-font.js"]
+      header-includes: "meta-data/Hypothesis-config.html"
     options:
       number_sections: true
       latex_math: true
@@ -26,7 +27,7 @@ library(ggplot2)
 library(latex2exp)
 ```
 
-## Learning Goals for Probability and Probability Distribution
+## Learning Goals
 
 - Demonstrate understanding of characteristics of normal distributions.
 
@@ -36,12 +37,12 @@ library(latex2exp)
 
 ---
 
-## Probability Distribution of a Continuous Random Variable
+## Distribution of a Continuous Random Variable
 
-- The probability distribution of a continuous random variable $X$ is characterized by its **probability density function** $f(X)$ satisfying that the probability $P(a\leq X\leq b)$ equals the area above the interval $[a, b]$ but under the graph of the density function $f(X)$ which is also called a **density curve**.
+The probability distribution of a continuous random variable $X$ is characterized by its **probability density function** $f(X)$ satisfying that the probability $P(a\leq X\leq b)$ equals the area above the interval $[a, b]$ but under the graph of the density function $f(X)$ which is also called a **density curve**.
 
 ::: {.center}
-```{r echo=FALSE, fig.width=5, fig.asp=0.5}
+```{r echo=FALSE, fig.width=8, fig.asp=0.5}
 puniform <- ggplot(
     data = data.frame(x = c(-0.5, 0.5)), aes(x)
   ) +
@@ -117,7 +118,7 @@ puniform <- ggplot(
 
 puniform
 ```
-```{r echo=FALSE, fig.width=5, fig.asp=0.5}
+```{r echo=FALSE, fig.width=8, fig.asp=0.5}
 pnormal <- ggplot(
     data = data.frame(x = c(-3, 3)), aes(x)
   ) +
@@ -179,7 +180,7 @@ pnormal
 
 ---
 
-## Properties of Probability Distribution of a Continuous Random Variable
+## Properties of Distribution of a Continuous Variable
 
 - The probability density function $f$ is nonnegative, that is $f(X)\ge 0$.
 
@@ -208,10 +209,13 @@ $$
 
 What is the probability that the commuter's waiting time is less than 4 minutes?
 
+:::: {.row}
+::: {.pull-left}
 **Solution:** The probability $P(X\leq 4)$ is the area under the horizontal line $y=0.1$ to the left of $X=4$. Since $f(X)=0$ for $X<0$, the area is the area of the rectangle with width 4 and height 0.1. So the probability is $P(X\leq 4)=0.1\cdot 4=0.4$.
+:::
 
-::: {.center}
-```{r echo=FALSE, fig.height=3, fig.width=5}
+::: {.pull-right}
+```{r echo=FALSE, fig.width=8, fig.asp=0.5, fig.align="center"}
 puniform <- ggplot(
     data = data.frame(x = c(0, 10)), aes(x)
   ) +
@@ -226,7 +230,7 @@ puniform <- ggplot(
   theme_bw() +
   scale_x_continuous(
     expand = c(0,0),
-    limits = c(0, 11),
+    limits = c(0, 10.5),
     breaks = seq(0,10,2)
     # labels =c( "0", "4", "10" )
   ) +
@@ -306,6 +310,7 @@ puniform <- ggplot(
 puniform
 ```
 :::
+::::
 
 ---
 
@@ -321,14 +326,15 @@ where $\mu$ is the mean, $\sigma$ is the standard deviation, $\pi\approx `r roun
   - The normal curve is *bell shaped and __symmetric__* with respect to the mean.
   - The *total area* under the curve and above the $x$-axis is $1$.
   - The normal curve *approaches, but never touches, the $x$-axis* as $x$ goes to $\pm\infty$.
-  - Between $\mu-\sigma$ and $\mu+\sigma$, the graph *curves downward*. On the left side of $\mu-\sigma$ or the right side of $\mu+\sigma$, the graph *curves upward*.  A point at which the curve changes the direction of curving is called an **inflection point**.
+  - Between $\mu-\sigma$ and $\mu+\sigma$, the graph *curves downward*. On the left side of $\mu-\sigma$ or the right side of $\mu+\sigma$, the graph *curves upward*.  
+  <!-- - A point at which the curve changes the direction of curving is called an **inflection point**. -->
 
 ---
 
 ## Normal Curves with Different Means and Standard Deviations
 
 ::: {.center}
-```{r echo=FALSE, fig.width=7, fig.asp=0.5}
+```{r echo=FALSE, fig.width=10, fig.asp=0.5}
 m1 <-0
 m2 <- 1
 m3 <- -1.5
@@ -409,7 +415,7 @@ pmean <- ggplot(
 
 pmean
 ```
-```{r echo=FALSE, fig.width=7, fig.asp=0.5}
+```{r echo=FALSE, fig.width=10, fig.asp=0.5}
 sd1 <- 0.6
 sd2 <- 1.5
 sd3 <- 2
@@ -655,7 +661,7 @@ Suppose that foot length of a randomly chosen adult male is a normal random vari
 **Solution:** Let's first sketch the normal curve.
 
 ::: {.center}
-```{r echo=FALSE, fig.width=6, fig.asp=0.6}
+```{r echo=FALSE, fig.width=8, fig.asp=0.6}
 footsigma <- 1.5
 footmu <- 11
 footbr <- c(-2, -1, 0, 1, 2)*footsigma+footmu
@@ -741,7 +747,7 @@ geom_segment( # Horizontal segment
     label="0.683"
   )
 ```
-```{r echo=FALSE, fig.width=6, fig.asp=0.6}
+```{r echo=FALSE, fig.width=8, fig.asp=0.6}
 footsigma <- 1.5
 footmu <- 11
 footbr <- c(-2, -1, 0, 1, 2)*footsigma+footmu
@@ -838,6 +844,7 @@ $$\scriptstyle P(X<9.5)=\frac12(1-P(9.5<X<12.5))\approx\frac12(1-0.683)=0.1585.$
 
 Note that $8=11-2\cdot 1.5=\mu-2\sigma$. Because the probability of getting a foot length within 2 standard deviation away from the mean is 0.954. Then
 $$\scriptstyle P(X>8)=(1-P(X<8))=1-\frac12(1- P(8<X<14))=1-\frac12(1-0.954)=0.977.$$
+
 ::: {.footmark}
 The probability $P(X<x)$ for a normal random variable $X$ can be calculated using the Excel function `NORM.DIST(x, mean, sd, TRUE)`.
 
@@ -856,7 +863,7 @@ $P(X>8)=1-P(X\le 8)=1-$ `NORM.DIST(8, 11, 1.5, TRUE)` $\approx 1-0.02275=0.97725
 - A random normal variable can be **standardized** by the following formula $z=\frac{x-\mu}{\sigma}.$ We call the value $z$ the $Z$-**score** of $x$. In Excel, the $Z$-score of $x$ can be calculated using the function `STANDARDIZE()`.
   
 - Standardization preserves probability:
-  $$P(a<X<b)=P\left(\frac{a-\mu}{\sigma}< Z < \frac{b-\mu}{\sigma}\right).$$
+  $$\textstyle P(a<X<b)=P\left(\frac{a-\mu}{\sigma}< Z < \frac{b-\mu}{\sigma}\right).$$
 
 - The probability $P(Z< z)$ of a standard normal random variable $Z$ can be found using the Excel function `NORM.S,DIST(z, TRUE)` or the [standard normal distribution table](https://yfei.page/teaching/statistics/normal-tables.html).
 
@@ -866,7 +873,7 @@ $P(X>8)=1-P(X\le 8)=1-$ `NORM.DIST(8, 11, 1.5, TRUE)` $\approx 1-0.02275=0.97725
 
 ## Example: Find the Standard Score
 
-Let $X$ be a norma random variable with the mean $\mu = 8$ and the standard deviation $\sigma=2$.
+Let $X$ be a normal random variable with the mean $\mu = 8$ and the standard deviation $\sigma=2$.
 
 1. Find the $Z$-score for the value $X=13$.
 2. Find the $X$-value for the $Z$-score $z=-0.6$.
@@ -879,7 +886,7 @@ $$x=z\cdot\sigma+\mu=-0.6\cdot 2+8=-1.2+8=6.8.$$
 
 ---
 
-## Example: Probability of a Standard Normal Random Variable (1 of 2)
+## Example: Probabilities of Standard Normal Variables
 
 Let $Z$ be a standard normal random variable.
 
@@ -892,7 +899,7 @@ Let $Z$ be a standard normal random variable.
 ::: {.pull-right}
 | Z   | 0      | 0.01   | 0.02   |
 |-----|--------|--------|--------|
-| 1.2 | .red[0.8849] | 0.8869 | 0.8888 |
+| 1.2 | <span class="red">0.8849</span> | 0.8869 | 0.8888 |
 | 1.3 | 0.9856 | 0.9856 | 0.9857 |
 :::
 ::::
@@ -900,10 +907,10 @@ Let $Z$ be a standard normal random variable.
 **Solution:** To find the probability, we may use the standard normal distribution table, or the Excel function `NORM.S.DIST(z,TRUE)`.
 
 1. From the table, we see that $P(Z<1.21)\approx `r round(pnorm(1.21,0,1),4)`$.
-2. Since the total area under the normal curve is 1, we get
-  $$P(Z\geq 1.21)\approx 1-`r round(pnorm(1.21,0,1),4)`=`r round(1-pnorm(1.21,0,1),4)`.$$
-3. By the symmetry, $P(Z<0)=0.5$. Then the probability
-  $$P(0<Z<1.21)\approx `r round(pnorm(1.21,0,1),4)`-0.5=`r round(pnorm(1.21,0,1)-0.5,4)`.$$
+2. Since the total area under the normal curve is 1, 
+  $P(Z\geq 1.21)\approx 1-`r round(pnorm(1.21,0,1),4)`=`r round(1-pnorm(1.21,0,1),4)`.$
+3. By the symmetry, $P(Z<0)=0.5$ and
+  $P(0<Z<1.21)\approx `r round(pnorm(1.21,0,1),4)`-0.5=`r round(pnorm(1.21,0,1)-0.5,4)`.$
 
 ---
 
@@ -979,15 +986,13 @@ height
 ::: {.pull-right}
 | Z    | 0.04   | 0.05   | 0.06   |
 | ---- | ------ | ------ | ------ |
-| 1.2  | 0.8925 | .red[0.8944] | 0.8962 |
+| 1.2  | 0.8925 | <span class="red">0.8944</span> | 0.8962 |
 :::
 ::::
 
-The probaiblity is $P(X>67)=1-P(X<67)$. To calculate $P(X<67)$, one way is to use the standard normal distribution table. First find the $Z$-score is $z=\frac{67-62}{4}=1.25$. Then $P(Z<1.25)\approx 0.8944$.
+The probability is $P(X>67)=1-P(X<67)$. To calculate $P(X<67)$, one way is to use the standard normal distribution table. First find the $Z$-score is $z=\frac{67-62}{4}=1.25$. Then $P(Z<1.25)\approx 0.8944$.
 
-Another way is to use the Excel function `NORM.DIST(67, 62, 4, TRUE)`.
-
-Then $P(X>67)=1-P(X\le 67)\approx 1-`r round(pnorm(67, 62, 4),4)`=0.1056$.
+Another way is to use the Excel function `NORM.DIST(67, 62, 4, TRUE)` which gives $P(X>67)=1-P(X\le 67)\approx 1-`r round(pnorm(67, 62, 4),4)`=0.1056$.
 
 ---
 
@@ -998,12 +1003,12 @@ Then $P(X>67)=1-P(X\le 67)\approx 1-`r round(pnorm(67, 62, 4),4)`=0.1056$.
 - Let $c$ be a nonnegative number less than or equal to 1. The $(100c)$-th percentile for the standard normal distribution is usually denoted as $-z_c$, that is $P(Z<-z_c)=c$. By symmetry, $z_c$ is the value such that $P(Z> z_c)=c$, that is $P(Z<z_c)=1-c$.
 
 - For a noraml random variable $X$ with the mean $\mu$ and standard deviation $\sigma$, the cutoff value $x^*$ with a **tail area** $c$, can be calculated using the standardization formula, that is,
-  $$x^*=z^*\cdot \sigma+\mu,$$
+  $x^*=z^*\cdot \sigma+\mu,$
   where $z^*$ is the cutoff $z$-score with the tail area $c$, that is $z^*=-z_c$ given that $c$ is the left-tail area and $z^*=z_c$ given that $c$ is the right tail area.
 
 ---
 
-## Example: Cutoff Value for a Normal Random Variable
+## Example: Cutoff Value
 
 Let $X$ be the normal random variable with mean $6$ and standard deviation $3$. Suppose the value $x^*$ cuts off a left-tail area $0.05$. Find the value $x^*$.
 
@@ -1011,7 +1016,7 @@ Let $X$ be the normal random variable with mean $6$ and standard deviation $3$. 
 $$x^* \approx `r round(qnorm(0.05, 6, 3), 3)`.$$
 
 Another way is to use the standardization formula. Using the standard normal distrution table or the Excel function `NORM.S.INV(0.05)`, we find that $-z_{0.05}=`r round(qnorm(0.05, 0, 1), 3)`$. Then
-$$x^*=-z_{0.05}\cdot 3+6=`r round(qnorm(0.05, 0, 1), 3)*3+6`.$$
+$x^*=-z_{0.05}\cdot 3+6=`r round(qnorm(0.05, 0, 1), 3)*3+6`.$
 
 | z    | − 0.04 | − 0.05  |
 |------|--------|---------|
@@ -1030,10 +1035,10 @@ Scores on a standardized college placement examination are normally distributed 
 **Solution:** Let $x^*$ be the minimum score. From the question, we know that $P(X\geq x^*)=0.05$. Equivalently, $P(X<x^*)=1-0.05=0.95$.
 
 Using the function `NORM.INV(0.95, 60, 13)`, we find the $x^*$ score is
-$$x^*=`r round(qnorm(0.95, 60, 13), 2)`.$$
+$x^*=`r round(qnorm(0.95, 60, 13), 2)`.$
 
 Another way is to find $z_{0.05}$ first, then use the standardization formula. Use the standard normal distribution table or the Excel function, you will find that the $z$-score is $z^*=z_{0.05}=`r round(qnorm(0.95, 0, 1), 2)`$. Then
-$$x^*=z^*\sigma+\mu=`r round(qnorm(0.95, 0, 1), 2)`\cdot 13+60=`r  13*round(qnorm(0.95, 0, 1), 2)+60`$$
+$x^*=z^*\sigma+\mu=`r round(qnorm(0.95, 0, 1), 2)`\cdot 13+60=`r  13*round(qnorm(0.95, 0, 1), 2)+60`$
 
 So the minimum score needed is $`r ceiling(qnorm(0.95, 60, 13))`$.
 
@@ -1043,7 +1048,7 @@ So the minimum score needed is $`r ceiling(qnorm(0.95, 60, 13))`$.
 
 ---
 
-## Practice: Dash washing time
+## Practice: Dash washing time {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=7251&seed=2020&showansafter", height="560px")`
@@ -1051,7 +1056,7 @@ So the minimum score needed is $`r ceiling(qnorm(0.95, 60, 13))`$.
 
 ---
 
-## Practice: Fruit weight
+## Practice: Fruit weight {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=7280&seed=2020&showansafter", height="560px")`
@@ -1059,7 +1064,7 @@ So the minimum score needed is $`r ceiling(qnorm(0.95, 60, 13))`$.
 
 ---
 
-## Practice: Shortest lifespan
+## Practice: Shortest lifespan {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=7281&seed=2020&showansafter", height="560px")`
@@ -1067,7 +1072,7 @@ So the minimum score needed is $`r ceiling(qnorm(0.95, 60, 13))`$.
 
 ---
 
-## Practice: Battery life
+## Practice: Battery life {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=268987&seed=2020&showansafter", height="560px")`
@@ -1075,7 +1080,7 @@ So the minimum score needed is $`r ceiling(qnorm(0.95, 60, 13))`$.
 
 ---
 
-## Practice: Sum of probabilities of two normal random variables
+## Practice: Sum of Normal Random Variables {.unnumbered}
 
 Let $Z$ be a normal random variable with $\mu=0$ and $\sigma=1$. Let $X$ be a normal random variable with $\mu=4.3$ and $\sigma=1.7$.
 
@@ -1083,13 +1088,15 @@ Determine the values $P(Z>1) + P(X<6)$ and explain how do you find the value.
 
 ---
 
-<!-- # class = "middle center" -->
+<!--# class="middle center" -->
 
-# More Practice on Normal Distributions {.unnumbered}
+::: {.part}
+Extra Practice
+:::
 
 ---
 
-## Practice: Area under a normal curve
+## Practice: Area under a normal curve {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=267521&seed=2020&showansafter", height="560px")`
@@ -1097,7 +1104,7 @@ Determine the values $P(Z>1) + P(X<6)$ and explain how do you find the value.
 
 ---
 
-## Practice: Find cutoff $Z$-scores
+## Practice: Find cutoff $Z$-scores {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=7277&seed=2020&showansafter", height="560px")`
@@ -1105,7 +1112,7 @@ Determine the values $P(Z>1) + P(X<6)$ and explain how do you find the value.
 
 ---
 
-## Practice: Numbers of Chocolate Chips in Acceptable Cookies
+## Practice: Chocolate Chips in Acceptable Cookies {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=293469&seed=2020&showansafter", height="560px")`
@@ -1113,7 +1120,7 @@ Determine the values $P(Z>1) + P(X<6)$ and explain how do you find the value.
 
 ---
 
-## Practice: Blood Pressure
+## Practice: Blood Pressure {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=283090&seed=2020&showansafter", height="560px")`
@@ -1121,9 +1128,11 @@ Determine the values $P(Z>1) + P(X<6)$ and explain how do you find the value.
 
 ---
 
-<!-- # class = "center middle" -->
+<!--# class="middle center" -->
 
-# Lab Instructions in Excel {.unnumbered}
+::: {.part}
+Lab Instructions in Excel
+:::
 
 ---
 
@@ -1139,7 +1148,7 @@ Determine the values $P(Z>1) + P(X<6)$ and explain how do you find the value.
 
 ---
 
-## Lab Practice: Probabilities of a normal random variable
+## Lab Practice: Normal Variable
 
 1. Let $Z$ be a standard normal random variable. Find the probabilities:
   $$\text{1.}\,\, P(Z<1.58)\quad \text{2.}\,\,  P(-0.6<Z<1.67)\quad \text{3.}\,\, P(Z>0.19).$$

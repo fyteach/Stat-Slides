@@ -6,8 +6,9 @@ output:
   markdown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "Assets/css/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "Assets/js/lastupdated.js", "Assets/js/mathjax-font.js"]
+      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
+      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "meta-data/lastupdated.js", "meta-data/mathjax-font.js"]
+      header-includes: "meta-data/Hypothesis-config.html"
     options:
       number_sections: true
       latex_math: true
@@ -52,7 +53,7 @@ library(ggplot2)
 
 ---
 
-## Practice: Discrete or continuous
+## Practice: Discrete or continuous {.unnumbered}
 
 Classify each random variable as either discrete or continuous.
 
@@ -94,7 +95,7 @@ Classify each random variable as either discrete or continuous.
 
 ---
 
-## Example: Probability Distribution of Flipping Two Fair Coins
+## Example: Distribution of Flipping Two Fair Coins
 
 Let $X$ be the number of heads that are observed when tossing two fair coins.
 
@@ -114,7 +115,7 @@ $$P(X\leq 2)= P(X=0)+P(X=1)+P(X=2)=0.25+0.5+0.25=1.$$
 
 ---
 
-## Example: Probability Histogram of an Unfair Coin
+## Example: Histogram of an Unfair Coin
 
 The probability distribution of an unfair coin is characterized by the following histogram. Find the probability of getting at most 1 head.
 ::: {.center}
@@ -149,7 +150,7 @@ $$
 
 ---
 
-## Practice: Probability Distribution of Rolling a Pair of Fair Dice
+## Practice:  Distribution of Rolling Dice {.unnumbered}
 
 A pair of fair 6-sided dice were rolled. Let $X$ denote the sum of the number of dots on the top faces.
 
@@ -158,7 +159,7 @@ A pair of fair 6-sided dice were rolled. Let $X$ denote the sum of the number of
 
 ---
 
-## Practice: Probability Distribution of Bus Waiting Time
+## Practice: Distribution of Waiting Time {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=916595&seed=2020&showansafter", height="560px")`
@@ -166,7 +167,7 @@ A pair of fair 6-sided dice were rolled. Let $X$ denote the sum of the number of
 
 ---
 
-## Mean and Standard Deviation of a Discrete Random Variable
+## Mean and SD of a Discrete Random Variable
 
 Let $X$ be a discrete random variable and $p_X(x)=P(X=x)$ the probability mass function.
 
@@ -180,16 +181,11 @@ Let $X$ be a discrete random variable and $p_X(x)=P(X=x)$ the probability mass f
 
 ## Some Properties of Expected Value (Optional)
 
-- The expected value of a linear combination two random variables $X$ and $Y$ is the linear combination of their expected values, that is $$E(aX+bY)=aE(X)+bE(Y).$$
-
-- The expected value in general is not multiplicative, that is $E(XY)\ne E(X)E(Y)$.
-
-- If the two random variable $X$ and $Y$ are independent, then $$E(XY)=E(X)E(Y).$$
-
-- The variance can be computed using expected values:
+- The expected value of a linear combination two random variables $X$ and $Y$ is $$E(aX+bY)=aE(X)+bE(Y).$$
+- The expected value in general is not multiplicative, that is $E(XY)\ne E(X)E(Y)$. However, if the two random variable $X$ and $Y$ are _independent_, then $$E(XY)=E(X)E(Y).$$
+- The variance of a variable $X$ can be computed using expected values:
   $$\mathrm{Var}(X)=E(X^{2})-(E[X])^{2}.$$
-
-- Let $X$ and $Y$ be two *independent* variables. Then the variance of a linear combination $aX+bY$ equals
+- Let $X$ and $Y$ be two *independent* variables. Then
 $$\mathrm{Var}(aX+bY)=a^2\mathrm{Var}(X)+b^2\mathrm{Var}(Y)$$
 
 ---
@@ -210,7 +206,7 @@ The expected gain is $$E(X)= 498\cdot \frac{1}{1000}+ 298\cdot\frac{1}{1000}+98\
 
 ---
 
-## Example: Waiting Time
+## Example: Expected Waiting Time and SD
 
 The wait times (rounded to multiples of 5) in the cafeteria at a Community College has the following probability distribution. Find the expected waiting time and the standard deviation.
 
@@ -229,14 +225,14 @@ $$\scriptsize\begin{aligned}\sigma=&\sqrt{(5-14.5)^2\cdot 0.13 +(10-14.5)^2\cdot
 
 ---
 
-## Example: Unfair Die (1 of 2)
+## Example: Distribution of a Unfair Die (1 of 2)
 
 The probability distribution of an unfair die is given in the following table.
 
 ::: {.center}
-| $x$ | 1| 2| 3| 4| 5| 6|
-|---|---|---|---|---|---|
-| $P(X=x)$ | 0.18| 0.12| $\,?\,$ |0.14|0.23|0.17|
+| $x$      |  1   |  2   |    3    |  4   |  5   |  6   |
+|----------|:----:|:----:|:-------:|:----:|:----:|:----:|
+| $P(X=x)$ | 0.18 | 0.12 | $\,?\,$ | 0.14 | 0.23 | 0.17 |
 :::
 
 1. Find $P(X=3)$.
@@ -249,7 +245,7 @@ $$
 
 ---
 
-## Example: Unfair Die (2 of 2)
+## Example: Distribution of a Unfair Die (2 of 2)
 
 The mean is the weighted sum
 $$
@@ -276,7 +272,7 @@ $$
 
 ---
 
-## Practice: Lottery Tickets
+## Practice: Lottery Tickets {.unnumbered}
 
 Seven thousand lottery tickets are sold for $5 each. One ticket will win $2,000, two tickets will win $750 each, and five tickets will win $100 each. Let $X$ denote the net gain from the purchase of a randomly selected ticket.
 
@@ -293,51 +289,46 @@ Source: [https://saylordotorg.github.io/text_introductory-statistics/s08-02-prob
 ## Binomial Distribution
 
 - A **binomial experiment** is a probability experiment satisfying:
-
   1. The experiment has a fixed number $n$ of independent trials.
   2. Each trial has only two possible outcomes: a success (S) or a failure (F).
   3. The probability $p$ of a success is the same for each trial.
-
-- The discrete random variable $X$ counting the number of successes in the $n$ trials is the **binomial random variable**. We say $X$ has a **binomial distribution** with parameters $n$ and $p$ and write it as $X\sim B(n, p)$.
-
+- A discrete random variable $X$ counting the number of successes in the $n$ trials is a **binomial random variable**. We say $X$ has a **binomial distribution** with parameters $n$ and $p$ and write it as $X\sim B(n, p)$.
 - For $X\sim B(n, p)$, the **probability of getting exactly $x$ successes in $n$ trials** is $$P(X=x)=B(x,n,p)={_n C_x} p^x(1-p)^{n-x}=\frac{n!}{(n-x)!x!}p^x(1-p)^{n-x},$$
-where $n!=n(n-1)\cdots 1$, read as $n$ factorial, for $n>0$ and $0!=1.$
-
-- The notation ${_n C_x}=\frac{n!}{(n-x)!x!}$ is read as $n$ choose $x$, which is the number of ways to choose $x$ objects from a set of $n$ objects.
+where $n! = n(n-1)\cdots 1$, read as $n$ factorial, for $n>0$. We set $0! = 1.$
+- The notation ${_n C_x}=\frac{n!}{(n-x)!x!}$ denotes a [binomial coefficient](https://en.wikipedia.org/wiki/Binomial_coefficient) and is read as $n$ choose $x$.
 
 ---
 
-## Example: Probability from Drawing a Card Multiple Times (1 of 2)
+## Example: Multiple Cards Drawing (1 of 2)
 
 A card is randomly selected from a standard deck and replaced. This experiment is repeated a total of $5$ times.
 
 - Find the probability of getting exactly $3$ clubs.
 - Find the probability of getting at least $3$ clubs.
 
-**Solution:** This is a binomial experiment. The number to total trials is $n=5$. The number of successes is $3$. The chance of a success is $p=\frac{13}{52}=\frac14$. Apply the binomial probability formula, we have
-$$P(X=3)=\frac{5!}{3!2!} \left(\frac{1}{4}\right)^3\left(\frac34\right)^2=10\cdot\frac{9}{4^5}\approx 0.088.$$
-The probability $P(X=3)$ can also be found from the binomial distribution table or by using the Excel function `BINOM.DIST(3,5,1/4,FALSE)`.
+**Solution:** This is a binomial experiment. The number to total trials is $n=5$. The number of successes is $3$. The chance of a success is $p=\frac{13}{52}=\frac14$. By the binomial probability formula, we have
+$$\textstyle P(X=3)=\frac{5!}{3!2!} \left(\frac{1}{4}\right)^3\left(\frac34\right)^2=10\cdot\frac{9}{4^5}\approx 0.088.$$
+The probability $P(X=3)$ can also be found by using the Excel function `BINOM.DIST(3, 5, 1 / 4, FALSE)`.
 
 To probability of getting at least $3$ club is
-$$P(X\geq 3) =1-P(X\leq 2)=1-(P(0)+P(1)+P(2))\approx 1-0.8965=0.1035.$$
+$$\textstyle P(X\geq 3) =1-P(X\leq 2)=1-(P(0)+P(1)+P(2))\approx 1-0.8965=0.1035.$$
 
 ---
 
-## Example: Probability from Drawing a Card Multiple Times (2 of 2)
+## Example: Multiple Cards Drawing (2 of 2)
 
-To calculate $P(X\leq 2)$, we may also use the binomial distribution table or the Excel function `BINOM.DIST()`.
+To calculate $P(X\leq 2)$, a binomial distribution table or the Excel function `BINOM.DIST()` can be used.
 
 **Method 1:** As $n=5$ and $p=0.25$, we use the following portion of the cumulative binomial distribution table.
 
-::: {.center}
-
+::: {.center style="margin-top: -1em; font-size: 0.9em;"}
 Binomial Probability Table *n=5*
 
 | n    | x    | 0.1    | 0.15   | 0.2    | 0.25   | 0.3    | 0.35   | 0.4    |
 | ---- | ---- | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-| 5    | 0    | 0.5905 | 0.4437 | 0.3277 | .red[0.2373] | 0.1681 | 0.116  | 0.0778 |
-| 5    | 1    | 0.3281 | 0.3915 | 0.4096 | .red[0.3955] | 0.3602 | 0.3124 | 0.2592 |
-| 5    | 2    | 0.0729 | 0.1382 | 0.2048 | .red[0.2637] | 0.3087 | 0.3364 | 0.3456 |
+| 5    | 0    | 0.5905 | 0.4437 | 0.3277 | <span class="red">0.2373</span> | 0.1681 | 0.116  | 0.0778 |
+| 5    | 1    | 0.3281 | 0.3915 | 0.4096 | <span class="red">0.3955</span> | 0.3602 | 0.3124 | 0.2592 |
+| 5    | 2    | 0.0729 | 0.1382 | 0.2048 | <span class="red">0.2637</span> | 0.3087 | 0.3364 | 0.3456 |
 | 5    | 3    | 0.0081 | 0.0244 | 0.0512 | 0.0879 | 0.1323 | 0.1811 | 0.2304 |
 :::
 
@@ -347,7 +338,7 @@ $P(X\le 2) \approx 0.2373+0.3955+0.2637= 0.8965.$
 
 ---
 
-## Practice: Find Probability of from a Binomial Distribution
+## Practice: Binomial Distribution {.unnumbered}
 
 Let $X$ be a binomial random variable with parameters $n = 5$, $p=0.2$. Find the probabilities
 
@@ -357,7 +348,7 @@ Let $X$ be a binomial random variable with parameters $n = 5$, $p=0.2$. Find the
 
 ---
 
-## Practice: Machine Defect Rate
+## Practice: Machine Defect Rate {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=7211&seed=2020&showansafter", height="560px")`
@@ -365,7 +356,7 @@ Let $X$ be a binomial random variable with parameters $n = 5$, $p=0.2$. Find the
 
 ---
 
-## Mean and Standard Deviation of Binomial Distribution (4/5)
+## Mean and SD of Binomial Distribution (4/5)
 
 - The mean of a binomial distribution of $n$ trials is $$\mu =\sum xP(X=x)=\sum x\cdot \dfrac{n!}{(n-x)!x!}p^x(1-p)^{n-x} = np.$$
 
@@ -386,16 +377,15 @@ The probability that an egg in a retail package is cracked or broken is 0.02.
 3. Is getting at least two broken eggs unusual?
 
 **Solution:** Since there are 12 eggs and the chance of getting a cracked egg is 0.02, the average number of cracked is
-$$\mu =np=12\cdot 0.02=0.24.$$
+$\mu =np=12\cdot 0.02=0.24.$
 
-The standard deviation is
-$$\sigma=\sqrt{12\cdot 0.02\cdot(1-0.02)}\approx 0.4850.$$
+The standard deviation is $\sigma=\sqrt{12\cdot 0.02\cdot(1-0.02)}\approx 0.4850.$
 
 Recall the Empirical rule: 95% data are within 2 standard deviation away from the mean. Since $2>0.24+2\cdot 0.4850$, the chance of getting at least two cracked eggs is less than 5%, which is considered as unusual.
 
 ---
 
-## Practice: Quality of Grapefruit
+## Practice: Quality of Grapefruit {.unnumbered}
 
 Adverse growing conditions have caused 5% of grapefruit grown in a certain region to be of inferior quality. Grapefruit are sold by the dozen.
 
@@ -405,7 +395,7 @@ Adverse growing conditions have caused 5% of grapefruit grown in a certain regio
 
 ---
 
-## Practice: Mean and SD of a Binomial Distribution
+## Practice: Mean and SD of a Binomial Distribution {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=916606&seed=2020&showansafter", height="560px")`
@@ -413,7 +403,7 @@ Adverse growing conditions have caused 5% of grapefruit grown in a certain regio
 
 ---
 
-<!-- # class = "center middle" -->
+<!--# class="middle center" -->
 
 ::: {.part}
 Extra Practice
@@ -421,7 +411,7 @@ Extra Practice
 
 ---
 
-## Practice: Find the mean of a discrete probability distribution
+## Practice: Mean of a Discrete Variable {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=7197&seed=2020&showansafter", height="560px")`
@@ -429,7 +419,7 @@ Extra Practice
 
 ---
 
-## Practice: Find the standard deviation of a discrete probability distribution
+## Practice: SD of a Discrete Variable {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=7198&seed=2020&showansafter", height="560px")`
@@ -437,7 +427,7 @@ Extra Practice
 
 ---
 
-## Practice: Probability within one SD of a discrete probability distribution
+## Practice: Probability within One SD {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=14762&seed=2020&showansafter", height="560px")`
@@ -445,7 +435,7 @@ Extra Practice
 
 ---
 
-## Practice: Probability from a poll
+## Practice: Probability from a Poll {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=7210&seed=2020&showansafter", height="560px")`
@@ -453,7 +443,7 @@ Extra Practice
 
 ---
 
-<!--# class = "center middle" -->
+<!--# class="middle center" -->
 
 ::: {.part}
 Lab Instructions in Excel
@@ -465,6 +455,8 @@ Lab Instructions in Excel
 
 Let $X$ be a binomial random variable with parameters $n$ and $p$, that is $X\sim B(n, p)$. In Excel, $P(X=x)$ is given by `BINOM.DIST(x, n, p, FALSE)` and $P(X\le x)$ is given by `BINOM.DIST(x, n, p, TRUE)`. You may click input function $f_x$ and then search `binom` to find the function.
 
-## Practice: Binominal Distribution Table
+---
+
+## Lab Practice: Binominal Distribution Table {.unnumbered}
 
 Create a binomial distribution table for $p=0.5$ and $n=10$.

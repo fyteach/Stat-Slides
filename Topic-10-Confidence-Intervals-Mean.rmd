@@ -6,8 +6,9 @@ output:
   markdown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "Assets/css/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "Assets/js/lastupdated.js", "Assets/js/mathjax-font.js"]
+      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
+      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "meta-data/lastupdated.js", "meta-data/mathjax-font.js"]
+      header-includes: "meta-data/Hypothesis-config.html"
     options:
       number_sections: true
       latex_math: true
@@ -27,7 +28,7 @@ library(dplyr,warn.conflicts = FALSE)
 library(latex2exp)
 ```
 
-## Learning Goals for Confidence Intervals
+## Learning Goals
 
 - Determine whether the study meets the conditions under which inferences on a population parameter may be performed.
 
@@ -57,9 +58,9 @@ library(latex2exp)
 
 ---
 
-## Example: Estimating Population Proportion by a Sample Proportion
+## Example: Estimating Population Proportion
 
- From a box of 20 pencils of two colors, black and blue, 10 pencils were randomly drawn. 6 out of the 10 pencils are black. What proportion of black pencils are in the box.
+From a box of 20 pencils of two colors, black and blue, 10 pencils were randomly drawn. 6 out of the 10 pencils are black. What proportion of black pencils are in the box.
 
 **Solution:** Since the sample proportion is 0.6, one may make a point estimation that 60% of the box, or 12 are black pencils. However, we don't know how close the sample proportion is to the population proportion.
 
@@ -69,7 +70,7 @@ library(latex2exp)
 
 - To increase the chance, we estimate an unknown parameter using intervals that are obtained by adding chance errors to a point estimate.
   
-- Estimating an unknown parameter using an interval of values which likely contains the true value of the parameter is called a **interval estimation**. The interval is called an **interval estimate**.
+- Estimating an unknown parameter using an interval of values which likely contains the true value of the parameter is called an **interval estimation**. The interval is called an **interval estimate**.
 
 - The reliability of an interval estimate is measured by the probability $1-\alpha$ that the interval estimate will capture the true value of the parameter. This probability $1-\alpha$ is called the [**confidence level**](https://saylordotorg.github.io/text_introductory-statistics/s11-estimation.html).
 
@@ -98,8 +99,7 @@ That means, we can be 95.5% confidence that the average GPA $\mu$ of that colleg
 - Denote by $X$ the random variable for the sample statistic. Then $\text{E}$ is determined the following probability equation
   $$P(\mu_\text{par}-\text{E}< X < \mu_\text{par}+\text{E})=1-\alpha.$$
   
-  If the distribution of $X$ is symmetric, then the marginal error $E$ is the value such that
-  $$P(X-\mu_\text{par}<\text{E})=1-\alpha/2.$$
+  If the distribution of $X$ is symmetric, then $E$ satisfies $P(X-\mu_\text{par}<\text{E})=1-\alpha/2.$
 
 ---
 
@@ -128,16 +128,12 @@ That means, we can be 95.5% confidence that the average GPA $\mu$ of that colleg
 ## Confidence Intervals with Known Population SD
 
 - Suppose the population standard deviation $\sigma$ is given. By the central limit theorem, if $n>30$ or the population distribution is approximately normal, then the sampling distribution is approximately normal with the standard error $\sigma/\sqrt{n}$.  
-
   At the confidence level $1-\alpha$, the marginal error for a population mean is
   $E=z_{\alpha/2}\dfrac{\sigma}{\sqrt{n}}$ and the confidence interval is
   $$\left[\bar{x}-z_{\alpha/2}\frac{\sigma}{\sqrt{n}}, \bar{x}+z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\right],$$
   where [the **critical value** $z_{\alpha/2}$ satisfies that $P(Z<z_{\alpha/2})=1-\alpha/2$](https://saylordotorg.github.io/text_introductory-statistics/s11-01-large-sample-estimation-of-a-p.html) for the standard normal variable $Z$.
-
-- In Excel, $z_{\alpha/2}$=`NORM.S.INV((1+confidence level)/2)`.
-
-- The marginal error $E=z_{\alpha/2}\frac{\sigma}{\sqrt{n}}$ can also be obtained by the Excel function
-`CONFIDENCE.NORM(1-confidence level, sigma, n)`.
+- In Excel, $z_{\alpha/2}$=`NORM.S.INV((1+confidence level)/2)` and  
+  $E=z_{\alpha/2}\frac{\sigma}{\sqrt{n}} =$ `CONFIDENCE.NORM(1-confidence level, sigma, n)`.
 
 ---
 
@@ -162,7 +158,7 @@ A sample of size 15 drawn from a normally distributed population with the standa
 
 ---
 
-## Example: Mean GPA
+## Example: Mean GPA (1 of 2)
 
 A random sample of 50 students from a college gives a mean GPA 2.51. Suppose the standard deviation of GPA of all students at the college is 0.43. Construct a 99% confidence interval for the mean GPA of all students at the college.
 
@@ -172,6 +168,10 @@ A random sample of 50 students from a college gives a mean GPA 2.51. Suppose the
 - The sample mean is $\bar{x}=2.51$,
 - The population standard deviation is $\sigma=0.43$, and
 - The confidence level is $1-\alpha=0.99$.
+
+---
+
+## Example: Mean GPA (2 of 2)
 
 Now let's find the critical value and the standard error.
 
@@ -196,7 +196,7 @@ Then the marginal error is $\text{E}=z_{\alpha/2}\cdot\sigma_{\bar{x}}=2.576\cdo
 - If the random variable $\bar{x}$ is approximately normal, then the random variable $t=\dfrac{\bar{x}-\mu}{s / \sqrt{n}}$ has a **[Student's $t$-distribution](https://en.wikipedia.org/wiki/Student%27s_t-distribution) with the degree of freedom $n-1$**.
 
 ::: {.center}
-![t-curves](Figures/t-curves.svg){width="45%"}
+![t-curves](Figures/t-curves.svg){width="40%"}
 :::
 
 ---
@@ -234,7 +234,7 @@ Source: [https://rpsychologist.com/d3/tdist/](https://rpsychologist.com/d3/tdist
 
 ---
 
-## Confidence Intervals for a Mean with <span class="red">Unknown</span> Population SD
+## Confidence Intervals with <span class="red">Unknown</span> Population SD
 
 - Suppose the sampling distribution is approximately normal. At the confidence level $1-\alpha$, the margin of error is $E=t_{\alpha/2}\frac{s}{\sqrt{n}},$
   and the confidence interval for a population mean $\mu$ is
@@ -269,7 +269,7 @@ A sample of size 15 drawn from a normally distributed population. Find the criti
 
 ---
 
-## Example: Confidence Interval with Unknown Population SD
+## Example: Confidence Interval with Unknown $\sigma$
 
 A sample of size 16 is randomly drawn from a normally distributed population. The sample has a mean 79 and standard deviation 7. Construct a confidence interval for that population mean at the 90% level of confidence.
 
@@ -289,7 +289,8 @@ With 90% confidence, we may conclude that the population mean is in the interval
 
 ---
 
-## Example: Average Working Hours in Grocery Stores
+## Example: Average Working Hours
+<!-- # style="font-size:0.92em;" -->
 
 The data blow shows numbers of hours worked from 40 randomly selected employees from several grocery stores in the county.
 
@@ -312,21 +313,22 @@ kable(hours.df, col.names = NULL, escape = F, align = "c", "html") %>%
 Construct 99% confidence interval for the mean worked time.
 
 **Solution:** Since the sample size is 40 (>30), by the central limit theorem, the sample mean is approximately normally distributed.
-Using the Excel functions `AVERAGE()` and `STDEV.S()` to the data, we find $\bar{x}\approx 29.6$ and $s\approx 5.3$.
+Applying the Excel functions `AVERAGE()` and `STDEV.S()` to the data, we find that $\bar{x}\approx 29.6$ and $s\approx 5.3$.
 
-Since $\alpha=1-0.99=0.01$, the marginal error is $\text{E}=$ `CONFIDENCE.T(0.01, 5.3, 40)` $\approx 2.3$. Thus $\bar{x}-\text{E}=29.6-2.3=27.3$ and $\bar{x}+\text{E}=29.6+2.3=31.9$
+Since $\alpha=1-0.99=0.01$, the marginal error is $\text{E}=$ `CONFIDENCE.T(0.01, 5.3, 40)` $\approx 2.3$. Thus, $\bar{x}-\text{E}=29.6-2.3=27.3$ and $\bar{x}+\text{E}=29.6+2.3=31.9$
 
 With a 99% confidence, one may conclude that the average worked hours of employees in all grocery stores is between 27.3 and 31.9 hours.
 
 ---
 
-## Choose Between Normal Distribution and $t$-Distribution
+## Choose Normal Distribution or $t$-Distribution
+<!-- # style="font-size:0.95em;" -->
 
 - Population is <span class="red">approximately ormally</span> distributed.
   - the population standard deviation $\sigma$ is .blue[known]: use the .blue[normal distribution].
   - the population standard deviation $\sigma$ is .yellow[*unknown*]: use the $t$-.yellow[*distribution*].
 
-- Population distribution unknown, but .gold[sample size is large enough], i.e. $n>30$.
+- Population distribution unknown, but <span class="gold">sample size is large enough</span>, i.e. $n>30$.
   - the population standard deviation $\sigma$ is <span class="grey">known</span>: use <span class="grey">normal distribution</span>.
   - the population standard deviation $\sigma$ is <span class="purple">*unknown*</span>: either one can be used but the $t$-<span class="purple">*distribution*</span> is more accurate.
 
@@ -334,11 +336,11 @@ With a 99% confidence, one may conclude that the average worked hours of employe
 
 - For small samples, there is method called "[The Shapiro–Wilk test](http://www.sthda.com/english/wiki/normality-test-in-r#normality-test)" which can be used to determine if we may assume the sampling distribution is approximately normal.
 
-- Even when $n>30$, a visual inspection (using histogram for example) of the normality is necessary.
+- Even when $n>30$, a visual inspection of the normality is necessary.
 
 ---
 
-## Practice: Conceptual Questions on Confidence Intervals
+## Practice: Conceptual Questions on Confidence Intervals {.unnumbered}
 
 Decide whether the following statements are true or false. Explain your reasoning.
 
@@ -353,7 +355,7 @@ Decide whether the following statements are true or false. Explain your reasonin
 
 ---
 
-## Practice: Find the Critical $z$-Value
+## Practice: Find the Critical $z$-Value {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url('https://www.myopenmath.com/embedq2.php?id=615399&seed=2020&showansafter',height='560px')`
@@ -361,7 +363,7 @@ Decide whether the following statements are true or false. Explain your reasonin
 
 ---
 
-## Practice: Find the Marginal Error with known $\sigma$
+## Practice: Find the Marginal Error with known $\sigma$ {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url('https://www.myopenmath.com/embedq2.php?id=7366&seed=2020&showansafter',height='560px')`
@@ -369,7 +371,7 @@ Decide whether the following statements are true or false. Explain your reasonin
 
 ---
 
-## Practice: Confidence Interval for SAT Scores with Known $\sigma$
+## Practice: Confidence Interval for SAT Scores with Known $\sigma$ {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url('https://www.myopenmath.com/embedq2.php?id=325383&seed=2020&showansafter',height='560px')`
@@ -377,7 +379,7 @@ Decide whether the following statements are true or false. Explain your reasonin
 
 ---
 
-## Practice: Find the Critical $t$-Value
+## Practice: Find the Critical $t$-Value {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url('https://www.myopenmath.com/embedq2.php?id=7372&seed=2020&showansafter',height='560px')`
@@ -385,7 +387,7 @@ Decide whether the following statements are true or false. Explain your reasonin
 
 ---
 
-## Practice: Find the Marginal Error with Unknown $\sigma$
+## Practice: Find the Marginal Error with Unknown $\sigma$ {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url('https://www.myopenmath.com/embedq2.php?id=7369&seed=2020&showansafter',height='560px')`
@@ -393,7 +395,7 @@ Decide whether the following statements are true or false. Explain your reasonin
 
 ---
 
-## Practice: Confidence Interval from a Data Set
+## Practice: Confidence Interval from a Data Set {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url('https://www.myopenmath.com/embedq2.php?id=7382&seed=2020&showansafter',height='560px')`
@@ -401,13 +403,16 @@ Decide whether the following statements are true or false. Explain your reasonin
 
 ---
 
-<!--# class = "center middle" -->
+<!--# class="center middle"-->
 
-# Lab Instructions in Excel {.unnumbered}
+::: {.part}
+Lab Instructions in Excel
+:::
 
 ---
 
 ## Excel Functions for $t$-Distributions
+<!-- # style="font-size: 0.9em;" -->
 
 Suppose a Student's $t$-distribution has the degree of freedom $\text{df}=n-1$.
 
@@ -437,7 +442,7 @@ Suppose a Student's $t$-distribution has the degree of freedom $\text{df}=n-1$.
 
 ---
 
-## Lab Practice: Confidence Interval Without $\sigma$
+## Lab Practice: Confidence Interval Without $\sigma$ {.unnumbered}
 
 Four hundred randomly selected working adults in a certain state, including those who worked at home, were asked the distance from their home to their workplace. The average distance was 8.84 miles with standard deviation 2.70 miles.
 

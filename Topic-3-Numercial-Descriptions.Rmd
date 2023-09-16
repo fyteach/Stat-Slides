@@ -6,8 +6,9 @@ output:
   markdown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "Assets/css/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css, heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "Assets/js/lastupdated.js"]
+      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css, heading-anchor.min.css"]
+      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "meta-data/lastupdated.js"]
+      header-includes: "meta-data/Hypothesis-config.html"
     options:
       number_sections: true
       latex_math: true
@@ -25,7 +26,7 @@ knitr::opts_chunk$set(comment="#", fig.retina=2)
 #library(formattable)
 library(ggplot2)
 #library(ggthemes)
-#library(ggExtra)
+library(ggExtra)
 #library(data.table)
 library(dplyr, warn.conflicts = FALSE)
 library(plotly, warn.conflicts = FALSE)
@@ -124,9 +125,8 @@ cat(paste(sort(actor_age$Age), collapse=", "))
 
 - Based on the five-number summary, the boxplot is shown below.
 
-```{r echo=FALSE, results = 'asis', fig.width=12, fig.asp=0.4, fig.align="center"}
-# load("Data-Frames-SUNY-Concepts-in-Statistics/actor.rdata")
 
+```{r echo=FALSE, results = 'asis', fig.width=14, fig.asp=0.5, fig.align="center"}
 boxplot<-ggplot(actor_age, aes(x="", y=Age)) +
   # stat_boxplot(geom = "errorbar") +
   geom_boxplot(outlier.size=5) +
@@ -135,13 +135,13 @@ boxplot<-ggplot(actor_age, aes(x="", y=Age)) +
   xlab("") + 
   coord_flip() +
   theme(# panel.border=element_blank(), 
-        axis.line.x = element_line(size = 1.2),
+        axis.line.x = element_line(linewidth = 1.2),
         axis.line.y = element_blank(),
         axis.ticks.y = element_blank(),
         axis.text.y = element_blank()
         )
-htmlwidgets::saveWidget(ggplotly(boxplot), "boxplot.html", selfcontained=TRUE)
-knitr::include_url("boxplot.html")
+
+ggplotly(boxplot)
 ```
 
 ---
@@ -374,7 +374,7 @@ A sample of the highest temperature of 10 days has a standard deviation $5^\circ
 
 When comparing variables that may have different measurement, it is better to use standardized values. Convert a value to a standard value is called standardization which doesn't change the distribution of the data set.
 
-Let $x$ be a data value, $\bar{x}$ the mean, and $s$ the standard deviation of a data set. The **standard value** (or **$z$-score**) of $x$ is defined as
+Let $x$ be a data value, $\bar{x}$ the mean, and $s$ the standard deviation of a data set. The **standard value** (or $z$-**score**) of $x$ is defined as
 $$z = \frac{x-\bar{x}}{s}, \quad\text{equivalently}\quad x=zs+\bar{x}$$
 
 In Excel, the $z$-score can be obtained by `=STANDARDIZE(x, mean, sd)`.
@@ -395,7 +395,7 @@ Consider a data set of scores on a standardized test with a mean 70 and standard
 
 ---
 
-## Practice: Understanding $Z$-score
+## Practice: Understanding $Z$-score {.unnumbered}
 
 ::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/multiembedq2.php?id=345978-425748&frame_id=303&resizer=true&seed=2023")`
@@ -539,7 +539,7 @@ Consider the following sample that consists of speeds of 25 cars.
 
 ::: {.center}
 ```{r echo=FALSE, results = 'asis'}
-cat(sample(cars$speed, 25, replace = TRUE), sep = ", ")
+cat(sample(datasets::cars$speed, 25, replace = TRUE), sep = ", ")
 ```
 :::
 

@@ -6,8 +6,9 @@ output:
   markdown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "Assets/css/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css, heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "Assets/js/lastupdated.js"]
+      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css, heading-anchor.min.css"]
+      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "meta-data/lastupdated.js"]
+      header-includes: "meta-data/Hypothesis-config.html"
     options:
       number_sections: true
       latex_math: true
@@ -146,7 +147,7 @@ The strength of the relationship is a description of how closely the data follow
 
 ::::: {.row}
 :::: {.pull-left}
-```{r rstong, echo=FALSE, result='asis', message=FALSE, fig.align = 'center', fig.width=7.5, fig.asp=1}
+```{r rstong, echo=FALSE, result='asis', message=FALSE, fig.align = 'center', fig.width=7, fig.asp=1}
 x1  <- rnorm(n = 100, mean = 1, sd = 2)
 v1  <- rnorm(n = 100, mean = 0, sd = 3)
 m1 <- sd(v1)
@@ -169,7 +170,7 @@ g1 +
 ::::
 
 :::: {.pull-right}
-```{r rweak, echo=FALSE, result='asis', message=FALSE, fig.align = 'center', fig.width=7.5, fig.asp=1}
+```{r rweak, echo=FALSE, result='asis', message=FALSE, fig.align = 'center', fig.width=7, fig.asp=1}
 x2  <- x1
 v2  <- rnorm(n = 100, mean = 0, sd = 3)
 m2 <- sd(v1)
@@ -686,7 +687,7 @@ kable(GradeBook,
 
 ---
 
-## References
+## References {.unnumbered}
 
 - Magnusson, K. (2023). Interpreting Correlations: An interactive visualization (Version 0.7.1) [Web App]. R Psychologist. <https://rpsychologist.com/correlation/>.
 

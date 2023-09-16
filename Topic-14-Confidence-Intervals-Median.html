@@ -393,6 +393,17 @@ mjx-container[jax="SVG"][display="true"]{
 }
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css,npm/@xiee/utils/css/heading-anchor.min.css">
+<script>
+$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
+<link href="C:\Users\Fei\AppData\Local\R\win-library\4.3\kableExtra\lightable-0.0.1\lightable.css" rel="stylesheet" />
 </head>
 <body>
 <div class="include-before">
@@ -594,12 +605,12 @@ The confidence interval can be taken as \([1090, 1500]\).</p>
 $$P(X_{(7)}\le m\le X_{(17)})\approx 0.977.$$</p>
 <p>We are \(97.7\%\) confidence that the median house price of this city is between 1090 and 1500.</p>
 <hr />
-<!-- # class = "center middle" -->
+<!--# class="center middle"-->
 <div class="part">
 <p>Lab Instructions in Excel</p>
 </div>
 <hr />
-<h2 id="excel-functions-for-normal-distributions-and-marginal-errors"><span class="section-number">8.</span> Excel Functions for Normal Distributions and Marginal Errors</h2>
+<h2 id="normal-distributions-and-marginal-errors"><span class="section-number">8.</span> Normal Distributions and Marginal Errors</h2>
 <ul>
 <li>
 <p>Let \(Z\) be a standard normal random varaible. In Excel, \(P(Z&lt;z)\) is given by <code>NORM.S.DIST(z,TRUE)</code>.</p>
