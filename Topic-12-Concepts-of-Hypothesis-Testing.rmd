@@ -79,7 +79,7 @@ library(latex2exp)
 2. Test a statement that the population mean is more than 3.
 3. Test a statement that the population mean is no more than 3.
 
-**Solution:** Keep in mind that the null hypothesis should always contains the equal sign. The alternative hypothesis is contrary to the null hypothesis.
+**Solution:** Keep in mind that the null hypothesis should always contain the equal sign. The alternative hypothesis is contrary to the null hypothesis.
 
 1. We may set the null hypothesis as $H_0$: $μ = 1$. Depending on the given information, otherwise, we may set the alternative hypothesis as $H_a$: $μ\ne 1$.
 2. We may set the null hypothesis as $H_0$: $μ = 3$ and the alternative hypothesis as $H_a$: $μ>3$.
@@ -131,7 +131,7 @@ kable(tbd, format = "html", escape=F)%>%
 
 - Rejecting the null hypothesis when it is indeed true is called a **type I error**. The maximum allowable probability of making a type I error is the **level of significance**, denoted by $\alpha$.
 
-- Failing to reject the null hypothesis when the it is false is called a **type II error**. The probability of a type II error is usually denoted by $\beta$. The **power of a hypothesis test**, equals $1-\beta$, is the probability of rejecting the null hypothesis when it is false.
+- Failing to reject the null hypothesis when it is false is called a **type II error**. The probability of a type II error is usually denoted by $\beta$. The **power of a hypothesis test**, equals $1-\beta$, is the probability of rejecting the null hypothesis when it is false.
 
 ::: {.center}
   ![Type 1 and Type 2 Errors](Figures/type-i-and-type-ii-errors.jpg){30%"}
@@ -186,7 +186,7 @@ $H_{0}: p=0.50$ vs. $H_{a}: p\ne 0.50, n=360, \hat{p}=0.56$.
 
 Find the $P$-value for the test and make a decision at the 5% level of significance.
 
-**Solution:** Because $H_a$ is <span class="purple">\(p\ne p_0\)</span> and <span class="grey">\(\hat{p}=0.56>p_0\)</span>, the $P$-value is the <span class="purple">double</span> of the <span class="grey">right tail</span> area, that is, the $P$-value equals $2P(\hat{p}>0.56)$.
+**Solution:** Because $H_a$ is <span class="purple">\\(p\ne p_0\\)</span> and <span class="grey">\\(\hat{p}=0.56>p_0\\)</span>, the $P$-value is the <span class="purple">double</span> of the <span class="grey">right tail</span> area, that is, the $P$-value equals $2P(\hat{p}>0.56)$.
 
 We first find the standard error of the null distribution:
 $$\text{SE}=\sqrt{p_0(1-p_0)/n}=\sqrt{0.5\cdot0.5/360}=`r round(sqrt(0.5*0.5/360),2)`.$$

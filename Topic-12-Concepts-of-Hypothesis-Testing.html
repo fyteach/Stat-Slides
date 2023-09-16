@@ -478,7 +478,7 @@ $(document).ready(function(){
 <li>Test a statement that the population mean is more than 3.</li>
 <li>Test a statement that the population mean is no more than 3.</li>
 </ol>
-<p><strong>Solution:</strong> Keep in mind that the null hypothesis should always contains the equal sign. The alternative hypothesis is contrary to the null hypothesis.</p>
+<p><strong>Solution:</strong> Keep in mind that the null hypothesis should always contain the equal sign. The alternative hypothesis is contrary to the null hypothesis.</p>
 <ol>
 <li>We may set the null hypothesis as \(H_0\): \(μ = 1\). Depending on the given information, otherwise, we may set the alternative hypothesis as \(H_a\): \(μ\ne 1\).</li>
 <li>We may set the null hypothesis as \(H_0\): \(μ = 3\) and the alternative hypothesis as \(H_a\): \(μ&gt;3\).</li>
@@ -537,7 +537,7 @@ $(document).ready(function(){
 <p>Rejecting the null hypothesis when it is indeed true is called a <strong>type I error</strong>. The maximum allowable probability of making a type I error is the <strong>level of significance</strong>, denoted by \(\alpha\).</p>
 </li>
 <li>
-<p>Failing to reject the null hypothesis when the it is false is called a <strong>type II error</strong>. The probability of a type II error is usually denoted by \(\beta\). The <strong>power of a hypothesis test</strong>, equals \(1-\beta\), is the probability of rejecting the null hypothesis when it is false.</p>
+<p>Failing to reject the null hypothesis when it is false is called a <strong>type II error</strong>. The probability of a type II error is usually denoted by \(\beta\). The <strong>power of a hypothesis test</strong>, equals \(1-\beta\), is the probability of rejecting the null hypothesis when it is false.</p>
 </li>
 </ul>
 <div class="center">
@@ -611,7 +611,7 @@ See also <a href="https://istats.shinyapps.io/power/">the interactive demonstrat
 <p>\(H_{0}: p=0.50\) vs. \(H_{a}: p\ne 0.50, n=360, \hat{p}=0.56\).</p>
 </div>
 <p>Find the \(P\)-value for the test and make a decision at the 5% level of significance.</p>
-<p><strong>Solution:</strong> Because \(H_a\) is <span class="purple">(p\ne p_0)</span> and <span class="grey">(\hat{p}=0.56&gt;p_0)</span>, the \(P\)-value is the <span class="purple">double</span> of the <span class="grey">right tail</span> area, that is, the \(P\)-value equals \(2P(\hat{p}&gt;0.56)\).</p>
+<p><strong>Solution:</strong> Because \(H_a\) is <span class="purple">\(p\ne p_0\)</span> and <span class="grey">\(\hat{p}=0.56&gt;p_0\)</span>, the \(P\)-value is the <span class="purple">double</span> of the <span class="grey">right tail</span> area, that is, the \(P\)-value equals \(2P(\hat{p}&gt;0.56)\).</p>
 <p>We first find the standard error of the null distribution:
 $$\text{SE}=\sqrt{p_0(1-p_0)/n}=\sqrt{0.5\cdot0.5/360}=0.03.$$</p>
 <p>The \(P\)-value is approximately 0.0455 which can be calculated by the Excel function <code>2*(1-NORM.DIST(0.56,0.5,0.03,TRUE)</code>.</p>
