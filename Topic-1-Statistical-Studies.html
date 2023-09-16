@@ -300,6 +300,14 @@ table{
 border-collapse: collapse;
 }
 
+thead:empty {
+  display: none;
+}
+
+table thead th {
+  padding: 0 0.25em;
+}
+
 .remark::before {
   content: "Remark:";
   color: #Feec01;
@@ -376,13 +384,24 @@ iframe[src^="https://www.myopenmath.com"] {
   font-size: 70%;
   bottom: 0.8em;
   position: absolute;
-  color: #6296ff;;
+  color: #6296ff;
   /* background-color: #ffeec4; */
 }
 
+/* .MathJax {
+  font-size: 0.9em;
+} */
 
+mjx-container[jax="SVG"][display="true"]{
+  margin: 0.6em 0 !important;
+}
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css,npm/@xiee/utils/css/ heading-anchor.min.css">
+<script type="application/json" class="js-hypothesis-config">
+  {
+    "openSidebar": false
+  }
+</script>
 </head>
 <body>
 <div class="include-before">
@@ -1081,6 +1100,7 @@ Example: random survey math students to estimate the average GPA or a college.</
   if (bc) d.body.className += ' ' + bc;
 })(document);
 </script>
+<script src="https://hypothes.is/embed.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
 <script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/key-buttons.min.js,npm/@xiee/utils/js/ external-link.min.js,npm/@xiee/utils/js/ heading-anchor.min.js" defer></script>
 <script>

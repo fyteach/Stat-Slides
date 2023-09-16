@@ -240,7 +240,6 @@ code {
 
 .row {
   display: flex;
-  justify-content: top;
   align-items: flex-start;
 }
 
@@ -304,6 +303,10 @@ thead:empty {
   display: none;
 }
 
+table thead th {
+  padding: 0 0.25em;
+}
+
 .remark::before {
   content: "Remark:";
   color: #Feec01;
@@ -354,24 +357,6 @@ iframe[src^="https://www.myopenmath.com"] {
   transform-origin: 0 0;
 }
 
-/* span {
-  text-align: center;
-  font-size: 0.7em;
-  bottom: 0;
-  position: absolute;
-  color: #6296ff;
-} */
-
-/* .slide:has(iframe[src^="https://www.myopenmath.com"]) {
-  display: flex;
-  flex-direction: column;
-
-}
-
-.slide iframe[src^="https://www.myopenmath.com"] {
-  flex: 1;
-} */
-
 .small{
   font-size: 60%;
 }
@@ -384,15 +369,39 @@ iframe[src^="https://www.myopenmath.com"] {
   /* background-color: #ffeec4; */
 }
 
-/* .MathJax {
-  font-size: 0.9em;
-} */
-
 mjx-container[jax="SVG"][display="true"]{
-  margin: 0.6em 0 !important;
+  margin: 0.5em 0 !important;
+}
+
+.theorem::before {
+  content: "Theorem:";
+  color: #120fdf;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.theorem {
+  border: 0.1em solid rgb(65, 170, 223);
+  padding-left: 0.5em;
 }
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css,npm/@xiee/utils/css/heading-anchor.min.css">
+<script>
+$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
+<link href="C:\Users\Fei\AppData\Local\R\win-library\4.3\kableExtra\lightable-0.0.1\lightable.css" rel="stylesheet" />
+<script type="application/json" class="js-hypothesis-config">
+  {
+    "openSidebar": false
+  }
+</script>
 </head>
 <body>
 <div class="include-before">
@@ -419,9 +428,10 @@ mjx-container[jax="SVG"][display="true"]{
 </ul>
 <hr />
 <h2 id="hypothesis-testing-procedure"><span class="section-number">2.</span> Hypothesis Testing Procedure</h2>
+<!--# style="font-size: 0.9em;"-->
 <ol>
 <li>
-<p>Check if the sample size is large enough and determine if a \(Z\)-test or \(T\)-test can be performed. For proportion, \(Z\)-test may be used. For mean, if \(\sigma\) is known, the \(Z\)-test may be used. If \(\sigma\) is unknown, the \(T\)-test may be used.</p>
+<p>Check if the sample size is large enough and determine if a \(Z\)-test or \(t\)-test can be performed. For proportion, \(Z\)-test may be used. For mean, if \(\sigma\) is known, the \(Z\)-test may be used. If \(\sigma\) is unknown, the \(t\)-test may be used.</p>
 </li>
 <li>
 <p>State the null and alternative hypothesis. The null hypothesis always contains the equal sign (and possibly together with a less than or greater than symbol, depending on \(H_a\).)</p>
@@ -430,16 +440,31 @@ mjx-container[jax="SVG"][display="true"]{
 <p>Set a significance level \(\alpha\). Commonly used levels are \(\alpha=0.01\), \(\alpha=0.05\) and \(\alpha=0.1\).</p>
 </li>
 <li>
-<p>Calculate the standardized test statistic: the \(Z\)-test statistic or the \(T\)-test statistic.</p>
+<p>Calculate the standardized test statistic: the \(Z\)-test statistic or the \(t\)-test statistic.</p>
 </li>
 <li>
 <p>Calculate the \(P\)-value.</p>
 </li>
 </ol>
 <div class="center">
-<p>|Sign in \(H_a\) | \(\ne\) | \(&lt;\) | \(&gt;\)  |
-|—|—|—|
-| Test | Two-tailed | Left-tailed | Right-tailed|</p>
+<table>
+<thead>
+<tr>
+<th>Sign in \(H_a\)</th>
+<th>\(\ne\)</th>
+<th>\(&lt;\)</th>
+<th>\(&gt;\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Test</td>
+<td>Two-tailed</td>
+<td>Left-tailed</td>
+<td>Right-tailed</td>
+</tr>
+</tbody>
+</table>
 </div>
 <ol start="6">
 <li>
@@ -450,30 +475,35 @@ mjx-container[jax="SVG"][display="true"]{
 </li>
 </ol>
 <hr />
-<h2 id="example-test-a-mean-with-known-sd-using-p-value-1-of-2"><span class="section-number">3.</span> Example: Test a Mean with Known SD Using \(P\)-value (1 of 2)</h2>
+<h2 id="example-test-a-mean-with-known-sd-1-of-2"><span class="section-number">3.</span> Example: Test a Mean with Known SD (1 of 2)</h2>
 <p>Residences on a certain street claim that the mean speed of automobiles run through the street is greater than the speed limit of 25 miles per hour. A random sample of 100 automobiles has a mean speed of 26 miles per hour. Assume the population standard deviation is 4 miles per hour. Is there enough evidence to support the claim of the residences at the significance level \(\alpha = 0.05\)?</p>
 <p><strong>Solution:</strong> The sample size is \(n=100&gt;30\). So the sampling distribution of sample means is approximately normal by the central limit theorem.</p>
 <p>To test the claim of the residences, we set \(H_0:\mu=25\) and \(H_a: \mu &gt;25\).</p>
 <p>Because \(H_a\) contains the \(&gt;\) sign and \(\sigma\) is known, we use right-tailed \(Z\)-test.</p>
 <p>Since the population standard deviation is  \(\sigma=4\). We use the standard normal distribution to find the \(P\)-value.</p>
 <hr />
-<h2 id="example-test-a-mean-with-known-sd-using-p-value-2-of-2"><span class="section-number">4.</span> Example: Test a Mean with Known SD Using \(P\)-value (2 of 2)</h2>
+<h2 id="example-test-a-mean-with-known-sd-2-of-2"><span class="section-number">4.</span> Example: Test a Mean with Known SD (2 of 2)</h2>
 <p>The \(Z\)-test statistic is \(z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}=\frac{26-25}{4/\sqrt{100}}=2.5\).</p>
 <p>Since \(H_a:\mu&gt;25\), the \(P\)-value is the right-tailed area calculated as
 \(P(Z&gt;2.5)=\)<code>1-NORM.S.DIST(2.5,TRUE)</code>\(\approx 0.006\).</p>
 <p>Because the \(P\)-value is less than the significance level $\alpha=0.05%</p>
 <p>At 5% level of significance, there is enough evidence to support the claim of the residences that the average speed of automobile is above the speed limit.</p>
-<p>.footmark[Note: Without calculating the \(Z\)-test statistic, the \(P\)-value can also be calculated by the Excel function <code>1-NORM.DIST(26, 25, 4/SQRT(100), TRUE)</code>.]</p>
+<div class="footmark">
+<p>Note: Without calculating the \(Z\)-test statistic, the \(P\)-value can also be calculated by the Excel function <code>1-NORM.DIST(26, 25, 4/SQRT(100), TRUE)</code>.</p>
+</div>
 <hr />
-<h2 id="example-test-a-mean-with-unknown-sd-using-p-value"><span class="section-number">5.</span> Example: Test a Mean with Unknown SD Using \(P\)-value</h2>
+<h2 id="example-test-a-mean-with-unknown-sd-1-of-2"><span class="section-number">5.</span> Example: Test a Mean with Unknown SD (1 of 2)</h2>
 <p><strong>Example:</strong> A certain manufacturer claims that average numbers of candies in a certain sized bag that they produce is 20. To test the claims, you collected a random sample of 10 bags and find the mean is 18 and the standard deviation is 2.7. Assume the numbers of candies are normally distributed. At the significance level \(\alpha=0.05\), does your analysis support the manufacturer’s claim?</p>
 <p><strong>Solution:</strong> Since the population is normally distributed, the sampling distribution for the sample mean is approximately normal.</p>
 <p>Set \(H_0: \mu=20\) and \(H_a: \mu\neq 20\).</p>
 <p>Since \(H_a\) has the \(\ne\) sign and the population standard deviation is unknown, we use two-tailed \(t\)-test. We will find the \(P\)-value.</p>
-<p>The \(T\)-test statistics is \(t=\frac{18-20}{2.7/\sqrt{10}}\approx-2.342.\) Using the Excel, we find that the \(P\)-value is \(p\approx\)<code>2*T.DIST(-2.342,9,TRUE)</code>=0.0439.</p>
+<hr />
+<h2 id="example-test-a-mean-with-unknown-sd-2-of-2"><span class="section-number">6.</span> Example: Test a Mean with Unknown SD (2 of 2)</h2>
+<p>The \(t\)-test statistics is \(t=\frac{18-20}{2.7/\sqrt{10}}\approx-2.342.\) Using the Excel, we find that the \(P\)-value is \(p\approx\)<code>2*T.DIST(-2.342,9,TRUE)</code>=0.0439.</p>
 <p>Since the \(P\)-value is smaller than the 5% significance level, we reject \(H_0\) can conclude that there is enough evidence to deny the manufacturer’s claim.</p>
 <hr />
-<h2 id="example-test-a-mean-using-p-value-from-a-data-set-1-of-2"><span class="section-number">6.</span> Example: Test a Mean Using \(P\)-value from a Data Set (1 of 2)</h2>
+<h2 id="example-test-a-mean-from-a-data-set-1-of-2"><span class="section-number">7.</span> Example: Test a Mean from a Data Set (1 of 2)</h2>
+<!--# style="font-size: 0.95em;"-->
 <p>An instructor would like to know if the students enrolled in a math course in the  current semester performed better than students in the last semester. The mean final exam from last semester is 75.5. The final exam scores of 40 randomly selected 40 students were obtained</p>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <tbody>
@@ -528,70 +558,74 @@ mjx-container[jax="SVG"][display="true"]{
 <p>Set \(H_0: \mu=75.5\) and \(H_a: \mu&gt;75.5\).</p>
 <p>Using Excel functions <code>AVERAGE()</code> and <code>STDEV.S()</code>, we find the sample mean is \(\bar{x}\approx 78.17\) and sample standard deviation is \(s\approx 8.39\).</p>
 <hr />
-<h2 id="example-test-a-mean-using-p-value-from-a-data-set-2-of-2"><span class="section-number">7.</span> Example: Test a Mean Using \(P\)-value from a Data Set (2 of 2)</h2>
-<p><strong>Solution: (Continued):</strong> The \(T\)-test statistic is calculated by
+<h2 id="example-test-a-mean-from-a-data-set-2-of-2"><span class="section-number">8.</span> Example: Test a Mean from a Data Set (2 of 2)</h2>
+<!--# style="font-size: 0.95em;"-->
+<p>The \(t\)-test statistic is calculated by
 $$t=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}=\frac{(78.17-75.5)}{8.39/\sqrt{40}}\approx 2.013.$$</p>
-<p>Because \(H_a\) contains the \(&gt;\) sign and \(\sigma\) is unknown, we use the right-tailed \(T\)-test.</p>
-<p>The degree of freedom is \(\text{df}=40-1\) The \(P\)-value is the right tail area under the \(T\)-curve, that is <code>1-T.DIST(2.013, 39, TRUE)</code>=0.0255 which can also be obtained by <code>T.DIST.RT(2.013, 39)</code>.</p>
+<p>Because \(H_a\) contains the \(&gt;\) sign and \(\sigma\) is unknown, we use the right-tailed \(t\)-test.</p>
+<p>The degree of freedom is \(\text{df}=40-1\) The \(P\)-value is the right tail area under the \(t\)-curve, that is <code>1-T.DIST(2.013, 39, TRUE)</code>=0.0255 which can also be obtained by <code>T.DIST.RT(2.013, 39)</code>.</p>
 <p>Since the \(P\)-value is less than 5%, at the 5% level of significance, we may reject \(H_0\). So at 5% level of significance, there is enough evidence to support the claim that the students in this semester performed significantly better on the final than last semester.</p>
 <p>However, if the 2% level of significance is used, with the given data, we fail to reject \(H_0\). Then, at the 2% level of significance, there is not enough evidence to support the claim.</p>
 <hr />
-<h2 id="example-fairness-of-a-coin"><span class="section-number">8.</span> Example: Fairness of a Coin</h2>
+<h2 id="example-fairness-of-a-coin"><span class="section-number">9.</span> Example: Fairness of a Coin</h2>
+<!--# style="font-size: 0.95em;"-->
 <p>Suppose you want to determine if a coin is fair. You toss the coin 50 times and observe 16 heads and 34 tails. At the significant level 0.01, do you think that the coin is fair? If not, does the coin favor the head or tail?</p>
 <p><strong>Solution:</strong> Since \(n\hat{p}=16\) and \(n(1-\hat{p})=34\), a \(Z\)-test is valid.</p>
-<p>To test if the coin is fair, we set the null hypothesis as \(H_0\): \(p=0.5\). The experiment suggests that we should set the alternative hypothesis as \(H_a\): \(p&lt;0.5\).</p>
+<p>To test the coin, we set the null hypothesis as \(H_0\): \(p=0.5\). The experiment suggests that we should set the alternative hypothesis as \(H_a\): \(p&lt;0.5\).</p>
 <p>The test statistic is \(\hat{p}=\frac{16}{50}=0.32\) and the standardization is
-$$z=\dfrac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)/n}}=\dfrac{0.32-0.5}{\sqrt{0.5(1-0.5)/50}}\approx -2.55.$$</p>
-<p>From \(H_a\), we know that the test is left-tailed. The \(P\)-value is then <code>NORM.S.DIST(-2.55,TRUE)</code>\(\approx 0.008\).</p>
+$$\textstyle z=\frac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)/n}}=\frac{0.32-0.5}{\sqrt{0.5(1-0.5)/50}}\approx -2.55.$$</p>
+<p>Because \(H_a\) contains the \(&lt;\) sign, the test is left-tailed and the \(P\)-value is then <code>NORM.S.DIST(-2.55,TRUE)</code>\(\approx 0.008\).</p>
 <p>Because \(0.008&lt;0.01=\alpha\), we reject the null hypothesis \(H_0\). Therefore, at the significance level 0.01, there is enough evidence to claim that the coin favors the tail.</p>
 <hr />
-<h2 id="example-proportion-of-newborns-1-of-2"><span class="section-number">9.</span> Example: Proportion of Newborns (1 of 2)</h2>
+<h2 id="example-proportion-of-newborns-1-of-2"><span class="section-number">10.</span> Example: Proportion of Newborns (1 of 2)</h2>
 <p>Globally the long-term proportion of newborns who are male is 51.46%. A researcher believes that the proportion of boys at birth changes under severe economic conditions. To test this belief randomly selected birth records of 5,000 babies born during a period of economic recession were examined. It was found in the sample that 52.55% of the newborns were boys. Determine whether there is sufficient evidence, at the 10% level of significance, to support the researcher’s belief.</p>
 <p><strong>Solution:</strong> Since \(n\hat{p}\approx 2628\) and \(n(1-\hat{p})\approx 2372\), a \(Z\)-test is valid. we will use the \(P\)-value to test the hypothesis.</p>
 <p>To test the researcher’s claim, we set the null hypothesis as \(H_0\): \(p=0.5146\). The experiment suggests that we should set the alternative hypothesis as \(H_a\): \(p\neq 0.5146\).</p>
+<hr />
+<h2 id="example-proportion-of-newborns-2-of-2"><span class="section-number">11.</span> Example: Proportion of Newborns (2 of 2)</h2>
 <p>The standard test statistic is
 $$
 z=\dfrac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)/n}}=\dfrac{0.5255-0.5146}{\sqrt{0.5146\cdot(1-0.5146)/5000}}\approx1.5422.
 $$</p>
-<hr />
-<h2 id="example-proportion-of-newborns-2-of-2"><span class="section-number">10.</span> Example: Proportion of Newborns (2 of 2)</h2>
 <p>From \(H_a\), we know that the test is two-tailed. The \(P\)-value is then
 $$2\cdot(1-P(Z&lt;0.5255))\approx0.124$$
 which can be calculated by the Excel formula  <code>2*(1-NORM.S.DIST(0.5255,TRUE))</code>.</p>
 <p>Since the significance level is \(\alpha=0.1\) and the \(P\)-value \(0.122&gt;0.1=\alpha\), we fail to reject the null hypothesis \(H_0\).</p>
 <p>At the significance level 0.01, there is not enough evidence to support the researcher’s belief that the proportion of newborns who are male changes.</p>
 <hr />
-<h2 id="a-remark-on-the-se-for-sample-proportion-in-hypothesis-testing"><span class="section-number">11.</span> A Remark on the SE for Sample Proportion in Hypothesis Testing</h2>
+<h2 id="a-remark-on-the-se-for-sample-proportion"><span class="section-number">12.</span> A Remark on the SE for Sample Proportion</h2>
 <p>In some books, the standard error of the sample distribution of sample proportions assuming that \(p=p_0\) is calculated using the approximation
 $$
 \sigma_{\hat{p}}=\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}.
 $$</p>
 <p>An arguable explanation is that using the above value for SE will be consistent with the approach to a hypothesis testing using a confidence interval in the case that a two-tailed test is preformed.</p>
 <hr />
-<h2 id="practice-testing-the-mean-gpa-with-known-sigma"><span class="section-number">12.</span> Practice: Testing the Mean GPA with known \(\sigma\)</h2>
-<iframe src="https://www.myopenmath.com/embedq2.php?id=941399&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
+<h2 id="practice-testing-the-mean-gpa-with-known-sigma" class="unnumbered">Practice: Testing the Mean GPA with known \(\sigma\)</h2>
+<iframe src="https://www.myopenmath.com/embedq2.php?id=941399&amp;seed=2020&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
 <hr />
-<h2 id="practice-testing-the-mean-gpa-with-unknown-sigma"><span class="section-number">13.</span> Practice: Testing the Mean GPA with Unknown \(\sigma\)</h2>
-<iframe src="https://www.myopenmath.com/embedq2.php?id=941405&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
+<h2 id="practice-testing-the-mean-gpa-with-unknown-sigma" class="unnumbered">Practice: Testing the Mean GPA with Unknown \(\sigma\)</h2>
+<iframe src="https://www.myopenmath.com/embedq2.php?id=941405&amp;seed=2020&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
 <hr />
-<h2 id="practice-testing-the-proportion-of-people-who-own-cats"><span class="section-number">14.</span> Practice: Testing the Proportion of People Who Own Cats</h2>
-<iframe src="https://www.myopenmath.com/embedq2.php?id=33395&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
+<h2 id="practice-testing-the-proportion-of-people-who-own-cats" class="unnumbered">Practice: Testing the Proportion of People Who Own Cats</h2>
+<iframe src="https://www.myopenmath.com/embedq2.php?id=1231702&amp;seed=2020&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
 <hr />
-<h2 id="practice-testing-the-mean-recovery-time"><span class="section-number">15.</span> Practice: Testing the Mean Recovery Time</h2>
+<h2 id="practice-testing-the-mean-recovery-time" class="unnumbered">Practice: Testing the Mean Recovery Time</h2>
 <p>The average number of days to complete recovery from a particular type of knee operation is 123.7 days. From his experience a physician suspects that use of a topical pain medication might be lengthening the recovery time. He randomly selects the records of seven knee surgery patients who used the topical medication. The times to total recovery were:</p>
-<p>.center[128, 135, 121, 142, 126, 151, 123]</p>
+<div class="center">
+<p>128, 135, 121, 142, 126, 151, 123]</p>
+</div>
 <p>Assuming a normal distribution of recovery times, perform the relevant test of hypotheses at the 10% level of significance.</p>
 <p>Would the decision be the same at the 5% level of significance?</p>
 <div class="footmark">
 <p>Source: <a href="https://saylordotorg.github.io/text_introductory-statistics/s12-04-small-sample-tests-for-a-popul.html">Exercise 15 in Section 8.4 in Introductory Statistics</a>.</p>
 </div>
 <hr />
-<!-- # class = "center middle" -->
+<!--# class="center middle"-->
 <div class="part">
 <p>Lab Instructions in Excel</p>
 </div>
 <hr />
-<h2 id="excel-functions-for-normal-distributions"><span class="section-number">16.</span> Excel Functions for Normal Distributions</h2>
+<h2 id="normal-distribution-for-hypothesis-testing"><span class="section-number">13.</span> Normal Distribution for Hypothesis Testing</h2>
 <ul>
 <li>
 <p>Let \(Z\) be a standard normal random varaible. In Excel, \(P(Z&lt;z)\) is given by <code>NORM.S.DIST(z,TRUE)</code>.</p>
@@ -607,20 +641,20 @@ $$</p>
 </li>
 </ul>
 <hr />
-<h2 id="excel-functions-for-t-distributions"><span class="section-number">17.</span> Excel Functions for \(T\)-Distributions</h2>
-<p>Suppose a Student’s \(T\)-distribution has the degree of freedom \(\text{df}=n-1\).</p>
+<h2 id="t-distributions-for-hypothesis-testing"><span class="section-number">14.</span> \(t\)-Distributions for Hypothesis Testing</h2>
+<p>Suppose a Student’s \(t\)-distribution has the degree of freedom \(\text{df}=n-1\).</p>
 <ul>
 <li>
-<p>To find a probability for a given \(T\)-value</p>
+<p>To find a probability for a given \(t\)-value</p>
 <ul>
 <li>
-<p>The area of the left tail of the \(T\)-value may be calculated by the function <code>T.DIST(t,df,true)</code>.</p>
+<p>The area of the left tail of the \(t\)-value may be calculated by the function <code>T.DIST(t,df,true)</code>.</p>
 </li>
 <li>
-<p>The area of the right tail of the \(T\)-value may be calculated by the function <code>T.DIST.RT(t, df)</code>.</p>
+<p>The area of the right tail of the \(t\)-value may be calculated by the function <code>T.DIST.RT(t, df)</code>.</p>
 </li>
 <li>
-<p>The area of two tails of the \(T\)-value (\(t&gt;0\)) may be calculated by function <code>T.DIST.2T(t,df)</code>.</p>
+<p>The area of two tails of the \(t\)-value (\(t&gt;0\)) may be calculated by function <code>T.DIST.2T(t,df)</code>.</p>
 </li>
 </ul>
 </li>
@@ -637,7 +671,7 @@ $$</p>
 </li>
 </ul>
 <hr />
-<h2 id="lab-practice-test-the-hypothesis"><span class="section-number">18.</span> Lab Practice: Test the hypothesis</h2>
+<h2 id="lab-practice-a-car-manufacturer-s-claim" class="unnumbered">Lab Practice: A Car Manufacturer’s Claim</h2>
 <p>A car manufacturer claims that a new fuel injection design increases the mean mileage on a certain model of car above its current 28.5 miles per gallon level. Twenty-five of the new designs were checked and the mean recorded as 30.0 miles per gallon with a standard deviation of 3.8 miles per gallon. Assume that mean mileages are approximately normally distributed. Evaluate this claim at the 5% level of significance.</p>
 </div>
 <div class="include-after">
@@ -786,6 +820,7 @@ $$</p>
   if (bc) d.body.className += ' ' + bc;
 })(document);
 </script>
+<script src="https://hypothes.is/embed.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
 <script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/key-buttons.min.js,npm/@xiee/utils/js/external-link.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
 <script>

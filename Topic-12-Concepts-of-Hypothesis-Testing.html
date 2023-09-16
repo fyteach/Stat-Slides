@@ -240,7 +240,6 @@ code {
 
 .row {
   display: flex;
-  justify-content: top;
   align-items: flex-start;
 }
 
@@ -304,6 +303,10 @@ thead:empty {
   display: none;
 }
 
+table thead th {
+  padding: 0 0.25em;
+}
+
 .remark::before {
   content: "Remark:";
   color: #Feec01;
@@ -354,24 +357,6 @@ iframe[src^="https://www.myopenmath.com"] {
   transform-origin: 0 0;
 }
 
-/* span {
-  text-align: center;
-  font-size: 0.7em;
-  bottom: 0;
-  position: absolute;
-  color: #6296ff;
-} */
-
-/* .slide:has(iframe[src^="https://www.myopenmath.com"]) {
-  display: flex;
-  flex-direction: column;
-
-}
-
-.slide iframe[src^="https://www.myopenmath.com"] {
-  flex: 1;
-} */
-
 .small{
   font-size: 60%;
 }
@@ -384,15 +369,39 @@ iframe[src^="https://www.myopenmath.com"] {
   /* background-color: #ffeec4; */
 }
 
-/* .MathJax {
-  font-size: 0.9em;
-} */
-
 mjx-container[jax="SVG"][display="true"]{
-  margin: 0.6em 0 !important;
+  margin: 0.5em 0 !important;
+}
+
+.theorem::before {
+  content: "Theorem:";
+  color: #120fdf;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.theorem {
+  border: 0.1em solid rgb(65, 170, 223);
+  padding-left: 0.5em;
 }
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css,npm/@xiee/utils/css/heading-anchor.min.css">
+<script>
+$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
+<link href="C:\Users\Fei\AppData\Local\R\win-library\4.3\kableExtra\lightable-0.0.1\lightable.css" rel="stylesheet" />
+<script type="application/json" class="js-hypothesis-config">
+  {
+    "openSidebar": false
+  }
+</script>
 </head>
 <body>
 <div class="include-before">
@@ -408,7 +417,7 @@ mjx-container[jax="SVG"][display="true"]{
 `KH$$\definecolor{purple}{RGB}{226, 15, 233}$$KH`
 `KH$$\definecolor{grey}{RGB}{177, 159, 149}$$KH`
 </div>
-<h2 id="learning-goals-for-hypothesis-tests"><span class="section-number">1.</span> Learning Goals for Hypothesis Tests</h2>
+<h2 id="learning-goals"><span class="section-number">1.</span> Learning Goals</h2>
 <ul>
 <li>
 <p>Choose appropriate null and alternative hypotheses.</p>
@@ -417,10 +426,10 @@ mjx-container[jax="SVG"][display="true"]{
 <p>Determine whether the test should be one-sided or two-sided.</p>
 </li>
 <li>
-<p>Calculate \(Z\)-test statistics and \(T\)-test statistics.</p>
+<p>Calculate \(Z\)-test statistics and \(t\)-test statistics.</p>
 </li>
 <li>
-<p>Calculate the \(P\)-value&lt;.</p>
+<p>Calculate the \(P\)-value.</p>
 </li>
 <li>
 <p>Determine whether to reject or fail reject the alternative hypotheses.</p>
@@ -436,16 +445,16 @@ mjx-container[jax="SVG"][display="true"]{
 <p>The testing procedure starts with an initial assumption that the statement on population parameter is true.</p>
 </li>
 <li>
-<p>We test this initial assumption using a random sample. If the initial assumption is really the truth, then the test statistic from a random sample shouldn’t be too far away from the center of the sampling distribution. Conversely, if the test statistic is .green[too far away] from the center, then we should .green[not believe in] the initial assumption.</p>
+<p>We test this initial assumption using a random sample. If the initial assumption is really the truth, then the test statistic from a random sample shouldn’t be too far away from the center of the sampling distribution. Conversely, if it is <span class="green">too far away</span>, then we should <span class="green">not believe in</span> the initial assumption.</p>
 </li>
 <li>
 <p>To determine how far is too far away, we need to specify a threshold, a prior probability, or equivalently a critical value.</p>
 </li>
 <li>
-<p>If the test statistic is at least extreme as the critical value, then the testing is significant enough to allow us to reject the initial assumption. Otherwise, we cannot draw a definite conclusion.</p>
+<p>If the test statistic is at least extreme as the critical value, then the test is significant enough to allow us to reject the initial assumption. Otherwise, we cannot draw a definite conclusion.</p>
 </li>
 <li>
-<p>The prior probability measures the chance that the initial assumption was wrongly rejected.</p>
+<p>The prior probability measures the chance the initial assumption was wrongly rejected.</p>
 </li>
 </ul>
 <hr />
@@ -468,7 +477,7 @@ mjx-container[jax="SVG"][display="true"]{
 </li>
 </ul>
 <hr />
-<h2 id="example-identify-the-null-and-the-alternative-hypotheses"><span class="section-number">4.</span> Example: Identify the Null and the Alternative Hypotheses</h2>
+<h2 id="example-identify-null-and-alternative-hypotheses"><span class="section-number">4.</span> Example: Identify Null and Alternative Hypotheses</h2>
 <ol>
 <li>Test a statement that the population mean is 1.</li>
 <li>Test a statement that the population mean is more than 3.</li>
@@ -476,9 +485,9 @@ mjx-container[jax="SVG"][display="true"]{
 </ol>
 <p><strong>Solution:</strong> Keep in mind that the null hypothesis should always contains the equal sign. The alternative hypothesis is contrary to the null hypothesis.</p>
 <ol>
-<li>We may set set the null hypothesis as \(H_0\): \(μ = 1\). Depending on the given information, otherwise, we may set the alternative hypothesis as \(H_a\): \(μ\ne 1\).</li>
-<li>We may set set the null hypothesis as \(H_0\): \(μ = 3\) and the alternative hypothesis as \(H_a\): \(μ&gt;3\).</li>
-<li>We may set set the null hypothesis as \(H_0\): \(μ \le 3\) and the alternative hypothesis as \(H_a\): \(μ&gt;3\).</li>
+<li>We may set the null hypothesis as \(H_0\): \(μ = 1\). Depending on the given information, otherwise, we may set the alternative hypothesis as \(H_a\): \(μ\ne 1\).</li>
+<li>We may set the null hypothesis as \(H_0\): \(μ = 3\) and the alternative hypothesis as \(H_a\): \(μ&gt;3\).</li>
+<li>We may set the null hypothesis as \(H_0\): \(μ \le 3\) and the alternative hypothesis as \(H_a\): \(μ&gt;3\).</li>
 </ol>
 <hr />
 <h2 id="the-logic-of-hypothesis-testing"><span class="section-number">5.</span> The Logic of Hypothesis Testing</h2>
@@ -494,13 +503,13 @@ mjx-container[jax="SVG"][display="true"]{
 <tbody>
   <tr>
    <td style="text-align:center;"> Reject \(H_0\) </td>
-   <td style="text-align:center;"> .red[Type I Error] </td>
-   <td style="text-align:center;"> .green[Correct decision] </td>
+   <td style="text-align:center;"> <span class="red">Type I Error</span> </td>
+   <td style="text-align:center;"> <span class="green">Correct decision</span> </td>
   </tr>
   <tr>
    <td style="text-align:center;"> Fail to Reject \(H_0\) </td>
-   <td style="text-align:center;"> .green[Correct decision] </td>
-   <td style="text-align:center;"> .red[Type II Error] </td>
+   <td style="text-align:center;"> <span class="green">Correct decision</span> </td>
+   <td style="text-align:center;"> <span class="red">Type II Error</span> </td>
   </tr>
 </tbody>
 </table>
@@ -516,13 +525,13 @@ mjx-container[jax="SVG"][display="true"]{
 <tbody>
   <tr>
    <td style="text-align:left;"> Reject \(H_0\) </td>
-   <td style="text-align:left;"> .green[There is enough evidence to reject the claim] </td>
-   <td style="text-align:left;"> .green[There is enough evidence to support the claim] </td>
+   <td style="text-align:left;"> <span class="green">There is enough evidence to reject the claim</span> </td>
+   <td style="text-align:left;"> <span class="green">There is enough evidence to support the claim</span> </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Fail to Reject \(H_0\) </td>
-   <td style="text-align:left;"> .blue[There is not enough evidence to reject the claim] </td>
-   <td style="text-align:left;"> .blue[There is not enough evidence to support the claim] </td>
+   <td style="text-align:left;"> <span class="blue">There is not enough evidence to reject the claim</span> </td>
+   <td style="text-align:left;"> <span class="blue">There is not enough evidence to support the claim</span> </td>
   </tr>
 </tbody>
 </table>
@@ -530,7 +539,7 @@ mjx-container[jax="SVG"][display="true"]{
 <h2 id="type-of-errors-in-hypothesis-testing"><span class="section-number">6.</span> Type of Errors in Hypothesis Testing</h2>
 <ul>
 <li>
-<p>Rejecting the null hypothesis when it is indeed true is called a <strong>type I error</strong>. The maximum allowable probability of making a type I error is called the <strong>level of significance</strong>, denoted by \(\alpha\).</p>
+<p>Rejecting the null hypothesis when it is indeed true is called a <strong>type I error</strong>. The maximum allowable probability of making a type I error is the <strong>level of significance</strong>, denoted by \(\alpha\).</p>
 </li>
 <li>
 <p>Failing to reject the null hypothesis when the it is false is called a <strong>type II error</strong>. The probability of a type II error is usually denoted by \(\beta\). The <strong>power of a hypothesis test</strong>, equals \(1-\beta\), is the probability of rejecting the null hypothesis when it is false.</p>
@@ -568,9 +577,24 @@ See also <a href="https://istats.shinyapps.io/power/">the interactive demonstrat
 <li>
 <p>\(P\)-Value as Tail area</p>
 <div class="center">
-<p>|Sign in \(H_a\) | \(\ne\) | \(&lt;\) | \(&gt;\)  |
-|—|—|—|
-| \(P\)-value  | Double of the tail area | Left tail area | Right tail area |</p>
+<table>
+<thead>
+<tr>
+<th>Sign in \(H_a\)</th>
+<th>\(\ne\)</th>
+<th>\(&lt;\)</th>
+<th>\(&gt;\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(P\)-value</td>
+<td>Double of the tail area</td>
+<td>Left tail area</td>
+<td>Right tail area</td>
+</tr>
+</tbody>
+</table>
 </div>
 </li>
 <li>
@@ -598,38 +622,26 @@ $$\text{SE}=\sqrt{p_0(1-p_0)/n}=\sqrt{0.5\cdot0.5/360}=0.03.$$</p>
 <p>The \(P\)-value is approximately 0.0455 which can be calculated by the Excel function <code>2*(1-NORM.DIST(0.56,0.5,0.03,TRUE)</code>.</p>
 <p>Since the \(P\)-value is smaller than \(\alpha\), we reject the null hypothesis \(H_0\).</p>
 <hr />
-<h2 id="practice-conceptual-understanding-on-hypothesis-testing"><span class="section-number">10.</span> Practice: Conceptual Understanding on Hypothesis Testing</h2>
+<h2 id="practice-conceptual-understanding" class="unnumbered">Practice: Conceptual Understanding</h2>
 <p>Decide whether the following statements are true or false. Explain your reasoning.</p>
 <ul>
-<li>
-<p>In case of a left-tailed test, we reject the null hypothesis if the sample statistic is significantly smaller than the hypothesized population parameter.</p>
-</li>
-<li>
-<p>A \(P\)-value of 0.08 is more evidence against the null hypothesis than a \(P\)-value of 0.04.</p>
-</li>
-<li>
-<p>The statement, “the \(P\)-value is 0.03”, is equivalent to the statement, “there is a 3% probability that the null hypothesis is true”.</p>
-</li>
-<li>
-<p>Even though you rejected the null hypothesis, it may still be true.</p>
-</li>
-<li>
-<p>Failing to reject null hypothesis means the null hypothesis is true.</p>
-</li>
-<li>
-<p>That the \(P\)-value of a sample statistic is \(p=0\) means the null hypothesis cannot be true.</p>
-</li>
+<li>In case of a left-tailed test, we reject the null hypothesis if the sample statistic is significantly smaller than the hypothesized population parameter.</li>
+<li>A \(P\)-value of 0.08 is more evidence against the null hypothesis than a \(P\)-value of 0.04.</li>
+<li>The statement, “the \(P\)-value is 0.03”, is equivalent to the statement, “there is a 3% probability that the null hypothesis is true”.</li>
+<li>Even though you rejected the null hypothesis, it may still be true.</li>
+<li>Failing to reject null hypothesis means the null hypothesis is true.</li>
+<li>That the \(P\)-value of a sample statistic is \(p=0\) means the null hypothesis cannot be true.</li>
 </ul>
 <div class="footmark">
 <p>Questions are partially taken from <a href="http://www2.stat.duke.edu/~jerry/sta101/tests.html">Conceptual questions on hypothesis testing</a></p>
 </div>
 <hr />
-<h2 id="practice-identify-hypotheses-and-and-determine-the-type-of-test"><span class="section-number">11.</span> Practice: Identify Hypotheses and and Determine the Type of Test</h2>
+<h2 id="practice-determine-the-type-of-test" class="unnumbered">Practice: Determine the Type of Test</h2>
 <div class="iframecontainer">
 <iframe src="https://www.myopenmath.com/embedq2.php?id=168392&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
 </div>
 <hr />
-<h2 id="practice-find-the-p-value"><span class="section-number">12.</span> Practice: Find the \(P\)-value</h2>
+<h2 id="practice-find-the-p-value" class="unnumbered">Practice: Find the \(P\)-value</h2>
 <p>Suppose we’re conducting a hypothesis testing for a population mean. Find the \(P\)-value for each of the following testing scenario with the given sample size \(n\) and the test statistics \(t\).</p>
 <ul>
 <li>\(H_{0}: \mu=25 \text { vs. } H_{a} : \mu&lt;25\), \(n=30\), \(t=-2.43\).</li>
@@ -637,25 +649,25 @@ $$\text{SE}=\sqrt{p_0(1-p_0)/n}=\sqrt{0.5\cdot0.5/360}=0.03.$$</p>
 <li>\(H_{0}: \mu=-7.9 \text { vs. } H_{a} : \mu\ne-7.9\), \(n=40\), \(t=-1.99\).</li>
 </ul>
 <hr />
-<h2 id="practice-make-a-decision-based-on-the-p-value"><span class="section-number">13.</span> Practice: Make a Decision Based on the \(P\)-value</h2>
+<h2 id="practice-make-a-decision" class="unnumbered">Practice: Make a Decision</h2>
 <div class="iframecontainer">
 <iframe src="https://www.myopenmath.com/embedq2.php?id=462486&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
 </div>
 <hr />
-<h2 id="practice-interpret-a-decision"><span class="section-number">14.</span> Practice: Interpret a Decision</h2>
+<h2 id="practice-interpret-a-decision" class="unnumbered">Practice: Interpret a Decision</h2>
 <div class="iframecontainer">
 <iframe src="https://www.myopenmath.com/embedq2.php?id=336259&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
 </div>
 <hr />
-<!-- # class = "center middle" -->
+<!--# class="center middle" -->
 <div class="part">
 <p>Lab Instructions in Excel</p>
 </div>
 <hr />
-<h2 id="excel-functions-for-normal-distributions"><span class="section-number">15.</span> Excel Functions for Normal Distributions</h2>
+<h2 id="normal-distribution-for-hypothesis-testing"><span class="section-number">10.</span> Normal Distribution for Hypothesis Testing</h2>
 <ul>
 <li>
-<p>Let \(Z\) be a standard normal random varaible. In Excel, \(P(Z&lt;z)\) is given by <code>NORM.S.DIST(z,TRUE)</code>.</p>
+<p>Let \(Z\) be a standard normal random variable. In Excel, \(P(Z&lt;z)\) is given by <code>NORM.S.DIST(z,TRUE)</code>.</p>
 </li>
 <li>
 <p>Let \(X\) be a normal random variable with mean \(\mu\) and standard deviation \(\sigma\), that is \(X\sim \mathcal{N}(\mu, \sigma^2)\). In Excel, \(P(X&lt;x)\) is given by <code>NORM.DIST(x,mean,sd,TRUE)</code>.</p>
@@ -668,20 +680,20 @@ $$\text{SE}=\sqrt{p_0(1-p_0)/n}=\sqrt{0.5\cdot0.5/360}=0.03.$$</p>
 </li>
 </ul>
 <hr />
-<h2 id="excel-functions-for-t-distributions"><span class="section-number">16.</span> Excel Functions for \(T\)-Distributions</h2>
-<p>Suppose a Student’s \(T\)-distribution has the degree of freedom \(\text{df}=n-1\).</p>
+<h2 id="t-distribution-for-hypothesis-testing"><span class="section-number">11.</span> \(t\)-Distribution for Hypothesis Testing</h2>
+<p>Suppose a Student’s \(t\)-distribution has the degree of freedom \(\text{df}=n-1\).</p>
 <ul>
 <li>
-<p>To find a probability for a given \(T\)-value</p>
+<p>To find a probability for a given \(t\)-value</p>
 <ul>
 <li>
-<p>The area of the left tail of the \(T\)-value may be calculated by the function <code>T.DIST(t,df,true)</code>.</p>
+<p>The area of the left tail of the \(t\)-value may be calculated by the function <code>T.DIST(t,df,true)</code>.</p>
 </li>
 <li>
-<p>The area of the right tail of the \(T\)-value may be calculated by the function <code>T.DIST.RT(t, df)</code>.</p>
+<p>The area of the right tail of the \(t\)-value may be calculated by the function <code>T.DIST.RT(t, df)</code>.</p>
 </li>
 <li>
-<p>The area of two tails of the \(T\)-value (\(t&gt;0\)) may be calculated by function <code>T.DIST.2T(t,df)</code>.</p>
+<p>The area of two tails of the \(t\)-value (\(t&gt;0\)) may be calculated by function <code>T.DIST.2T(t,df)</code>.</p>
 </li>
 </ul>
 </li>
@@ -698,7 +710,7 @@ $$\text{SE}=\sqrt{p_0(1-p_0)/n}=\sqrt{0.5\cdot0.5/360}=0.03.$$</p>
 </li>
 </ul>
 <hr />
-<h2 id="lab-practice-testing-mean-with-sigma"><span class="section-number">17.</span> Lab Practice: Testing Mean with \(\sigma\)</h2>
+<h2 id="lab-practice-testing-mean-with-sigma" class="unnumbered">Lab Practice: Testing Mean with \(\sigma\)</h2>
 <p>Suppose the population standard deviation is \(\sigma=4.3\). At the significance level \(\alpha=0.02\), construct the a standardized rejection region for the following test for the population mean</p>
 <div class="center">
 <p>Test \(H_0: \mu=21.6\) vs. \(H_a: \mu&lt;21.6\).</p>
@@ -851,6 +863,7 @@ $$\text{SE}=\sqrt{p_0(1-p_0)/n}=\sqrt{0.5\cdot0.5/360}=0.03.$$</p>
   if (bc) d.body.className += ' ' + bc;
 })(document);
 </script>
+<script src="https://hypothes.is/embed.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
 <script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/key-buttons.min.js,npm/@xiee/utils/js/external-link.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
 <script>
