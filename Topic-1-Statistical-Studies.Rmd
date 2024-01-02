@@ -6,20 +6,16 @@ output:
   markdown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css, heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "meta-data/lastupdated.js"]
+      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
+      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "meta-data/lastupdated.js", "meta-data/mathjax-font.js"]
       header-includes: "meta-data/Hypothesis-config.html"
     options:
       number_sections: true
+      latex_math: true
       js_math:
         package: mathjax
         version: 3
-        js: es5/tex-chtml.js
-      js_highlight:
-          package: prism
-          style: dark
-          languages: [r, latex, excel]
-      # smart: false
+        js: es5/tex-svg.js
 ---
 
 ## References {.unnumbered}
@@ -110,6 +106,7 @@ Image source: [Concepts in Statistics (lumen learning)](https://courses.lumenlea
     2. 10 students in a math class earned "A".
 
   **Answer:**  
+
   1. Population
   2. Sample.
 
@@ -120,6 +117,7 @@ Image source: [Concepts in Statistics (lumen learning)](https://courses.lumenlea
 1. Identify statistic concepts in the following study: To learn the percentage of students go to school by public transportation, 500 students at a college were surveyed. 50% say they go to school by public transportation  
 
    **Answer:**
+  
     - Population: all students at the college  
     - Sample: 500 being surveyed  
     - Parameter: unknown percentage  
@@ -183,8 +181,8 @@ Identify the population, sample, the variable of study, the type of the variable
 
 A statistical study can usually be categorized as an **observational study** or an **experiment** by the mean of study.
 
-  - An observational study observes individuals and measures variables of interest. The main purpose of an observational study is to describe a group of individuals or to investigate an association between two variables.
-  - An experiment intentionally manipulates one variable in an attempt to cause an effect on another variable. The primary goal of an experiment is to provide evidence for a cause-and-effect relationship between two variables.
+- An observational study observes individuals and measures variables of interest. The main purpose of an observational study is to describe a group of individuals or to investigate an association between two variables.
+- An experiment intentionally manipulates one variable in an attempt to cause an effect on another variable. The primary goal of an experiment is to provide evidence for a cause-and-effect relationship between two variables.
 
 ::: {.remark}
 In an observational study, it is not possible to draw clear cause-and-effect conclusions because we cannot rule out the possibility that the observed effect is due to some other variables not being studied, known as **extraneous variables**.
@@ -213,7 +211,7 @@ See [Types of Statistical Studies (2 of 4) in the textbook Concepts in Statistic
 
 ---
 
-## Practice: Observational vs Experimental {.unnumbered}
+## Practice: Observational vs Experimental I {.unnumbered}
 
 Identify the type of statistical study:
 
@@ -223,6 +221,12 @@ Identify the type of statistical study:
 
 ::: {.footmark}
 Source: [Khan Academy](https://www.khanacademy.org/math/probability/study-design-a1/observational-studies-experiments/a/observational-studies-and-experiments)
+:::
+
+## Practice: Observational vs Experimental II {.unnumbered}
+
+::: {.iframecontainer}
+`r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=277257&seed=2024&showansafter", height="500px")`
 :::
 
 ---
@@ -270,7 +274,7 @@ Determine if the question is a cause-and-effect question? What are the explanato
 
   1. This question investigates a cause-and-effect relationship. The explanatory variable is computer-aided instruction and the response variable is the test scores.
 
-  2. This question investigates a correlation between variables in a population and is not a cause-and-effect question. The explanatory variable is tutoring and the response variable is the performance.
+  2. This question investigates a correlation between variables in a population and is not a cause-and-effect question. The explanatory variable is tutoring, and the response variable is the performance.
 
 ---
 
@@ -292,6 +296,14 @@ Does higher education attainment lead to higher salary?
 1. Determine if the question is a cause-and-effect question?  
 2. What are the explanatory and response variables?  
 3. If a student want to study this question, what type of statistical study can be used? What kind of conclusion can be drawn?
+
+---
+
+## Practice: Correlation or Causation {.unnumbered}
+
+:::{.iframecontainer}
+`r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=307471&seed=2024&showansafter", height="500px")`
+:::
 
 ---
 
@@ -349,11 +361,11 @@ Determine the type of sampling method.
 
 ## Common Types of Selection Bias in Sampling
 
-- **Voluntary Response Bias / Self-Selection Bias:** participants can choose whether or not to participate in the study.
+- **Voluntary Response Bias / Self-Selection Bias:** participants can choose whether to participate in the study.
   Example: "non-scientific" polls taken on television or websites
 
 - **Measurement or Response Bias:** observations tends to produce values that systematically.
-  Example: The question "How many bottles of bier do you drink each day?" will likely suffers a response bias. 
+  Example: The question "How many bottles of bier do you drink each day?" will likely suffer a response bias.
 
 - **Nonresponse bias;** response are not obtained from all selected individuals.
   Example: Mall surveys
@@ -369,7 +381,7 @@ Suppose that you want to estimate the proportion of students at your college tha
 
 Which sampling plan will produce the most reliable results?
   
-  1. Select 100 students at random from students in the library. 
+  1. Select 100 students at random from students in the library.
   2. Select 200 students at random from students who use the Tutoring Center.
   3. Select 300 students who have checked out a book from the library.
   4. Select 50 students at random from the college.
@@ -377,6 +389,14 @@ Which sampling plan will produce the most reliable results?
 **Answer:** The 4th sampling plan is the most reliable plan. The first three and undercover the college.
 
 In general, the larger sample size, the more accurate of conclusion. However, we have to avoid bad sampling.
+
+---
+
+## Practice: Sampling Techniques {.unnumbered}
+
+:::{.iframecontainer}
+`r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=178722&seed=2024&showansafter", height="500px")`
+:::
 
 ---
 
@@ -402,7 +422,7 @@ In general, the larger sample size, the more accurate of conclusion. However, we
 
 - **Replication** reduces variability in experimental results and increases their significance.
 
-  - Although randomization helps to insure that treatment groups are as similar as possible, the results of a single experiment, applied to a small number of objects or subjects, should not be accepted without question.  
+  - Although randomization helps to ensure that treatment groups are as similar as possible, the results of a single experiment, applied to a few objects or subjects, should not be accepted without question.  
   - Any good experiment should be reproducible, and in particular, replication should yield similar results.
 
 ---
@@ -421,9 +441,17 @@ Both confounding and lurking variables are extraneous variables which are variab
 
 ---
 
+## Practice: Principles of Experimental Design {.unnumbered}
+
+:::{.iframecontainer}
+`r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=438624&seed=2024&showansafter", height="500px")`
+:::
+
+---
+
 ## Practice: Experimental Design {.unnumbered}
 
-There is an ongoing debate about how many spaces should be placed after a period in typed documents. Alana read about a study where 100100100 participants all read the same document typed in Courier New font. Half of the participants were randomly assigned the document with one space after each period, and the other half were given the document with two spaces after each period.
+There is an ongoing debate about how many spaces should be placed after a period in typed documents. Alana read about a study where 100 participants all read the same document typed in Courier New font. Half of the participants were randomly assigned the document with one space after each period, and the other half were given the document with two spaces after each period.
 
 Participants who read the document with two spaces after each period were able to finish reading significantly faster than those with one space after each period. Alana concluded that using two spaces after each period will help people read all documents faster.
 
@@ -431,6 +459,14 @@ Is this study appropriate? Why?
 
 ::: {.footmark}
 Source: [Khan Academy](https://www.khanacademy.org/math/ap-statistics/gathering-data-ap/statistics-experiments/e/issues-experiments)
+:::
+
+---
+
+## Practice: Confounding Variable Definition {.unnumbered}
+
+:::{.iframecontainer}
+`r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=384958&seed=2024&showansafter", height="500px")`
 :::
 
 ---
