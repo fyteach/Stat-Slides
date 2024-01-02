@@ -227,6 +227,8 @@ Identify the type of statistical study:
 Source: [Khan Academy](https://www.khanacademy.org/math/probability/study-design-a1/observational-studies-experiments/a/observational-studies-and-experiments)
 :::
 
+---
+
 ## Practice: Observational vs Experimental II {.unnumbered}
 
 ::: {.iframecontainer}
