@@ -568,12 +568,6 @@ and <strong>spread</strong>. We also describe exceptions to the pattern. We call
 <li>Graph the histogram using the frequency distribution table.</li>
 </ul>
 <div class="center">
-<pre><code># Warning: The dot-dot notation (`..count..`) was deprecated in ggplot2 3.4.0.
-# i Please use `after_stat(count)` instead.
-# This warning is displayed once every 8 hours.
-# Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-# generated.
-</code></pre>
 <img src="data:image/png;base64,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" width="648" />
 </div>
 <div style="margin-top: 1em; font-size: 75%;">
@@ -641,36 +635,37 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 <p>5.6, 5.1, 5, 6.7, 1.4, 5.9, 1.6, 1.5, 1.5, 3.9, 5.1, 1.2, 4.7, 4.3, 1.4, 4.7, 6.1, 4.2, 4.8, 6</p>
 </div>
 <hr />
-<h2 id="practice-histogram" class="unnumbered">Practice: Histogram</h2>
+<h2 id="practice-frequency-table-and-histogram" class="unnumbered">Practice: Frequency Table and Histogram</h2>
 <div class="iframecontainer">
-<iframe src="https://www.myopenmath.com/embedq2.php?id=1085868&amp;seed=2024&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
+<iframe src="https://www.myopenmath.com/embedq.php?id=1296859&amp;seed=2024&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
 </div>
+<!-- --- -->
+<!-- ## Stem-and-Leaf Plots -->
+<!-- A stem-and-leaf plot is a kind of histogram that lets you see all your data instead of just class frequency information. The leading digit(s) form stems and the "tailing digits" form leaves. -->
+<!-- **How to Construct** -->
+<!-- - Select one or more leading digits for the stem values. The trailing digits become the leaves. **Trailing digits for the same stem may further break into two leaves, lower or higher.** -->
+<!-- - List possible stem values in a vertical column. -->
+<!-- - Record the leaf for every observation beside the corresponding stem value. -->
+<!-- - Indicate the units for stems and leaves someplace in the display. -->
+<!-- --- -->
+<!-- ## Example: Heights of Cherry Trees -->
+<!-- Consider the following data of heights of 15 cherry trees. Create a stem-and-leaf plot and describe the distribution. -->
+<!-- ::: {.center} -->
+<!-- ```{r echo=FALSE, results = 'asis'} -->
+<!-- cherrytrees <- sample(trees$Height,15) -->
+<!-- cat(paste(sort(cherrytrees), collapse=", ")) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- **Solution:** -->
+<!-- :::: {style="display: flex; align-items: center; justify-content: center;"} -->
+<!-- ```{r stem1, echo=FALSE, comment=NA} -->
+<!-- out1 <- capture.output(stem(cherrytrees, scale = 0.5)) -->
+<!-- stemout1 <- paste(out1[nzchar(out1)], collapse="\n") -->
+<!-- cat(stemout1, sep="\n") -->
+<!-- ``` -->
+<!-- :::: -->
 <hr />
-<h2 id="stem-and-leaf-plots"><span class="section-number">12.</span> Stem-and-Leaf Plots</h2>
-<p>A stem-and-leaf plot is a kind of histogram that lets you see all your data instead of just class frequency information. The leading digit(s) form stems and the “tailing digits” form leaves.</p>
-<p><strong>How to Construct</strong></p>
-<ul>
-<li>Select one or more leading digits for the stem values. The trailing digits become the leaves. <strong>Trailing digits for the same stem may further break into two leaves, lower or higher.</strong></li>
-<li>List possible stem values in a vertical column.</li>
-<li>Record the leaf for every observation beside the corresponding stem value.</li>
-<li>Indicate the units for stems and leaves someplace in the display.</li>
-</ul>
-<hr />
-<h2 id="example-heights-of-cherry-trees"><span class="section-number">13.</span> Example: Heights of Cherry Trees</h2>
-<p>Consider the following data of heights of 15 cherry trees. Create a stem-and-leaf plot and describe the distribution.</p>
-<div class="center">
-<p>64, 66, 70, 71, 72, 74, 75, 75, 76, 77, 80, 80, 81, 83, 85</p>
-</div>
-<p><strong>Solution:</strong></p>
-<div style="display: flex; align-items: center; justify-content: center;">
-<pre><code>  The decimal point is 1 digit(s) to the right of the |
-  6 | 46
-  7 | 01245567
-  8 | 00135
-</code></pre>
-</div>
-<hr />
-<h2 id="common-descriptions-of-shape-distribution"><span class="section-number">14.</span> Common Descriptions of Shape Distribution</h2>
+<h2 id="common-descriptions-of-shape-distribution"><span class="section-number">12.</span> Common Descriptions of Shape Distribution</h2>
 <ul>
 <li>
 <p><strong>Right skewed</strong> (or reverse \(J\)-shaped): A right-skewed distribution has a lot of data at lower variable values.</p>
@@ -704,7 +699,7 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 <iframe src="https://www.myopenmath.com/embedq2.php?id=6992&amp;seed=2024&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
 </div>
 <hr />
-<h2 id="centers-of-a-data-set"><span class="section-number">15.</span> Centers of a Data Set</h2>
+<h2 id="centers-of-a-data-set"><span class="section-number">13.</span> Centers of a Data Set</h2>
 <ul>
 <li><strong>Mean</strong>: The mean is the average, this is the quotient of the total sum by the total number.</li>
 <li><strong>Median</strong>: The median is a value that separates the data set into the lower half set and the upper half set.</li>
@@ -717,7 +712,7 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 </ul>
 </div>
 <hr />
-<h2 id="mean-and-median-for-distributions-in-different-shapes"><span class="section-number">16.</span> Mean and Median for Distributions in Different Shapes</h2>
+<h2 id="mean-and-median-for-distributions-in-different-shapes"><span class="section-number">14.</span> Mean and Median for Distributions in Different Shapes</h2>
 <iframe src="https://istats.shinyapps.io/MeanvsMedian/" width="100%" height="550px" data-external="1"></iframe>
 <div class="footmark">
 <p>Source: <a href="https://istats.shinyapps.io/MeanvsMedian/">https://istats.shinyapps.io/MeanvsMedian/</a></p>
@@ -742,7 +737,7 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 <p><em>The red line is over the median and the blue line is over the mean.</em></p>
 </div>
 <hr />
-<h2 id="frequency-distribution-for-categorical-data"><span class="section-number">17.</span> Frequency Distribution for Categorical Data</h2>
+<h2 id="frequency-distribution-for-categorical-data"><span class="section-number">15.</span> Frequency Distribution for Categorical Data</h2>
 <ul>
 <li>
 <p>A <strong>frequency distribution for categorical data</strong> is a table that displays the possible categories along with the associated frequencies and/or relative frequencies.</p>
@@ -758,7 +753,7 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 </li>
 </ul>
 <hr />
-<h2 id="visualization-of-categorical-data"><span class="section-number">18.</span> Visualization of Categorical Data</h2>
+<h2 id="visualization-of-categorical-data"><span class="section-number">16.</span> Visualization of Categorical Data</h2>
 <ul>
 <li>
 <p>A <strong>bar chart</strong> consists of bars (rectangles), each represent a category and the area of each bar is constantly proportional to the relative frequency of that category.</p>
@@ -771,7 +766,7 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 </li>
 </ul>
 <hr />
-<h2 id="example-distribution-of-majors-1-of-2"><span class="section-number">19.</span> Example: Distribution of Majors (1 of 2)</h2>
+<h2 id="example-distribution-of-majors-1-of-2"><span class="section-number">17.</span> Example: Distribution of Majors (1 of 2)</h2>
 <div class="row">
 <div class="pull-left">
 <p>The counts of majors of 100 students in a sample are shown in the table on the right. Visualize the data using a bar, pie and stacked bar chart.</p>
@@ -838,7 +833,7 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 </table>
 </div>
 <hr />
-<h2 id="example-distribution-of-majors-2-of-2"><span class="section-number">20.</span> Example: Distribution of Majors (2 of 2)</h2>
+<h2 id="example-distribution-of-majors-2-of-2"><span class="section-number">18.</span> Example: Distribution of Majors (2 of 2)</h2>
 <p>The following are the charts created in Excel.</p>
 <div class="row">
 <div class="center" width=32%>
@@ -894,7 +889,7 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 <p>Lab Instructions in Excel</p>
 </div>
 <hr />
-<h2 id="frequency-tables"><span class="section-number">21.</span> Frequency Tables</h2>
+<h2 id="frequency-tables"><span class="section-number">19.</span> Frequency Tables</h2>
 <p>In Excel, to create a frequency table for a data array, we need a bin array. The values in a bin array in Excel are the first \(k-1\) upper bin limits. For example, if the bin array consists of 30, 40, and 50, then the bins will be \([\text{min},30]\), \((30,40]\), \((40, 50]\), \((50, \infty)\).</p>
 <p>With a data array and a bin array, the Excel function <code>FREQUENCY(data_array, bins_array)</code> can be used to create a frequency table.</p>
 <p>Suppose the data set is in <code>column A</code> and the bin array is in <code>column B</code>.</p>
@@ -907,7 +902,7 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 </ol>
 <p>Hit <code>Enter</code> (<code>Ctrl + Shift + Enter</code> in older versions), you will get a frequency table.</p>
 <hr />
-<h2 id="charts-in-excel"><span class="section-number">22.</span> Charts in Excel</h2>
+<h2 id="charts-in-excel"><span class="section-number">20.</span> Charts in Excel</h2>
 <p>Excel has many built-in chart functions. To create a charts,</p>
 <ol>
 <li>Select the data array/table</li>
@@ -915,7 +910,7 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 </ol>
 <p>The appearance of chart can be changed after being created.</p>
 <hr />
-<h2 id="histogram-1-of-2"><span class="section-number">23.</span> Histogram (1 of 2)</h2>
+<h2 id="histogram-1-of-2"><span class="section-number">21.</span> Histogram (1 of 2)</h2>
 <ol>
 <li>
 <p>Select the data</p>
@@ -935,7 +930,7 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 </li>
 </ol>
 <hr />
-<h2 id="histogram-2-of-2"><span class="section-number">24.</span> Histogram (2 of 2)</h2>
+<h2 id="histogram-2-of-2"><span class="section-number">22.</span> Histogram (2 of 2)</h2>
 <div class="remark">
 <ul>
 <li>
@@ -953,7 +948,7 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 </ul>
 </div>
 <hr />
-<h2 id="the-analysis-toolpak"><span class="section-number">25.</span> The <code>Analysis ToolPak</code></h2>
+<h2 id="the-analysis-toolpak"><span class="section-number">23.</span> The <code>Analysis ToolPak</code></h2>
 <p>Suppose your data set is in <code>Column A</code> in Excel.</p>
 <ul>
 <li>
@@ -976,7 +971,7 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 </li>
 </ul>
 <hr />
-<h2 id="dotplot"><span class="section-number">26.</span> Dotplot</h2>
+<h2 id="dotplot"><span class="section-number">24.</span> Dotplot</h2>
 <ul>
 <li>
 <p>If you have a raw data set, follow the same procedure a creating a histogram but with a bin width equal the same accuracy of the data. For example, if you data set consists of integers, then choose 1 as the bin-width.</p>
@@ -1013,7 +1008,7 @@ $$\text{area of bar} = \text{relative frequency} = \text{height of bar (density)
 <p>Data is taken from Example 3.15 in <a href="https://faculty.cengage.com/titles/9781337793612">Introduction to Statistics and Data Analysis</a>.</p>
 </div>
 <hr />
-<h2 id="lab-practice-sleep-deficit-and-school-start-time"><span class="section-number">27.</span> Lab Practice: Sleep Deficit and School Start Time</h2>
+<h2 id="lab-practice-sleep-deficit-and-school-start-time"><span class="section-number">25.</span> Lab Practice: Sleep Deficit and School Start Time</h2>
 <div class="row">
 <div style="width: 30%;">
 <p>Consider the frequency table on the right.</p>
