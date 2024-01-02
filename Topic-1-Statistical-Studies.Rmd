@@ -17,6 +17,10 @@ output:
         version: 3
         js: es5/tex-svg.js
 ---
+```{r, echo=FALSE, warning=FALSE}
+knitr::opts_chunk$set(comment="#", fig.retina=2, crayon.enabled = TRUE)
+library(knitr)
+```
 
 ## References {.unnumbered}
 
@@ -41,7 +45,7 @@ output:
 - Determine whether the conclusion of an experiment design is appropriate.
 - Identify the lurking variable and confounding variable.
 
-___
+---
 
 ## Why Study Statistics?
 
@@ -301,7 +305,7 @@ Does higher education attainment lead to higher salary?
 
 ## Practice: Correlation or Causation {.unnumbered}
 
-:::{.iframecontainer}
+::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=307471&seed=2024&showansafter", height="500px")`
 :::
 
@@ -394,9 +398,9 @@ In general, the larger sample size, the more accurate of conclusion. However, we
 
 ## Practice: Sampling Techniques {.unnumbered}
 
-:::{.iframecontainer}
-`r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=178722&seed=2024&showansafter", height="500px")`
-:::
+Click the link to open the practice in a new window.
+
+[Practice on Sampling Techniques](https://www.myopenmath.com/embedq2.php?id=178722&seed=2024&showansafter)
 
 ---
 
@@ -443,7 +447,7 @@ Both confounding and lurking variables are extraneous variables which are variab
 
 ## Practice: Principles of Experimental Design {.unnumbered}
 
-:::{.iframecontainer}
+::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=438624&seed=2024&showansafter", height="500px")`
 :::
 
@@ -465,7 +469,7 @@ Source: [Khan Academy](https://www.khanacademy.org/math/ap-statistics/gathering-
 
 ## Practice: Confounding Variable Definition {.unnumbered}
 
-:::{.iframecontainer}
+::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=384958&seed=2024&showansafter", height="500px")`
 :::
 

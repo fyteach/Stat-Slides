@@ -302,7 +302,7 @@ cat(paste(irispetal, collapse=", "))
 
 ## Practice: Histogram {.unnumbered}
 
-:::{.iframecontainer}
+::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=1085868&seed=2024&showansafter", height="500px")`
 :::
 
@@ -380,7 +380,7 @@ Source: [Example 2.7.1, OpenStax Introductory Statistics](https://stats.libretex
 
 ## Practice: Shapes of Distributions {.unnumbered}
 
-:::{.iframecontainer}
+::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=6992&seed=2024&showansafter", height="500px")`
 :::
 
@@ -545,7 +545,7 @@ knitr::kable(titanic, 'pipe', align = "cc")
 
 ## Practice: Pie Chart {.unnumbered}
 
-:::{.iframecontainer}
+::: {.iframecontainer}
 `r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=278180&seed=2024&showansafter", height="500px")`
 :::
 
