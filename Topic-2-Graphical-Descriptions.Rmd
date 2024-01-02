@@ -6,8 +6,8 @@ output:
   markdown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css, heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "meta-data/lastupdated.js"]
+      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
+      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "meta-data/lastupdated.js", "meta-data/mathjax-font.js"]
       header-includes: "meta-data/Hypothesis-config.html"
     options:
       number_sections: true
@@ -16,7 +16,6 @@ output:
         package: mathjax
         version: 3
         js: es5/tex-svg.js
-      # smart: false
 ---
 
 ```{r, echo=FALSE, warning=FALSE}
@@ -301,6 +300,14 @@ cat(paste(irispetal, collapse=", "))
 
 ---
 
+## Practice: Histogram {.unnumbered}
+
+:::{.iframecontainer}
+`r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=1085868&seed=2024&showansafter", height="500px")`
+:::
+
+---
+
 ## Stem-and-Leaf Plots
 
 A stem-and-leaf plot is a kind of histogram that lets you see all your data instead of just class frequency information. The leading digit(s) form stems and the "tailing digits" form leaves.
@@ -367,6 +374,14 @@ Create a dot plot for each sample and describe the shape of the distribution of 
 
 ::: {.footmark}
 Source: [Example 2.7.1, OpenStax Introductory Statistics](https://stats.libretexts.org/Bookshelves/Introductory_Statistics)
+:::
+
+---
+
+## Practice: Shapes of Distributions {.unnumbered}
+
+:::{.iframecontainer}
+`r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=6992&seed=2024&showansafter", height="500px")`
 :::
 
 ---
@@ -525,6 +540,14 @@ titanic <- data.frame(
 )
 knitr::kable(titanic, 'pipe', align = "cc")
 ```
+
+---
+
+## Practice: Pie Chart {.unnumbered}
+
+:::{.iframecontainer}
+`r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=278180&seed=2024&showansafter", height="500px")`
+:::
 
 ---
 
