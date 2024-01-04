@@ -153,7 +153,7 @@ ggplotly(boxplot)
 
 ## Notations and Calculations about Mean
 
-- Sigma notation: in math, we denote the sum of values  $x_1$, $x_2$, $\dots$, $x_n$ of a variable $x$ by $\sum\limits_{i=1}^n x_i$ or simply by $\sum x$.
+- Sigma notation: in math, we denote the sum of values $x_1$, $x_2$, $\dots$, $x_n$ of a variable $x$ by $\sum\limits_{i=1}^n x_i$ or simply by $\sum x$.
 
 - The **population mean** is $\mu= \frac{\sum x}{N}$, where $N$ is the **population size**, i.e the number of elements in the population.  
 
@@ -193,7 +193,7 @@ In Excel, suppose the data are in the column array `A1:A10`, you may use the fun
 
 ## Example: Course Overall Grade
 
-In a course, the overall grade is determined in the following way: the homework average counts for 10%, the quiz average counts for 10%, the test average counts 50% , and the final exam counts for 30%. What's the overall grade of the student who earned  92 on homework, 95 on quizzes, 90 on tests and 93 on the final.
+In a course, the overall grade is determined in the following way: the homework average counts for 10%, the quiz average counts for 10%, the test average counts 50%, and the final exam counts for 30%. What's the overall grade of the student who earned 92 on homework, 95 on quizzes, 90 on tests and 93 on the final.
 
 **Solution:** The overall grade is the weighted mean
 
@@ -322,6 +322,14 @@ A *sample* of GPAs from ten students random chosen from a college are recorded a
 :::
 
 Find the standard deviation of this sample.
+
+---
+
+## Practice: Mean, Standard Deviation and Variance {.unnumbered}
+
+::: {.iframecontainer}
+`r knitr::include_url('https://www.myopenmath.com/embedq.php?id=251836&seed=2024&showansafter', height="550px")`
+:::
 
 ---
 
