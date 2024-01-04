@@ -55,7 +55,7 @@ table, .body h2 { border-bottom: 1px solid #666; }
 .body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }
 .footnote-ref a::before { content: "["; }
 .footnote-ref a::after { content: "]"; }
-.footnotes::before {
+section.footnotes::before {
   content: "";
   display: block;
   max-width: 20em;
@@ -393,8 +393,6 @@ mjx-container[jax="SVG"][display="true"]{
 </script>
 </head>
 <body>
-<div class="include-before">
-</div>
 <div class="frontmatter">
 <div class="title"><h1>Topic 1: Statistical Studies</h1></div>
 <div class="author"><h2>Fei Ye</h2></div>
@@ -600,7 +598,7 @@ mjx-container[jax="SVG"][display="true"]{
 <hr />
 <h2 id="practice-observational-vs-experimental-ii" class="unnumbered">Practice: Observational vs Experimental II</h2>
 <div class="iframecontainer">
-<iframe src="https://www.myopenmath.com/embedq.php?id=277257&amp;seed=2024&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
+<iframe src="https://www.myopenmath.com/embedq2.php?id=277257&amp;seed=2024&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
 </div>
 <hr />
 <h2 id="questions-about-population-1-of-2"><span class="section-number">9.</span> Questions about Population (1 of 2)</h2>
@@ -691,7 +689,7 @@ Determine whether the study supports the conclusion that taking aspirin lowers t
 <hr />
 <h2 id="practice-correlation-or-causation" class="unnumbered">Practice: Correlation or Causation</h2>
 <div class="iframecontainer">
-<iframe src="https://www.myopenmath.com/embedq.php?id=307471&amp;seed=2024&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
+<iframe src="https://www.myopenmath.com/embedq2.php?id=307471&amp;seed=2024&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
 </div>
 <hr />
 <h2 id="sampling-plans"><span class="section-number">14.</span> Sampling Plans</h2>
@@ -788,7 +786,7 @@ Example: random survey math students to estimate the average GPA or a college.</
 <hr />
 <h2 id="practice-sampling-techniques" class="unnumbered">Practice: Sampling Techniques</h2>
 <p>Click the link to open the practice in a new window.</p>
-<p><a href="https://www.myopenmath.com/embedq.php?id=178722&amp;seed=2024&amp;showansafter">Practice on Sampling Techniques</a></p>
+<p><a href="https://www.myopenmath.com/embedq2.php?id=178722&amp;seed=2024&amp;showansafter">Practice on Sampling Techniques</a></p>
 <hr />
 <h2 id="elements-of-experimental-design-1-of-2"><span class="section-number">19.</span> Elements of Experimental Design (1 of 2)</h2>
 <ul>
@@ -847,7 +845,7 @@ Example: random survey math students to estimate the average GPA or a college.</
 <hr />
 <h2 id="practice-principles-of-experimental-design" class="unnumbered">Practice: Principles of Experimental Design</h2>
 <div class="iframecontainer">
-<iframe src="https://www.myopenmath.com/embedq.php?id=438624&amp;seed=2024&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
+<iframe src="https://www.myopenmath.com/embedq2.php?id=438624&amp;seed=2024&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
 </div>
 <hr />
 <h2 id="practice-experimental-design" class="unnumbered">Practice: Experimental Design</h2>
@@ -860,7 +858,7 @@ Example: random survey math students to estimate the average GPA or a college.</
 <hr />
 <h2 id="practice-confounding-variable-definition" class="unnumbered">Practice: Confounding Variable Definition</h2>
 <div class="iframecontainer">
-<iframe src="https://www.myopenmath.com/embedq.php?id=384958&amp;seed=2024&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
+<iframe src="https://www.myopenmath.com/embedq2.php?id=384958&amp;seed=2024&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
 </div>
 <hr />
 <!--# class="middle center"-->
@@ -967,8 +965,6 @@ Example: random survey math students to estimate the average GPA or a college.</
 </li>
 </ul>
 </div>
-<div class="include-after">
-</div>
 <script>
 (function(d) {
   let p = d.body;  // container of slides; assume <body> for now
@@ -1043,9 +1039,9 @@ Example: random survey math students to estimate the average GPA or a college.</
     if (fn) s.querySelectorAll('.footnote-ref > a[href^="#fn"]').forEach(a => {
       const li = fn.querySelector('li' + a.getAttribute('href'));
       if (!li) return;
-      let f = s.querySelector('div.footnotes');
+      let f = s.querySelector('section.footnotes');
       if (!f) {
-        f = newEl('div', 'footnotes'); s.append(f);
+        f = newEl('section', 'footnotes'); s.append(f);
       }
       f.append(li);
       li.firstElementChild?.insertAdjacentHTML('afterbegin', `[${a.innerHTML}] `);
