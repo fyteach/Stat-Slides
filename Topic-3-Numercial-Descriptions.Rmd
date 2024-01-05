@@ -1,5 +1,5 @@
 ---
-title: "Measure of Centeral Tendency and Variability"
+title: "Topic 3: Summarize Data Numerically"
 author: "Fei Ye"
 date: '`r format(Sys.time(), "%B %Y")`'
 output:
@@ -284,7 +284,7 @@ irisPL
 
 ---
 
-## Example: Mean and SD - Best Oscar Winners (1 of 2)
+## Example: Mean and SD - Best Oscar Winners
 
 Find the mean and standard deviation ages of a sample of 32 best actor Oscar winners (1970–2001).
 
@@ -301,7 +301,7 @@ The mean is `r round(mean(actor_age$Age),1)`. The sample standard deviation is `
 
 ---
 
-## Example: Mean and SD - Best Oscar Winners (2 of 2)
+## Example: Mean and SD - Calculation By Hand
 
 ::: {.iframecontainer}
 `r knitr::include_url('https://www.geogebra.org/material/iframe/id/DS6PUaXy/width/1300/height/800/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false', height='600px')`
@@ -376,7 +376,7 @@ A sample of the highest temperature of 10 days has a standard deviation $5^\circ
 When comparing variables that may have different measurement, it is better to use standardized values. Convert a value to a standard value is called standardization which doesn't change the distribution of the data set.
 
 Let $x$ be a data value, $\bar{x}$ the mean, and $s$ the standard deviation of a data set. The **standard value** (or $z$-**score**) of $x$ is defined as
-$$z = \frac{x-\bar{x}}{s}, \quad\text{equivalently}\quad x=zs+\bar{x}$$
+$$z = \frac{x-\bar{x}}{s}, \quad\text{equivalently}\quad x=zs+\bar{x}.$$
 
 In Excel, the $z$-score can be obtained by `=STANDARDIZE(x, mean, sd)`.
 

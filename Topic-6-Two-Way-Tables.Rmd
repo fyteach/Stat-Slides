@@ -1,5 +1,5 @@
 ---
-title: "Two-Way Contingency Tables "
+title: "Topic 6: Two-Way Tables "
 author: "Fei Ye"
 date: '`r format(Sys.time(), "%B %Y")`'
 output:

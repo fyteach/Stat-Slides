@@ -1,5 +1,5 @@
 ---
-title: "Linear Relationship"
+title: "Topic 4: Linear Relationship"
 author: "Fei Ye"
 date: '`r format(Sys.time(), "%B %Y")`'
 output:
@@ -351,7 +351,7 @@ One idea of using product is from the geometric interpretation of $\mathbf{u}\cd
 
 - The correlation coefficient $r$ is between $-1$ and $1$.
 
-- The closer the absolute value $|r|$ is to $1$, the stronger the linear relationship is. Conventionally, the relationship is strong if $|r| > 0.8$, morderate if $0.5< |r|\le 0.8$, and weak if $|r|\le 0.5$.
+- The closer the absolute value $|r|$ is to $1$, the stronger the linear relationship is. Conventionally, the relationship is strong if $|r| > 0.8$, moderate if $0.5< |r|\le 0.8$, and weak if $|r|\le 0.5$.
 
 - The correlation is symmetric in $x$ and $y$, that is `CORREL(x, y)=CORREL(y, x)`.
 
@@ -573,7 +573,7 @@ An equation of the line is then $\hat{y}=`r coefx`x + `r yint`$.
 
 When $x=1.8$, we have $\hat{y}=`r coefx`*1.8 + `r yint`=`r ypred=coefx*1.8+yint` `r ypred`$.
 
-The residual is $y-\hat{y}=`r spring[10, ]$waiting`-`r ypred`=`r error=spring[10,]$waiting-ypred` `r error`$. That means the predication over-estimates the eruption time about `r round(error, 2)` minutes.
+The residual is $y-\hat{y}=`r spring[10, ]$waiting`-`r ypred`=`r error=spring[10,]$waiting-ypred` `r error`$. That means the predication over-estimates the waiting time about `r -round(error, 2)` minutes.
 
 ---
 
