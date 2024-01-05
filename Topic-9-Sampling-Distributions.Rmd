@@ -108,6 +108,12 @@ In terms of standardization, the central limit theorem says that the random vari
 
 ---
 
+## But What is the Central Limit Theorem?
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zeJD6dqJ5lo?si=zsbChFbzj-pm2w5f&amp;start=256" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+---
+
 ## Required Sample Size for Mean
 
 - For most distributions (not highly skewed), when sample size $n>30$, the sampling distribution of the sample mean $\bar{X}$ can be approximated reasonably well by a normal distribution. The larger the sample size, the better the approximation will be.
