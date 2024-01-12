@@ -55,7 +55,7 @@ table, .body h2 { border-bottom: 1px solid #666; }
 .body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }
 .footnote-ref a::before { content: "["; }
 .footnote-ref a::after { content: "]"; }
-.footnotes::before {
+section.footnotes::before {
   content: "";
   display: block;
   max-width: 20em;
@@ -240,7 +240,6 @@ code {
 
 .row {
   display: flex;
-  justify-content: top;
   align-items: flex-start;
 }
 
@@ -358,24 +357,6 @@ iframe[src^="https://www.myopenmath.com"] {
   transform-origin: 0 0;
 }
 
-/* span {
-  text-align: center;
-  font-size: 0.7em;
-  bottom: 0;
-  position: absolute;
-  color: #6296ff;
-} */
-
-/* .slide:has(iframe[src^="https://www.myopenmath.com"]) {
-  display: flex;
-  flex-direction: column;
-
-}
-
-.slide iframe[src^="https://www.myopenmath.com"] {
-  flex: 1;
-} */
-
 .small{
   font-size: 60%;
 }
@@ -388,12 +369,20 @@ iframe[src^="https://www.myopenmath.com"] {
   /* background-color: #ffeec4; */
 }
 
-/* .MathJax {
-  font-size: 0.9em;
-} */
-
 mjx-container[jax="SVG"][display="true"]{
   margin: 0.5em 0 !important;
+}
+
+.theorem::before {
+  content: "Theorem:";
+  color: #120fdf;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.theorem {
+  border: 0.1em solid rgb(65, 170, 223);
+  padding-left: 0.5em;
 }
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css,npm/@xiee/utils/css/heading-anchor.min.css">
@@ -404,12 +393,10 @@ mjx-container[jax="SVG"][display="true"]{
 </script>
 </head>
 <body>
-<div class="include-before">
-</div>
 <div class="frontmatter">
 <div class="title"><h1>Discrete Random Variables</h1></div>
 <div class="author"><h2>Fei Ye</h2></div>
-<div class="date"><h3>September 2023</h3></div>
+<div class="date"><h3>January 2024</h3></div>
 </div>
 <div class="body">
 <h2 id="learning-goals"><span class="section-number">1.</span> Learning Goals</h2>
@@ -536,7 +523,7 @@ $$P(X\leq 2)= P(X=0)+P(X=1)+P(X=2)=0.25+0.5+0.25=1.$$</p>
 <h2 id="example-histogram-of-an-unfair-coin"><span class="section-number">6.</span> Example: Histogram of an Unfair Coin</h2>
 <p>The probability distribution of an unfair coin is characterized by the following histogram. Find the probability of getting at most 1 head.</p>
 <div class="center">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtAAAAH4CAMAAABUnipoAAABpFBMVEUAAAAAAEAAAEgAAGkAAHQAPEAAPGkAPI0ASEgASHQASJwAYqwAdL8xAAAxPAAxPEAxPGkxYqwxhI0xhKwxhMozMzNIAABISABISEhISHRIdHRIdJxIdL9InL9InN9NTU1NTXJNTZJNcpJNcrBNksxOAABOPABOPEBOhKxOospOouZpPABposppvcppveZyTU1ycnJyksxysOV0AAB0SAB0SEh0dAB0dEh0dHR0dJx0nL90nN90v990v/+CYgCCYkCChECChGmCvcqCveaC2OaSTU2STXKSck2ScnKSsMySzOWSzP+XhECXommXoo2X2OacSACcdACcdEicdHScnJycv7+cv9+c3/+tommtvY2tvayt2Kyt2Mqt2Oawck2wcnKwknKwsJKw5f+/dAC/dEi/nEi/nHS/nJy/nL+/v7+/v9+/39+/3/+////Mkk3MsHLMsJLM5f/M///fnEjfnHTfv3Tfv5zfv7/f37/f39/f3//f///lsHLlzLDl5bDl////v3T/zJL/35z/37//39//5bD/5cz//7///8z//9///+X///8weEbBAAAACXBIWXMAABYlAAAWJQFJUiTwAAAZ70lEQVR4nO2d+3scRXaG24IYbFBugIxZQgvbIllEUMCQZQkIdhet12svdnAC0uqyAQMJxAhsh4tjbWTZlq3LP53p7umZ7tGoe/p0nTn11fO9PzDqaanme+q8W1td1dOO9gkJiMg6ACEuodAkKCg0CQoKTYKCQpOgoNAkKCg0CQoKTYKCQpOgoNAkKBwL/Qwh40dRaLfNEVIPhSZBQaFJUFBoEhQUmgQFhSZBQaFJUFBoEhQUmgQFhSZBQaFJUFBoEhQUmgQFhSZBQaFJUFBoEhQUmgQFhSZBQaFJUFBoEhQUmgQFhZayCot1z6lCoaVYaynHuudUodBSrLWUY91zqlBoKQ4N+/ClKDr6ysCbK7NHXl1dXZ6JujzygauPs+45VSi0FFd6ra4uZsa+XH73YkShBVBoKa70Spx9enXl/QFjlyZTobuszA763gLrnlOFQktx5tfF6InkZb6jdZ+V2aMvFYTu/o4brHtOFQotxZlf89nguzRZdHb+yD/O9oVemnQ34aDQ8rbdNucZrvRamc1kXZ557FLvzcXo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" width="360" />
+<img src="data:image/png;base64,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" width="360" />
 </div>
 <p><strong>Solution:</strong> Let \(X\) be the number of heads. From the probability histogram, we know that \(P(X=0)=0.36\), and \(P(X=1)=0.47\).</p>
 <p>Then the probability of getting at most 1 head is
@@ -544,7 +531,7 @@ $$
 P(X\le 1)=P(X=0)+P(X=1)=0.36+0.47=0.83.
 $$</p>
 <hr />
-<h2 id="practice-distribution-of-rolling-dice" class="unnumbered">Practice:  Distribution of Rolling Dice</h2>
+<h2 id="practice-distribution-of-rolling-dice" class="unnumbered">Practice: Distribution of Rolling Dice</h2>
 <p>A pair of fair 6-sided dice were rolled. Let \(X\) denote the sum of the number of dots on the top faces.</p>
 <ol>
 <li>Construct the probability distribution of \(X\).</li>
@@ -560,10 +547,10 @@ $$</p>
 <p>Let \(X\) be a discrete random variable and \(p_X(x)=P(X=x)\) the probability mass function.</p>
 <ul>
 <li>
-<p>The <strong>expected value</strong> \(E(X)\) (also called <strong>mean</strong> and denoted by \(\mu\)) of the discrete random variable \(X\) is the number $$\mu=E(X)=\sum xp_X(x).$$</p>
+<p>The <strong>expected value</strong> \(E(X)\) (also called <strong>mean</strong> and denoted by \(\mu\)) of the discrete random variable \(X\) is the number $$\mu=E(X)=\sum \Big[xp_X(x)\Big].$$</p>
 </li>
 <li>
-<p>The <strong>variance</strong> \(\mathrm{Var}(X)\) (also denoted by \(\sigma^2\)) of the discrete random variable \(X\) is the number $$\sigma^2=\mathrm{Var(X)}=\sum (x-E(X))^2p_X(x).$$</p>
+<p>The <strong>variance</strong> \(\mathrm{Var}(X)\) (also denoted by \(\sigma^2\)) of the discrete random variable \(X\) is the number $$\sigma^2=\mathrm{Var(X)}=\sum \Big[(x-E(X))^2p_X(x)\Big].$$</p>
 </li>
 <li>
 <p>The <strong>standard deviation</strong> \(\sigma\) of a discrete random variable \(X\) is the square root of its variance: $$\sigma=\sqrt{\sum (x-E(X))^2p_X(x)}.$$</p>
@@ -723,14 +710,18 @@ where \(n! = n(n-1)\cdots 1\), read as \(n\) factorial, for \(n&gt;0\). We set \
 <li>Find the probability of getting exactly \(3\) clubs.</li>
 <li>Find the probability of getting at least \(3\) clubs.</li>
 </ul>
-<p><strong>Solution:</strong> This is a binomial experiment. The number to total trials is \(n=5\). The number of successes is \(3\). The chance of a success is \(p=\frac{13}{52}=\frac14\). Apply the binomial probability formula, we have
-$$\textstyle P(X=3)=\frac{5!}{3!2!} \left(\frac{1}{4}\right)^3\left(\frac34\right)^2=10\cdot\frac{9}{4^5}\approx 0.088.$$
-The probability \(P(X=3)\) can also be found from the binomial distribution table or by using the Excel function <code>BINOM.DIST(3, 5, 1 / 4, FALSE)</code>.</p>
-<p>To probability of getting at least \(3\) club is
-$$\textstyle P(X\geq 3) =1-P(X\leq 2)=1-(P(0)+P(1)+P(2))\approx 1-0.8965=0.1035.$$</p>
+<p><strong>Solution:</strong> This is a binomial experiment. The number to total trials is \(n=5\). The number of successes is \(3\). The chance of a success is \(p=\frac{13}{52}=\frac14\).</p>
+<p>The probability of getting exactly \(3\) clubs is \(P(X=3)\).</p>
+<p><strong>Method 1: Using the binomial probability formula</strong></p>
+<p>$$\textstyle P(X=3)=\frac{5!}{3!2!} \left(\frac{1}{4}\right)^3\left(\frac34\right)^2=10\cdot\frac{9}{4^5}\approx 0.088.$$</p>
+<p><strong>Method 2: Using Excel</strong></p>
+<p>The probability \(P(X=3)\) can also be found by using the Excel function <code>BINOM.DIST(3, 5, 1 / 4, FALSE)</code>.</p>
 <hr />
 <h2 id="example-multiple-cards-drawing-2-of-2"><span class="section-number">15.</span> Example: Multiple Cards Drawing (2 of 2)</h2>
-<p>To calculate \(P(X\leq 2)\), a binomial distribution table or the Excel function <code>BINOM.DIST()</code> can be used.</p>
+<p>To probability of getting at least \(3\) club is
+$$\textstyle P(X\geq 3) =1-P(X\leq 2)=1-(P(0)+P(1)+P(2))\approx 1-0.8965=0.1035.$$</p>
+<p>To calculate \(P(X\leq 2)\), there are two methods.</p>
+<p><strong>Method 1:</strong> In Excel, \(P(X\le 2)\) <code>=BINOM.DIST(2,5,0.25,TRUE)</code> \(\approx 0.8965\).</p>
 <p><strong>Method 1:</strong> As \(n=5\) and \(p=0.25\), we use the following portion of the cumulative binomial distribution table.</p>
 <div class="center" style="margin-top: -1em; font-size: 0.9em;">
 <p>Binomial Probability Table <em>n=5</em></p>
@@ -797,7 +788,6 @@ $$\textstyle P(X\geq 3) =1-P(X\leq 2)=1-(P(0)+P(1)+P(2))\approx 1-0.8965=0.1035.
 </table>
 </div>
 <p>\(P(X\le 2) \approx 0.2373+0.3955+0.2637= 0.8965.\)</p>
-<p><strong>Method 2:</strong> In Excel, \(P(X\le 2)\) <code>=BINOM.DIST(2,5,0.25,TRUE)</code> \(\approx 0.8965\).</p>
 <hr />
 <h2 id="practice-binomial-distribution" class="unnumbered">Practice: Binomial Distribution</h2>
 <p>Let \(X\) be a binomial random variable with parameters \(n = 5\), \(p=0.2\). Find the probabilities</p>
@@ -815,10 +805,10 @@ $$\textstyle P(X\geq 3) =1-P(X\leq 2)=1-(P(0)+P(1)+P(2))\approx 1-0.8965=0.1035.
 <h2 id="mean-and-sd-of-binomial-distribution"><span class="section-number">16.</span> Mean and SD of Binomial Distribution (⅘)</h2>
 <ul>
 <li>
-<p>The mean of a binomial distribution of \(n\) trials is $$\mu =\sum xP(X=x)=\sum x\cdot \dfrac{n!}{(n-x)!x!}p^x(1-p)^{n-x} = np.$$</p>
+<p>The mean of a binomial distribution of \(n\) trials is $$\mu =\sum \Big[xP(X=x)\Big]=\sum \left[x\cdot \dfrac{n!}{(n-x)!x!}p^x(1-p)^{n-x}\right] = np.$$</p>
 </li>
 <li>
-<p>The variance of a binomial distribution of \(n\) trials is $$\sigma^2 =\sum (x-np)^2P(X=x)=\sum x^2P(X=x)-(np)^2=np(1-p).$$</p>
+<p>The variance of a binomial distribution of \(n\) trials is $$\sigma^2 =\sum \Big[(x-np)^2P(X=x)\Big]=\sum \Big[x^2P(X=x)-(np)^2\Big]=np(1-p).$$</p>
 </li>
 <li>
 <p>The standard deviation of a binomial distribution of \(n\) trials is $$\sigma=\sqrt{np(1-p)}.$$</p>
@@ -827,6 +817,9 @@ $$\textstyle P(X\geq 3) =1-P(X\leq 2)=1-(P(0)+P(1)+P(2))\approx 1-0.8965=0.1035.
 <p>We consider an event \(E\) <strong>unusual</strong> if the probability \(P(E)\leq 5\%\).</p>
 </li>
 </ul>
+<div class="footmark">
+<p><strong>Remark:</strong> \(\sum \left[x\cdot \dfrac{n!}{(n-x)!x!}p^x(1-p)^{n-x}\right] = np\cdot\sum \left[\dfrac{(n-1)!}{(n-x)!(x-1)!}p^{x-1}(1-p)^{n-x}\right] = np \cdot (p+(1-p))^{n-1} =np.\)</p>
+</div>
 <hr />
 <h2 id="example-expected-value-and-sd-of-cracked-eggs"><span class="section-number">17.</span> Example: Expected Value and SD of Cracked Eggs</h2>
 <p>The probability that an egg in a retail package is cracked or broken is 0.02.</p>
@@ -839,6 +832,7 @@ $$\textstyle P(X\geq 3) =1-P(X\leq 2)=1-(P(0)+P(1)+P(2))\approx 1-0.8965=0.1035.
 \(\mu =np=12\cdot 0.02=0.24.\)</p>
 <p>The standard deviation is \(\sigma=\sqrt{12\cdot 0.02\cdot(1-0.02)}\approx 0.4850.\)</p>
 <p>Recall the Empirical rule: 95% data are within 2 standard deviation away from the mean. Since \(2&gt;0.24+2\cdot 0.4850\), the chance of getting at least two cracked eggs is less than 5%, which is considered as unusual.</p>
+<p>Note that the probability of getting at least two cracked eggs is \(P(X\geq 2)=1-P(X\leq 1)=\) <code>1-BINOM.DIST(1, 12, 0.02, TRUE)</code> \(\approx 0.9768922\).</p>
 <hr />
 <h2 id="practice-quality-of-grapefruit" class="unnumbered">Practice: Quality of Grapefruit</h2>
 <p>Adverse growing conditions have caused 5% of grapefruit grown in a certain region to be of inferior quality. Grapefruit are sold by the dozen.</p>
@@ -890,9 +884,7 @@ $$\textstyle P(X\geq 3) =1-P(X\leq 2)=1-(P(0)+P(1)+P(2))\approx 1-0.8965=0.1035.
 <p>Let \(X\) be a binomial random variable with parameters \(n\) and \(p\), that is \(X\sim B(n, p)\). In Excel, \(P(X=x)\) is given by <code>BINOM.DIST(x, n, p, FALSE)</code> and \(P(X\le x)\) is given by <code>BINOM.DIST(x, n, p, TRUE)</code>. You may click input function \(f_x\) and then search <code>binom</code> to find the function.</p>
 <hr />
 <h2 id="lab-practice-binominal-distribution-table" class="unnumbered">Lab Practice: Binominal Distribution Table</h2>
-<p>Create a binomial distribution table for \(p=0.5\) and \(n=10\).</p>
-</div>
-<div class="include-after">
+<p>Create a binomial distribution table for \(p=0.5\) and \(n=10\). (See <a href="tables/Binomial-Distribution.pdf">the linked PDF for example</a>)</p>
 </div>
 <script>
 (function(d) {
@@ -968,9 +960,9 @@ $$\textstyle P(X\geq 3) =1-P(X\leq 2)=1-(P(0)+P(1)+P(2))\approx 1-0.8965=0.1035.
     if (fn) s.querySelectorAll('.footnote-ref > a[href^="#fn"]').forEach(a => {
       const li = fn.querySelector('li' + a.getAttribute('href'));
       if (!li) return;
-      let f = s.querySelector('div.footnotes');
+      let f = s.querySelector('section.footnotes');
       if (!f) {
-        f = newEl('div', 'footnotes'); s.append(f);
+        f = newEl('section', 'footnotes'); s.append(f);
       }
       f.append(li);
       li.firstElementChild?.insertAdjacentHTML('afterbegin', `[${a.innerHTML}] `);
