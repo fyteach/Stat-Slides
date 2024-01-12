@@ -119,6 +119,7 @@ $$P(X\leq 2)= P(X=0)+P(X=1)+P(X=2)=0.25+0.5+0.25=1.$$
 
 The probability distribution of an unfair coin is characterized by the following histogram. Find the probability of getting at most 1 head.
 ::: {.center}
+
 ```{r echo=FALSE, fig.height = 3.5, fig.width = 5}
 set.seed(10)
 unfaircoin <- data.frame(Heads=rbinom(1000, 2, prob=0.4))
@@ -127,11 +128,11 @@ freqtb <- as.data.frame(table(unfaircoin$Heads))
 prob<-round(freqtb$Freq/sum(freqtb$Freq),2)
 
 ggplot(unfaircoin, aes(x=Heads), dpi=600) +
-  geom_histogram(aes(y=stat(count) / sum(count)), binwidth=1, fill="lightblue", col="white",size=1)+
+  geom_histogram(aes(y=after_stat(count) / sum(count)), binwidth=1, fill="lightblue", col="white")+
   labs(y = "Probability")+
   stat_bin(
-    aes(y=stat(count) / sum(count),
-    label=round(stat(count) / sum(count),2)),
+    aes(y=after_stat(count) / sum(count),
+    label=round(after_stat(count) / sum(count),2)),
     binwidth=1,
     geom="text",
     vjust=1.2
@@ -139,6 +140,7 @@ ggplot(unfaircoin, aes(x=Heads), dpi=600) +
 theme_bw(base_size = 12) +
 theme(panel.grid=element_blank())
 ```
+
 :::
 
 **Solution:** Let $X$ be the number of heads. From the probability histogram, we know that $P(X=0)=`r prob[1]`$, and $P(X=1)=`r prob[2]`$.
@@ -150,7 +152,7 @@ $$
 
 ---
 
-## Practice:  Distribution of Rolling Dice {.unnumbered}
+## Practice: Distribution of Rolling Dice {.unnumbered}
 
 A pair of fair 6-sided dice were rolled. Let $X$ denote the sum of the number of dots on the top faces.
 
@@ -171,9 +173,9 @@ A pair of fair 6-sided dice were rolled. Let $X$ denote the sum of the number of
 
 Let $X$ be a discrete random variable and $p_X(x)=P(X=x)$ the probability mass function.
 
-- The **expected value** $E(X)$ (also called **mean** and denoted by $\mu$) of the discrete random variable $X$ is the number $$\mu=E(X)=\sum xp_X(x).$$
+- The **expected value** $E(X)$ (also called **mean** and denoted by $\mu$) of the discrete random variable $X$ is the number $$\mu=E(X)=\sum \Big[xp_X(x)\Big].$$
 
-- The **variance** $\mathrm{Var}(X)$ (also denoted by $\sigma^2$) of the discrete random variable $X$ is the number $$\sigma^2=\mathrm{Var(X)}=\sum (x-E(X))^2p_X(x).$$
+- The **variance** $\mathrm{Var}(X)$ (also denoted by $\sigma^2$) of the discrete random variable $X$ is the number $$\sigma^2=\mathrm{Var(X)}=\sum \Big[(x-E(X))^2p_X(x)\Big].$$
 
 - The **standard deviation** $\sigma$ of a discrete random variable $X$ is the square root of its variance: $$\sigma=\sqrt{\sum (x-E(X))^2p_X(x)}.$$
 
@@ -182,11 +184,11 @@ Let $X$ be a discrete random variable and $p_X(x)=P(X=x)$ the probability mass f
 ## Some Properties of Expected Value (Optional)
 
 - The expected value of a linear combination two random variables $X$ and $Y$ is $$E(aX+bY)=aE(X)+bE(Y).$$
-- The expected value in general is not multiplicative, that is $E(XY)\ne E(X)E(Y)$. However, if the two random variable $X$ and $Y$ are _independent_, then $$E(XY)=E(X)E(Y).$$
+- The expected value in general is not multiplicative, that is $E(XY)\ne E(X)E(Y)$. However, if the two random variable $X$ and $Y$ are *independent*, then $$E(XY)=E(X)E(Y).$$
 - The variance of a variable $X$ can be computed using expected values:
   $$\mathrm{Var}(X)=E(X^{2})-(E[X])^{2}.$$
 - Let $X$ and $Y$ be two *independent* variables. Then
-$$\mathrm{Var}(aX+bY)=a^2\mathrm{Var}(X)+b^2\mathrm{Var}(Y)$$
+  $$\mathrm{Var}(aX+bY)=a^2\mathrm{Var}(X)+b^2\mathrm{Var}(Y)$$
 
 ---
 
@@ -306,18 +308,28 @@ A card is randomly selected from a standard deck and replaced. This experiment i
 - Find the probability of getting exactly $3$ clubs.
 - Find the probability of getting at least $3$ clubs.
 
-**Solution:** This is a binomial experiment. The number to total trials is $n=5$. The number of successes is $3$. The chance of a success is $p=\frac{13}{52}=\frac14$. By the binomial probability formula, we have
-$$\textstyle P(X=3)=\frac{5!}{3!2!} \left(\frac{1}{4}\right)^3\left(\frac34\right)^2=10\cdot\frac{9}{4^5}\approx 0.088.$$
-The probability $P(X=3)$ can also be found by using the Excel function `BINOM.DIST(3, 5, 1 / 4, FALSE)`.
+**Solution:** This is a binomial experiment. The number to total trials is $n=5$. The number of successes is $3$. The chance of a success is $p=\frac{13}{52}=\frac14$.
 
-To probability of getting at least $3$ club is
-$$\textstyle P(X\geq 3) =1-P(X\leq 2)=1-(P(0)+P(1)+P(2))\approx 1-0.8965=0.1035.$$
+The probability of getting exactly $3$ clubs is $P(X=3)$.
+
+**Method 1: Using the binomial probability formula**
+
+$$\textstyle P(X=3)=\frac{5!}{3!2!} \left(\frac{1}{4}\right)^3\left(\frac34\right)^2=10\cdot\frac{9}{4^5}\approx 0.088.$$
+
+**Method 2: Using Excel**
+
+The probability $P(X=3)$ can also be found by using the Excel function `BINOM.DIST(3, 5, 1 / 4, FALSE)`.
 
 ---
 
 ## Example: Multiple Cards Drawing (2 of 2)
 
-To calculate $P(X\leq 2)$, a binomial distribution table or the Excel function `BINOM.DIST()` can be used.
+To probability of getting at least $3$ club is
+$$\textstyle P(X\geq 3) =1-P(X\leq 2)=1-(P(0)+P(1)+P(2))\approx 1-0.8965=0.1035.$$
+
+To calculate $P(X\leq 2)$, there are two methods.
+
+**Method 1:** In Excel, $P(X\le 2)$ `=BINOM.DIST(2,5,0.25,TRUE)` $\approx 0.8965$.
 
 **Method 1:** As $n=5$ and $p=0.25$, we use the following portion of the cumulative binomial distribution table.
 
@@ -333,8 +345,6 @@ Binomial Probability Table *n=5*
 :::
 
 $P(X\le 2) \approx 0.2373+0.3955+0.2637= 0.8965.$
-
-**Method 2:** In Excel, $P(X\le 2)$ `=BINOM.DIST(2,5,0.25,TRUE)` $\approx 0.8965$.
 
 ---
 
@@ -358,13 +368,17 @@ Let $X$ be a binomial random variable with parameters $n = 5$, $p=0.2$. Find the
 
 ## Mean and SD of Binomial Distribution (4/5)
 
-- The mean of a binomial distribution of $n$ trials is $$\mu =\sum xP(X=x)=\sum x\cdot \dfrac{n!}{(n-x)!x!}p^x(1-p)^{n-x} = np.$$
+- The mean of a binomial distribution of $n$ trials is $$\mu =\sum \Big[xP(X=x)\Big]=\sum \left[x\cdot \dfrac{n!}{(n-x)!x!}p^x(1-p)^{n-x}\right] = np.$$
 
-- The variance of a binomial distribution of $n$ trials is $$\sigma^2 =\sum (x-np)^2P(X=x)=\sum x^2P(X=x)-(np)^2=np(1-p).$$  
+- The variance of a binomial distribution of $n$ trials is $$\sigma^2 =\sum \Big[(x-np)^2P(X=x)\Big]=\sum \Big[x^2P(X=x)-(np)^2\Big]=np(1-p).$$  
 
 - The standard deviation of a binomial distribution of $n$ trials is $$\sigma=\sqrt{np(1-p)}.$$
 
 - We consider an event $E$ **unusual** if the probability $P(E)\leq 5\%$.
+
+::: {.footmark}
+**Remark:** $\sum \left[x\cdot \dfrac{n!}{(n-x)!x!}p^x(1-p)^{n-x}\right] = np\cdot\sum \left[\dfrac{(n-1)!}{(n-x)!(x-1)!}p^{x-1}(1-p)^{n-x}\right] = np \cdot (p+(1-p))^{n-1} =np.$
+:::
 
 ---
 
@@ -382,6 +396,8 @@ $\mu =np=12\cdot 0.02=0.24.$
 The standard deviation is $\sigma=\sqrt{12\cdot 0.02\cdot(1-0.02)}\approx 0.4850.$
 
 Recall the Empirical rule: 95% data are within 2 standard deviation away from the mean. Since $2>0.24+2\cdot 0.4850$, the chance of getting at least two cracked eggs is less than 5%, which is considered as unusual.
+
+Note that the probability of getting at least two cracked eggs is $P(X\geq 2)=1-P(X\leq 1)=$ `1-BINOM.DIST(1, 12, 0.02, TRUE)` $\approx `r pbinom(1, 12, 0.02)`$.
 
 ---
 
@@ -459,4 +475,4 @@ Let $X$ be a binomial random variable with parameters $n$ and $p$, that is $X\si
 
 ## Lab Practice: Binominal Distribution Table {.unnumbered}
 
-Create a binomial distribution table for $p=0.5$ and $n=10$.
+Create a binomial distribution table for $p=0.5$ and $n=10$. (See [the linked PDF for example](tables/Binomial-Distribution.pdf))

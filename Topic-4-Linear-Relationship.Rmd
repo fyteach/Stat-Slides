@@ -654,7 +654,7 @@ cor_GradeBook=round(cor(GradeBook$Midterm1, GradeBook$Final),digits=3)
 model=lm(formula = Final ~ ., data=GradeBook)
 ```
 
-In Excel, the function `STEXY()` can be used to obtain the residual standard error. In this example, $s_e\approx `r round(sqrt(deviance(model)/df.residual(model)),3)`$.
+In Excel, the function `STEYX()` can be used to obtain the residual standard error. In this example, $s_e\approx `r round(sqrt(deviance(model)/df.residual(model)),3)`$.
 
 The correlation coefficient is $`r cor_GradeBook`$.
 

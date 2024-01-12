@@ -110,7 +110,7 @@ In terms of standardization, the central limit theorem says that the random vari
 
 ## But What is the Central Limit Theorem?
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zeJD6dqJ5lo?si=zsbChFbzj-pm2w5f&amp;start=256" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="550" height="315" src="https://www.youtube.com/embed/zeJD6dqJ5lo?si=zsbChFbzj-pm2w5f&amp;start=256" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ---
 
@@ -175,9 +175,9 @@ popdf <- data.frame(pop)
 colnames(popdf) <- c("x")
 
 popplot <- ggplot(popdf, aes(x=x), dpi=600) +
-  geom_histogram(aes(y=..density..),bins=3,fill="lightblue", col="white") +
+  geom_histogram(aes(y=after_stat(density)),bins=3,fill="lightblue", col="white") +
   theme_bw(base_size = 12) +
-geom_vline(aes(xintercept=mean(x)),       color="blue", linetype="dashed", size=1)+
+geom_vline(aes(xintercept=mean(x)),       color="blue", linetype="dashed")+
 labs(x = TeX('$x$'), y = "rel. freq.")
 
 popplot
@@ -196,9 +196,9 @@ smdf <- data.frame(samplemean)
 colnames(smdf) <- c("xbar")
 
 clt <- ggplot(smdf, aes(x=xbar), dpi=600) +
-  geom_histogram(aes(y=..density..), bins=4,fill="lightblue", col="white") +
+  geom_histogram(aes(y=after_stat(density)), bins=4,fill="lightblue", col="white") +
   theme_bw(base_size = 12) +
-geom_vline(aes(xintercept=mean(xbar)),       color="blue", linetype="dashed", size=1)+
+geom_vline(aes(xintercept=mean(xbar)),       color="blue", linetype="dashed")+
 labs(x = TeX('$\\bar{X}$'), y = "rel. freq.")
 
 clt +  stat_function( fun = dnorm, args = list(mean=mean(samplemean), sd=sd(samplemean)),color="gold", xlim = c(0.5, 4.5) )
