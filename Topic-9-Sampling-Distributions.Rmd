@@ -301,10 +301,10 @@ which can be obtained by
 
 Suppose that in 36% of all car accidents involve injury. Find the probability that the injury rate in a random sample of 250 car accidents is between 30% and 45%.
 
-**Solution:** The injury rate of all car accidents is $p=10\%=0.3$ and the sample size is $250$. Because $np=250\cdot 0.36=`r 250*0.36`>10$ and $n(1-p)=250\cdot(1-0.36)=`r 250*(1-0.36)`>10$, the sample size is considered large enough. By the Central Limit Theorem, we can assume that the sample proportion $\hat{P}$ is approximately normally distributed with the mean $\mu_{\hat{P}}=p=0.36$ and standard deviation $\sigma_{\hat{P}}=\sqrt{\frac{p(1-p)}{n}}\approx `r sigma<-round(sqrt(0.36*(1-0.36)/250),3); sigma`$
+**Solution:** The injury rate of all car accidents is $p=36\%=0.36$ and the sample size is $250$. Because $np=250\cdot 0.36=`r 250*0.36`>10$ and $n(1-p)=250-`r 250*0.36`=`r 250*(1-0.36)`>10$, the sample size is considered large enough. By the Central Limit Theorem, the sample proportion $\hat{P}$ is approximately normally distributed with the mean $\mu_{\hat{P}}=p=0.36$ and standard deviation $\sigma_{\hat{P}}=\sqrt{\frac{p(1-p)}{n}}\approx `r sigma<-round(sqrt(0.36*(1-0.36)/250),3); sigma`$
 
-Using the Excel function, `NORM.DIST(x, mean, SD, TRUE)`, we find the probability of a random sample of 250 car accidents with the injury rate between 30% and 45% is
-$$\textstyle P(0.30<\hat{P}<0.45)=P(\hat{P}<0.45)-P(\hat{P}<0.30) \approx `r p1<-round(pnorm(0.45, 0.36, sigma), 3); p1`-`r p2<-round(pnorm(0.30, 0.36, sigma), 3); p2`  =`r p1-p2`$$
+Then the probability of a random sample of 250 car accidents with the injury rate between 30% and 45% is
+$\textstyle P(0.30<\hat{P}<0.45)=P(\hat{P}<0.45)-P(\hat{P}<0.30)=$ ``=NORM.DIST(30%, 36%,`r sigma`)-NORM.DIST(45%, 36%,`r sigma`)`` $\approx `r p1<-round(pnorm(0.45, 0.36, sigma), 3); p2<-round(pnorm(0.30, 0.36, sigma), 3);` `r p1-p2`$
 
 ---
 

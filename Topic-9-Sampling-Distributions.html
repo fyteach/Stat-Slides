@@ -55,7 +55,7 @@ table, .body h2 { border-bottom: 1px solid #666; }
 .body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }
 .footnote-ref a::before { content: "["; }
 .footnote-ref a::after { content: "]"; }
-section.footnotes::before {
+.footnotes::before {
   content: "";
   display: block;
   max-width: 20em;
@@ -393,6 +393,8 @@ mjx-container[jax="SVG"][display="true"]{
 </script>
 </head>
 <body>
+<div class="include-before">
+</div>
 <div class="frontmatter">
 <div class="title"><h1>Sampling Distributions</h1></div>
 <div class="author"><h2>Fei Ye</h2></div>
@@ -651,9 +653,9 @@ which can be obtained by
 <hr />
 <h2 id="example-traffic-accidents"><span class="section-number">18.</span> Example: Traffic Accidents</h2>
 <p>Suppose that in 36% of all car accidents involve injury. Find the probability that the injury rate in a random sample of 250 car accidents is between 30% and 45%.</p>
-<p><strong>Solution:</strong> The injury rate of all car accidents is \(p=10\%=0.3\) and the sample size is \(250\). Because \(np=250\cdot 0.36=90&gt;10\) and \(n(1-p)=250\cdot(1-0.36)=160&gt;10\), the sample size is considered large enough. By the Central Limit Theorem, we can assume that the sample proportion \(\hat{P}\) is approximately normally distributed with the mean \(\mu_{\hat{P}}=p=0.36\) and standard deviation \(\sigma_{\hat{P}}=\sqrt{\frac{p(1-p)}{n}}\approx 0.03\)</p>
-<p>Using the Excel function, <code>NORM.DIST(x, mean, SD, TRUE)</code>, we find the probability of a random sample of 250 car accidents with the injury rate between 30% and 45% is
-$$\textstyle P(0.30&lt;\hat{P}&lt;0.45)=P(\hat{P}&lt;0.45)-P(\hat{P}&lt;0.30) \approx 0.999-0.023  =0.976$$</p>
+<p><strong>Solution:</strong> The injury rate of all car accidents is \(p=36\%=0.36\) and the sample size is \(250\). Because \(np=250\cdot 0.36=90&gt;10\) and \(n(1-p)=250-90=160&gt;10\), the sample size is considered large enough. By the Central Limit Theorem, the sample proportion \(\hat{P}\) is approximately normally distributed with the mean \(\mu_{\hat{P}}=p=0.36\) and standard deviation \(\sigma_{\hat{P}}=\sqrt{\frac{p(1-p)}{n}}\approx 0.03\)</p>
+<p>Then the probability of a random sample of 250 car accidents with the injury rate between 30% and 45% is
+\(\textstyle P(0.30&lt;\hat{P}&lt;0.45)=P(\hat{P}&lt;0.45)-P(\hat{P}&lt;0.30)=\) <code>=NORM.DIST(30%, 36%,0.03)-NORM.DIST(45%, 36%,0.03)</code> \(\approx  0.976\)</p>
 <hr />
 <h2 id="practice-sample-mean-within-an-interval" class="unnumbered">Practice: Sample Mean within an Interval</h2>
 <p>An unknown distribution has a mean of 28 and a standard deviation 6. Samples of size n = 30 are drawn randomly from the population. Find the probability that the sample mean is between 27 and 30.</p>
@@ -744,6 +746,8 @@ $$\textstyle P(0.30&lt;\hat{P}&lt;0.45)=P(\hat{P}&lt;0.45)-P(\hat{P}&lt;0.30) \a
 <p>Source: <a href="https://saylordotorg.github.io/text_introductory-statistics/s10-03-the-sample-proportion.html">Exercise 17 in Section 6.3 in Introductory Statistics</a>.</p>
 </div>
 </div>
+<div class="include-after">
+</div>
 <script>
 (function(d) {
   let p = d.body;  // container of slides; assume <body> for now
@@ -818,9 +822,9 @@ $$\textstyle P(0.30&lt;\hat{P}&lt;0.45)=P(\hat{P}&lt;0.45)-P(\hat{P}&lt;0.30) \a
     if (fn) s.querySelectorAll('.footnote-ref > a[href^="#fn"]').forEach(a => {
       const li = fn.querySelector('li' + a.getAttribute('href'));
       if (!li) return;
-      let f = s.querySelector('section.footnotes');
+      let f = s.querySelector('div.footnotes');
       if (!f) {
-        f = newEl('section', 'footnotes'); s.append(f);
+        f = newEl('div', 'footnotes'); s.append(f);
       }
       f.append(li);
       li.firstElementChild?.insertAdjacentHTML('afterbegin', `[${a.innerHTML}] `);
