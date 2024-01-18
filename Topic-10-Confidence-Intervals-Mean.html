@@ -55,7 +55,7 @@ table, .body h2 { border-bottom: 1px solid #666; }
 .body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }
 .footnote-ref a::before { content: "["; }
 .footnote-ref a::after { content: "]"; }
-.footnotes::before {
+section.footnotes::before {
   content: "";
   display: block;
   max-width: 20em;
@@ -396,7 +396,7 @@ $(document).ready(function(){
     }
 });
 </script>
-<link href="C:\LocalApps\R\library\kableExtra\lightable-0.0.1\lightable.css" rel="stylesheet" />
+<link href="C:\Users\Fei\AppData\Local\R\win-library\4.3\kableExtra\lightable-0.0.1\lightable.css" rel="stylesheet" />
 <script type="application/json" class="js-hypothesis-config">
   {
     "openSidebar": false
@@ -404,8 +404,6 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<div class="include-before">
-</div>
 <div class="frontmatter">
 <div class="title"><h1>Confidence Intervals for Mean</h1></div>
 <div class="author"><h2>Fei Ye</h2></div>
@@ -512,21 +510,36 @@ where the <strong>critical value</strong> is <a href="https://saylordotorg.githu
 </li>
 </ul>
 <hr />
-<h2 id="distribution-of-confidence-intervals"><span class="section-number">8.</span> Distribution of Confidence Intervals</h2>
+<h2 id="distribution-of-confidence-interval"><span class="section-number">8.</span> Distribution of Confidence Interval</h2>
 <div class="iframecontainer">
 <iframe src="https://rpsychologist.com/d3/CI/" width="100%" height="560px" data-external="1"></iframe>
 </div>
 <hr />
-<h2 id="confidence-intervals-with-known-population-sd"><span class="section-number">9.</span> Confidence Intervals with Known Population SD</h2>
+<h2 id="confidence-interval-with-known-population-sd"><span class="section-number">9.</span> Confidence Interval with Known Population SD</h2>
+<p>Suppose the population standard deviation \(\sigma\) is given.</p>
 <ul>
-<li>Suppose the population standard deviation \(\sigma\) is given. By the central limit theorem, if \(n&gt;30\) or the population distribution is approximately normal, then the sampling distribution is approximately normal with the standard error \(\sigma/\sqrt{n}\).<br />
-At the confidence level \(1-\alpha\), the marginal error for a population mean is
-\(E=z_{\alpha/2}\dfrac{\sigma}{\sqrt{n}}\) and the confidence interval is
-$$\left[\bar{x}-z_{\alpha/2}\frac{\sigma}{\sqrt{n}}, \bar{x}+z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\right],$$
-where <a href="https://saylordotorg.github.io/text_introductory-statistics/s11-01-large-sample-estimation-of-a-p.html">the <strong>critical value</strong> \(z_{\alpha/2}\) satisfies that \(P(Z&lt;z_{\alpha/2})=1-\alpha/2\)</a> for the standard normal variable \(Z\).</li>
-<li>In Excel, \(z_{\alpha/2}\)=<code>NORM.S.INV((1+confidence level)/2)</code> and<br />
-\(E=z_{\alpha/2}\frac{\sigma}{\sqrt{n}} =\) <code>CONFIDENCE.NORM(1-confidence level, sigma, n)</code>.</li>
+<li>
+<p>Check if the central limit theorem applies: need \(n&gt;30\) or that the population distribution is approximately normal.</p>
+</li>
+<li>
+<p>Find the critical value \(z_{\alpha/2}\) for the given confidence level: \(z_{\alpha/2}=\) <code>=NORM.S.INV(0.5+confidence level/2)</code>.</p>
+</li>
+<li>
+<p>Find the standard error \(\text{SE}=\sigma_{\bar{x}}=\sigma/\sqrt{n}=\) <code>=(Population SD)/SQRT(Sample Size)</code>.</p>
+</li>
+<li>
+<p>Calculate the marginal error E (or ME): \(E=\text{critical value}*\text{standard error}\).</p>
+</li>
+<li>
+<p>Find the left bound and right bound of the confidence interval: \(\text{Left bound}=\bar{x}-\text{E}\) and \(\text{Right bound}=\bar{x}+\text{E}\).</p>
+</li>
+<li>
+<p>Draw a conclusion: With \(100(1-\alpha)\%\) confidence, we can conclude that the population mean is in the interval \([\bar{x}-\text{E}, \bar{x}+\text{E}]\).</p>
+</li>
 </ul>
+<div class="footmark">
+<p>The <a href="https://saylordotorg.github.io/text_introductory-statistics/s11-01-large-sample-estimation-of-a-p.html"><strong>critical value</strong> \(z_{\alpha/2}\) satisfies that \(P(Z&lt;z_{\alpha/2})=1-\alpha/2=(1+\text{confidence level})/2=0.5 + \text{confidence level}/2\)</a> for the standard normal variable \(Z\).</p>
+</div>
 <hr />
 <h2 id="example-find-critical-values"><span class="section-number">10.</span> Example: Find Critical Values</h2>
 <p>A sample of size 15 drawn from a normally distributed population with the standard deviation 6. Find the critical value \(z_{\alpha/2}\) needed in construction of a confidence interval:</p>
@@ -537,11 +550,11 @@ where <a href="https://saylordotorg.github.io/text_introductory-statistics/s11-0
 <p><strong>Solution:</strong> One can find the critical value \(z_{\alpha/2}\) by using the normal distribution table. Here, we will use the Excel function <code>NORM.S.INV(prob)</code></p>
 <ol>
 <li>
-<p>Using Excel function <code>NORM.S.INV((1+0.9)/2)</code>, we get the critical value
+<p>Using Excel function NORM.S.INV(0.5+0.9/2), we get the critical value
 $$z_{\alpha/2}=1.6449.$$</p>
 </li>
 <li>
-<p>Using the Excel function <code>NORM.S.INV((1+0.98)/2)</code>, we get the critical value
+<p>Using the Excel function <code>NORM.S.INV(0.5+0.98/2)</code>, we get the critical value
 $$z_{\alpha/2}=2.3263.$$</p>
 </li>
 </ol>
@@ -560,19 +573,19 @@ $$z_{\alpha/2}=2.3263.$$</p>
 </ul>
 <hr />
 <h2 id="example-mean-gpa-2-of-2"><span class="section-number">12.</span> Example: Mean GPA (2 of 2)</h2>
-<p>Now let’s find the critical value, the standard error, the margin of error, and bounds of the confidence interval.</p>
+<p>Now let’s find the critical value and the standard error.</p>
 <ul>
-<li>The critical value \(z_{\alpha/2}\)=<code>NORM.S.INV((1+0.99)/2)</code> \(\approx 2.576\)</li>
+<li>The critical value \(z_{\alpha/2}\)=<code>NORM.S.INV(0.5+0.99/2)</code> \(\approx 2.576\)</li>
 <li>The standard error is \(\sigma_{\bar{x}}=\sigma/\sqrt{n}=0.43/\sqrt{50}\approx 0.06.\)</li>
 <li>The marginal error is \(\text{E}=z_{\alpha/2}\cdot\sigma_{\bar{x}}=2.576\cdot 0.06\approx 0.16.\)</li>
-<li>The lower bound of the confidence interval is \(\bar{x}-\text{E}=2.51-0.16=2.35\).</li>
-<li>The upper bound of the confidence interval is \(\bar{x}+\text{E}=2.51+0.16=2.67\).</li>
+<li>The left bound of the confidence interval is \(\bar{x}-\text{E}=2.51-0.16=2.35\) and the right bound is \(\bar{x}+\text{E}=2.51+0.16=2.67\).</li>
 </ul>
-<p>Conclusion: With 99% confidence, we may conclude that the mean GPA of all students at the college is between 2.35 and 2.67.</p>
-<div class="footmark">
-<p><strong>Note:</strong> The marginal error \(E\) can also be obtained by the Excel function
-<code>CONFIDENCE.NORM(1-0.99, 0.43, 50)</code>.</p>
-</div>
+<p>Conclusion: With 99% confidence, we can assure that the average GPA of all students is between \(2.35\) and \(2.67\).</p>
+<!-- ::: {.footmark}
+  **Note:** The marginal error $E$ can also be obtained by the Excel function
+  `CONFIDENCE.NORM(1-0.99, 0.43, 50)`.
+
+::: {.-->}
 <hr />
 <h2 id="student-s-t-distribution"><span class="section-number">13.</span> Student’s \(t\)-Distribution</h2>
 <ul>
@@ -580,7 +593,7 @@ $$z_{\alpha/2}=2.3263.$$</p>
 <p>When the population standard deviation is unknown, we may replace \(\sigma\) by the sample standard deviation \(s\) and use \(s/\sqrt{n}\) as an estimate to the standard error for the sampling distribution of the sample mean.</p>
 </li>
 <li>
-<p>When we use the estimated standard error \(s / \sqrt{n}\) to build a confidence interval, the <span class="red">normal distribution may NOT</span> be accurate for calculating the critical value.</p>
+<p>When we use the estimated standard error \(s / \sqrt{n}\) to build a confidence interval, the <span class="red">normal distribution may OT</span> be appropriate for calculating the critical value.</p>
 </li>
 <li>
 <p>If the random variable \(\bar{x}\) is approximately normal, then the random variable \(t=\dfrac{\bar{x}-\mu}{s / \sqrt{n}}\) has a <strong><a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution">Student’s \(t\)-distribution</a> with the degree of freedom \(n-1\)</strong>.</p>
@@ -593,10 +606,10 @@ $$z_{\alpha/2}=2.3263.$$</p>
 <h2 id="remarks"><span class="section-number">14.</span> Remarks</h2>
 <ul>
 <li>
-<p>Unlike in the case of a sample proportion, the sample standard deviation \(s\) is not determined by the sample mean \(\bar{x}\).</p>
+<p>This result was discovered by William Gosset, an employee of the Guinness brewing company, who published his result using the name Student.</p>
 </li>
 <li>
-<p>This result was discovered by William Gosset, an employee of the Guinness brewing company, who published his result using the name Student.</p>
+<p>Unlike in the case of a sample proportion, the sample standard deviation \(s\) is not determined by the sample mean \(\bar{x}\).</p>
 </li>
 </ul>
 <hr />
@@ -614,7 +627,7 @@ $$z_{\alpha/2}=2.3263.$$</p>
 </ol>
 </li>
 <li>
-<p>In practice, when the sample size is large enough \(n&gt;30\), some textbooks use normal distribution as an approximation for the Student \(t\)-distribution.</p>
+<p>In practice, when the sample size is large enough \(n&gt;30\), people use normal distribution as an approximation for the Student \(t\)-distribution.</p>
 </li>
 </ul>
 <hr />
@@ -627,21 +640,31 @@ $$z_{\alpha/2}=2.3263.$$</p>
 </div>
 <hr />
 <h2 id="confidence-intervals-with-unknown-population-sd"><span class="section-number">17.</span> Confidence Intervals with <span class="red">Unknown</span> Population SD</h2>
+<p>Suppose the population standard deviation is NOT given.</p>
 <ul>
 <li>
-<p>Suppose the sampling distribution is approximately normal. At the confidence level \(1-\alpha\), the margin of error is \(E=t_{\alpha/2}\frac{s}{\sqrt{n}},\)
-and the confidence interval for a population mean \(\mu\) is
-$$\left[\bar{x}-t_{\alpha/2}\frac{s}{\sqrt{n}}, \bar{x}+t_{\alpha/2}\frac{s}{\sqrt{n}}\right],$$
-where \(t_{\alpha/2}\) is the critical value such that \(P(T&lt;t_{\alpha/2})=1-\alpha/2\) for a Student \(t\)-distribution with degree of freedom \(n-1\).</p>
+<p>Check if the central limit theorem applies: need \(n&gt;30\) or that the population distribution is approximately normal.</p>
 </li>
 <li>
-<p>In Excel, the critical value \(t_{\alpha/2}\) can be calculated by <code>T.INV((1+confidence level)/2, n-1)</code> or <code>T.INV.2T(1-confidence level, n-1)</code>, where \(n\) is the sample size.</p>
+<p>Find the critical value \(t_{\alpha/2}\) for the given confidence level using \(t\)-distribution: \(t_{\alpha/2}=\) <code>=T.INV(0.5+confidence level/2, n-1)</code>.</p>
 </li>
 <li>
-<p>The marginal error \(E=t_{\alpha/2}\frac{s}{\sqrt{n}}\) can also be obtained by the Excel function
-<code>CONFIDENCE.T(1-confidence level, s, n)</code>.</p>
+<p>Find the estimated standard error \(\text{SE}=\sigma_{\bar{x}}=s/\sqrt{n}=\) <code>=(Sample SD)/SQRT(Sample Size)</code>.</p>
+</li>
+<li>
+<p>Calculate the marginal error E (or ME): \(E=\text{critical value}*\text{standard error}\).</p>
+</li>
+<li>
+<p>Find the left bound and right bound of the confidence interval: \(\text{Left bound}=\bar{x}-\text{E}\) and \(\text{Right bound}=\bar{x}+\text{E}\).</p>
+</li>
+<li>
+<p>Draw a conclusion: With \(100(1-\alpha)\%\) confidence, we can conclude that the population mean is in the interval \([\bar{x}-\text{E}, \bar{x}+\text{E}]\).</p>
 </li>
 </ul>
+<!-- - In Excel, the critical value $t_{\alpha/2}$ can be calculated by `T.INV(0.5+confidence level/2, n-1)` or `T.INV.2T(1-confidence level, n-1)`, where $n$ is the sample size.
+
+- The marginal error $E=t_{\alpha/2}\frac{s}{\sqrt{n}}$ can also be obtained by the Excel function
+`CONFIDENCE.T(1-confidence level, s, n)`. -->
 <hr />
 <h2 id="example-critical-values-for-t-distributions"><span class="section-number">18.</span> Example: Critical Values for \(t\)-Distributions</h2>
 <p>A sample of size 15 drawn from a normally distributed population. Find the critical value \(t_{\alpha/2}\) needed in construction of a confidence interval:</p>
@@ -653,11 +676,11 @@ where \(t_{\alpha/2}\) is the critical value such that \(P(T&lt;t_{\alpha/2})=1-
 <ol>
 <li>
 <p>Since the confidence level is \(1-\alpha=0.99\), the critical value is
-\(t_{\alpha/2}\) =<code>T.INV.2T(1-0.99, 15-1)</code>=<code>T.INV((1+0.99)/2, 15-1)</code>=2.9768.</p>
+\(t_{\alpha/2}\) =<code>=T.INV(0.5+0.99/2, 15-1)</code>=2.9768.</p>
 </li>
 <li>
 <p>Since the confidence level is \(1-\alpha=0.95\), the critical value is
-\(t_{\alpha/2}\) =<code>T.INV.2T(1-0.95, 15-1)</code>=<code>T.INV((1+0.95)/2, 15-1)</code>=2.1448.</p>
+\(t_{\alpha/2}\) =<code>=T.INV(0.5+0.95/2, 15-1)</code>=2.1448.</p>
 </li>
 </ol>
 <div class="footmark">
@@ -667,13 +690,13 @@ where \(t_{\alpha/2}\) is the critical value such that \(P(T&lt;t_{\alpha/2})=1-
 <h2 id="example-confidence-interval-with-unknown-sigma"><span class="section-number">19.</span> Example: Confidence Interval with Unknown \(\sigma\)</h2>
 <p>A sample of size 16 is randomly drawn from a normally distributed population. The sample has a mean 79 and standard deviation 7. Construct a confidence interval for that population mean at the 90% level of confidence.</p>
 <p><strong>Solution:</strong> Since the population is normally distributed, and the population standard deviation is unknown, we apply the formula \(\text{E}=t_{\alpha/2}\cdot\dfrac{s}{\sqrt{n}}\) for marginal error.</p>
-<p>Since the sample size is 16, the degree of freedom is <span class="red">df=15</span>.</p>
-<p>At 90% confidence level, the critical value is \(t_{\alpha/2}=\) <code>T.INV((1+0.9)/2, 16-1)</code> \(\approx 1.753\).</p>
+<p>At 90% confidence level, the critical value is \(t_{\alpha/2}=\) <code>T.INV(0.5+0.9/2, 16-1)</code> \(\approx 1.753\).</p>
 <p>Then the marginal error is \(\text{E}=1.753\cdot 7/\sqrt{16}\approx 3\). Thus \(\bar{x}-\text{E}=79-3=76\) and \(\bar{x}+\text{E}=79+3=82\).</p>
 <p>With 90% confidence, we may conclude that the population mean is in the interval \([76, 82]\).</p>
-<div class="footmark">
-<p><strong>Note:</strong> The marginal error \(E\) can also be obtained by <code>CONFIDENCE.T(1-0.9, 7, 16)</code></p>
-</div>
+<!-- ::: {.footmark}
+  **Note:** The marginal error $E$ can also be obtained by `CONFIDENCE.T(1-0.9, 7, 16)`
+
+::: {.-->}
 <hr />
 <h2 id="example-average-working-hours"><span class="section-number">20.</span> Example: Average Working Hours</h2>
 <!-- # style="font-size:0.92em;" -->
@@ -728,37 +751,37 @@ where \(t_{\alpha/2}\) is the critical value such that \(P(T&lt;t_{\alpha/2})=1-
 </table>
 <p>Construct 99% confidence interval for the mean worked time.</p>
 <p><strong>Solution:</strong> Since the sample size is 40 (&gt;30), by the central limit theorem, the sample mean is approximately normally distributed.
-Applying the Excel functions <code>AVERAGE()</code> and <code>STDEV.S()</code> to the data, we find that \(\bar{x}\approx 29.6\) and \(s\approx 5.3\).</p>
-<p>Since \(\alpha=1-0.99=0.01\), the marginal error is \(\text{E}=\) <code>CONFIDENCE.T(0.01, 5.3, 40)</code> \(\approx 2.3\). Thus, \(\bar{x}-\text{E}=29.6-2.3=27.3\) and \(\bar{x}+\text{E}=29.6+2.3=31.9\)</p>
+Applying the Excel functions <code>AVERAGE()</code> and <code>STDEV.S()</code> to the data, we find that the sample mean \(\bar{x}\approx 29.6\) and the sample standard deviation \(s\approx 5.3\).</p>
+<p>Since the population standard deviation is unknown, we use the \(t\)-distribution to find the critical value \(t_{\alpha/2}=\) <code>T.INV(0.5+0.99/2, 40-1)</code> \(\approx 2.7\). The marginal error is \(\text{E}=t_{\alpha/2}\cdot\dfrac{s}{\sqrt{n}}=\) <code>=T.INV(0.5+0.99/2, 40-1)*STDEV.S(5.3)/SQRT(40)</code> \(\approx 2.3\). Thus, \(\bar{x}-\text{E}=29.6-2.3=27.3\) and \(\bar{x}+\text{E}=29.6+2.3=31.9\)</p>
 <p>With a 99% confidence, one may conclude that the average worked hours of employees in all grocery stores is between 27.3 and 31.9 hours.</p>
 <hr />
 <h2 id="choose-normal-distribution-or-t-distribution"><span class="section-number">21.</span> Choose Normal Distribution or \(t\)-Distribution</h2>
 <!-- # style="font-size:0.95em;" -->
 <ul>
 <li>
-<p>Population is <span class="red">approximately ormally</span> distributed.</p>
+<p>Population is <span class="red">approximately normally</span> distributed.</p>
 <ul>
-<li>the population standard deviation \(\sigma\) is .blue[known]: use the .blue[normal distribution].</li>
-<li>the population standard deviation \(\sigma\) is .yellow[<em>unknown</em>]: use the \(t\)-.yellow[<em>distribution</em>].</li>
+<li>the population standard deviation \(\sigma\) is <span class="blue">known</span>: use the <span class="blue">normal distribution</span>.</li>
+<li>the population standard deviation \(\sigma\) is <span class="yellow"><strong>unknown</strong></span>: use the <span class="yellow"><strong>\(t\)-distribution</strong></span>.</li>
 </ul>
 </li>
 <li>
 <p>Population distribution unknown, but <span class="gold">sample size is large enough</span>, i.e. \(n&gt;30\).</p>
 <ul>
 <li>the population standard deviation \(\sigma\) is <span class="grey">known</span>: use <span class="grey">normal distribution</span>.</li>
-<li>the population standard deviation \(\sigma\) is <span class="purple"><em>unknown</em></span>: either one can be used but the \(t\)-<span class="purple"><em>distribution</em></span> is more accurate.</li>
+<li>the population standard deviation \(\sigma\) is <span class="purple"><strong>unknown</strong></span>: either one can be used but the \(t\)-<span class="purple"><strong>distribution</strong></span> is more accurate.</li>
 </ul>
 </li>
 <li>
-<p><strong><span class="red">Warning</span></strong> Population distribution unknown and the <span class="red">sample size is small, either</span> the \(t\)-distribution nor the normal distribution is reliable.</p>
-</li>
-<li>
-<p>For small samples, there is method called “<a href="http://www.sthda.com/english/wiki/normality-test-in-r#normality-test">The Shapiro–Wilk test</a>” which can be used to determine if we may assume the sampling distribution is approximately normal.</p>
-</li>
-<li>
-<p>Even when \(n&gt;30\), a visual inspection of the normality is necessary.</p>
+<p><strong><span class="red">Warning:</span></strong> when the population distribution unknown and the <span class="red">sample size is small, either</span> the \(t\)-distribution nor the normal distribution is reliable.</p>
 </li>
 </ul>
+<div class="footmark">
+<ul>
+<li>For small samples, there is method called “<a href="http://www.sthda.com/english/wiki/normality-test-in-r#normality-test">The Shapiro–Wilk test</a>” which can be used to determine if we may assume the sampling distribution is approximately normal.</li>
+<li>Even when \(n&gt;30\), a visual inspection of the normality is necessary.</li>
+</ul>
+</div>
 <hr />
 <h2 id="practice-conceptual-questions-on-confidence-intervals" class="unnumbered">Practice: Conceptual Questions on Confidence Intervals</h2>
 <p>Decide whether the following statements are true or false. Explain your reasoning.</p>
@@ -857,8 +880,6 @@ Applying the Excel functions <code>AVERAGE()</code> and <code>STDEV.S()</code> t
 <p>Source: <a href="https://saylordotorg.github.io/text_introductory-statistics/s11-01-large-sample-estimation-of-a-p.html">Exercise 8 in Section 7.1 in Introductory Statistics</a></p>
 </div>
 </div>
-<div class="include-after">
-</div>
 <script>
 (function(d) {
   let p = d.body;  // container of slides; assume <body> for now
@@ -933,9 +954,9 @@ Applying the Excel functions <code>AVERAGE()</code> and <code>STDEV.S()</code> t
     if (fn) s.querySelectorAll('.footnote-ref > a[href^="#fn"]').forEach(a => {
       const li = fn.querySelector('li' + a.getAttribute('href'));
       if (!li) return;
-      let f = s.querySelector('div.footnotes');
+      let f = s.querySelector('section.footnotes');
       if (!f) {
-        f = newEl('div', 'footnotes'); s.append(f);
+        f = newEl('section', 'footnotes'); s.append(f);
       }
       f.append(li);
       li.firstElementChild?.insertAdjacentHTML('afterbegin', `[${a.innerHTML}] `);
