@@ -94,17 +94,17 @@ As the sample size $n$ increases, the sampling distribution of the sample mean, 
 In terms of standardization, the central limit theorem says that the random variable $\bar{Z}=\dfrac{\bar{x}-\mu}{\sigma/\sqrt{n}}$ has an approximately standard normal distribution.
 :::
 
----
+<!-- --- -->
 
-## Visualization: Central Limit Theorem for Mean
+<!-- ## Visualization: Central Limit Theorem for Mean -->
 
-::: {.iframecontainer}
-`r knitr::include_url('https://seeing-theory.brown.edu/probability-distributions/index.html#section3', height='550px')`
-:::
+<!-- ::: {.iframecontainer} -->
+<!-- `r knitr::include_url('https://seeing-theory.brown.edu/probability-distributions/index.html#section3', height='550px')` -->
+<!-- ::: -->
 
-::: {.footmark}
-  Source: [https://seeing-theory.brown.edu/probability-distributions/index.html#section3](https://seeing-theory.brown.edu/probability-distributions/index.html#section3)
-:::
+<!-- ::: {.footmark} -->
+<!--   Source: [https://seeing-theory.brown.edu/probability-distributions/index.html#section3](https://seeing-theory.brown.edu/probability-distributions/index.html#section3) -->
+<!-- ::: -->
 
 ---
 

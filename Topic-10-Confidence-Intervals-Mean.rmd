@@ -125,15 +125,25 @@ That means, we can be 95.5% confidence that the average GPA $\mu$ of that colleg
 
 ---
 
-## Confidence Intervals with Known Population SD
+## Confidence Interval with Known Population SD
 
-- Suppose the population standard deviation $\sigma$ is given. By the central limit theorem, if $n>30$ or the population distribution is approximately normal, then the sampling distribution is approximately normal with the standard error $\sigma/\sqrt{n}$.  
-  At the confidence level $1-\alpha$, the marginal error for a population mean is
-  $E=z_{\alpha/2}\dfrac{\sigma}{\sqrt{n}}$ and the confidence interval is
-  $$\left[\bar{x}-z_{\alpha/2}\frac{\sigma}{\sqrt{n}}, \bar{x}+z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\right],$$
-  where [the **critical value** $z_{\alpha/2}$ satisfies that $P(Z<z_{\alpha/2})=1-\alpha/2$](https://saylordotorg.github.io/text_introductory-statistics/s11-01-large-sample-estimation-of-a-p.html) for the standard normal variable $Z$.
-- In Excel, $z_{\alpha/2}$=`NORM.S.INV((1+confidence level)/2)` and  
-  $E=z_{\alpha/2}\frac{\sigma}{\sqrt{n}} =$ `CONFIDENCE.NORM(1-confidence level, sigma, n)`.
+Suppose the population standard deviation $\sigma$ is given.
+
+- Check if the central limit theorem applies: need $n>30$ or that the population distribution is approximately normal.
+
+- Find the critical value $z_{\alpha/2}$ for the given confidence level: $z_{\alpha/2}=$ `=NORM.S.INV(0.5+confidence level/2)`.
+
+- Find the standard error $\text{SE}=\sigma_{\bar{x}}=\sigma/\sqrt{n}=$ `=(Population SD)/SQRT(Sample Size)`.
+
+- Calculate the marginal error E (or ME): $E=\text{critical value}*\text{standard error}$.
+
+- Find the left bound and right bound of the confidence interval: $\text{Left bound}=\bar{x}-\text{E}$ and $\text{Right bound}=\bar{x}+\text{E}$.
+
+- Draw a conclusion: With $100(1-\alpha)\%$ confidence, we can conclude that the population mean is in the interval $[\bar{x}-\text{E}, \bar{x}+\text{E}]$.
+
+::: {.footmark}
+The [**critical value** $z_{\alpha/2}$ satisfies that $P(Z<z_{\alpha/2})=1-\alpha/2=(1+\text{confidence level})/2=0.5 + \text{confidence level}/2$](https://saylordotorg.github.io/text_introductory-statistics/s11-01-large-sample-estimation-of-a-p.html) for the standard normal variable $Z$.
+:::
 
 ---
 
@@ -146,10 +156,10 @@ A sample of size 15 drawn from a normally distributed population with the standa
 
 **Solution:** One can find the critical value $z_{\alpha/2}$ by using the normal distribution table. Here, we will use the Excel function `NORM.S.INV(prob)`
 
-1. Using Excel function NORM.S.INV((1+0.9)/2), we get the critical value
+1. Using Excel function NORM.S.INV(0.5+0.9/2), we get the critical value
    $$z_{\alpha/2}=`r round(qnorm((1-0.1/2), 0,1),4)`.$$
 
-2. Using the Excel function `NORM.S.INV((1+0.98)/2)`, we get the critical value
+2. Using the Excel function `NORM.S.INV(0.5+0.98/2)`, we get the critical value
    $$z_{\alpha/2}=`r round(qnorm((1-0.02/2), 0,1),4)`.$$
 
 ::: {.footmark}
@@ -175,15 +185,17 @@ A random sample of 50 students from a college gives a mean GPA 2.51. Suppose the
 
 Now let's find the critical value and the standard error.
 
-- The critical value $z_{\alpha/2}$=`NORM.S.INV((1+0.99)/2)` $\approx 2.576$
+- The critical value $z_{\alpha/2}$=`NORM.S.INV(0.5+0.99/2)` $\approx 2.576$
 - The standard error is $\sigma_{\bar{x}}=\sigma/\sqrt{n}=0.43/\sqrt{50}\approx 0.06.$
+- The marginal error is $\text{E}=z_{\alpha/2}\cdot\sigma_{\bar{x}}=2.576\cdot 0.06\approx 0.16.$ 
+- The left bound of the confidence interval is $\bar{x}-\text{E}=2.51-0.16=2.35$ and the right bound is $\bar{x}+\text{E}=2.51+0.16=2.67$.
 
-Then the marginal error is $\text{E}=z_{\alpha/2}\cdot\sigma_{\bar{x}}=2.576\cdot 0.06\approx 0.16.$ We can conclude with 99% confidence that the average GPA of all students is between $2.51-0.16=2.35$ and $2.51+0.16=2.67$.
+Conclusion: With 99% confidence, we can assure that the average GPA of all students is between $2.35$ and $2.67$.
 
-::: {.footmark}
+<!-- ::: {.footmark}
   **Note:** The marginal error $E$ can also be obtained by the Excel function
   `CONFIDENCE.NORM(1-0.99, 0.43, 50)`.
-:::
+::: -->
 
 ---
 
@@ -236,15 +248,24 @@ Source: [https://rpsychologist.com/d3/tdist/](https://rpsychologist.com/d3/tdist
 
 ## Confidence Intervals with <span class="red">Unknown</span> Population SD
 
-- Suppose the sampling distribution is approximately normal. At the confidence level $1-\alpha$, the margin of error is $E=t_{\alpha/2}\frac{s}{\sqrt{n}},$
-  and the confidence interval for a population mean $\mu$ is
-  $$\left[\bar{x}-t_{\alpha/2}\frac{s}{\sqrt{n}}, \bar{x}+t_{\alpha/2}\frac{s}{\sqrt{n}}\right],$$
-  where $t_{\alpha/2}$ is the critical value such that $P(T<t_{\alpha/2})=1-\alpha/2$ for a Student $t$-distribution with degree of freedom $n-1$.
+Suppose the population standard deviation is NOT given.
 
-- In Excel, the critical value $t_{\alpha/2}$ can be calculated by `T.INV((1+confidence level)/2, n-1)` or `T.INV.2T(1-confidence level, n-1)`, where $n$ is the sample size.
+- Check if the central limit theorem applies: need $n>30$ or that the population distribution is approximately normal.
+
+- Find the critical value $t_{\alpha/2}$ for the given confidence level using $t$-distribution: $t_{\alpha/2}=$ `=T.INV(0.5+confidence level/2, n-1)`.
+
+- Find the estimated standard error $\text{SE}=\sigma_{\bar{x}}=s/\sqrt{n}=$ `=(Sample SD)/SQRT(Sample Size)`.
+
+- Calculate the marginal error E (or ME): $E=\text{critical value}*\text{standard error}$.
+
+- Find the left bound and right bound of the confidence interval: $\text{Left bound}=\bar{x}-\text{E}$ and $\text{Right bound}=\bar{x}+\text{E}$.
+
+- Draw a conclusion: With $100(1-\alpha)\%$ confidence, we can conclude that the population mean is in the interval $[\bar{x}-\text{E}, \bar{x}+\text{E}]$.
+
+<!-- - In Excel, the critical value $t_{\alpha/2}$ can be calculated by `T.INV(0.5+confidence level/2, n-1)` or `T.INV.2T(1-confidence level, n-1)`, where $n$ is the sample size.
 
 - The marginal error $E=t_{\alpha/2}\frac{s}{\sqrt{n}}$ can also be obtained by the Excel function
-`CONFIDENCE.T(1-confidence level, s, n)`.
+`CONFIDENCE.T(1-confidence level, s, n)`. -->
 
 ---
 
@@ -258,10 +279,10 @@ A sample of size 15 drawn from a normally distributed population. Find the criti
 **Solution:** To find the critical value $t_{\alpha/2}$, we may use the Excel function `T.INV(left tail area, df)` or `T.INV.2T(tail areas, df)`.
 
 1. Since the confidence level is $1-\alpha=0.99$, the critical value is
-   $t_{\alpha/2}$ =`T.INV.2T(1-0.99, 15-1)`=`T.INV((1+0.99)/2, 15-1)`=`r round(qt(1-0.005, 14),4)`.
+   $t_{\alpha/2}$ =`=T.INV(0.5+0.99/2, 15-1)`=`r round(qt(1-0.005, 14),4)`.
 
 2. Since the confidence level is $1-\alpha=0.95$, the critical value is
-   $t_{\alpha/2}$ =`T.INV.2T(1-0.95, 15-1)`=`T.INV((1+0.95)/2, 15-1)`=`r round(qt(1-0.025, 14),4)`.
+   $t_{\alpha/2}$ =`=T.INV(0.5+0.95/2, 15-1)`=`r round(qt(1-0.025, 14),4)`.
 
 ::: {.footmark}
 [Checkout this t-distribution interactive app](https://istats.shinyapps.io/tdist/)
@@ -275,17 +296,15 @@ A sample of size 16 is randomly drawn from a normally distributed population. Th
 
 **Solution:** Since the population is normally distributed, and the population standard deviation is unknown, we apply the formula $\text{E}=t_{\alpha/2}\cdot\dfrac{s}{\sqrt{n}}$ for marginal error.
 
-Since the sample size is 16, the degree of freedom is <span class="red">df=15</span>.
-
-At 90% confidence level, the critical value is $t_{\alpha/2}=$ `T.INV((1+0.9)/2, 16-1)` $\approx 1.753$.
+At 90% confidence level, the critical value is $t_{\alpha/2}=$ `T.INV(0.5+0.9/2, 16-1)` $\approx 1.753$.
 
 Then the marginal error is $\text{E}=1.753\cdot 7/\sqrt{16}\approx 3$. Thus $\bar{x}-\text{E}=79-3=76$ and $\bar{x}+\text{E}=79+3=82$.
 
 With 90% confidence, we may conclude that the population mean is in the interval $[76, 82]$.
 
-::: {.footmark}
+<!-- ::: {.footmark}
   **Note:** The marginal error $E$ can also be obtained by `CONFIDENCE.T(1-0.9, 7, 16)`
-:::
+::: -->
 
 ---
 
@@ -313,9 +332,9 @@ kable(hours.df, col.names = NULL, escape = F, align = "c", "html") %>%
 Construct 99% confidence interval for the mean worked time.
 
 **Solution:** Since the sample size is 40 (>30), by the central limit theorem, the sample mean is approximately normally distributed.
-Applying the Excel functions `AVERAGE()` and `STDEV.S()` to the data, we find that $\bar{x}\approx 29.6$ and $s\approx 5.3$.
+Applying the Excel functions `AVERAGE()` and `STDEV.S()` to the data, we find that the sample mean $\bar{x}\approx 29.6$ and the sample standard deviation $s\approx 5.3$.
 
-Since $\alpha=1-0.99=0.01$, the marginal error is $\text{E}=$ `CONFIDENCE.T(0.01, 5.3, 40)` $\approx 2.3$. Thus, $\bar{x}-\text{E}=29.6-2.3=27.3$ and $\bar{x}+\text{E}=29.6+2.3=31.9$
+Since the population standard deviation is unknown, we use the $t$-distribution to find the critical value $t_{\alpha/2}=$ `T.INV(0.5+0.99/2, 40-1)` $\approx 2.7$. The marginal error is $\text{E}=t_{\alpha/2}\cdot\dfrac{s}{\sqrt{n}}=$ `=T.INV(0.5+0.99/2, 40-1)*STDEV.S(5.3)/SQRT(40)` $\approx 2.3$. Thus, $\bar{x}-\text{E}=29.6-2.3=27.3$ and $\bar{x}+\text{E}=29.6+2.3=31.9$
 
 With a 99% confidence, one may conclude that the average worked hours of employees in all grocery stores is between 27.3 and 31.9 hours.
 
@@ -324,19 +343,22 @@ With a 99% confidence, one may conclude that the average worked hours of employe
 ## Choose Normal Distribution or $t$-Distribution
 <!-- # style="font-size:0.95em;" -->
 
-- Population is <span class="red">approximately ormally</span> distributed.
-  - the population standard deviation $\sigma$ is .blue[known]: use the .blue[normal distribution].
-  - the population standard deviation $\sigma$ is .yellow[*unknown*]: use the $t$-.yellow[*distribution*].
+- Population is <span class="red">approximately normally</span> distributed.
+  - the population standard deviation $\sigma$ is <span class="blue">known</span>: use the <span class="blue">normal distribution</span>.
+  - the population standard deviation $\sigma$ is <span class="yellow"><strong>unknown</strong></span>: use the <span class="yellow"><strong>\\(t\\)-distribution</strong></span>.
 
 - Population distribution unknown, but <span class="gold">sample size is large enough</span>, i.e. $n>30$.
   - the population standard deviation $\sigma$ is <span class="grey">known</span>: use <span class="grey">normal distribution</span>.
-  - the population standard deviation $\sigma$ is <span class="purple">*unknown*</span>: either one can be used but the $t$-<span class="purple">*distribution*</span> is more accurate.
+  - the population standard deviation $\sigma$ is <span class="purple"><strong>unknown</strong></span>: either one can be used but the $t$-<span class="purple"><strong>distribution</strong></span> is more accurate.
 
-- **<span class="red">Warning</span>** Population distribution unknown and the <span class="red">sample size is small, either</span> the $t$-distribution nor the normal distribution is reliable.
+- **<span class="red">Warning:</span>** when the population distribution unknown and the <span class="red">sample size is small, either</span> the $t$-distribution nor the normal distribution is reliable.
+
+::: {.footmark}
 
 - For small samples, there is method called "[The Shapiro–Wilk test](http://www.sthda.com/english/wiki/normality-test-in-r#normality-test)" which can be used to determine if we may assume the sampling distribution is approximately normal.
-
 - Even when $n>30$, a visual inspection of the normality is necessary.
+
+:::
 
 ---
 

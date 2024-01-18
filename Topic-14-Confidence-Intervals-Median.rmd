@@ -1,5 +1,5 @@
 ---
-title: "Confidence Intervals for Median"
+title: "Confidence Intervals for Median (Optional)"
 author: "Fei Ye"
 date: '`r format(Sys.time(), "%B %Y")`'
 output:
