@@ -396,7 +396,7 @@ $(document).ready(function(){
     }
 });
 </script>
-<link href="C:\Users\Fei\AppData\Local\R\win-library\4.3\kableExtra\lightable-0.0.1\lightable.css" rel="stylesheet" />
+<link href="C:\LocalApps\R\library\kableExtra\lightable-0.0.1\lightable.css" rel="stylesheet" />
 <script type="application/json" class="js-hypothesis-config">
   {
     "openSidebar": false
@@ -510,7 +510,7 @@ where the <strong>critical value</strong> is <a href="https://saylordotorg.githu
 </li>
 </ul>
 <hr />
-<h2 id="distribution-of-confidence-interval"><span class="section-number">8.</span> Distribution of Confidence Interval</h2>
+<h2 id="distribution-of-confidence-intervals"><span class="section-number">8.</span> Distribution of Confidence Intervals</h2>
 <div class="iframecontainer">
 <iframe src="https://rpsychologist.com/d3/CI/" width="100%" height="560px" data-external="1"></iframe>
 </div>
@@ -550,7 +550,7 @@ where the <strong>critical value</strong> is <a href="https://saylordotorg.githu
 <p><strong>Solution:</strong> One can find the critical value \(z_{\alpha/2}\) by using the normal distribution table. Here, we will use the Excel function <code>NORM.S.INV(prob)</code></p>
 <ol>
 <li>
-<p>Using Excel function NORM.S.INV(0.5+0.9/2), we get the critical value
+<p>Using Excel function NORM.S.INV((1+0.9)/2), we get the critical value
 $$z_{\alpha/2}=1.6449.$$</p>
 </li>
 <li>
@@ -573,19 +573,16 @@ $$z_{\alpha/2}=2.3263.$$</p>
 </ul>
 <hr />
 <h2 id="example-mean-gpa-2-of-2"><span class="section-number">12.</span> Example: Mean GPA (2 of 2)</h2>
-<p>Now let’s find the critical value and the standard error.</p>
+<p>Now let’s find the critical value, the standard error, the margin of error, and bounds of the confidence interval.</p>
 <ul>
 <li>The critical value \(z_{\alpha/2}\)=<code>NORM.S.INV(0.5+0.99/2)</code> \(\approx 2.576\)</li>
 <li>The standard error is \(\sigma_{\bar{x}}=\sigma/\sqrt{n}=0.43/\sqrt{50}\approx 0.06.\)</li>
-<li>The marginal error is \(\text{E}=z_{\alpha/2}\cdot\sigma_{\bar{x}}=2.576\cdot 0.06\approx 0.16.\)</li>
-<li>The left bound of the confidence interval is \(\bar{x}-\text{E}=2.51-0.16=2.35\) and the right bound is \(\bar{x}+\text{E}=2.51+0.16=2.67\).</li>
 </ul>
-<p>Conclusion: With 99% confidence, we can assure that the average GPA of all students is between \(2.35\) and \(2.67\).</p>
-<!-- ::: {.footmark}
-  **Note:** The marginal error $E$ can also be obtained by the Excel function
-  `CONFIDENCE.NORM(1-0.99, 0.43, 50)`.
-
-::: {.-->}
+<p>Then the marginal error is \(\text{E}=z_{\alpha/2}\cdot\sigma_{\bar{x}}=2.576\cdot 0.06\approx 0.16.\) We can conclude with 99% confidence that the average GPA of all students is between \(2.51-0.16=2.35\) and \(2.51+0.16=2.67\).</p>
+<div class="footmark">
+<p><strong>Note:</strong> The marginal error \(E\) can also be obtained by the Excel function
+<code>CONFIDENCE.NORM(1-0.99, 0.43, 50)</code>.</p>
+</div>
 <hr />
 <h2 id="student-s-t-distribution"><span class="section-number">13.</span> Student’s \(t\)-Distribution</h2>
 <ul>
@@ -593,7 +590,7 @@ $$z_{\alpha/2}=2.3263.$$</p>
 <p>When the population standard deviation is unknown, we may replace \(\sigma\) by the sample standard deviation \(s\) and use \(s/\sqrt{n}\) as an estimate to the standard error for the sampling distribution of the sample mean.</p>
 </li>
 <li>
-<p>When we use the estimated standard error \(s / \sqrt{n}\) to build a confidence interval, the <span class="red">normal distribution may OT</span> be appropriate for calculating the critical value.</p>
+<p>When we use the estimated standard error \(s / \sqrt{n}\) to build a confidence interval, the <span class="red">normal distribution may NOT</span> be accurate for calculating the critical value.</p>
 </li>
 <li>
 <p>If the random variable \(\bar{x}\) is approximately normal, then the random variable \(t=\dfrac{\bar{x}-\mu}{s / \sqrt{n}}\) has a <strong><a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution">Student’s \(t\)-distribution</a> with the degree of freedom \(n-1\)</strong>.</p>
@@ -606,10 +603,10 @@ $$z_{\alpha/2}=2.3263.$$</p>
 <h2 id="remarks"><span class="section-number">14.</span> Remarks</h2>
 <ul>
 <li>
-<p>This result was discovered by William Gosset, an employee of the Guinness brewing company, who published his result using the name Student.</p>
+<p>Unlike in the case of a sample proportion, the sample standard deviation \(s\) is not determined by the sample mean \(\bar{x}\).</p>
 </li>
 <li>
-<p>Unlike in the case of a sample proportion, the sample standard deviation \(s\) is not determined by the sample mean \(\bar{x}\).</p>
+<p>This result was discovered by William Gosset, an employee of the Guinness brewing company, who published his result using the name Student.</p>
 </li>
 </ul>
 <hr />
@@ -627,7 +624,7 @@ $$z_{\alpha/2}=2.3263.$$</p>
 </ol>
 </li>
 <li>
-<p>In practice, when the sample size is large enough \(n&gt;30\), people use normal distribution as an approximation for the Student \(t\)-distribution.</p>
+<p>In practice, when the sample size is large enough \(n&gt;30\), some textbooks use normal distribution as an approximation for the Student \(t\)-distribution.</p>
 </li>
 </ul>
 <hr />

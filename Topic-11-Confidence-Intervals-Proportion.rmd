@@ -64,7 +64,7 @@ library(latex2exp)
 
 ---
 
-## Distribution of Confidence Interval
+## Distribution of Confidence Intervals
 
 By the central limit theorem, the random variable $\hat{p}$ is normally distributed. The chance that
 $$p\in \left[\hat{p}-z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}, \hat{p}+z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\right]$$

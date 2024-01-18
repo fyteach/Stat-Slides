@@ -117,7 +117,7 @@ That means, we can be 95.5% confidence that the average GPA $\mu$ of that colleg
 
 ---
 
-## Distribution of Confidence Interval
+## Distribution of Confidence Intervals
 
 ::: {.iframecontainer}
 `r knitr::include_url('https://rpsychologist.com/d3/CI/', height='560px')`
@@ -183,14 +183,18 @@ A random sample of 50 students from a college gives a mean GPA 2.51. Suppose the
 
 ## Example: Mean GPA (2 of 2)
 
-Now let's find the critical value and the standard error.
+Now let's find the critical value, the standard error, the margin of error, and bounds of the confidence interval.
 
 - The critical value $z_{\alpha/2}$=`NORM.S.INV(0.5+0.99/2)` $\approx 2.576$
 - The standard error is $\sigma_{\bar{x}}=\sigma/\sqrt{n}=0.43/\sqrt{50}\approx 0.06.$
 - The marginal error is $\text{E}=z_{\alpha/2}\cdot\sigma_{\bar{x}}=2.576\cdot 0.06\approx 0.16.$ 
 - The left bound of the confidence interval is $\bar{x}-\text{E}=2.51-0.16=2.35$ and the right bound is $\bar{x}+\text{E}=2.51+0.16=2.67$.
+- The marginal error is $\text{E}=z_{\alpha/2}\cdot\sigma_{\bar{x}}=2.576\cdot 0.06\approx 0.16.$
+- The lower bound of the confidence interval is $\bar{x}-\text{E}=2.51-0.16=2.35$.
+- The upper bound of the confidence interval is $\bar{x}+\text{E}=2.51+0.16=2.67$.
 
 Conclusion: With 99% confidence, we can assure that the average GPA of all students is between $2.35$ and $2.67$.
+Conclusion: With 99% confidence, we may conclude that the mean GPA of all students at the college is between 2.35 and 2.67.
 
 <!-- ::: {.footmark}
   **Note:** The marginal error $E$ can also be obtained by the Excel function
@@ -203,7 +207,7 @@ Conclusion: With 99% confidence, we can assure that the average GPA of all stude
 
 - When the population standard deviation is unknown, we may replace $\sigma$ by the sample standard deviation $s$ and use $s/\sqrt{n}$ as an estimate to the standard error for the sampling distribution of the sample mean.
 
-- When we use the estimated standard error $s / \sqrt{n}$ to build a confidence interval, the <span class="red">normal distribution may OT</span> be appropriate for calculating the critical value.
+- When we use the estimated standard error $s / \sqrt{n}$ to build a confidence interval, the <span class="red">normal distribution may NOT</span> be accurate for calculating the critical value.
 
 - If the random variable $\bar{x}$ is approximately normal, then the random variable $t=\dfrac{\bar{x}-\mu}{s / \sqrt{n}}$ has a **[Student's $t$-distribution](https://en.wikipedia.org/wiki/Student%27s_t-distribution) with the degree of freedom $n-1$**.
 
@@ -215,9 +219,9 @@ Conclusion: With 99% confidence, we can assure that the average GPA of all stude
 
 ## Remarks
 
-- This result was discovered by William Gosset, an employee of the Guinness brewing company, who published his result using the name Student.
-
 - Unlike in the case of a sample proportion, the sample standard deviation $s$ is not determined by the sample mean $\bar{x}$.
+
+- This result was discovered by William Gosset, an employee of the Guinness brewing company, who published his result using the name Student.
 
 ---
 
@@ -230,7 +234,7 @@ Conclusion: With 99% confidence, we can assure that the average GPA of all stude
   2. The $t$-distribution has slightly more variation (i.e. $t$-curves are <span class="blue">slightly “fatter”</span>) than the standard normal distribution.
   3. When the <span class="blue">degree of freedom increases</span>, the $t$-distribution becomes <span class="blue">closer to the standard normal distribution</span>.
 
-- In practice, when the sample size is large enough $n>30$, people use normal distribution as an approximation for the Student $t$-distribution.
+- In practice, when the sample size is large enough $n>30$, some textbooks use normal distribution as an approximation for the Student $t$-distribution.
 
 ---
 
