@@ -127,13 +127,11 @@ That means, we can be 95.5% confidence that the average GPA $\mu$ of that colleg
 
 ## Confidence Interval with Known Population SD
 
-Suppose the population standard deviation $\sigma$ is given.
-
 - Check if the central limit theorem applies: need $n>30$ or that the population distribution is approximately normal.
 
 - Find the critical value $z_{\alpha/2}$ for the given confidence level: $z_{\alpha/2}=$ `=NORM.S.INV(0.5+confidence level/2)`.
 
-- Find the standard error $\text{SE}=\sigma_{\bar{x}}=\sigma/\sqrt{n}=$ `=(Population SD)/SQRT(Sample Size)`.
+- Find the standard error $\text{SE}=\sigma/\sqrt{n}=$ `=(Population SD)/SQRT(Sample Size)`.
 
 - Calculate the marginal error E (or ME): $E=\text{critical value}*\text{standard error}$.
 
@@ -154,13 +152,15 @@ A sample of size 15 drawn from a normally distributed population with the standa
 1. when the level of confidence is 90%;
 2. when the level of confidence is 98%.
 
-**Solution:** One can find the critical value $z_{\alpha/2}$ by using the normal distribution table. Here, we will use the Excel function `NORM.S.INV(prob)`
+**Solution:** To find the critical value $z_{\alpha/2}$ with a given confidence level, the Excel function `=NORM.S.INV(0.5+confidence level/2)` can be used.
 
-1. Using Excel function NORM.S.INV(0.5+0.9/2), we get the critical value
-   $$z_{\alpha/2}=`r round(qnorm((1-0.1/2), 0,1),4)`.$$
+1. At the 90% level of confidence the critical value is
 
-2. Using the Excel function `NORM.S.INV(0.5+0.98/2)`, we get the critical value
-   $$z_{\alpha/2}=`r round(qnorm((1-0.02/2), 0,1),4)`.$$
+   $z_{\alpha/2}=$ `=NORM.S.INV(0.5+0.9/2)` $=`r round(qnorm((1-0.1/2), 0,1),4)`$.
+
+2. At the 98% level of confidence the critical value is
+  
+   $z_{\alpha/2}=$ `=NORM.S.INV(0.5+0.9/2)` $=`r round(qnorm((1-0.02/2), 0,1),4)`$.
 
 ::: {.footmark}
   [Checkout this normal distribution interactive app](https://istats.shinyapps.io/NormalDist/)
@@ -252,13 +252,11 @@ Source: [https://rpsychologist.com/d3/tdist/](https://rpsychologist.com/d3/tdist
 
 ## Confidence Intervals with <span class="red">Unknown</span> Population SD
 
-Suppose the population standard deviation is NOT given.
-
 - Check if the central limit theorem applies: need $n>30$ or that the population distribution is approximately normal.
 
 - Find the critical value $t_{\alpha/2}$ for the given confidence level using $t$-distribution: $t_{\alpha/2}=$ `=T.INV(0.5+confidence level/2, n-1)`.
 
-- Find the estimated standard error $\text{SE}=\sigma_{\bar{x}}=s/\sqrt{n}=$ `=(Sample SD)/SQRT(Sample Size)`.
+- Find the estimated standard error $\text{SE}=s/\sqrt{n}=$ `=(Sample SD)/SQRT(Sample Size)`.
 
 - Calculate the marginal error E (or ME): $E=\text{critical value}*\text{standard error}$.
 
