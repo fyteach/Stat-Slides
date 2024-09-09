@@ -55,7 +55,7 @@ table, .body h2 { border-bottom: 1px solid #666; }
 .body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }
 .footnote-ref a::before { content: "["; }
 .footnote-ref a::after { content: "]"; }
-section.footnotes::before {
+.footnotes::before {
   content: "";
   display: block;
   max-width: 20em;
@@ -393,10 +393,12 @@ mjx-container[jax="SVG"][display="true"]{
 </script>
 </head>
 <body>
+<div class="include-before">
+</div>
 <div class="frontmatter">
 <div class="title"><h1>Topic 1: Statistical Studies</h1></div>
 <div class="author"><h2>Fei Ye</h2></div>
-<div class="date"><h3>January 2024</h3></div>
+<div class="date"><h3>September 2024</h3></div>
 </div>
 <div class="body">
 <h2 id="references" class="unnumbered">References</h2>
@@ -768,7 +770,7 @@ Example: Mall surveys</p>
 </li>
 <li>
 <p><strong>Undercoverage Bias:</strong> sample too few observations from a segment of the population.
-Example: random survey math students to estimate the average GPA or a college.</p>
+Example: random survey some classmates to estimate the average GPA or a college. This sampling method is known as <strong>convenience sampling</strong>.</p>
 </li>
 </ul>
 <hr />
@@ -965,6 +967,8 @@ Example: random survey math students to estimate the average GPA or a college.</
 </li>
 </ul>
 </div>
+<div class="include-after">
+</div>
 <script>
 (function(d) {
   let p = d.body;  // container of slides; assume <body> for now
@@ -1039,9 +1043,9 @@ Example: random survey math students to estimate the average GPA or a college.</
     if (fn) s.querySelectorAll('.footnote-ref > a[href^="#fn"]').forEach(a => {
       const li = fn.querySelector('li' + a.getAttribute('href'));
       if (!li) return;
-      let f = s.querySelector('section.footnotes');
+      let f = s.querySelector('div.footnotes');
       if (!f) {
-        f = newEl('section', 'footnotes'); s.append(f);
+        f = newEl('div', 'footnotes'); s.append(f);
       }
       f.append(li);
       li.firstElementChild?.insertAdjacentHTML('afterbegin', `[${a.innerHTML}] `);
