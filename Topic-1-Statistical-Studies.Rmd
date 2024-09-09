@@ -377,7 +377,7 @@ Determine the type of sampling method.
   Example: Mall surveys
 
 - **Undercoverage Bias:** sample too few observations from a segment of the population.
-  Example: random survey math students to estimate the average GPA or a college.
+  Example: random survey some classmates to estimate the average GPA or a college. This sampling method is known as **convenience sampling**.
 
 ---
 
