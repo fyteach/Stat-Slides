@@ -3,177 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="generator" content="litedown 0.4">
 <title>Topic 6: Two-Way Tables</title>
-<style type="text/css">
-body {
-  font-family: sans-serif;
-  max-width: 800px;
-  margin: auto;
-  padding: 1em;
-  line-height: 1.5;
-  box-sizing: border-box;
-}
-body, .footnotes, code { font-size: .9em; }
-li li { font-size: .95em; }
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-pre, img { max-width: 100%; }
-pre, pre:hover {
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-pre code {
-  display: block;
-  overflow-x: auto;
-}
-code { font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace; }
-:not(pre) > code, code[class] { background-color: #F8F8F8; }
-code.language-undefined, pre > code:not([class]) {
-  background-color: inherit;
-  border: 1px solid #eee;
-}
-table {
-  margin: auto;
-  border-top: 1px solid #666;
-}
-table thead th { border-bottom: 1px solid #ddd; }
-th, td { padding: 5px; }
-thead, tfoot, tr:nth-child(even) { background: #eee; }
-blockquote {
-  color: #666;
-  margin: 0;
-  padding-left: 1em;
-  border-left: 0.5em solid #eee;
-}
-hr, .footnotes::before { border: 1px dashed #ddd; }
-.frontmatter { text-align: center; }
-#TOC .numbered li { list-style: none; }
-#TOC .numbered { padding-left: 0; }
-#TOC .numbered ul { padding-left: 1em; }
-table, .body h2 { border-bottom: 1px solid #666; }
-.body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }
-.footnote-ref a::before { content: "["; }
-.footnote-ref a::after { content: "]"; }
-section.footnotes::before {
-  content: "";
-  display: block;
-  max-width: 20em;
-}
-
-@media print {
-  body {
-    font-size: 12pt;
-    max-width: 100%;
-  }
-  tr, img { page-break-inside: avoid; }
-}
-@media only screen and (min-width: 992px) {
-  pre { white-space: pre; }
-}
-</style>
-<style type="text/css">
-:root { --slide-width: 100%; }
-html { scroll-snap-type: y mandatory; }
-th, td { padding: .2em .5em; }
-.slide {
-  padding: 1em;
-  position: relative;
-}
-.slide > h2, .slide > h3 { margin-top: unset; }
-body {
-  max-width: fit-content;
-  padding: 0;
-}
-a { color: #eb4a47; }
-:not(pre) > code { background-color: #fdfded; }
-#TOC { columns: 2; }
-#TOC::before {
-  font-size: 1.3em;
-  font-weight: bold;
-  display: block;
-  border-bottom: 1px solid #666;
-}
-.frontmatter, .middle {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-.page-number, .timer {
-  position: absolute;
-  bottom: 0;
-  opacity: .5;
-  font: .7em monospace;
-}
-.page-number { right: 0; }
-.timer { left: 0; }
-.inverse {
-  background-color: #eee;
-  filter: invert(1);
-}
-.fade {
-  background: repeating-linear-gradient(135deg, white, white 30px, #ddd 32px, #ddd 32px);
-  opacity: 0.6;
-}
-.center { text-align: center; }
-.slide-container h2 .section-number {
-  display: inline-block;
-  background-color: #666;
-  color: white;
-  padding: 0 .1em;
-  margin-right: .3em;
-}
-.overview {
-  font-size: .8em;
-  max-width: none;
-}
-.overview .slide {
-  min-height: unset;
-  scroll-snap-align: unset;
-}
-.overview .slide-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.overview .slide-container .slide {
-  width: var(--slide-width);
-  border: 1px dotted #ccc;
-  margin-bottom: 0.5em;
-}
-.mirrored { transform: scale(-1, 1); }
-.spacer { height: 50vh; }
-.overview .timer, .overview .spacer { display: none; }
-.overview .footnotes { position: unset; }
-html:fullscreen::-webkit-scrollbar { display: none; }
-html:fullscreen {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-@media (min-width: 992px) {
- :root { --slide-width: 49%; }
-  body { font-size: 2em; }
-  .slide {
-    min-height: 100vh;
-    scroll-snap-align: start;
-  }
-  li li { font-size: .9em; }
-  .footnotes {
-    position: absolute;
-    bottom: 1em;
-    font-size: .8em;
-  }
-}
-@media (min-width: 1400px) {
- :root { --slide-width: 33%; }
-}
-@media (min-width: 1800px) {
- :root { --slide-width: 24.67%; }
-}
-@media print, (max-width: 991.98px) {
-  .timer, .spacer { display: none; }
-}
-</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/css/default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/css/snap.min.css">
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital@0;1&family=Noto+Sans+Mono&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Source+Code+Pro&display=swap');
 
@@ -385,21 +218,16 @@ mjx-container[jax="SVG"][display="true"]{
   padding-left: 0.5em;
 }
 </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css,npm/@xiee/utils/css/heading-anchor.min.css">
-<script type="application/json" class="js-hypothesis-config">
-  {
-    "openSidebar": false
-  }
-</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils@1.13.44/css/key-buttons.min.css,npm/@xiee/utils@1.13.44/css/heading-anchor.min.css">
 </head>
 <body>
 <div class="frontmatter">
 <div class="title"><h1>Topic 6: Two-Way Tables</h1></div>
 <div class="author"><h2>Fei Ye</h2></div>
-<div class="date"><h3>January 2024</h3></div>
+<div class="date"><h3>November 2024</h3></div>
 </div>
 <div class="body">
-<h2 id="learning-goals"><span class="section-number">1.</span> Learning Goals</h2>
+<h2 id="sec:learning-goals"><span class="section-number main-number">1</span> Learning Goals</h2>
 <ul>
 <li>
 <p>Summarize and interpret the relationship between two qualitative (categorical) variables using two-way tables.</p>
@@ -412,7 +240,7 @@ mjx-container[jax="SVG"][display="true"]{
 </li>
 </ul>
 <hr />
-<h2 id="two-way-frequency-tables"><span class="section-number">2.</span> Two-way Frequency Tables</h2>
+<h2 id="sec:two-way-frequency-tables"><span class="section-number main-number">2</span> Two-way Frequency Tables</h2>
 <ul>
 <li>
 <p>As we organize and analyze data from two categorical variables, we make use of two-way tables.</p>
@@ -439,7 +267,7 @@ mjx-container[jax="SVG"][display="true"]{
 </li>
 </ul>
 <hr />
-<h2 id="example-body-image-and-gender"><span class="section-number">3.</span> Example: Body Image and Gender</h2>
+<h2 id="sec:example-body-image-and-gender"><span class="section-number main-number">3</span> Example: Body Image and Gender</h2>
 <p>The following table summarize responses of a random sample of 1,200 U.S. college students as part of a larger survey.</p>
 <div class="center">
 <table>
@@ -481,7 +309,7 @@ mjx-container[jax="SVG"][display="true"]{
 <p>Source: <a href="https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/two-way-tables-1-of-5/">https://courses.lumenlearning.com/wmopen-concepts-statistics</a></p>
 </div>
 <hr />
-<h2 id="two-way-relative-frequency-tables-and-probability"><span class="section-number">4.</span> Two-Way Relative Frequency Tables and Probability</h2>
+<h2 id="sec:two-way-relative-frequency-tables-and-probability"><span class="section-number main-number">4</span> Two-Way Relative Frequency Tables and Probability</h2>
 <div style="font-size:0.9em;">
 <ul>
 <li>A <strong>two-way relative frequency table:</strong> two-way table with relative frequencies.</li>
@@ -492,7 +320,7 @@ mjx-container[jax="SVG"][display="true"]{
 </ul>
 </div>
 <hr />
-<h2 id="example-probabilities-about-body-and-gender"><span class="section-number">5.</span> Example: Probabilities about Body and Gender</h2>
+<h2 id="sec:example-probabilities-about-body-and-gender"><span class="section-number main-number">5</span> Example: Probabilities about Body and Gender</h2>
 <p>The following table shows joint and marginal probabilities of body image and gender.</p>
 <div class="center">
 <table>
@@ -561,7 +389,7 @@ mjx-container[jax="SVG"][display="true"]{
 </table>
 </div>
 <hr />
-<h2 id="example-community-college-enrollment-1-of-2"><span class="section-number">6.</span> Example: Community College Enrollment (1 of 2)</h2>
+<h2 id="sec:example-community-college-enrollment-1-of-2"><span class="section-number main-number">6</span> Example: Community College Enrollment (1 of 2)</h2>
 <p>The following table summarizes the full-time enrollment at a community college.</p>
 <div class="center">
 <table>
@@ -620,7 +448,7 @@ mjx-container[jax="SVG"][display="true"]{
 <p>Source: <a href="https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/two-way-tables-2-of-5/">https://courses.lumenlearning.com/wmopen-concepts-statistics</a></p>
 </div>
 <hr />
-<h2 id="example-community-college-enrollment-2-of-2"><span class="section-number">7.</span> Example: Community College Enrollment (2 of 2)</h2>
+<h2 id="sec:example-community-college-enrollment-2-of-2"><span class="section-number main-number">7</span> Example: Community College Enrollment (2 of 2)</h2>
 <ul>
 <li>If we select a male student at random, what is the probability that he is in the Info Tech program?</li>
 </ul>
@@ -637,7 +465,7 @@ mjx-container[jax="SVG"][display="true"]{
 <p><strong>Solution:</strong>
 \(P(\text{Male and Info Tech})=\dfrac{564}{12000}=\dfrac{5802}{12000}\cdot \dfrac{564}{5802}=P(\text{Male})\cdot P(\text{Info Tech}|\text{Male}).\)</p>
 <hr />
-<h2 id="practice-weights-and-heights" class="unnumbered">Practice: Weights and Heights</h2>
+<h2 id="sec:practice-weights-and-heights" class="unnumbered">Practice: Weights and Heights</h2>
 <div class="row">
 <div class="pull-left">
 <p>This table on the right relates the weights and heights of a group of individuals participating in an observational study.</p>
@@ -687,7 +515,7 @@ mjx-container[jax="SVG"][display="true"]{
 <p>Source: <a href="https://courses.lumenlearning.com/introstats1/chapter/contingency-tables/">https://courses.lumenlearning.com/introstats1/chapter/contingency-tables/</a></p>
 </div>
 <hr />
-<h2 id="test-of-no-association"><span class="section-number">8.</span> Test of (No) Association</h2>
+<h2 id="sec:test-of-no-association"><span class="section-number main-number">8</span> Test of (No) Association</h2>
 <ul>
 <li>
 <p>To understand association between categorical variables, we may think conversely. How do we test no association?</p>
@@ -703,7 +531,7 @@ mjx-container[jax="SVG"][display="true"]{
 </li>
 </ul>
 <hr />
-<h2 id="example-association-between-body-and-gender-1-of-2"><span class="section-number">9.</span> Example: Association Between Body and Gender (1 of 2)</h2>
+<h2 id="sec:example-association-between-body-and-gender-1-of-2"><span class="section-number main-number">9</span> Example: Association Between Body and Gender (1 of 2)</h2>
 <p>Is body image related to gender?</p>
 <div class="center">
 <table>
@@ -742,14 +570,14 @@ mjx-container[jax="SVG"][display="true"]{
 </table>
 </div>
 <hr />
-<h2 id="example-association-between-body-and-gender-2-of-2"><span class="section-number">10.</span> Example: Association Between Body and Gender (2 of 2)</h2>
+<h2 id="sec:example-association-between-body-and-gender-2-of-2"><span class="section-number main-number">10</span> Example: Association Between Body and Gender (2 of 2)</h2>
 <p><strong>Solution:</strong> Using Excel (stacked bar chart), we may compare side-by-side the conditional body image distributions for females and males</p>
 <div class="center">
 <p><img src="data:image/png;base64,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" alt="Stacked Bar Chart for Gender and Body Images" width="75%" /></p>
 </div>
 <p>As a result of our analysis, we know that the conditional distributions of body images for males and females are quite different. We can conclude that there is enough difference to believe that those two categorical variables are in fact related.</p>
 <hr />
-<h2 id="percentage-reduction-of-risk"><span class="section-number">11.</span> Percentage Reduction of Risk</h2>
+<h2 id="sec:percentage-reduction-of-risk"><span class="section-number main-number">11</span> Percentage Reduction of Risk</h2>
 <ul>
 <li>
 <p>When calculating the probability of a negative outcome, we often refer to the probability as a <strong>risk</strong>.</p>
@@ -763,7 +591,7 @@ mjx-container[jax="SVG"][display="true"]{
 </li>
 </ul>
 <hr />
-<h2 id="example-physicians-health-study-1-of-2"><span class="section-number">12.</span> Example: Physicians’ Health Study (1 of 2)</h2>
+<h2 id="sec:example-physicians-health-study-1-of-2"><span class="section-number main-number">12</span> Example: Physicians’ Health Study (1 of 2)</h2>
 <p>Researchers in the Physicians’ Health Study (1989) designed a randomized double-blind experiment to determine whether aspirin reduces the risk of heart attack. Here are the final results.</p>
 <div class="center">
 <table>
@@ -803,7 +631,7 @@ mjx-container[jax="SVG"][display="true"]{
 <p>Source: <a href="https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/two-way-tables-4-of-5/">https://courses.lumenlearning.com/wmopen-concepts-statistics</a></p>
 </div>
 <hr />
-<h2 id="example-physicians-health-study-2-of-2"><span class="section-number">13.</span> Example: Physicians’ Health Study (2 of 2)</h2>
+<h2 id="sec:example-physicians-health-study-2-of-2"><span class="section-number main-number">13</span> Example: Physicians’ Health Study (2 of 2)</h2>
 <ul>
 <li>The probability of a heart attack given that aspirin was taken every other day.
 $$P(\text{heart attack}|\text{aspirin}) = 139 / 11,037 = 0.013$$</li>
@@ -817,11 +645,11 @@ $$
 $$</p>
 <p>Therefore, we conclude that taking aspirin results in a 41% reduction in risk.</p>
 <hr />
-<h2 id="hypothetical-two-way-tables"><span class="section-number">14.</span> Hypothetical Two-way Tables</h2>
+<h2 id="sec:hypothetical-two-way-tables"><span class="section-number main-number">14</span> Hypothetical Two-way Tables</h2>
 <p>A <strong>hypothetical two-way table</strong>, also known as a hypothetical 1000 two-way table, is a two-way table constructed from given probability conditions with 1000 as the total frequency. It can be used to answer complex probability questions.</p>
 <p>Sometimes, the total frequency can be taken to be 10,000 or a higher power of 10 so that joint frequencies are integers.</p>
 <hr />
-<h2 id="example-birth-gender-prediction-1-of-3"><span class="section-number">15.</span> Example: Birth Gender Prediction (1 of 3)</h2>
+<h2 id="sec:example-birth-gender-prediction-1-of-3"><span class="section-number main-number">15</span> Example: Birth Gender Prediction (1 of 3)</h2>
 <p>A pregnant woman often opts to have an ultrasound to predict the gender of her baby.
 Assume the following facts are known:</p>
 <ul>
@@ -839,7 +667,7 @@ Assume the following facts are known:</p>
 </li>
 </ol>
 <hr />
-<h2 id="example-birth-gender-prediction-2-of-3"><span class="section-number">16.</span> Example: Birth Gender Prediction (2 of 3)</h2>
+<h2 id="sec:example-birth-gender-prediction-2-of-3"><span class="section-number main-number">16</span> Example: Birth Gender Prediction (2 of 3)</h2>
 <p><strong>Solution:</strong></p>
 <p>Assume that we have ultrasound predictions for 1,000 random babies.</p>
 <ul>
@@ -855,7 +683,7 @@ Assume the following facts are known:</p>
 </ul>
 <p>Using those facts, we may create a two-way frequency table.</p>
 <hr />
-<h2 id="example-birth-gender-prediction-3-of-3"><span class="section-number">17.</span> Example: Birth Gender Prediction (3 of 3)</h2>
+<h2 id="sec:example-birth-gender-prediction-3-of-3"><span class="section-number main-number">17</span> Example: Birth Gender Prediction (3 of 3)</h2>
 <div class="center">
 <table>
 <thead>
@@ -893,7 +721,7 @@ $$P(\text{Girl}|\text{predict girl})=\frac{432}{562} \approx 0.769=76.9\%.$$</p>
 <p>If the examination predicts a boy, the probability that the born baby is a boy is
 $$P(\text{Boy} | \text{predict boy}) = \frac{390}{438} \approx 0.890=89\%.$$</p>
 <hr />
-<h2 id="practice-highway-safty" class="unnumbered">Practice: Highway Safty</h2>
+<h2 id="sec:practice-highway-safty" class="unnumbered">Practice: Highway Safty</h2>
 <p>The table below is based on a 1988 study of accident records conducted by the Florida State Department of Highway Safety.</p>
 <div class="center">
 <table>
@@ -932,7 +760,7 @@ $$P(\text{Boy} | \text{predict boy}) = \frac{390}{438} \approx 0.890=89\%.$$</p>
 <p>Source: <a href="https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/two-way-tables-4-of-5/">https://courses.lumenlearning.com/wmopen-concepts-statistics</a></p>
 </div>
 <hr />
-<h2 id="practice-drug-screening" class="unnumbered">Practice: Drug Screening</h2>
+<h2 id="sec:practice-drug-screening" class="unnumbered">Practice: Drug Screening</h2>
 <p>A large company has instituted a mandatory employee drug screening program. Assume that the drug test used is known to be 99% accurate. That is, if an employee is a drug user, the test will come back positive (“drug detected”) 99% of the time. If an employee is a non-drug user, then the test will come back negative (“no drug detected”) 99% of the time. Assume that 2% of the employees of the company are drug users.</p>
 <p>If an employee’s drug test comes back positive, what is the probability that the test is wrong and the employee is in fact a non drug user?</p>
 <div class="footmark">
@@ -944,7 +772,7 @@ $$P(\text{Boy} | \text{predict boy}) = \frac{390}{438} \approx 0.890=89\%.$$</p>
 <p>Lab Instruction in Excel</p>
 </div>
 <hr />
-<h2 id="create-stacked-bar-chart"><span class="section-number">18.</span> Create Stacked Bar Chart</h2>
+<h2 id="sec:create-stacked-bar-chart"><span class="section-number main-number">18</span> Create Stacked Bar Chart</h2>
 <ul>
 <li>
 <p>To create a a stacked bar chart of a two-way table</p>
@@ -965,7 +793,7 @@ $$P(\text{Boy} | \text{predict boy}) = \frac{390}{438} \approx 0.890=89\%.$$</p>
 </li>
 </ul>
 <hr />
-<h2 id="lab-practice-gender-vs-program-selection" class="unnumbered">Lab Practice: Gender vs Program Selection</h2>
+<h2 id="sec:lab-practice-gender-vs-program-selection" class="unnumbered">Lab Practice: Gender vs Program Selection</h2>
 <p>The following table summarize results from a study on program selection and gender.</p>
 <div class="center">
 <table>
@@ -1025,153 +853,10 @@ $$P(\text{Boy} | \text{predict boy}) = \frac{390}{438} \approx 0.890=89\%.$$</p>
 </li>
 </ul>
 </div>
-<script>
-(function(d) {
-  let p = d.body;  // container of slides; assume <body> for now
-  const s1 = ':scope > hr:not([class])', s2 = ':scope > h2';
-  // find a container that has at least n "slides"
-  function findContainer(s, n = 1) {
-    if (p.querySelectorAll(s).length >= n) return true;
-    // if body doesn't contain headings or <hr>s, look into children
-    for (let i = 0; i < p.children.length; i++) {
-      if (p.children[i].querySelectorAll(s).length >= n) {
-        p = p.children[i]; break;
-      }
-    }
-    return false;
-  }
-  function newEl(tag, cls) {
-    const el = d.createElement(tag);
-    if (cls) el.className = cls;
-    return el;
-  }
-  if (!findContainer(s1, 3)) {
-    // if not enough <hr>s found in children; look for <h2> instead
-    if (p.tagName === 'BODY') {
-      // not enough h2 found, this page is not appropriate for slides
-      if (!findContainer(s2) && p.tagName === 'BODY') return;
-      p.querySelectorAll(s2).forEach(h2 => h2.before(newEl('hr')));
-    }
-  }
-  p.classList.add('slide-container');
-  // add 'slide' class to the frontmatter div and toc
-  ['.frontmatter', '#TOC'].forEach(s => {
-    d.body.querySelector(s)?.classList.add('slide');
-  });
-
-  function newSlide(s) {
-    return (s?.innerText === '') ? s : newEl('div', 'slide');
-  }
-  function isSep(el) {
-    return el.tagName === 'HR' && el.attributes.length === 0;
-  }
-  let el = p.firstElementChild; if (isSep(el)) el.remove();
-  el = p.firstElementChild; if (!el) return;
-  let s = newSlide(); el.before(s);
-  while (true) {
-    let el = s.nextSibling;
-    if (!el) break;
-    // remove slide separators (<hr>) and create new slide
-    if (isSep(el)) {
-      s = newSlide(s);
-      el.before(s); el.remove();
-    } else if (el.classList?.contains('slide')) {
-      s = newSlide(s);
-      el.after(s);
-    } else {
-      s.append(el);
-    }
-  }
-  function setAttr(el, attr) {
-    const m = newEl('div');
-    m.innerHTML = `<div ${attr}></div>`;
-    const attrs = m.firstElementChild.attributes;
-    for (let i = 0; i < attrs.length; i++) {
-      let a = attrs[i];
-      el.setAttribute(a.name, a.value);
-    }
-    m.remove();
-  }
-  const slides = d.querySelectorAll('div.slide'), N = slides.length,
-        tm = d.querySelector('span.timer'), fn = d.querySelector('.footnotes');
-  slides.forEach((s, i) => {
-    // append footnotes
-    if (fn) s.querySelectorAll('.footnote-ref > a[href^="#fn"]').forEach(a => {
-      const li = fn.querySelector('li' + a.getAttribute('href'));
-      if (!li) return;
-      let f = s.querySelector('section.footnotes');
-      if (!f) {
-        f = newEl('section', 'footnotes'); s.append(f);
-      }
-      f.append(li);
-      li.firstElementChild?.insertAdjacentHTML('afterbegin', `[${a.innerHTML}] `);
-      li.outerHTML = li.innerHTML;
-    });
-    // add a timer
-    s.append(tm ? tm.cloneNode() : newEl('span', 'timer'));
-    // add page numbers
-    const n = newEl('span', 'page-number');
-    n.innerText = i + 1 + '/' + N;
-    n.onclick = e => location.hash = i + 1;
-    s.append(n);
-    // apply slide attributes in <!--# -->
-    for (let k in s.childNodes) {
-      const node = s.childNodes[k];
-      if (node.nodeType !== Node.COMMENT_NODE) continue;
-      let t = node.textContent;
-      if (!/^#/.test(t)) continue;
-      t = t.replace(/^#/, '');
-      const r = /[\s\n]class="([^"]+)"/, m = t.match(r);
-      if (m) {
-        t = t.replace(r, '').trim();
-        s.className += ' ' + m[1];
-      }
-      if (t) setAttr(s, t);
-      break;
-    }
-    s.classList.contains('extend') && s.append(newEl('div', 'spacer fade'));
-    location.hash === ('#' + (i + 1)) && s.scrollIntoView();
-    s.addEventListener('click', e => {
-      if (!e.altKey) return;
-      d.body.classList.toggle('overview');
-      setTimeout(() => e.target.scrollIntoView(), 100);
-    });
-  });
-  [...d.querySelectorAll('a.footnote-backref'), fn, tm].forEach(el => el?.remove());
-  const tms = d.querySelectorAll('span.timer'), t1 = 1000 * tms[0].dataset.total;
-  let t0;
-  function startTimers() {
-    t0 = new Date();
-    setInterval(setTimers, 1000);
-  }
-  function setTimers() {
-    let t = (new Date() - t0);
-    if (t1) t = t1 - t;
-    const t2 = new Date(Math.abs(t)).toISOString().substr(11, 8).replace(/^00:/, '');
-    tms.forEach(el => {
-      el.innerText = t2;
-      if (t < 0) el.style.display = el.style.display === 'none' ? '' : 'none';
-    });
-  }
-  // press f for fullscreen mode
-  d.addEventListener('keyup', (e) => {
-    if (e.target !== d.body) return;
-    e.key === 'f' && d.documentElement.requestFullscreen();
-    e.key === 'o' && d.body.classList.toggle('overview');
-    e.key === 'm' && d.body.classList.toggle('mirrored');
-    sessionStorage.setItem('body-class', d.body.className);
-  });
-  // start timer on fullscreen
-  d.onfullscreenchange = (e) => d.fullscreenElement && !t0 && startTimers();
-  tms.forEach(el => el.addEventListener('click', e => startTimers()));
-  // restore previsouly saved body class
-  const bc = sessionStorage.getItem('body-class');
-  if (bc) d.body.className += ' ' + bc;
-})(document);
-</script>
-<script src="https://hypothes.is/embed.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
-<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/key-buttons.min.js,npm/@xiee/utils/js/external-link.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/js/mathjax-config.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/js/snap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils@1.13.44/js/key-buttons.min.js,npm/@xiee/utils@1.13.44/js/external-link.min.js,npm/@xiee/utils@1.13.44/js/heading-anchor.min.js" defer></script>
 <script>
 // Function to format the current date and time as "MM/DD/YYYY HH:MM:SS" format
 function getCurrentDateTime() {
@@ -1197,17 +882,6 @@ function addLastUpdated() {
 }
 
 window.addEventListener('load', addLastUpdated);
-</script>
-<script>
-window.MathJax = {
-  svg: {
-    fontCache: 'global',
-    scale: 0.9
-  },
-  startup: {
-    output: option: {scale: 0.9}
-  }
-};
 </script>
 </body>
 </html>

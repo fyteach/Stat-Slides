@@ -3,19 +3,20 @@ title: "Continuous Random Variables"
 author: "Fei Ye"
 date: '`r format(Sys.time(), "%B %Y")`'
 output:
-  markdown::html_format:
+  litedown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "meta-data/lastupdated.js", "meta-data/mathjax-font.js"]
-      header-includes: "meta-data/Hypothesis-config.html"
+      css: ["@default", "@snap", "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
+      js: ["@snap", "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "meta-data/lastupdated.js"]
+      # header-includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
     options:
+      includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
       number_sections: true
       latex_math: true
       js_math:
         package: mathjax
         version: 3
-        js: es5/tex-svg.js
+        js: es5/tex-mml-chtml.js
 ---
 
 
@@ -42,7 +43,7 @@ library(latex2exp)
 The probability distribution of a continuous random variable $X$ is characterized by its **probability density function** $f(X)$ satisfying that the probability $P(a\leq X\leq b)$ equals the area above the interval $[a, b]$ but under the graph of the density function $f(X)$ which is also called a **density curve**.
 
 ::: {.center}
-```{r echo=FALSE, fig.width=8, fig.asp=0.5}
+```{r echo=FALSE, fig.width=8, fig.asp=0.5, warning=FALSE}
 puniform <- ggplot(
     data = data.frame(x = c(-0.5, 0.5)), aes(x)
   ) +
@@ -118,7 +119,7 @@ puniform <- ggplot(
 
 puniform
 ```
-```{r echo=FALSE, fig.width=8, fig.asp=0.5}
+```{r echo=FALSE, fig.width=8, fig.asp=0.5, warning=FALSE}
 pnormal <- ggplot(
     data = data.frame(x = c(-3, 3)), aes(x)
   ) +
@@ -215,7 +216,7 @@ What is the probability that the commuter's waiting time is less than 4 minutes?
 :::
 
 ::: {.pull-right}
-```{r echo=FALSE, fig.width=8, fig.asp=0.5, fig.align="center"}
+```{r echo=FALSE, fig.width=8, fig.asp=0.5, fig.align="center", warning=FALSE}
 puniform <- ggplot(
     data = data.frame(x = c(0, 10)), aes(x)
   ) +
@@ -334,7 +335,7 @@ where $\mu$ is the mean, $\sigma$ is the standard deviation, $\pi\approx `r roun
 ## Normal Curves with Different Means and Standard Deviations
 
 ::: {.center}
-```{r echo=FALSE, fig.width=10, fig.asp=0.5}
+```{r echo=FALSE, fig.width=10, fig.asp=0.5, warning=FALSE}
 m1 <-0
 m2 <- 1
 m3 <- -1.5
@@ -366,36 +367,27 @@ pmean <- ggplot(
   theme_bw() +
   ggtitle(TeX('Normal Curves with $\\sigma = 1$')) +
   geom_hline(yintercept=0)+
-  geom_segment(
-    aes(
-      x = m1,
-      y = 0,
-      xend = m1,
-      yend = dnorm(m1, m1, 1),
-    ),
-    color="blue",
-    linetype="dashed"
-  ) +
-  geom_segment(
-    aes(
-      x = m2,
-      y = 0,
-      xend = m2,
-      yend = dnorm(m2, m2, 1),
-    ),
-    color="red",
-    linetype="dashed"
-  ) +
-  geom_segment(
-    aes(
-      x = m3,
-      y = 0,
-      xend = m3,
-      yend = dnorm(m3, m3, 1),
-    ),
-    color="red",
-    linetype="dashed"
-  ) +
+  annotate("segment", 
+           x = m1, 
+           xend = m1, 
+           y = 0, 
+           yend = dnorm(m1, m1, 1), 
+           color = "blue", 
+           linetype = "dashed") +
+  annotate("segment", 
+           x = m2, 
+           xend = m2, 
+           y = 0, 
+           yend = dnorm(m2, m2, 1), 
+           color = "red", 
+           linetype = "dashed") +
+  annotate("segment", 
+           x = m3, 
+           xend = m3, 
+           y = 0, 
+           yend = dnorm(m3, m3, 1), 
+           color = "red", 
+           linetype = "dashed") +
   theme(
     panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
     plot.title = element_text(hjust = 0.5, size=24), panel.border = element_blank(),
@@ -447,13 +439,11 @@ psd <- ggplot(
   theme_bw() +
   ggtitle(TeX('Normal Curves with $\\mu = 0$')) +
   geom_hline(yintercept=0)+
-  geom_segment(
-    aes(
+  annotate("segment",
       x = 0,
       y = 0,
       xend = 0,
       yend = dnorm(0, 0, sd1),
-    ),
     color="blue",
     linetype="dashed"
   ) +
@@ -535,7 +525,8 @@ ms <- ggplot(data = data.frame(x = c(-6, 6)), aes(x)) +
 
 for (i in br) {
   if( i != 0){
-    ms <- ms + geom_segment(
+    ms <- ms + annotate(
+      "segment",
       x = i,
       y = 0,
       xend = i,
@@ -545,13 +536,12 @@ for (i in br) {
   }
 }
 
-ms <- ms + geom_segment(
-    aes(
+ms <- ms +  annotate(
+   "segment",
       x = 0,
       y = 0,
       xend = 0,
-      yend = dnorm(0, 0, sgma)
-    ),
+      yend = dnorm(0, 0, sgma),
     color="blue"
 )
 
@@ -596,13 +586,12 @@ ms <- ms + geom_segment(
 
 
 ms <- ms +
-  geom_segment(
-    aes(
+   annotate(
+   "segment",
       x=-sgma,
       y=(dnorm(sgma, 0, sgma)+0.1+0.06),
       xend=sgma,
-      yend=(dnorm(sgma, 0, sgma)+0.1+0.06)
-    ),
+      yend=(dnorm(sgma, 0, sgma)+0.1+0.06),
     color="blue",
   ) +
   geom_label(
@@ -612,13 +601,12 @@ ms <- ms +
   )
 
 ms <- ms +
-  geom_segment(
-    aes(
+ annotate(
+   "segment",
       x=-2*sgma,
       y=(dnorm(sgma, 0, sgma)+0.1+0.06*2),
       xend=2*sgma,
-      yend=(dnorm(sgma, 0, sgma)+0.1+0.06*2)
-    ),
+      yend=(dnorm(sgma, 0, sgma)+0.1+0.06*2),
     color="blue"
   ) +
   geom_label(
@@ -628,13 +616,12 @@ ms <- ms +
   )
 
 ms <- ms +
-  geom_segment(
-    aes(
+ annotate(
+   "segment",
       x=-3*sgma,
       y=(dnorm(sgma, 0, sgma)+0.1+0.06*3),
       xend=3*sgma,
-      yend=(dnorm(sgma, 0, sgma)+0.1+0.06*3)
-    ),
+      yend=(dnorm(sgma, 0, sgma)+0.1+0.06*3),
     color="blue",
   ) +
   geom_label(
@@ -704,7 +691,8 @@ foot <- ggplot(
   )
 
 for (i in -1:1) {
-    foot <- foot + geom_segment(
+    foot <- foot +  annotate(
+      "segment",
       x = i*footsigma+footmu,
       y = -0.01,
       xend = i*footsigma+footmu,
@@ -714,31 +702,28 @@ for (i in -1:1) {
 }
 
 foot +
-geom_segment( # Horizontal segment
-  aes(
+ annotate(
+   "segment",
       x=-footsigma+footmu,
       y=(dnorm(footmu, footmu, footsigma)+0.1),
       xend=footsigma+footmu,
-      yend=(dnorm(footmu, footmu, footsigma)+0.1)
-    ),
+      yend=(dnorm(footmu, footmu, footsigma)+0.1),
     color="blue",
   ) +
-  geom_segment( # Left vertical segment
-    aes(
+ annotate(
+   "segment",
       x=-footsigma+footmu,
       y=(dnorm(footsigma+footmu, footmu, footsigma)),
       xend=-footsigma+footmu,
-      yend=(dnorm(footmu, footmu, footsigma)+0.1)
-    ),
+      yend=(dnorm(footmu, footmu, footsigma)+0.1),
     color="blue",
   ) +
-  geom_segment( # Right vertical segment
-    aes(
+ annotate(
+   "segment",
       x=footsigma+footmu,
       y=(dnorm(footsigma+footmu, footmu, footsigma)),
       xend=footsigma+footmu,
-      yend=(dnorm(footmu, footmu, footsigma)+0.1)
-    ),
+      yend=(dnorm(footmu, footmu, footsigma)+0.1),
     color="blue",
   ) +
   geom_label(
@@ -790,7 +775,8 @@ foot2 <- ggplot(
   )
 
 for (i in c(-2, 0, 2) ) {
-    foot2 <- foot2 + geom_segment(
+    foot2 <- foot2 +  annotate(
+   "segment",
       x = i*footsigma+footmu,
       y = -0.01,
       xend = i*footsigma+footmu,
@@ -800,31 +786,27 @@ for (i in c(-2, 0, 2) ) {
 }
 
 foot2+
-geom_segment( # Horizontal segment
-  aes(
+ annotate(
+   "segment",
       x=-2*footsigma+footmu,
       y=(dnorm(footmu, footmu, footsigma)+0.1),
-      xend=2*footsigma+footmu,
-      yend=(dnorm(footmu, footmu, footsigma)+0.1)
-    ),
+      xend=2*footsigma+footmu,,
     color="blue",
   ) +
-  geom_segment( # Left vertical segment
-    aes(
+   annotate(
+   "segment",
       x=-2*footsigma+footmu,
       y=(dnorm(2*footsigma+footmu, footmu, footsigma)),
       xend=-2*footsigma+footmu,
-      yend=(dnorm(footmu, footmu, footsigma)+0.1)
-    ),
+      yend=(dnorm(footmu, footmu, footsigma)+0.1),
     color="blue",
   ) +
-  geom_segment( # Right vertical segment
-    aes(
+   annotate(
+   "segment",
       x=2*footsigma+footmu,
       y=(dnorm(2*footsigma+footmu, footmu, footsigma)),
       xend=2*footsigma+footmu,
-      yend=(dnorm(footmu, footmu, footsigma)+0.1)
-    ),
+      yend=(dnorm(footmu, footmu, footsigma)+0.1),
     color="blue",
   ) +
   geom_label(

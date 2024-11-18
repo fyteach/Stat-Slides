@@ -3,177 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="generator" content="litedown 0.4">
 <title>Hypothesis Testing for Mean and Proportion</title>
-<style type="text/css">
-body {
-  font-family: sans-serif;
-  max-width: 800px;
-  margin: auto;
-  padding: 1em;
-  line-height: 1.5;
-  box-sizing: border-box;
-}
-body, .footnotes, code { font-size: .9em; }
-li li { font-size: .95em; }
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-pre, img { max-width: 100%; }
-pre, pre:hover {
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-pre code {
-  display: block;
-  overflow-x: auto;
-}
-code { font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace; }
-:not(pre) > code, code[class] { background-color: #F8F8F8; }
-code.language-undefined, pre > code:not([class]) {
-  background-color: inherit;
-  border: 1px solid #eee;
-}
-table {
-  margin: auto;
-  border-top: 1px solid #666;
-}
-table thead th { border-bottom: 1px solid #ddd; }
-th, td { padding: 5px; }
-thead, tfoot, tr:nth-child(even) { background: #eee; }
-blockquote {
-  color: #666;
-  margin: 0;
-  padding-left: 1em;
-  border-left: 0.5em solid #eee;
-}
-hr, .footnotes::before { border: 1px dashed #ddd; }
-.frontmatter { text-align: center; }
-#TOC .numbered li { list-style: none; }
-#TOC .numbered { padding-left: 0; }
-#TOC .numbered ul { padding-left: 1em; }
-table, .body h2 { border-bottom: 1px solid #666; }
-.body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }
-.footnote-ref a::before { content: "["; }
-.footnote-ref a::after { content: "]"; }
-.footnotes::before {
-  content: "";
-  display: block;
-  max-width: 20em;
-}
-
-@media print {
-  body {
-    font-size: 12pt;
-    max-width: 100%;
-  }
-  tr, img { page-break-inside: avoid; }
-}
-@media only screen and (min-width: 992px) {
-  pre { white-space: pre; }
-}
-</style>
-<style type="text/css">
-:root { --slide-width: 100%; }
-html { scroll-snap-type: y mandatory; }
-th, td { padding: .2em .5em; }
-.slide {
-  padding: 1em;
-  position: relative;
-}
-.slide > h2, .slide > h3 { margin-top: unset; }
-body {
-  max-width: fit-content;
-  padding: 0;
-}
-a { color: #eb4a47; }
-:not(pre) > code { background-color: #fdfded; }
-#TOC { columns: 2; }
-#TOC::before {
-  font-size: 1.3em;
-  font-weight: bold;
-  display: block;
-  border-bottom: 1px solid #666;
-}
-.frontmatter, .middle {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-.page-number, .timer {
-  position: absolute;
-  bottom: 0;
-  opacity: .5;
-  font: .7em monospace;
-}
-.page-number { right: 0; }
-.timer { left: 0; }
-.inverse {
-  background-color: #eee;
-  filter: invert(1);
-}
-.fade {
-  background: repeating-linear-gradient(135deg, white, white 30px, #ddd 32px, #ddd 32px);
-  opacity: 0.6;
-}
-.center { text-align: center; }
-.slide-container h2 .section-number {
-  display: inline-block;
-  background-color: #666;
-  color: white;
-  padding: 0 .1em;
-  margin-right: .3em;
-}
-.overview {
-  font-size: .8em;
-  max-width: none;
-}
-.overview .slide {
-  min-height: unset;
-  scroll-snap-align: unset;
-}
-.overview .slide-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.overview .slide-container .slide {
-  width: var(--slide-width);
-  border: 1px dotted #ccc;
-  margin-bottom: 0.5em;
-}
-.mirrored { transform: scale(-1, 1); }
-.spacer { height: 50vh; }
-.overview .timer, .overview .spacer { display: none; }
-.overview .footnotes { position: unset; }
-html:fullscreen::-webkit-scrollbar { display: none; }
-html:fullscreen {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-@media (min-width: 992px) {
- :root { --slide-width: 49%; }
-  body { font-size: 2em; }
-  .slide {
-    min-height: 100vh;
-    scroll-snap-align: start;
-  }
-  li li { font-size: .9em; }
-  .footnotes {
-    position: absolute;
-    bottom: 1em;
-    font-size: .8em;
-  }
-}
-@media (min-width: 1400px) {
- :root { --slide-width: 33%; }
-}
-@media (min-width: 1800px) {
- :root { --slide-width: 24.67%; }
-}
-@media print, (max-width: 991.98px) {
-  .timer, .spacer { display: none; }
-}
-</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/css/default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/css/snap.min.css">
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital@0;1&family=Noto+Sans+Mono&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Source+Code+Pro&display=swap');
 
@@ -385,7 +218,7 @@ mjx-container[jax="SVG"][display="true"]{
   padding-left: 0.5em;
 }
 </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css,npm/@xiee/utils/css/heading-anchor.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils@1.13.44/css/key-buttons.min.css,npm/@xiee/utils@1.13.44/css/heading-anchor.min.css">
 <script>
 $(document).ready(function(){
     if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
@@ -396,23 +229,16 @@ $(document).ready(function(){
     }
 });
 </script>
-<link href="C:\Users\Fei\AppData\Local\R\win-library\4.3\kableExtra\lightable-0.0.1\lightable.css" rel="stylesheet" />
-<script type="application/json" class="js-hypothesis-config">
-  {
-    "openSidebar": false
-  }
-</script>
+<link href="C:\LocalApps\R\library\kableExtra\lightable-0.0.1\lightable.css" rel="stylesheet" />
 </head>
 <body>
-<div class="include-before">
-</div>
 <div class="frontmatter">
 <div class="title"><h1>Hypothesis Testing for Mean and Proportion</h1></div>
 <div class="author"><h2>Fei Ye</h2></div>
-<div class="date"><h3>September 2023</h3></div>
+<div class="date"><h3>November 2024</h3></div>
 </div>
 <div class="body">
-<h2 id="learning-goals-for-hypothesis-tests"><span class="section-number">1.</span> Learning Goals for Hypothesis Tests</h2>
+<h2 id="sec:learning-goals-for-hypothesis-tests"><span class="section-number main-number">1</span> Learning Goals for Hypothesis Tests</h2>
 <ul>
 <li>
 <p>Perform an appropriate hypothesis test for a statement about mean using data from a random sample.</p>
@@ -422,7 +248,7 @@ $(document).ready(function(){
 </li>
 </ul>
 <hr />
-<h2 id="hypothesis-testing-procedure"><span class="section-number">2.</span> Hypothesis Testing Procedure</h2>
+<h2 id="sec:hypothesis-testing-procedure"><span class="section-number main-number">2</span> Hypothesis Testing Procedure</h2>
 <!--# style="font-size: 0.9em;"-->
 <ol>
 <li>
@@ -470,81 +296,81 @@ $(document).ready(function(){
 </li>
 </ol>
 <hr />
-<h2 id="example-test-a-mean-with-known-sd-1-of-2"><span class="section-number">3.</span> Example: Test a Mean with Known SD (1 of 2)</h2>
+<h2 id="sec:example-test-a-mean-with-known-sd-1-of-2"><span class="section-number main-number">3</span> Example: Test a Mean with Known SD (1 of 2)</h2>
 <p>Residences on a certain street claim that the mean speed of automobiles run through the street is greater than the speed limit of 25 miles per hour. A random sample of 100 automobiles has a mean speed of 26 miles per hour. Assume the population standard deviation is 4 miles per hour. Is there enough evidence to support the claim of the residences at the significance level \(\alpha = 0.05\)?</p>
 <p><strong>Solution:</strong> The sample size is \(n=100&gt;30\). So the sampling distribution of sample means is approximately normal by the central limit theorem.</p>
 <p>To test the claim of the residences, we set \(H_0:\mu=25\) and \(H_a: \mu &gt;25\).</p>
 <p>Because \(H_a\) contains the \(&gt;\) sign and \(\sigma\) is known, we use right-tailed \(Z\)-test.</p>
-<p>Since the population standard deviation is  \(\sigma=4\). We use the standard normal distribution to find the \(P\)-value.</p>
+<p>Since the population standard deviation is \(\sigma=4\). We use the normal distribution to find the \(P\)-value.</p>
 <hr />
-<h2 id="example-test-a-mean-with-known-sd-2-of-2"><span class="section-number">4.</span> Example: Test a Mean with Known SD (2 of 2)</h2>
+<h2 id="sec:example-test-a-mean-with-known-sd-2-of-2"><span class="section-number main-number">4</span> Example: Test a Mean with Known SD (2 of 2)</h2>
 <p>The \(Z\)-test statistic is \(z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}=\frac{26-25}{4/\sqrt{100}}=2.5\).</p>
 <p>Since \(H_a:\mu&gt;25\), the \(P\)-value is the right-tailed area calculated as
-\(P(Z&gt;2.5)=\)<code>1-NORM.S.DIST(2.5,TRUE)</code>\(\approx 0.006\).</p>
+\(P(Z&gt;2.5)=\)<code>=1-NORM.S.DIST(2.5,TRUE)</code>\(\approx 0.006\).</p>
 <p>Because the \(P\)-value is less than the significance level $\alpha=0.05%</p>
 <p>At 5% level of significance, there is enough evidence to support the claim of the residences that the average speed of automobile is above the speed limit.</p>
 <div class="footmark">
-<p>Note: Without calculating the \(Z\)-test statistic, the \(P\)-value can also be calculated by the Excel function <code>1-NORM.DIST(26, 25, 4/SQRT(100), TRUE)</code>.</p>
+<p>Note: Without calculating the \(Z\)-test statistic, the \(P\)-value can also be calculated by the Excel function <code>=1-NORM.DIST(26, 25, 4/SQRT(100), TRUE)</code>.</p>
 </div>
 <hr />
-<h2 id="example-test-a-mean-with-unknown-sd-1-of-2"><span class="section-number">5.</span> Example: Test a Mean with Unknown SD (1 of 2)</h2>
+<h2 id="sec:example-test-a-mean-with-unknown-sd-1-of-2"><span class="section-number main-number">5</span> Example: Test a Mean with Unknown SD (1 of 2)</h2>
 <p><strong>Example:</strong> A certain manufacturer claims that average numbers of candies in a certain sized bag that they produce is 20. To test the claims, you collected a random sample of 10 bags and find the mean is 18 and the standard deviation is 2.7. Assume the numbers of candies are normally distributed. At the significance level \(\alpha=0.05\), does your analysis support the manufacturer’s claim?</p>
 <p><strong>Solution:</strong> Since the population is normally distributed, the sampling distribution for the sample mean is approximately normal.</p>
 <p>Set \(H_0: \mu=20\) and \(H_a: \mu\neq 20\).</p>
 <p>Since \(H_a\) has the \(\ne\) sign and the population standard deviation is unknown, we use two-tailed \(t\)-test. We will find the \(P\)-value.</p>
 <hr />
-<h2 id="example-test-a-mean-with-unknown-sd-2-of-2"><span class="section-number">6.</span> Example: Test a Mean with Unknown SD (2 of 2)</h2>
-<p>The \(t\)-test statistics is \(t=\frac{18-20}{2.7/\sqrt{10}}\approx-2.342.\) Using the Excel, we find that the \(P\)-value is \(p\approx\)<code>2*T.DIST(-2.342,9,TRUE)</code>=0.0439.</p>
+<h2 id="sec:example-test-a-mean-with-unknown-sd-2-of-2"><span class="section-number main-number">6</span> Example: Test a Mean with Unknown SD (2 of 2)</h2>
+<p>The \(t\)-test statistics is \(t=\frac{18-20}{2.7/\sqrt{10}}\approx-2.342.\) In Excel, the \(P\)-value can be calculated as \(p\approx\)<code>=2*T.DIST(-2.342,9,TRUE)</code>=0.0439.</p>
 <p>Since the \(P\)-value is smaller than the 5% significance level, we reject \(H_0\) can conclude that there is enough evidence to deny the manufacturer’s claim.</p>
 <hr />
-<h2 id="example-test-a-mean-from-a-data-set-1-of-2"><span class="section-number">7.</span> Example: Test a Mean from a Data Set (1 of 2)</h2>
+<h2 id="sec:example-test-a-mean-from-a-data-set-1-of-2"><span class="section-number main-number">7</span> Example: Test a Mean from a Data Set (1 of 2)</h2>
 <!--# style="font-size: 0.95em;"-->
-<p>An instructor would like to know if the students enrolled in a math course in the  current semester performed better than students in the last semester. The mean final exam from last semester is 75.5. The final exam scores of 40 randomly selected 40 students were obtained</p>
+<p>An instructor would like to know if the students enrolled in a math course in the current semester performed better than students in the last semester. The mean final exam from last semester is 75.5. The final exam scores of 40 randomly selected 40 students were obtained</p>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <tbody>
   <tr>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">93</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">88</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">69</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">74</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">76</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">81</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">78</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">77</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">74</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">63</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">67</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">81</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">80</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">82</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">68</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">88</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">76</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">69</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">75</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">78</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">93</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">88</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">69</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">74</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">76</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">81</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">78</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">77</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">74</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">63</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">67</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">81</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">80</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">82</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">68</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">88</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">76</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">69</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">75</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">78</span> </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">75</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">77</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">94</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">87</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">74</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">88</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">63</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">75</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">94</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">88</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">91</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">77</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">76</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">68</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">80</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">88</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">68</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">83</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">72</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">72</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">75</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">77</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">94</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">87</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">74</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">88</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">63</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">75</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">94</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">88</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">91</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">77</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">76</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">68</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">80</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">88</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">68</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">83</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">72</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">72</span> </td>
   </tr>
 </tbody>
 </table>
@@ -553,58 +379,58 @@ $(document).ready(function(){
 <p>Set \(H_0: \mu=75.5\) and \(H_a: \mu&gt;75.5\).</p>
 <p>Using Excel functions <code>AVERAGE()</code> and <code>STDEV.S()</code>, we find the sample mean is \(\bar{x}\approx 78.17\) and sample standard deviation is \(s\approx 8.39\).</p>
 <hr />
-<h2 id="example-test-a-mean-from-a-data-set-2-of-2"><span class="section-number">8.</span> Example: Test a Mean from a Data Set (2 of 2)</h2>
+<h2 id="sec:example-test-a-mean-from-a-data-set-2-of-2"><span class="section-number main-number">8</span> Example: Test a Mean from a Data Set (2 of 2)</h2>
 <!--# style="font-size: 0.95em;"-->
 <p>The \(t\)-test statistic is calculated by
 $$t=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}=\frac{(78.17-75.5)}{8.39/\sqrt{40}}\approx 2.013.$$</p>
 <p>Because \(H_a\) contains the \(&gt;\) sign and \(\sigma\) is unknown, we use the right-tailed \(t\)-test.</p>
-<p>The degree of freedom is \(\text{df}=40-1\) The \(P\)-value is the right tail area under the \(t\)-curve, that is <code>1-T.DIST(2.013, 39, TRUE)</code>=0.0255 which can also be obtained by <code>T.DIST.RT(2.013, 39)</code>.</p>
+<p>The degree of freedom is \(\text{df}=40-1\) The \(P\)-value is the right tail area under the \(t\)-curve, that is <code>=1-T.DIST(2.013, 39, TRUE)</code>=0.0255.</p>
 <p>Since the \(P\)-value is less than 5%, at the 5% level of significance, we may reject \(H_0\). So at 5% level of significance, there is enough evidence to support the claim that the students in this semester performed significantly better on the final than last semester.</p>
 <p>However, if the 2% level of significance is used, with the given data, we fail to reject \(H_0\). Then, at the 2% level of significance, there is not enough evidence to support the claim.</p>
 <hr />
-<h2 id="example-fairness-of-a-coin"><span class="section-number">9.</span> Example: Fairness of a Coin</h2>
+<h2 id="sec:example-fairness-of-a-coin"><span class="section-number main-number">9</span> Example: Fairness of a Coin</h2>
 <!--# style="font-size: 0.95em;"-->
 <p>Suppose you want to determine if a coin is fair. You toss the coin 50 times and observe 16 heads and 34 tails. At the significant level 0.01, do you think that the coin is fair? If not, does the coin favor the head or tail?</p>
 <p><strong>Solution:</strong> Since \(n\hat{p}=16\) and \(n(1-\hat{p})=34\), a \(Z\)-test is valid.</p>
 <p>To test the coin, we set the null hypothesis as \(H_0\): \(p=0.5\). The experiment suggests that we should set the alternative hypothesis as \(H_a\): \(p&lt;0.5\).</p>
 <p>The test statistic is \(\hat{p}=\frac{16}{50}=0.32\) and the standardization is
 $$\textstyle z=\frac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)/n}}=\frac{0.32-0.5}{\sqrt{0.5(1-0.5)/50}}\approx -2.55.$$</p>
-<p>Because \(H_a\) contains the \(&lt;\) sign, the test is left-tailed and the \(P\)-value is then <code>NORM.S.DIST(-2.55,TRUE)</code>\(\approx 0.008\).</p>
+<p>Because \(H_a\) contains the \(&lt;\) sign, the test is left-tailed and the \(P\)-value is then <code>=NORM.S.DIST(-2.55,TRUE)</code>\(\approx 0.008\).</p>
 <p>Because \(0.008&lt;0.01=\alpha\), we reject the null hypothesis \(H_0\). Therefore, at the significance level 0.01, there is enough evidence to claim that the coin favors the tail.</p>
 <hr />
-<h2 id="example-proportion-of-newborns-1-of-2"><span class="section-number">10.</span> Example: Proportion of Newborns (1 of 2)</h2>
+<h2 id="sec:example-proportion-of-newborns-1-of-2"><span class="section-number main-number">10</span> Example: Proportion of Newborns (1 of 2)</h2>
 <p>Globally the long-term proportion of newborns who are male is 51.46%. A researcher believes that the proportion of boys at birth changes under severe economic conditions. To test this belief randomly selected birth records of 5,000 babies born during a period of economic recession were examined. It was found in the sample that 52.55% of the newborns were boys. Determine whether there is sufficient evidence, at the 10% level of significance, to support the researcher’s belief.</p>
-<p><strong>Solution:</strong> Since \(n\hat{p}\approx 2628\) and \(n(1-\hat{p})\approx 2372\), a \(Z\)-test is valid. we will use the \(P\)-value to test the hypothesis.</p>
+<p><strong>Solution:</strong> Since \(n\hat{p}\approx 2628\) and \(n(1-\hat{p})\approx 2372\), a \(Z\)-test is valid. We will use the \(P\)-value to test the hypothesis.</p>
 <p>To test the researcher’s claim, we set the null hypothesis as \(H_0\): \(p=0.5146\). The experiment suggests that we should set the alternative hypothesis as \(H_a\): \(p\neq 0.5146\).</p>
 <hr />
-<h2 id="example-proportion-of-newborns-2-of-2"><span class="section-number">11.</span> Example: Proportion of Newborns (2 of 2)</h2>
+<h2 id="sec:example-proportion-of-newborns-2-of-2"><span class="section-number main-number">11</span> Example: Proportion of Newborns (2 of 2)</h2>
 <p>The standard test statistic is
 $$
 z=\dfrac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)/n}}=\dfrac{0.5255-0.5146}{\sqrt{0.5146\cdot(1-0.5146)/5000}}\approx1.5422.
 $$</p>
 <p>From \(H_a\), we know that the test is two-tailed. The \(P\)-value is then
 $$2\cdot(1-P(Z&lt;0.5255))\approx0.124$$
-which can be calculated by the Excel formula  <code>2*(1-NORM.S.DIST(0.5255,TRUE))</code>.</p>
+which can be calculated by the Excel formula  <code>=2*(1-NORM.S.DIST(0.5255,TRUE))</code>.</p>
 <p>Since the significance level is \(\alpha=0.1\) and the \(P\)-value \(0.122&gt;0.1=\alpha\), we fail to reject the null hypothesis \(H_0\).</p>
 <p>At the significance level 0.01, there is not enough evidence to support the researcher’s belief that the proportion of newborns who are male changes.</p>
 <hr />
-<h2 id="a-remark-on-the-se-for-sample-proportion"><span class="section-number">12.</span> A Remark on the SE for Sample Proportion</h2>
+<h2 id="sec:a-remark-on-the-se-for-sample-proportion"><span class="section-number main-number">12</span> A Remark on the SE for Sample Proportion</h2>
 <p>In some books, the standard error of the sample distribution of sample proportions assuming that \(p=p_0\) is calculated using the approximation
 $$
 \sigma_{\hat{p}}=\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}.
 $$</p>
 <p>An arguable explanation is that using the above value for SE will be consistent with the approach to a hypothesis testing using a confidence interval in the case that a two-tailed test is preformed.</p>
 <hr />
-<h2 id="practice-testing-the-mean-gpa-with-known-sigma" class="unnumbered">Practice: Testing the Mean GPA with known \(\sigma\)</h2>
+<h2 id="sec:practice-testing-the-mean-gpa-with-known-sigma" class="unnumbered">Practice: Testing the Mean GPA with known \(\sigma\)</h2>
 <iframe src="https://www.myopenmath.com/embedq2.php?id=941399&amp;seed=2020&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
 <hr />
-<h2 id="practice-testing-the-mean-gpa-with-unknown-sigma" class="unnumbered">Practice: Testing the Mean GPA with Unknown \(\sigma\)</h2>
+<h2 id="sec:practice-testing-the-mean-gpa-with-unknown-sigma" class="unnumbered">Practice: Testing the Mean GPA with Unknown \(\sigma\)</h2>
 <iframe src="https://www.myopenmath.com/embedq2.php?id=941405&amp;seed=2020&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
 <hr />
-<h2 id="practice-testing-the-proportion-of-people-who-own-cats" class="unnumbered">Practice: Testing the Proportion of People Who Own Cats</h2>
+<h2 id="sec:practice-testing-the-proportion-of-people-who-own-cats" class="unnumbered">Practice: Testing the Proportion of People Who Own Cats</h2>
 <iframe src="https://www.myopenmath.com/embedq2.php?id=1231702&amp;seed=2020&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
 <hr />
-<h2 id="practice-testing-the-mean-recovery-time" class="unnumbered">Practice: Testing the Mean Recovery Time</h2>
+<h2 id="sec:practice-testing-the-mean-recovery-time" class="unnumbered">Practice: Testing the Mean Recovery Time</h2>
 <p>The average number of days to complete recovery from a particular type of knee operation is 123.7 days. From his experience a physician suspects that use of a topical pain medication might be lengthening the recovery time. He randomly selects the records of seven knee surgery patients who used the topical medication. The times to total recovery were:</p>
 <div class="center">
 <p>128, 135, 121, 142, 126, 151, 123]</p>
@@ -620,7 +446,7 @@ $$</p>
 <p>Lab Instructions in Excel</p>
 </div>
 <hr />
-<h2 id="normal-distribution-for-hypothesis-testing"><span class="section-number">13.</span> Normal Distribution for Hypothesis Testing</h2>
+<h2 id="sec:normal-distribution-for-hypothesis-testing"><span class="section-number main-number">13</span> Normal Distribution for Hypothesis Testing</h2>
 <ul>
 <li>
 <p>Let \(Z\) be a standard normal random varaible. In Excel, \(P(Z&lt;z)\) is given by <code>NORM.S.DIST(z,TRUE)</code>.</p>
@@ -636,7 +462,7 @@ $$</p>
 </li>
 </ul>
 <hr />
-<h2 id="t-distributions-for-hypothesis-testing"><span class="section-number">14.</span> \(t\)-Distributions for Hypothesis Testing</h2>
+<h2 id="sec:t-distributions-for-hypothesis-testing"><span class="section-number main-number">14</span> \(t\)-Distributions for Hypothesis Testing</h2>
 <p>Suppose a Student’s \(t\)-distribution has the degree of freedom \(\text{df}=n-1\).</p>
 <ul>
 <li>
@@ -666,158 +492,13 @@ $$</p>
 </li>
 </ul>
 <hr />
-<h2 id="lab-practice-a-car-manufacturer-s-claim" class="unnumbered">Lab Practice: A Car Manufacturer’s Claim</h2>
+<h2 id="sec:lab-practice-a-car-manufacturer-s-claim" class="unnumbered">Lab Practice: A Car Manufacturer’s Claim</h2>
 <p>A car manufacturer claims that a new fuel injection design increases the mean mileage on a certain model of car above its current 28.5 miles per gallon level. Twenty-five of the new designs were checked and the mean recorded as 30.0 miles per gallon with a standard deviation of 3.8 miles per gallon. Assume that mean mileages are approximately normally distributed. Evaluate this claim at the 5% level of significance.</p>
 </div>
-<div class="include-after">
-</div>
-<script>
-(function(d) {
-  let p = d.body;  // container of slides; assume <body> for now
-  const s1 = ':scope > hr:not([class])', s2 = ':scope > h2';
-  // find a container that has at least n "slides"
-  function findContainer(s, n = 1) {
-    if (p.querySelectorAll(s).length >= n) return true;
-    // if body doesn't contain headings or <hr>s, look into children
-    for (let i = 0; i < p.children.length; i++) {
-      if (p.children[i].querySelectorAll(s).length >= n) {
-        p = p.children[i]; break;
-      }
-    }
-    return false;
-  }
-  function newEl(tag, cls) {
-    const el = d.createElement(tag);
-    if (cls) el.className = cls;
-    return el;
-  }
-  if (!findContainer(s1, 3)) {
-    // if not enough <hr>s found in children; look for <h2> instead
-    if (p.tagName === 'BODY') {
-      // not enough h2 found, this page is not appropriate for slides
-      if (!findContainer(s2) && p.tagName === 'BODY') return;
-      p.querySelectorAll(s2).forEach(h2 => h2.before(newEl('hr')));
-    }
-  }
-  p.classList.add('slide-container');
-  // add 'slide' class to the frontmatter div and toc
-  ['.frontmatter', '#TOC'].forEach(s => {
-    d.body.querySelector(s)?.classList.add('slide');
-  });
-
-  function newSlide(s) {
-    return (s?.innerText === '') ? s : newEl('div', 'slide');
-  }
-  function isSep(el) {
-    return el.tagName === 'HR' && el.attributes.length === 0;
-  }
-  let el = p.firstElementChild; if (isSep(el)) el.remove();
-  el = p.firstElementChild; if (!el) return;
-  let s = newSlide(); el.before(s);
-  while (true) {
-    let el = s.nextSibling;
-    if (!el) break;
-    // remove slide separators (<hr>) and create new slide
-    if (isSep(el)) {
-      s = newSlide(s);
-      el.before(s); el.remove();
-    } else if (el.classList?.contains('slide')) {
-      s = newSlide(s);
-      el.after(s);
-    } else {
-      s.append(el);
-    }
-  }
-  function setAttr(el, attr) {
-    const m = newEl('div');
-    m.innerHTML = `<div ${attr}></div>`;
-    const attrs = m.firstElementChild.attributes;
-    for (let i = 0; i < attrs.length; i++) {
-      let a = attrs[i];
-      el.setAttribute(a.name, a.value);
-    }
-    m.remove();
-  }
-  const slides = d.querySelectorAll('div.slide'), N = slides.length,
-        tm = d.querySelector('span.timer'), fn = d.querySelector('.footnotes');
-  slides.forEach((s, i) => {
-    // append footnotes
-    if (fn) s.querySelectorAll('.footnote-ref > a[href^="#fn"]').forEach(a => {
-      const li = fn.querySelector('li' + a.getAttribute('href'));
-      if (!li) return;
-      let f = s.querySelector('div.footnotes');
-      if (!f) {
-        f = newEl('div', 'footnotes'); s.append(f);
-      }
-      f.append(li);
-      li.firstElementChild?.insertAdjacentHTML('afterbegin', `[${a.innerHTML}] `);
-      li.outerHTML = li.innerHTML;
-    });
-    // add a timer
-    s.append(tm ? tm.cloneNode() : newEl('span', 'timer'));
-    // add page numbers
-    const n = newEl('span', 'page-number');
-    n.innerText = i + 1 + '/' + N;
-    n.onclick = e => location.hash = i + 1;
-    s.append(n);
-    // apply slide attributes in <!--# -->
-    for (let k in s.childNodes) {
-      const node = s.childNodes[k];
-      if (node.nodeType !== Node.COMMENT_NODE) continue;
-      let t = node.textContent;
-      if (!/^#/.test(t)) continue;
-      t = t.replace(/^#/, '');
-      const r = /[\s\n]class="([^"]+)"/, m = t.match(r);
-      if (m) {
-        t = t.replace(r, '').trim();
-        s.className += ' ' + m[1];
-      }
-      if (t) setAttr(s, t);
-      break;
-    }
-    s.classList.contains('extend') && s.append(newEl('div', 'spacer fade'));
-    location.hash === ('#' + (i + 1)) && s.scrollIntoView();
-    s.addEventListener('click', e => {
-      if (!e.altKey) return;
-      d.body.classList.toggle('overview');
-      setTimeout(() => e.target.scrollIntoView(), 100);
-    });
-  });
-  [...d.querySelectorAll('a.footnote-backref'), fn, tm].forEach(el => el?.remove());
-  const tms = d.querySelectorAll('span.timer'), t1 = 1000 * tms[0].dataset.total;
-  let t0;
-  function startTimers() {
-    t0 = new Date();
-    setInterval(setTimers, 1000);
-  }
-  function setTimers() {
-    let t = (new Date() - t0);
-    if (t1) t = t1 - t;
-    const t2 = new Date(Math.abs(t)).toISOString().substr(11, 8).replace(/^00:/, '');
-    tms.forEach(el => {
-      el.innerText = t2;
-      if (t < 0) el.style.display = el.style.display === 'none' ? '' : 'none';
-    });
-  }
-  // press f for fullscreen mode
-  d.addEventListener('keyup', (e) => {
-    if (e.target !== d.body) return;
-    e.key === 'f' && d.documentElement.requestFullscreen();
-    e.key === 'o' && d.body.classList.toggle('overview');
-    e.key === 'm' && d.body.classList.toggle('mirrored');
-    sessionStorage.setItem('body-class', d.body.className);
-  });
-  // start timer on fullscreen
-  d.onfullscreenchange = (e) => d.fullscreenElement && !t0 && startTimers();
-  tms.forEach(el => el.addEventListener('click', e => startTimers()));
-  // restore previsouly saved body class
-  const bc = sessionStorage.getItem('body-class');
-  if (bc) d.body.className += ' ' + bc;
-})(document);
-</script>
-<script src="https://hypothes.is/embed.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
-<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/key-buttons.min.js,npm/@xiee/utils/js/external-link.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/js/mathjax-config.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/js/snap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils@1.13.44/js/key-buttons.min.js,npm/@xiee/utils@1.13.44/js/external-link.min.js,npm/@xiee/utils@1.13.44/js/heading-anchor.min.js" defer></script>
 <script>
 // Function to format the current date and time as "MM/DD/YYYY HH:MM:SS" format
 function getCurrentDateTime() {
@@ -843,17 +524,6 @@ function addLastUpdated() {
 }
 
 window.addEventListener('load', addLastUpdated);
-</script>
-<script>
-window.MathJax = {
-  svg: {
-    fontCache: 'global',
-    scale: 0.9
-  },
-  startup: {
-    output: option: {scale: 0.9}
-  }
-};
 </script>
 </body>
 </html>

@@ -3,19 +3,20 @@ title: "Sampling Distributions"
 author: "Fei Ye"
 date: '`r format(Sys.time(), "%B %Y")`'
 output:
-  markdown::html_format:
+  litedown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "meta-data/lastupdated.js", "meta-data/mathjax-font.js", "meta-data/iframe.js"]
-      header-includes: "meta-data/Hypothesis-config.html"
+      css: ["@default", "@snap", "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
+      js: ["@snap", "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "meta-data/lastupdated.js"]
+      # header-includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
     options:
+      includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
       number_sections: true
       latex_math: true
       js_math:
         package: mathjax
         version: 3
-        js: es5/tex-svg.js
+        js: es5/tex-mml-chtml.js
 ---
 
 ```{r, echo=FALSE, warning=FALSE}

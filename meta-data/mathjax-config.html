@@ -1,7 +1,16 @@
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    "HTML-CSS": { 
-        preferredFont: "STIX"
-        }
-  });
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/asana-math@1.0.0/Asana-Math.css">
+<script type="text/mathjax-config">
+  window.MathJax = {
+    svg: {
+      fontCache: 'global',
+      scale: 0.9
+    },
+    chtml: {
+      fontURL: ''https://cdn.jsdelivr.net/npm/asana-math@1.0.0/fonts/otf''
+    },
+    startup: {
+      output: ['svg', 'chtml'],
+      options: {scale: 0.9}
+    }
+  };
 </script>

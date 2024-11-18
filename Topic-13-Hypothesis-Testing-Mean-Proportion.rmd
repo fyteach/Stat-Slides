@@ -3,28 +3,28 @@ title: "Hypothesis Testing for Mean and Proportion"
 author: "Fei Ye"
 date: '`r format(Sys.time(), "%B %Y")`'
 output:
-  markdown::html_format:
+  litedown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "meta-data/lastupdated.js", "meta-data/mathjax-font.js"]
-      header-includes: "meta-data/Hypothesis-config.html"
+      css: ["@default", "@snap", "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
+      js: ["@snap", "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "meta-data/lastupdated.js"]
+      # header-includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
     options:
+      includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
       number_sections: true
       latex_math: true
       js_math:
         package: mathjax
         version: 3
-        js: es5/tex-svg.js
+        js: es5/tex-mml-chtml.js
 ---
 
 ```{r, echo=FALSE, warning=FALSE}
 knitr::opts_chunk$set(comment="#", fig.retina=2, crayon.enabled = TRUE, dpi=600)
 set.seed(15)
 library(knitr)
-library(ggplot2)
+library(kableExtra)
 library(dplyr,warn.conflicts = FALSE)
-library(latex2exp)
 ```
 
 ## Learning Goals for Hypothesis Tests
@@ -116,6 +116,7 @@ Since the $P$-value is smaller than the 5% significance level, we reject $H_0$ c
 An instructor would like to know if the students enrolled in a math course in the current semester performed better than students in the last semester. The mean final exam from last semester is 75.5. The final exam scores of 40 randomly selected 40 students were obtained
 
 ```{r echo=FALSE}
+set.seed(15)
 finalgrade <- c(93,88,69,74,76,81,78,77,74,63,67,81,80,82,68,88,76,69,75,78,75,77,94,87,74,88,63,75,94,88,91,77,76,68,80,88,68,83,72,72)
 finalgrade.df=matrix(finalgrade,ncol=20,byrow=TRUE)
 finalgrade.df <- as.data.frame(finalgrade.df)
