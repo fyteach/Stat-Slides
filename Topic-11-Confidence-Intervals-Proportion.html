@@ -3,177 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="generator" content="litedown 0.4">
 <title>Confidence Intervals for Proportion</title>
-<style type="text/css">
-body {
-  font-family: sans-serif;
-  max-width: 800px;
-  margin: auto;
-  padding: 1em;
-  line-height: 1.5;
-  box-sizing: border-box;
-}
-body, .footnotes, code { font-size: .9em; }
-li li { font-size: .95em; }
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-pre, img { max-width: 100%; }
-pre, pre:hover {
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-pre code {
-  display: block;
-  overflow-x: auto;
-}
-code { font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace; }
-:not(pre) > code, code[class] { background-color: #F8F8F8; }
-code.language-undefined, pre > code:not([class]) {
-  background-color: inherit;
-  border: 1px solid #eee;
-}
-table {
-  margin: auto;
-  border-top: 1px solid #666;
-}
-table thead th { border-bottom: 1px solid #ddd; }
-th, td { padding: 5px; }
-thead, tfoot, tr:nth-child(even) { background: #eee; }
-blockquote {
-  color: #666;
-  margin: 0;
-  padding-left: 1em;
-  border-left: 0.5em solid #eee;
-}
-hr, .footnotes::before { border: 1px dashed #ddd; }
-.frontmatter { text-align: center; }
-#TOC .numbered li { list-style: none; }
-#TOC .numbered { padding-left: 0; }
-#TOC .numbered ul { padding-left: 1em; }
-table, .body h2 { border-bottom: 1px solid #666; }
-.body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }
-.footnote-ref a::before { content: "["; }
-.footnote-ref a::after { content: "]"; }
-.footnotes::before {
-  content: "";
-  display: block;
-  max-width: 20em;
-}
-
-@media print {
-  body {
-    font-size: 12pt;
-    max-width: 100%;
-  }
-  tr, img { page-break-inside: avoid; }
-}
-@media only screen and (min-width: 992px) {
-  pre { white-space: pre; }
-}
-</style>
-<style type="text/css">
-:root { --slide-width: 100%; }
-html { scroll-snap-type: y mandatory; }
-th, td { padding: .2em .5em; }
-.slide {
-  padding: 1em;
-  position: relative;
-}
-.slide > h2, .slide > h3 { margin-top: unset; }
-body {
-  max-width: fit-content;
-  padding: 0;
-}
-a { color: #eb4a47; }
-:not(pre) > code { background-color: #fdfded; }
-#TOC { columns: 2; }
-#TOC::before {
-  font-size: 1.3em;
-  font-weight: bold;
-  display: block;
-  border-bottom: 1px solid #666;
-}
-.frontmatter, .middle {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-.page-number, .timer {
-  position: absolute;
-  bottom: 0;
-  opacity: .5;
-  font: .7em monospace;
-}
-.page-number { right: 0; }
-.timer { left: 0; }
-.inverse {
-  background-color: #eee;
-  filter: invert(1);
-}
-.fade {
-  background: repeating-linear-gradient(135deg, white, white 30px, #ddd 32px, #ddd 32px);
-  opacity: 0.6;
-}
-.center { text-align: center; }
-.slide-container h2 .section-number {
-  display: inline-block;
-  background-color: #666;
-  color: white;
-  padding: 0 .1em;
-  margin-right: .3em;
-}
-.overview {
-  font-size: .8em;
-  max-width: none;
-}
-.overview .slide {
-  min-height: unset;
-  scroll-snap-align: unset;
-}
-.overview .slide-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.overview .slide-container .slide {
-  width: var(--slide-width);
-  border: 1px dotted #ccc;
-  margin-bottom: 0.5em;
-}
-.mirrored { transform: scale(-1, 1); }
-.spacer { height: 50vh; }
-.overview .timer, .overview .spacer { display: none; }
-.overview .footnotes { position: unset; }
-html:fullscreen::-webkit-scrollbar { display: none; }
-html:fullscreen {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-@media (min-width: 992px) {
- :root { --slide-width: 49%; }
-  body { font-size: 2em; }
-  .slide {
-    min-height: 100vh;
-    scroll-snap-align: start;
-  }
-  li li { font-size: .9em; }
-  .footnotes {
-    position: absolute;
-    bottom: 1em;
-    font-size: .8em;
-  }
-}
-@media (min-width: 1400px) {
- :root { --slide-width: 33%; }
-}
-@media (min-width: 1800px) {
- :root { --slide-width: 24.67%; }
-}
-@media print, (max-width: 991.98px) {
-  .timer, .spacer { display: none; }
-}
-</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/css/default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/css/snap.min.css">
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital@0;1&family=Noto+Sans+Mono&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Source+Code+Pro&display=swap');
 
@@ -385,7 +218,7 @@ mjx-container[jax="SVG"][display="true"]{
   padding-left: 0.5em;
 }
 </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css,npm/@xiee/utils/css/heading-anchor.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils@1.13.44/css/key-buttons.min.css,npm/@xiee/utils@1.13.44/css/heading-anchor.min.css">
 <script>
 $(document).ready(function(){
     if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
@@ -396,26 +229,19 @@ $(document).ready(function(){
     }
 });
 </script>
-<link href="C:\Users\Fei\AppData\Local\R\win-library\4.3\kableExtra\lightable-0.0.1\lightable.css" rel="stylesheet" />
-<script type="application/json" class="js-hypothesis-config">
-  {
-    "openSidebar": false
-  }
-</script>
+<link href="C:\LocalApps\R\library\kableExtra\lightable-0.0.1\lightable.css" rel="stylesheet" />
 </head>
 <body>
-<div class="include-before">
-</div>
 <div class="frontmatter">
 <div class="title"><h1>Confidence Intervals for Proportion</h1></div>
 <div class="author"><h2>Fei Ye</h2></div>
-<div class="date"><h3>September 2023</h3></div>
+<div class="date"><h3>November 2024</h3></div>
 </div>
 <div class="body">
-<h2 id="learning-goals-for-confidence-intervals"><span class="section-number">1.</span> Learning Goals for Confidence Intervals</h2>
+<h2 id="sec:learning-goals-for-confidence-intervals"><span class="section-number main-number">1</span> Learning Goals for Confidence Intervals</h2>
 <ul>
 <li>
-<p>Construct and interpret a confidence intervals for one population proportion.</p>
+<p>Construct and interpret a confidence interval for one population proportion.</p>
 </li>
 <li>
 <p>Describe how the following will affect the width of the confidence interval:</p>
@@ -430,29 +256,29 @@ $(document).ready(function(){
 </li>
 </ul>
 <hr />
-<h2 id="confidence-interval-for-a-proportion-1-of-2"><span class="section-number">2.</span> Confidence Interval for a Proportion (1 of 2)</h2>
+<h2 id="sec:confidence-interval-for-a-proportion-1-of-2"><span class="section-number main-number">2</span> Confidence Interval for a Proportion (1 of 2)</h2>
 <ul>
 <li>
 <p>Recall that the standard error of sample proportions is \(\sigma_{\hat{P}}=\sqrt{\frac{p(1-p)}{n}}\), where \(n\) is the sample size and \(p\) is the population proportion. As a consequence, when estimating the population proportion \(p\), we only have a point estimate \(\hat{p}\) (phat) to use. For the standard error, we use the estimation
-$$\textstyle \sigma_{\hat{p}}\approx\hat{\sigma}_{\hat{p}}=\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}.$$</p>
+\(\textstyle \sigma_{\hat{p}}\approx\hat{\sigma}_{\hat{p}}=\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\) <code>=SQRT(phat*(1-phat)/n)</code>.</p>
 </li>
 <li>
-<p>Based on the central limit theorem, when \(n\) is large enough, at the \(100(1-\alpha)\%\) level, the margin of error for \(p\) is defined as
-$$\textstyle E=z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
-In Excel, \(z_{\alpha/2}\)=<code>NORM.S.INV((1 + confidence level)/2)</code>. The marginal error can also be obtained by
-<code>CONFIDENCE.NORM(1-confidence level, SQRT(phat*(1-phat)/n, n)</code>.</p>
+<p>Since the standard error is determined by \(\hat{p}\), the standardization of \(\hat{p}\) is determined completely by \(\hat{p}\). If the sample proportion is approximately normally distributed, then we can use the standard normal distribution to find the critical value: \(z_{\alpha/2}\) <code>=NORM.S.INV(0.5+ Confidence Level/2)</code>.</p>
+</li>
+<li>
+<p>The margin of error for \(p\) is
+$$\textstyle E=\text{critical value}*\text{standard error}=z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}.$$</p>
 </li>
 </ul>
 <hr />
-<h2 id="confidence-interval-for-a-proportion-2-of-2"><span class="section-number">3.</span> Confidence Interval for a Proportion (2 of 2)</h2>
+<h2 id="sec:confidence-interval-for-a-proportion-2-of-2"><span class="section-number main-number">3</span> Confidence Interval for a Proportion (2 of 2)</h2>
 <ul>
 <li>
 <p>The confidence interval for \(p\) is defined by
-$$[\hat{p}-E,\hat{p}+E]=\left[\hat{p}-z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}, \hat{p}+z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\right],$$
-where <a href="https://saylordotorg.github.io/text_introductory-statistics/s11-01-large-sample-estimation-of-a-p.html">the critical value \(z_{\alpha/2}\) satisfies that \(P(Z&lt; z_{\alpha/2})=1-\alpha/2\)</a> for the standard normal variable \(Z\).</p>
+$$[\hat{p}-E,\hat{p}+E]=\left[\hat{p}-z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}, \hat{p}+z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\right].$$</p>
 </li>
 <li>
-<p>In practical, the sample size \(n\) is considered large enough if \(n\hat{p}\ge 10\) and \(n(1-\hat{p})\ge 10\).</p>
+<p>In practice, the sample proportion is approximately normal if the sample size \(n\) satisfies \(n\hat{p}\ge 10\) and \(n(1-\hat{p})=n-n\hat{p}\ge 10\).</p>
 </li>
 <li>
 <p>The above defined confidence interval is known as the <a href="https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval">normal approximation (or Wald’s) confidence interval</a>.
@@ -461,7 +287,7 @@ Indeed, if the sample proportion is 0 or 1, the confidence interval defined here
 </li>
 </ul>
 <hr />
-<h2 id="distribution-of-confidence-interval"><span class="section-number">4.</span> Distribution of Confidence Interval</h2>
+<h2 id="sec:distribution-of-confidence-intervals"><span class="section-number main-number">4</span> Distribution of Confidence Intervals</h2>
 <p>By the central limit theorem, the random variable \(\hat{p}\) is normally distributed. The chance that
 $$p\in \left[\hat{p}-z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}, \hat{p}+z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\right]$$
 is the same as the chance that
@@ -469,7 +295,7 @@ $$\hat{p}\in \left[p-z_{\alpha/2}\sqrt{\frac{p(1-p)}{n}}, p+z_{\alpha/2}\sqrt{\f
 <p>It follows that \(z_{\alpha/2}\) satisfies the following equation
 $$P(-z_{\alpha/2}&lt;\dfrac{\hat{p}-p}{\sqrt{\frac{p(1-p)}{n}}}&lt;z_{\alpha/2})=1-\alpha.$$</p>
 <hr />
-<h2 id="example-proportion-of-students-taking-busses-1-of-2"><span class="section-number">5.</span> Example: Proportion of Students Taking Busses (1 of 2)</h2>
+<h2 id="sec:example-proportion-of-students-taking-busses-1-of-2"><span class="section-number main-number">5</span> Example: Proportion of Students Taking Busses (1 of 2)</h2>
 <p>In a random sample of 100 students in college, 65 said that they come to college by bus.</p>
 <ol>
 <li>
@@ -483,19 +309,20 @@ $$P(-z_{\alpha/2}&lt;\dfrac{\hat{p}-p}{\sqrt{\frac{p(1-p)}{n}}}&lt;z_{\alpha/2})
 <p>As \(n\hat{p}=100\cdot 0.65=65&gt;10\) and \(n(1-\hat{p})=100\cdot 0.35=35&gt;10\), which implies the sample is large enough, approximately the standard error is
 $$\hat{\sigma}_{\hat{P}}=\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}=\sqrt{\frac{0.65(1-0.65)}{100}}\approx0.048.$$</p>
 <hr />
-<h2 id="example-proportion-of-students-taking-busses-2-of-2"><span class="section-number">6.</span> Example: Proportion of Students Taking Busses (2 of 2)</h2>
-<p>At 99% level of confidence, the value \(1-\alpha/2=(1+\text{confidence level})/2=(1+0.99)/2=0.995\). The critical value \(z_{\alpha/2}\) is determined by the equation \(P(Z&lt;z_{\alpha/2})=0.9955\). Using the Excel function <code>NORM.S.INV(0.995)</code>, we find the critical value \(z_{\alpha/2}\approx 2.576\).</p>
-<p>Thus the marginal error is
+<h2 id="sec:example-proportion-of-students-taking-busses-2-of-2"><span class="section-number main-number">6</span> Example: Proportion of Students Taking Busses (2 of 2)</h2>
+<p>At 99% level of confidence, \(\alpha/2=(1-\text{confidence level})/2\), the critical value \(z_{\alpha/2}\) is determined by the equation \(P(Z&lt;z_{\alpha/2})=1-\alpha/2=0.5+\text{confidence level}/2\). In Excel, the critical value is \(z_{\alpha/2}\) <code>=NORM.S.INV(0.5+99%/2)</code> \(\approx 2.576\).</p>
+<p>The marginal error is
 \(E=z_{\alpha/2}\cdot \hat{\sigma}_{\hat{P}}=2.576\cdot 0.048=0.123,\)
 and the confidence interval at 99% level is
 $$[\hat{p}-E, \hat{p}+E]\approx [0.65-0.123, 0.65+0.123]=[0.527, 0.773].$$</p>
 <p>Conclusion: we are 99% confident that the proportion of all students at the college who take bus is in the interval \([0.527, 0.773]\).</p>
-<div class="footmark">
-<p><strong>Note:</strong> The marginal error can also be obtained by the Excel function
-<code>CONFIDENCE.NORM(1-0.99, SQRT(65/100*(1-65/100)/100), 100)</code>.</p>
-</div>
+<!-- ::: {.footmark}
+  **Note:** The marginal error can also be obtained by the Excel function
+  `CONFIDENCE.NORM(1-0.99, SQRT(65/100*(1-65/100)/100), 100)`.
+
+::: {.-->}
 <hr />
-<h2 id="factors-affect-the-width-of-confidence-intervals"><span class="section-number">7.</span> Factors Affect the Width of Confidence Intervals</h2>
+<h2 id="sec:factors-affect-the-width-of-confidence-intervals"><span class="section-number main-number">7</span> Factors Affect the Width of Confidence Intervals</h2>
 <ul>
 <li>
 <p>The width of a confidence interval, equals twice the standard error, gives a measure of precision of the estimation.</p>
@@ -520,7 +347,7 @@ $$\text{Marginal Error} = \text{Critical Value}\cdot \frac{\text{(estimated) Pop
 </li>
 </ul>
 <hr />
-<h2 id="sample-size-determination"><span class="section-number">8.</span> Sample Size Determination</h2>
+<h2 id="sec:sample-size-determination"><span class="section-number main-number">8</span> Sample Size Determination</h2>
 <ul>
 <li>
 <p>In practice, we may desire a marginal error of \(E\). With a fixed confidence level \(100(1-\alpha)\%\), the larger the sample size the smaller the marginal error.</p>
@@ -535,76 +362,76 @@ $$n=\left(\dfrac{z_{\alpha/2}\cdot \sigma}{{E}}\right)^2.$$</p>
 </li>
 </ul>
 <hr />
-<h2 id="example-minimum-sample-size-error-in-proportion"><span class="section-number">9.</span> Example: Minimum Sample Size - Error in Proportion</h2>
+<h2 id="sec:example-minimum-sample-size-error-in-proportion"><span class="section-number main-number">9</span> Example: Minimum Sample Size - Error in Proportion</h2>
 <p>Suppose you want to estimate the proportion of students at QCC who live in Queens. By surveying your classmates, you find around 70% live in Queens. Use this as a guess to determine how many students would need to be included in a random sample if you wanted the error of margin for a 95% confidence interval to be less than or equal to 2%.</p>
 <p><strong>Solution:</strong> We may use \(\hat{p}=0.7\) as a reasonable guess for the population proportion.</p>
-<p>At the 95% level, the critical value is \(z_{\alpha/2}=\) <code>NORM.S.INV((1+0.95)/2)</code> \(\approx 1.96\).</p>
+<p>At the 95% level, the critical value is \(z_{\alpha/2}=\) <code>NORM.S.INV(0.5+0.95/2)</code> \(\approx 1.96\).</p>
 <p>Since the marginal error is \(E=0.02\), the appropriate minimal sample size is determined by
 $$n=\left(\frac{z_{\alpha/2}}{{E}}\right)^2\cdot \hat{p}(1-\hat{p})=(1.96/0.02)^2\cdot 0.7\cdot(1-0.7)=2016.84.$$</p>
 <p>Since the sample size has to be an integer, to get a error no more than 2% at the level 95%,  the minimal sample size should be at least 2017.</p>
 <hr />
-<h2 id="example-minimum-sample-size-error-in-mean"><span class="section-number">10.</span> Example: Minimum Sample Size - Error in Mean</h2>
+<h2 id="sec:example-minimum-sample-size-error-in-mean"><span class="section-number main-number">10</span> Example: Minimum Sample Size - Error in Mean</h2>
 <p>Find the minimum sample size necessary to construct a 99% confidence interval for the population mean with a margin of error \(E =0.2\). Assume that the estimated population standard deviation is \(\sigma=1.3\).</p>
-<p><strong>Solution:</strong> At the 99% level, the critical value \(z_{\alpha/2}=\) <code>NORM.S.INV((1+0.99)/2)</code> \(\approx 2.576\).</p>
+<p><strong>Solution:</strong> At the 99% level, the critical value \(z_{\alpha/2}=\) <code>NORM.S.INV(0.5+0.99/2)</code> \(\approx 2.576\).</p>
 <p>The desired marginal error is \({E}=0.2\).</p>
 <p>The estimated population standard deviation is \(\sigma=1.3\).</p>
 <p>Then the minimal sample size is approximately
 $$n=\left(\dfrac{z_{\alpha/2}\cdot \sigma}{{E}}\right)^2\approx (2.576\cdot 1.3/0.2)^2 \approx 280.4.$$</p>
-<p>To get a error no more than 0.2 at the level 95%,  the minimal sample size should be at least 281.</p>
+<p>To get a error no more than 0.2 at the level 95%, the minimal sample size should be at least 281.</p>
 <hr />
-<h2 id="practice-confidence-interval-of-proportion-of-kids" class="unnumbered">Practice: Confidence Interval of Proportion of Kids</h2>
+<h2 id="sec:practice-confidence-interval-of-proportion-of-kids" class="unnumbered">Practice: Confidence Interval of Proportion of Kids</h2>
 <div class="iframecontainer">
 <iframe src="https://www.myopenmath.com/embedq2.php?id=7347&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
 </div>
 <hr />
-<h2 id="practice-confidence-intervals-for-product-quality" class="unnumbered">Practice: Confidence Intervals for Product Quality</h2>
-<p>To understand the reason for returned goods, the manager of a store examines the records on 40 products that were returned in the last year. Reasons were coded by 1 for “defective,” 2 for “unsatisfactory,” and 0 for all other reasons, with the results shown in the table.</p>
+<h2 id="sec:practice-confidence-intervals-for-product-quality" class="unnumbered">Practice: Confidence Intervals for Product Quality</h2>
+<p>To understand the reason for returned goods, the manager of a store examines the records on 40 products that were returned during the last year. Reasons were coded by 1 for “defective,” 2 for “unsatisfactory,” and 0 for all other reasons, with the results shown in the table.</p>
 <div class="center">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <tbody>
   <tr>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">2</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">2</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">2</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">2</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">1</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">2</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">2</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 1) !important;">2</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
-   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 1) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">1</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(42, 120, 142, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">2</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">2</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(187, 223, 39, 255) !important;">2</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
+   <td style="text-align:center;"> <span style="     color: rgba(46, 180, 124, 255) !important;">0</span> </td>
   </tr>
 </tbody>
 </table>
@@ -618,17 +445,17 @@ $$n=\left(\dfrac{z_{\alpha/2}\cdot \sigma}{{E}}\right)^2\approx (2.576\cdot 1.3/
 </li>
 </ol>
 <hr />
-<h2 id="practice-sample-size-for-mean-with-given-error" class="unnumbered">Practice: Sample Size for Mean with Given Error</h2>
+<h2 id="sec:practice-sample-size-for-mean-with-given-error" class="unnumbered">Practice: Sample Size for Mean with Given Error</h2>
 <div class="iframecontainer">
 <iframe src="https://www.myopenmath.com/embedq2.php?id=19799&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
 </div>
 <hr />
-<h2 id="practice-sample-size-for-proportion-with-given-error" class="unnumbered">Practice: Sample Size for Proportion with Given Error</h2>
+<h2 id="sec:practice-sample-size-for-proportion-with-given-error" class="unnumbered">Practice: Sample Size for Proportion with Given Error</h2>
 <div class="iframecontainer">
 <iframe src="https://www.myopenmath.com/embedq2.php?id=7348&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
 </div>
 <hr />
-<h2 id="practice-confidence-interval-of-proportion-given-table" class="unnumbered">Practice: Confidence Interval of Proportion Given Table</h2>
+<h2 id="sec:practice-confidence-interval-of-proportion-given-table" class="unnumbered">Practice: Confidence Interval of Proportion Given Table</h2>
 <div class="iframecontainer">
 <iframe src="https://www.myopenmath.com/embedq2.php?id=213816&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
 </div>
@@ -638,7 +465,7 @@ $$n=\left(\dfrac{z_{\alpha/2}\cdot \sigma}{{E}}\right)^2\approx (2.576\cdot 1.3/
 <p>Lab Instructions in Excel</p>
 </div>
 <hr />
-<h2 id="normal-distributions-and-marginal-errors"><span class="section-number">11.</span> Normal Distributions and Marginal Errors</h2>
+<h2 id="sec:normal-distributions-and-marginal-errors"><span class="section-number main-number">11</span> Normal Distributions and Marginal Errors</h2>
 <ul>
 <li>
 <p>When a cumulative probability \(p=P(Z&lt;z)\) of a standard normal random variable \(Z\) is given, we can find \(z\) using <code>NORM.S.INV(p)</code>.</p>
@@ -649,159 +476,14 @@ $$n=\left(\dfrac{z_{\alpha/2}\cdot \sigma}{{E}}\right)^2\approx (2.576\cdot 1.3/
 </li>
 </ul>
 <hr />
-<h2 id="lab-practice-confidence-interval-for-proportion" class="unnumbered">Lab Practice: Confidence Interval for Proportion</h2>
+<h2 id="sec:lab-practice-confidence-interval-for-proportion" class="unnumbered">Lab Practice: Confidence Interval for Proportion</h2>
 <p>Foothill College’s athletic department wants to calculate the proportion of students who have attended a women’s basketball game at the college. They use student email addresses, randomly choose 220 students, and email them. Of the 145 who responded, 22 had attended a women’s basketball game.</p>
 <p>Calculate and interpret the approximate 90% confidence interval for the proportion of all Foothill College students who have attended a women’s basketball game.</p>
 </div>
-<div class="include-after">
-</div>
-<script>
-(function(d) {
-  let p = d.body;  // container of slides; assume <body> for now
-  const s1 = ':scope > hr:not([class])', s2 = ':scope > h2';
-  // find a container that has at least n "slides"
-  function findContainer(s, n = 1) {
-    if (p.querySelectorAll(s).length >= n) return true;
-    // if body doesn't contain headings or <hr>s, look into children
-    for (let i = 0; i < p.children.length; i++) {
-      if (p.children[i].querySelectorAll(s).length >= n) {
-        p = p.children[i]; break;
-      }
-    }
-    return false;
-  }
-  function newEl(tag, cls) {
-    const el = d.createElement(tag);
-    if (cls) el.className = cls;
-    return el;
-  }
-  if (!findContainer(s1, 3)) {
-    // if not enough <hr>s found in children; look for <h2> instead
-    if (p.tagName === 'BODY') {
-      // not enough h2 found, this page is not appropriate for slides
-      if (!findContainer(s2) && p.tagName === 'BODY') return;
-      p.querySelectorAll(s2).forEach(h2 => h2.before(newEl('hr')));
-    }
-  }
-  p.classList.add('slide-container');
-  // add 'slide' class to the frontmatter div and toc
-  ['.frontmatter', '#TOC'].forEach(s => {
-    d.body.querySelector(s)?.classList.add('slide');
-  });
-
-  function newSlide(s) {
-    return (s?.innerText === '') ? s : newEl('div', 'slide');
-  }
-  function isSep(el) {
-    return el.tagName === 'HR' && el.attributes.length === 0;
-  }
-  let el = p.firstElementChild; if (isSep(el)) el.remove();
-  el = p.firstElementChild; if (!el) return;
-  let s = newSlide(); el.before(s);
-  while (true) {
-    let el = s.nextSibling;
-    if (!el) break;
-    // remove slide separators (<hr>) and create new slide
-    if (isSep(el)) {
-      s = newSlide(s);
-      el.before(s); el.remove();
-    } else if (el.classList?.contains('slide')) {
-      s = newSlide(s);
-      el.after(s);
-    } else {
-      s.append(el);
-    }
-  }
-  function setAttr(el, attr) {
-    const m = newEl('div');
-    m.innerHTML = `<div ${attr}></div>`;
-    const attrs = m.firstElementChild.attributes;
-    for (let i = 0; i < attrs.length; i++) {
-      let a = attrs[i];
-      el.setAttribute(a.name, a.value);
-    }
-    m.remove();
-  }
-  const slides = d.querySelectorAll('div.slide'), N = slides.length,
-        tm = d.querySelector('span.timer'), fn = d.querySelector('.footnotes');
-  slides.forEach((s, i) => {
-    // append footnotes
-    if (fn) s.querySelectorAll('.footnote-ref > a[href^="#fn"]').forEach(a => {
-      const li = fn.querySelector('li' + a.getAttribute('href'));
-      if (!li) return;
-      let f = s.querySelector('div.footnotes');
-      if (!f) {
-        f = newEl('div', 'footnotes'); s.append(f);
-      }
-      f.append(li);
-      li.firstElementChild?.insertAdjacentHTML('afterbegin', `[${a.innerHTML}] `);
-      li.outerHTML = li.innerHTML;
-    });
-    // add a timer
-    s.append(tm ? tm.cloneNode() : newEl('span', 'timer'));
-    // add page numbers
-    const n = newEl('span', 'page-number');
-    n.innerText = i + 1 + '/' + N;
-    n.onclick = e => location.hash = i + 1;
-    s.append(n);
-    // apply slide attributes in <!--# -->
-    for (let k in s.childNodes) {
-      const node = s.childNodes[k];
-      if (node.nodeType !== Node.COMMENT_NODE) continue;
-      let t = node.textContent;
-      if (!/^#/.test(t)) continue;
-      t = t.replace(/^#/, '');
-      const r = /[\s\n]class="([^"]+)"/, m = t.match(r);
-      if (m) {
-        t = t.replace(r, '').trim();
-        s.className += ' ' + m[1];
-      }
-      if (t) setAttr(s, t);
-      break;
-    }
-    s.classList.contains('extend') && s.append(newEl('div', 'spacer fade'));
-    location.hash === ('#' + (i + 1)) && s.scrollIntoView();
-    s.addEventListener('click', e => {
-      if (!e.altKey) return;
-      d.body.classList.toggle('overview');
-      setTimeout(() => e.target.scrollIntoView(), 100);
-    });
-  });
-  [...d.querySelectorAll('a.footnote-backref'), fn, tm].forEach(el => el?.remove());
-  const tms = d.querySelectorAll('span.timer'), t1 = 1000 * tms[0].dataset.total;
-  let t0;
-  function startTimers() {
-    t0 = new Date();
-    setInterval(setTimers, 1000);
-  }
-  function setTimers() {
-    let t = (new Date() - t0);
-    if (t1) t = t1 - t;
-    const t2 = new Date(Math.abs(t)).toISOString().substr(11, 8).replace(/^00:/, '');
-    tms.forEach(el => {
-      el.innerText = t2;
-      if (t < 0) el.style.display = el.style.display === 'none' ? '' : 'none';
-    });
-  }
-  // press f for fullscreen mode
-  d.addEventListener('keyup', (e) => {
-    if (e.target !== d.body) return;
-    e.key === 'f' && d.documentElement.requestFullscreen();
-    e.key === 'o' && d.body.classList.toggle('overview');
-    e.key === 'm' && d.body.classList.toggle('mirrored');
-    sessionStorage.setItem('body-class', d.body.className);
-  });
-  // start timer on fullscreen
-  d.onfullscreenchange = (e) => d.fullscreenElement && !t0 && startTimers();
-  tms.forEach(el => el.addEventListener('click', e => startTimers()));
-  // restore previsouly saved body class
-  const bc = sessionStorage.getItem('body-class');
-  if (bc) d.body.className += ' ' + bc;
-})(document);
-</script>
-<script src="https://hypothes.is/embed.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
-<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/key-buttons.min.js,npm/@xiee/utils/js/external-link.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/js/mathjax-config.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/js/snap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils@1.13.44/js/key-buttons.min.js,npm/@xiee/utils@1.13.44/js/external-link.min.js,npm/@xiee/utils@1.13.44/js/heading-anchor.min.js" defer></script>
 <script>
 // Function to format the current date and time as "MM/DD/YYYY HH:MM:SS" format
 function getCurrentDateTime() {
@@ -827,17 +509,6 @@ function addLastUpdated() {
 }
 
 window.addEventListener('load', addLastUpdated);
-</script>
-<script>
-window.MathJax = {
-  svg: {
-    fontCache: 'global',
-    scale: 0.9
-  },
-  startup: {
-    output: option: {scale: 0.9}
-  }
-};
 </script>
 </body>
 </html>

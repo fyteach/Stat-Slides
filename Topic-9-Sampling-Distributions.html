@@ -3,177 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="generator" content="litedown 0.4">
 <title>Sampling Distributions</title>
-<style type="text/css">
-body {
-  font-family: sans-serif;
-  max-width: 800px;
-  margin: auto;
-  padding: 1em;
-  line-height: 1.5;
-  box-sizing: border-box;
-}
-body, .footnotes, code { font-size: .9em; }
-li li { font-size: .95em; }
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-pre, img { max-width: 100%; }
-pre, pre:hover {
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-pre code {
-  display: block;
-  overflow-x: auto;
-}
-code { font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace; }
-:not(pre) > code, code[class] { background-color: #F8F8F8; }
-code.language-undefined, pre > code:not([class]) {
-  background-color: inherit;
-  border: 1px solid #eee;
-}
-table {
-  margin: auto;
-  border-top: 1px solid #666;
-}
-table thead th { border-bottom: 1px solid #ddd; }
-th, td { padding: 5px; }
-thead, tfoot, tr:nth-child(even) { background: #eee; }
-blockquote {
-  color: #666;
-  margin: 0;
-  padding-left: 1em;
-  border-left: 0.5em solid #eee;
-}
-hr, .footnotes::before { border: 1px dashed #ddd; }
-.frontmatter { text-align: center; }
-#TOC .numbered li { list-style: none; }
-#TOC .numbered { padding-left: 0; }
-#TOC .numbered ul { padding-left: 1em; }
-table, .body h2 { border-bottom: 1px solid #666; }
-.body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }
-.footnote-ref a::before { content: "["; }
-.footnote-ref a::after { content: "]"; }
-.footnotes::before {
-  content: "";
-  display: block;
-  max-width: 20em;
-}
-
-@media print {
-  body {
-    font-size: 12pt;
-    max-width: 100%;
-  }
-  tr, img { page-break-inside: avoid; }
-}
-@media only screen and (min-width: 992px) {
-  pre { white-space: pre; }
-}
-</style>
-<style type="text/css">
-:root { --slide-width: 100%; }
-html { scroll-snap-type: y mandatory; }
-th, td { padding: .2em .5em; }
-.slide {
-  padding: 1em;
-  position: relative;
-}
-.slide > h2, .slide > h3 { margin-top: unset; }
-body {
-  max-width: fit-content;
-  padding: 0;
-}
-a { color: #eb4a47; }
-:not(pre) > code { background-color: #fdfded; }
-#TOC { columns: 2; }
-#TOC::before {
-  font-size: 1.3em;
-  font-weight: bold;
-  display: block;
-  border-bottom: 1px solid #666;
-}
-.frontmatter, .middle {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-.page-number, .timer {
-  position: absolute;
-  bottom: 0;
-  opacity: .5;
-  font: .7em monospace;
-}
-.page-number { right: 0; }
-.timer { left: 0; }
-.inverse {
-  background-color: #eee;
-  filter: invert(1);
-}
-.fade {
-  background: repeating-linear-gradient(135deg, white, white 30px, #ddd 32px, #ddd 32px);
-  opacity: 0.6;
-}
-.center { text-align: center; }
-.slide-container h2 .section-number {
-  display: inline-block;
-  background-color: #666;
-  color: white;
-  padding: 0 .1em;
-  margin-right: .3em;
-}
-.overview {
-  font-size: .8em;
-  max-width: none;
-}
-.overview .slide {
-  min-height: unset;
-  scroll-snap-align: unset;
-}
-.overview .slide-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.overview .slide-container .slide {
-  width: var(--slide-width);
-  border: 1px dotted #ccc;
-  margin-bottom: 0.5em;
-}
-.mirrored { transform: scale(-1, 1); }
-.spacer { height: 50vh; }
-.overview .timer, .overview .spacer { display: none; }
-.overview .footnotes { position: unset; }
-html:fullscreen::-webkit-scrollbar { display: none; }
-html:fullscreen {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-@media (min-width: 992px) {
- :root { --slide-width: 49%; }
-  body { font-size: 2em; }
-  .slide {
-    min-height: 100vh;
-    scroll-snap-align: start;
-  }
-  li li { font-size: .9em; }
-  .footnotes {
-    position: absolute;
-    bottom: 1em;
-    font-size: .8em;
-  }
-}
-@media (min-width: 1400px) {
- :root { --slide-width: 33%; }
-}
-@media (min-width: 1800px) {
- :root { --slide-width: 24.67%; }
-}
-@media print, (max-width: 991.98px) {
-  .timer, .spacer { display: none; }
-}
-</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/css/default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/css/snap.min.css">
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital@0;1&family=Noto+Sans+Mono&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Source+Code+Pro&display=swap');
 
@@ -385,23 +218,16 @@ mjx-container[jax="SVG"][display="true"]{
   padding-left: 0.5em;
 }
 </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css,npm/@xiee/utils/css/heading-anchor.min.css">
-<script type="application/json" class="js-hypothesis-config">
-  {
-    "openSidebar": false
-  }
-</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils@1.13.44/css/key-buttons.min.css,npm/@xiee/utils@1.13.44/css/heading-anchor.min.css">
 </head>
 <body>
-<div class="include-before">
-</div>
 <div class="frontmatter">
 <div class="title"><h1>Sampling Distributions</h1></div>
 <div class="author"><h2>Fei Ye</h2></div>
-<div class="date"><h3>January 2024</h3></div>
+<div class="date"><h3>November 2024</h3></div>
 </div>
 <div class="body">
-<h2 id="learning-goals"><span class="section-number">1.</span> Learning Goals</h2>
+<h2 id="sec:learning-goals"><span class="section-number main-number">1</span> Learning Goals</h2>
 <ul>
 <li>
 <p>Demonstrate understanding of the sampling distribution of a statistic.</p>
@@ -420,7 +246,7 @@ mjx-container[jax="SVG"][display="true"]{
 </li>
 </ul>
 <hr />
-<h2 id="sampling-distribution"><span class="section-number">2.</span> Sampling Distribution</h2>
+<h2 id="sec:sampling-distribution"><span class="section-number main-number">2</span> Sampling Distribution</h2>
 <ul>
 <li>
 <p>When using sample statistics to estimate population parameter, there will be a chance error
@@ -434,7 +260,7 @@ $$\text{Population Parameter}=\text{Sample Statistic}+\text{Chance Error}.$$</p>
 </li>
 </ul>
 <hr />
-<h2 id="sampling-distribution-of-a-discrete-variable"><span class="section-number">3.</span> Sampling Distribution of a Discrete Variable</h2>
+<h2 id="sec:sampling-distribution-of-a-discrete-variable"><span class="section-number main-number">3</span> Sampling Distribution of a Discrete Variable</h2>
 <div class="iframecontainer">
 <iframe src="https://istats.shinyapps.io/SampDist_discrete/" width="100%" height="550px" data-external="1"></iframe>
 </div>
@@ -442,7 +268,7 @@ $$\text{Population Parameter}=\text{Sample Statistic}+\text{Chance Error}.$$</p>
 <p>Source: <a href="https://istats.shinyapps.io/SampDist_discrete/">https://istats.shinyapps.io/SampDist_discrete/</a></p>
 </div>
 <hr />
-<h2 id="sampling-distribution-of-a-continuous-variable"><span class="section-number">4.</span> Sampling Distribution of a Continuous Variable</h2>
+<h2 id="sec:sampling-distribution-of-a-continuous-variable"><span class="section-number main-number">4</span> Sampling Distribution of a Continuous Variable</h2>
 <div class="iframecontainer">
 <iframe src="https://istats.shinyapps.io/sampdist_cont/" width="100%" height="550px" data-external="1"></iframe>
 </div>
@@ -450,7 +276,7 @@ $$\text{Population Parameter}=\text{Sample Statistic}+\text{Chance Error}.$$</p>
 <p>Source: <a href="https://istats.shinyapps.io/sampdist_cont/">https://istats.shinyapps.io/sampdist_cont/</a></p>
 </div>
 <hr />
-<h2 id="sample-size-affects-standard-error"><span class="section-number">5.</span> Sample Size Affects Standard Error</h2>
+<h2 id="sec:sample-size-affects-standard-error"><span class="section-number main-number">5</span> Sample Size Affects Standard Error</h2>
 <ul>
 <li>
 <p>The sampling distribution varies as the sample size changes. In general, A larger sample size will result a smaller standard deviation of the sampling distribution.</p>
@@ -460,7 +286,7 @@ $$\text{Population Parameter}=\text{Sample Statistic}+\text{Chance Error}.$$</p>
 </li>
 </ul>
 <hr />
-<h2 id="central-limit-theorem-for-mean"><span class="section-number">6.</span> Central Limit Theorem for Mean</h2>
+<h2 id="sec:central-limit-theorem-for-mean"><span class="section-number main-number">6</span> Central Limit Theorem for Mean</h2>
 <div class="theorem" title="The Central Limit Theorem for Mean">
 <p>As the sample size \(n\) increases, the sampling distribution of the sample mean, from a population with the mean \(\mu\) and the standard deviation \(\sigma\), will approach to a normal distribution with the mean \(\mu_{\bar{X}}=\mu\) and the standard deviation \(\sigma_{\bar{X}}=\dfrac{\sigma}{\sqrt{n}}\).</p>
 </div>
@@ -476,10 +302,10 @@ $$\text{Population Parameter}=\text{Sample Statistic}+\text{Chance Error}.$$</p>
 <!--   Source: [https://seeing-theory.brown.edu/probability-distributions/index.html#section3](https://seeing-theory.brown.edu/probability-distributions/index.html#section3) -->
 <!-- ::: -->
 <hr />
-<h2 id="but-what-is-the-central-limit-theorem"><span class="section-number">7.</span> But What is the Central Limit Theorem?</h2>
+<h2 id="sec:but-what-is-the-central-limit-theorem"><span class="section-number main-number">7</span> But What is the Central Limit Theorem?</h2>
 <iframe width="550" height="315" src="https://www.youtube.com/embed/zeJD6dqJ5lo?si=zsbChFbzj-pm2w5f&amp;start=256" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <hr />
-<h2 id="required-sample-size-for-mean"><span class="section-number">8.</span> Required Sample Size for Mean</h2>
+<h2 id="sec:required-sample-size-for-mean"><span class="section-number main-number">8</span> Required Sample Size for Mean</h2>
 <ul>
 <li>
 <p>For most distributions (not highly skewed), when sample size \(n&gt;30\), the sampling distribution of the sample mean \(\bar{X}\) can be approximated reasonably well by a normal distribution. The larger the sample size, the better the approximation will be.</p>
@@ -495,7 +321,7 @@ $$\text{Population Parameter}=\text{Sample Statistic}+\text{Chance Error}.$$</p>
 <p>See <a href="https://stats.stackexchange.com/questions/3734">https://stats.stackexchange.com/questions/3734</a> for a discussion on intuitive explanation.</p>
 </div>
 <hr />
-<h2 id="example-sampling-distribution-of-small-data-1-of-2"><span class="section-number">9.</span> Example: Sampling Distribution of Small Data (1 of 2)</h2>
+<h2 id="sec:example-sampling-distribution-of-small-data-1-of-2"><span class="section-number main-number">9</span> Example: Sampling Distribution of Small Data (1 of 2)</h2>
 <p>Randomly draw samples of size 2 with replacement from the numbers 1, 3, 4.</p>
 <ul>
 <li>List all possible samples and calculate the mean of each sample.</li>
@@ -560,7 +386,7 @@ $$\text{Population Parameter}=\text{Sample Statistic}+\text{Chance Error}.$$</p>
 </div>
 <p>It can be verified that \(\mu_{\bar{X}}=\mu\) and \(\sigma/\sqrt{n}=1.25/\sqrt{2}\approx 0.88=\sigma_{\bar{X}}\).</p>
 <hr />
-<h2 id="example-sampling-distribution-of-small-data-2-of-2"><span class="section-number">10.</span> Example: Sampling Distribution of Small Data(2 of 2)</h2>
+<h2 id="sec:example-sampling-distribution-of-small-data-2-of-2"><span class="section-number main-number">10</span> Example: Sampling Distribution of Small Data(2 of 2)</h2>
 <p>The following are the distribution of the population and the distribution of sample means.</p>
 <div class="row">
 <div class="pull-left">
@@ -575,7 +401,7 @@ $$\text{Population Parameter}=\text{Sample Statistic}+\text{Chance Error}.$$</p>
 </div>
 </div>
 <hr />
-<h2 id="example-mean-length-of-time-on-hold"><span class="section-number">11.</span> Example: Mean Length of Time on Hold</h2>
+<h2 id="sec:example-mean-length-of-time-on-hold"><span class="section-number main-number">11</span> Example: Mean Length of Time on Hold</h2>
 <!--# style="font-size:0.95em;"-->
 <p>Suppose the mean length of time that a caller is placed on hold when telephoning a customer service center is 23.8 seconds, with standard deviation 4.6 seconds. Find the probability that the mean length of time on hold in a random sample of 1,000 calls will be within 0.5 second of the population mean.</p>
 <p><strong>Solution:</strong> Since the sample size \(n=1000&gt;30\) is large enough, by the Central Limit Theorem, we know that the mean length of time is approximately normally distributed.</p>
@@ -586,7 +412,7 @@ $$\text{Population Parameter}=\text{Sample Statistic}+\text{Chance Error}.$$</p>
 <code>NORM.DIST(24.3, 23.8, 4.6/SQRT(1000),TRUE)-NORM.DIST(23.3, 23.8, 4.6/SQRT(1000),TRUE)</code></li>
 </ul>
 <hr />
-<h2 id="example-normal-vs-sampling-distribution"><span class="section-number">12.</span> Example: Normal vs Sampling Distribution</h2>
+<h2 id="sec:example-normal-vs-sampling-distribution"><span class="section-number main-number">12</span> Example: Normal vs Sampling Distribution</h2>
 <!--# style="font-size:0.91em;"-->
 <p>Suppose speeds of vehicles on a particular stretch of roadway are normally distributed with mean 36.6 mph and standard deviation 1.7 mph.</p>
 <ul>
@@ -605,7 +431,7 @@ $$\text{Population Parameter}=\text{Sample Statistic}+\text{Chance Error}.$$</p>
 </li>
 </ul>
 <hr />
-<h2 id="sampling-distribution-of-a-sample-proportion"><span class="section-number">13.</span> Sampling Distribution of a Sample Proportion</h2>
+<h2 id="sec:sampling-distribution-of-a-sample-proportion"><span class="section-number main-number">13</span> Sampling Distribution of a Sample Proportion</h2>
 <ul>
 <li>
 <p>The proportion of a specific characteristic in a data set can be viewed as the mean of the data set by identifying the specific characteristic with 1 and others with \(0\).</p>
@@ -621,13 +447,13 @@ $$\sigma=\sqrt{(1-p)^2p+(0-p)^2(1-p)}=\sqrt{p(1-p)}.$$</p>
 </li>
 </ul>
 <hr />
-<h2 id="central-limit-theorem-for-proportion"><span class="section-number">14.</span> Central Limit Theorem for Proportion</h2>
+<h2 id="sec:central-limit-theorem-for-proportion"><span class="section-number main-number">14</span> Central Limit Theorem for Proportion</h2>
 <p>For a sampling distribution of sample proportion, we write \(\hat{P}\) for the random variable of sample proportions.</p>
 <div class="theorem" title="Central Limit Theorem for Proportion">
 <p>For large samples, the distribution of sample proportions \(\hat{P}\) is approximately normal, with the mean \(\mu_{\hat{P}}=p\) and standard deviation \(\sigma_{\hat{P}}=\sqrt{\frac{p(1-p)}{n}}\), where \(p\) is the population proportion.</p>
 </div>
 <hr />
-<h2 id="required-sample-size-for-proportion"><span class="section-number">15.</span> Required Sample Size for Proportion</h2>
+<h2 id="sec:required-sample-size-for-proportion"><span class="section-number main-number">15</span> Required Sample Size for Proportion</h2>
 <ul>
 <li>
 <p>As a sample proportion is always between 0 and 1, and 99.7% of sample proportions lie within 3 standard deviation away from the population proportion, when using the central limit theorem for proportion, we require the sample size \(n\) satisfying the following condition: the interval \(\left[p-3\sqrt{\frac{p(1-p)}{n}}, p+3\sqrt{\frac{p(1-p)}{n}}\right]\) lies wholly in the interval \([0, 1]\).</p>
@@ -640,7 +466,7 @@ $$\sigma=\sqrt{(1-p)^2p+(0-p)^2(1-p)}=\sqrt{p(1-p)}.$$</p>
 </li>
 </ul>
 <hr />
-<h2 id="example-sampling-voters"><span class="section-number">16.</span> Example: Sampling Voters</h2>
+<h2 id="sec:example-sampling-voters"><span class="section-number main-number">16</span> Example: Sampling Voters</h2>
 <p>Suppose that in a population of voters in a certain region 53% are in favor of a particular law. Nine hundred randomly selected voters are asked if they favor the law.</p>
 <p>Find the probability that the sample proportion computed from a random sample of size 900 will be at least 2% above true population proportion.</p>
 <p><strong>Solution:</strong> We first verify that the sampling distribution is approximately normal.</p>
@@ -651,24 +477,24 @@ $$\sigma=\sqrt{(1-p)^2p+(0-p)^2(1-p)}=\sqrt{p(1-p)}.$$</p>
 which can be obtained by
 <code>1-NORM.DIST(0.55, 0.53, SQRT(0.53*(1-0.53)/900),TRUE)</code>.</p>
 <hr />
-<h2 id="example-traffic-accidents"><span class="section-number">17.</span> Example: Traffic Accidents</h2>
+<h2 id="sec:example-traffic-accidents"><span class="section-number main-number">17</span> Example: Traffic Accidents</h2>
 <p>Suppose that in 36% of all car accidents involve injury. Find the probability that the injury rate in a random sample of 250 car accidents is between 30% and 45%.</p>
 <p><strong>Solution:</strong> The injury rate of all car accidents is \(p=36\%=0.36\) and the sample size is \(250\). Because \(np=250\cdot 0.36=90&gt;10\) and \(n(1-p)=250-90=160&gt;10\), the sample size is considered large enough. By the Central Limit Theorem, the sample proportion \(\hat{P}\) is approximately normally distributed with the mean \(\mu_{\hat{P}}=p=0.36\) and standard deviation \(\sigma_{\hat{P}}=\sqrt{\frac{p(1-p)}{n}}\approx 0.03\)</p>
 <p>Then the probability of a random sample of 250 car accidents with the injury rate between 30% and 45% is
 \(\textstyle P(0.30&lt;\hat{P}&lt;0.45)=P(\hat{P}&lt;0.45)-P(\hat{P}&lt;0.30)=\) <code>=NORM.DIST(30%, 36%,0.03, TRUE)-NORM.DIST(45%, 36%,0.03, TRUE)</code> \(\approx  0.976\)</p>
 <hr />
-<h2 id="practice-sample-mean-of-gpa" class="unnumbered">Practice: Sample Mean of GPA</h2>
+<h2 id="sec:practice-sample-mean-of-gpa" class="unnumbered">Practice: Sample Mean of GPA</h2>
 <p>The numerical population of grade point averages at a college has mean 2.61 and standard deviation 0.5. If a random sample of size 100 is taken from the population, what is the probability that the sample mean will be between 2.51 and 2.71?</p>
 <div class="footmark">
 <p>Source: <a href="https://saylordotorg.github.io/text_introductory-statistics/s10-02-the-sampling-distribution-of-t.html">Example 4 in Section 6.2 in Introductory Statistics</a></p>
 </div>
 <hr />
-<h2 id="practice-proportion-of-red-candy" class="unnumbered">Practice: Proportion of Red Candy</h2>
+<h2 id="sec:practice-proportion-of-red-candy" class="unnumbered">Practice: Proportion of Red Candy</h2>
 <div class="iframecontainer">
 <iframe src="https://www.myopenmath.com/embedq2.php?id=178683&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
 </div>
 <hr />
-<h2 id="practice-minimal-mean-weight-of-a-particular-fruit" class="unnumbered">Practice: Minimal Mean Weight of a Particular Fruit</h2>
+<h2 id="sec:practice-minimal-mean-weight-of-a-particular-fruit" class="unnumbered">Practice: Minimal Mean Weight of a Particular Fruit</h2>
 <div class="iframecontainer">
 <iframe src="https://www.myopenmath.com/embedq2.php?id=33379&amp;seed=2020&amp;showansafter" width="100%" height="560px" data-external="1"></iframe>
 </div>
@@ -678,7 +504,7 @@ which can be obtained by
 <p>More Practice</p>
 </div>
 <hr />
-<h2 id="practice-sampling-unknown-population" class="unnumbered">Practice: Sampling Unknown Population</h2>
+<h2 id="sec:practice-sampling-unknown-population" class="unnumbered">Practice: Sampling Unknown Population</h2>
 <p>A population has mean 73.5 and standard deviation 2.5.</p>
 <ol>
 <li>Find the mean and standard deviation of \(\bar{X}\) for samples of size 30.</li>
@@ -688,7 +514,7 @@ which can be obtained by
 <p>Source: <a href="https://saylordotorg.github.io/text_introductory-statistics/s10-02-the-sampling-distribution-of-t.html">Exercise 3 in Section 6.2 in Introductory Statistics</a>.</p>
 </div>
 <hr />
-<h2 id="practice-sampling-normal-population" class="unnumbered">Practice: Sampling Normal Population</h2>
+<h2 id="sec:practice-sampling-normal-population" class="unnumbered">Practice: Sampling Normal Population</h2>
 <p>A normally distributed population has mean 57.7 and standard deviation 12.1.</p>
 <ol>
 <li>Find the probability that a single randomly selected element X of the population is less than 45.</li>
@@ -699,19 +525,19 @@ which can be obtained by
 <p>Source: <a href="https://saylordotorg.github.io/text_introductory-statistics/s10-02-the-sampling-distribution-of-t.html">Exercise 6 in Section 6.2 in Introductory Statistics</a>.</p>
 </div>
 <hr />
-<h2 id="practice-cholesterol-level-in-large-eggs" class="unnumbered">Practice: Cholesterol Level in Large Eggs</h2>
+<h2 id="sec:practice-cholesterol-level-in-large-eggs" class="unnumbered">Practice: Cholesterol Level in Large Eggs</h2>
 <p>Suppose the mean amount of cholesterol in eggs labeled “large” is 186 milligrams, with standard deviation 7 milligrams. Find the probability that the mean amount of cholesterol in a sample of 144 eggs will be within 2 milligrams of the population mean.</p>
 <div class="footmark">
 <p>Source: <a href="https://saylordotorg.github.io/text_introductory-statistics/s10-02-the-sampling-distribution-of-t.html">Exercise 15 in Section 6.2 in Introductory Statistics</a>.</p>
 </div>
 <hr />
-<h2 id="practice-color-blindness-rate" class="unnumbered">Practice: Color Blindness Rate</h2>
+<h2 id="sec:practice-color-blindness-rate" class="unnumbered">Practice: Color Blindness Rate</h2>
 <p>Suppose that 8% of all males suffer some form of color blindness. Find the probability that in a random sample of 250 men at least 10% will suffer some form of color blindness.</p>
 <div class="footmark">
 <p>Source: <a href="https://saylordotorg.github.io/text_introductory-statistics/s10-03-the-sample-proportion.html">Exercise 13 in Section 6.3 in Introductory Statistics</a>.</p>
 </div>
 <hr />
-<h2 id="practice-proportion-of-voting" class="unnumbered">Practice: Proportion of Voting</h2>
+<h2 id="sec:practice-proportion-of-voting" class="unnumbered">Practice: Proportion of Voting</h2>
 <p>In a mayoral election, based on a poll, a newspaper reported that the current mayor received 45% of the vote. If this is true, what is the probability that a random sample of 100 voters had less than 35% voting for the current mayor?</p>
 <hr />
 <!--# class="center middle" -->
@@ -719,7 +545,7 @@ which can be obtained by
 <p>Lab Instructions in Excel</p>
 </div>
 <hr />
-<h2 id="the-norm-dist-function"><span class="section-number">18.</span> The <code>NORM.DIST()</code> Function</h2>
+<h2 id="sec:the-norm-dist-function"><span class="section-number main-number">18</span> The <code>NORM.DIST()</code> Function</h2>
 <ul>
 <li>
 <p>Let \(X\) be a normal random variable with mean \(\mu\) and standard deviation \(\sigma\), that is \(X\sim \mathcal{N}(\mu, \sigma^2)\). In Excel, \(P(X&lt;x)\) is given by <code>NORM.DIST(x, mean, sd, TRUE)</code>.</p>
@@ -733,7 +559,7 @@ which can be obtained by
 </li>
 </ul>
 <hr />
-<h2 id="lab-practice-testing-an-airline-s-claim" class="unnumbered">Lab Practice: Testing an Airline’s Claim</h2>
+<h2 id="sec:lab-practice-testing-an-airline-s-claim" class="unnumbered">Lab Practice: Testing an Airline’s Claim</h2>
 <p>An airline claims that 72% of all its flights to a certain region arrive on time. In a random sample of 30 recent arrivals, 19 were on time. You may assume that the normal distribution applies.</p>
 <ol>
 <li>Compute the sample proportion.</li>
@@ -743,155 +569,10 @@ which can be obtained by
 <p>Source: <a href="https://saylordotorg.github.io/text_introductory-statistics/s10-03-the-sample-proportion.html">Exercise 17 in Section 6.3 in Introductory Statistics</a>.</p>
 </div>
 </div>
-<div class="include-after">
-</div>
-<script>
-(function(d) {
-  let p = d.body;  // container of slides; assume <body> for now
-  const s1 = ':scope > hr:not([class])', s2 = ':scope > h2';
-  // find a container that has at least n "slides"
-  function findContainer(s, n = 1) {
-    if (p.querySelectorAll(s).length >= n) return true;
-    // if body doesn't contain headings or <hr>s, look into children
-    for (let i = 0; i < p.children.length; i++) {
-      if (p.children[i].querySelectorAll(s).length >= n) {
-        p = p.children[i]; break;
-      }
-    }
-    return false;
-  }
-  function newEl(tag, cls) {
-    const el = d.createElement(tag);
-    if (cls) el.className = cls;
-    return el;
-  }
-  if (!findContainer(s1, 3)) {
-    // if not enough <hr>s found in children; look for <h2> instead
-    if (p.tagName === 'BODY') {
-      // not enough h2 found, this page is not appropriate for slides
-      if (!findContainer(s2) && p.tagName === 'BODY') return;
-      p.querySelectorAll(s2).forEach(h2 => h2.before(newEl('hr')));
-    }
-  }
-  p.classList.add('slide-container');
-  // add 'slide' class to the frontmatter div and toc
-  ['.frontmatter', '#TOC'].forEach(s => {
-    d.body.querySelector(s)?.classList.add('slide');
-  });
-
-  function newSlide(s) {
-    return (s?.innerText === '') ? s : newEl('div', 'slide');
-  }
-  function isSep(el) {
-    return el.tagName === 'HR' && el.attributes.length === 0;
-  }
-  let el = p.firstElementChild; if (isSep(el)) el.remove();
-  el = p.firstElementChild; if (!el) return;
-  let s = newSlide(); el.before(s);
-  while (true) {
-    let el = s.nextSibling;
-    if (!el) break;
-    // remove slide separators (<hr>) and create new slide
-    if (isSep(el)) {
-      s = newSlide(s);
-      el.before(s); el.remove();
-    } else if (el.classList?.contains('slide')) {
-      s = newSlide(s);
-      el.after(s);
-    } else {
-      s.append(el);
-    }
-  }
-  function setAttr(el, attr) {
-    const m = newEl('div');
-    m.innerHTML = `<div ${attr}></div>`;
-    const attrs = m.firstElementChild.attributes;
-    for (let i = 0; i < attrs.length; i++) {
-      let a = attrs[i];
-      el.setAttribute(a.name, a.value);
-    }
-    m.remove();
-  }
-  const slides = d.querySelectorAll('div.slide'), N = slides.length,
-        tm = d.querySelector('span.timer'), fn = d.querySelector('.footnotes');
-  slides.forEach((s, i) => {
-    // append footnotes
-    if (fn) s.querySelectorAll('.footnote-ref > a[href^="#fn"]').forEach(a => {
-      const li = fn.querySelector('li' + a.getAttribute('href'));
-      if (!li) return;
-      let f = s.querySelector('div.footnotes');
-      if (!f) {
-        f = newEl('div', 'footnotes'); s.append(f);
-      }
-      f.append(li);
-      li.firstElementChild?.insertAdjacentHTML('afterbegin', `[${a.innerHTML}] `);
-      li.outerHTML = li.innerHTML;
-    });
-    // add a timer
-    s.append(tm ? tm.cloneNode() : newEl('span', 'timer'));
-    // add page numbers
-    const n = newEl('span', 'page-number');
-    n.innerText = i + 1 + '/' + N;
-    n.onclick = e => location.hash = i + 1;
-    s.append(n);
-    // apply slide attributes in <!--# -->
-    for (let k in s.childNodes) {
-      const node = s.childNodes[k];
-      if (node.nodeType !== Node.COMMENT_NODE) continue;
-      let t = node.textContent;
-      if (!/^#/.test(t)) continue;
-      t = t.replace(/^#/, '');
-      const r = /[\s\n]class="([^"]+)"/, m = t.match(r);
-      if (m) {
-        t = t.replace(r, '').trim();
-        s.className += ' ' + m[1];
-      }
-      if (t) setAttr(s, t);
-      break;
-    }
-    s.classList.contains('extend') && s.append(newEl('div', 'spacer fade'));
-    location.hash === ('#' + (i + 1)) && s.scrollIntoView();
-    s.addEventListener('click', e => {
-      if (!e.altKey) return;
-      d.body.classList.toggle('overview');
-      setTimeout(() => e.target.scrollIntoView(), 100);
-    });
-  });
-  [...d.querySelectorAll('a.footnote-backref'), fn, tm].forEach(el => el?.remove());
-  const tms = d.querySelectorAll('span.timer'), t1 = 1000 * tms[0].dataset.total;
-  let t0;
-  function startTimers() {
-    t0 = new Date();
-    setInterval(setTimers, 1000);
-  }
-  function setTimers() {
-    let t = (new Date() - t0);
-    if (t1) t = t1 - t;
-    const t2 = new Date(Math.abs(t)).toISOString().substr(11, 8).replace(/^00:/, '');
-    tms.forEach(el => {
-      el.innerText = t2;
-      if (t < 0) el.style.display = el.style.display === 'none' ? '' : 'none';
-    });
-  }
-  // press f for fullscreen mode
-  d.addEventListener('keyup', (e) => {
-    if (e.target !== d.body) return;
-    e.key === 'f' && d.documentElement.requestFullscreen();
-    e.key === 'o' && d.body.classList.toggle('overview');
-    e.key === 'm' && d.body.classList.toggle('mirrored');
-    sessionStorage.setItem('body-class', d.body.className);
-  });
-  // start timer on fullscreen
-  d.onfullscreenchange = (e) => d.fullscreenElement && !t0 && startTimers();
-  tms.forEach(el => el.addEventListener('click', e => startTimers()));
-  // restore previsouly saved body class
-  const bc = sessionStorage.getItem('body-class');
-  if (bc) d.body.className += ' ' + bc;
-})(document);
-</script>
-<script src="https://hypothes.is/embed.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
-<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/key-buttons.min.js,npm/@xiee/utils/js/external-link.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/js/mathjax-config.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/js/snap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils@1.13.44/js/key-buttons.min.js,npm/@xiee/utils@1.13.44/js/external-link.min.js,npm/@xiee/utils@1.13.44/js/heading-anchor.min.js" defer></script>
 <script>
 // Function to format the current date and time as "MM/DD/YYYY HH:MM:SS" format
 function getCurrentDateTime() {
@@ -917,27 +598,6 @@ function addLastUpdated() {
 }
 
 window.addEventListener('load', addLastUpdated);
-</script>
-<script>
-window.MathJax = {
-  svg: {
-    fontCache: 'global',
-    scale: 0.9
-  },
-  startup: {
-    output: option: {scale: 0.9}
-  }
-};
-</script>
-<script>
-// Select all iframes with src starting with "https://istats"
-const iframes = document.querySelectorAll('iframe[src^="https://istats"]');
-
-// Loop through each iframe and add the sandbox attribute
-iframes.forEach(iframe => {
-    // Add or modify the 'sandbox' attribute to prevent pop-ups
-    iframe.setAttribute('sandbox', 'allow-same-origin allow-presentation');
-});
 </script>
 </body>
 </html>

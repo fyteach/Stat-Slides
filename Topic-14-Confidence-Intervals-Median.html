@@ -3,177 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Confidence Intervals for Median</title>
-<style type="text/css">
-body {
-  font-family: sans-serif;
-  max-width: 800px;
-  margin: auto;
-  padding: 1em;
-  line-height: 1.5;
-  box-sizing: border-box;
-}
-body, .footnotes, code { font-size: .9em; }
-li li { font-size: .95em; }
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-pre, img { max-width: 100%; }
-pre, pre:hover {
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-pre code {
-  display: block;
-  overflow-x: auto;
-}
-code { font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace; }
-:not(pre) > code, code[class] { background-color: #F8F8F8; }
-code.language-undefined, pre > code:not([class]) {
-  background-color: inherit;
-  border: 1px solid #eee;
-}
-table {
-  margin: auto;
-  border-top: 1px solid #666;
-}
-table thead th { border-bottom: 1px solid #ddd; }
-th, td { padding: 5px; }
-thead, tfoot, tr:nth-child(even) { background: #eee; }
-blockquote {
-  color: #666;
-  margin: 0;
-  padding-left: 1em;
-  border-left: 0.5em solid #eee;
-}
-hr, .footnotes::before { border: 1px dashed #ddd; }
-.frontmatter { text-align: center; }
-#TOC .numbered li { list-style: none; }
-#TOC .numbered { padding-left: 0; }
-#TOC .numbered ul { padding-left: 1em; }
-table, .body h2 { border-bottom: 1px solid #666; }
-.body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }
-.footnote-ref a::before { content: "["; }
-.footnote-ref a::after { content: "]"; }
-.footnotes::before {
-  content: "";
-  display: block;
-  max-width: 20em;
-}
-
-@media print {
-  body {
-    font-size: 12pt;
-    max-width: 100%;
-  }
-  tr, img { page-break-inside: avoid; }
-}
-@media only screen and (min-width: 992px) {
-  pre { white-space: pre; }
-}
-</style>
-<style type="text/css">
-:root { --slide-width: 100%; }
-html { scroll-snap-type: y mandatory; }
-th, td { padding: .2em .5em; }
-.slide {
-  padding: 1em;
-  position: relative;
-}
-.slide > h2, .slide > h3 { margin-top: unset; }
-body {
-  max-width: fit-content;
-  padding: 0;
-}
-a { color: #eb4a47; }
-:not(pre) > code { background-color: #fdfded; }
-#TOC { columns: 2; }
-#TOC::before {
-  font-size: 1.3em;
-  font-weight: bold;
-  display: block;
-  border-bottom: 1px solid #666;
-}
-.frontmatter, .middle {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-.page-number, .timer {
-  position: absolute;
-  bottom: 0;
-  opacity: .5;
-  font: .7em monospace;
-}
-.page-number { right: 0; }
-.timer { left: 0; }
-.inverse {
-  background-color: #eee;
-  filter: invert(1);
-}
-.fade {
-  background: repeating-linear-gradient(135deg, white, white 30px, #ddd 32px, #ddd 32px);
-  opacity: 0.6;
-}
-.center { text-align: center; }
-.slide-container h2 .section-number {
-  display: inline-block;
-  background-color: #666;
-  color: white;
-  padding: 0 .1em;
-  margin-right: .3em;
-}
-.overview {
-  font-size: .8em;
-  max-width: none;
-}
-.overview .slide {
-  min-height: unset;
-  scroll-snap-align: unset;
-}
-.overview .slide-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.overview .slide-container .slide {
-  width: var(--slide-width);
-  border: 1px dotted #ccc;
-  margin-bottom: 0.5em;
-}
-.mirrored { transform: scale(-1, 1); }
-.spacer { height: 50vh; }
-.overview .timer, .overview .spacer { display: none; }
-.overview .footnotes { position: unset; }
-html:fullscreen::-webkit-scrollbar { display: none; }
-html:fullscreen {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-@media (min-width: 992px) {
- :root { --slide-width: 49%; }
-  body { font-size: 2em; }
-  .slide {
-    min-height: 100vh;
-    scroll-snap-align: start;
-  }
-  li li { font-size: .9em; }
-  .footnotes {
-    position: absolute;
-    bottom: 1em;
-    font-size: .8em;
-  }
-}
-@media (min-width: 1400px) {
- :root { --slide-width: 33%; }
-}
-@media (min-width: 1800px) {
- :root { --slide-width: 24.67%; }
-}
-@media print, (max-width: 991.98px) {
-  .timer, .spacer { display: none; }
-}
-</style>
+<meta name="generator" content="litedown 0.4">
+<title>Confidence Intervals for Median (Optional)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/css/default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/css/snap.min.css">
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital@0;1&family=Noto+Sans+Mono&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Source+Code+Pro&display=swap');
 
@@ -240,7 +73,6 @@ code {
 
 .row {
   display: flex;
-  justify-content: top;
   align-items: flex-start;
 }
 
@@ -304,6 +136,10 @@ thead:empty {
   display: none;
 }
 
+table thead th {
+  padding: 0 0.25em;
+}
+
 .remark::before {
   content: "Remark:";
   color: #Feec01;
@@ -354,24 +190,6 @@ iframe[src^="https://www.myopenmath.com"] {
   transform-origin: 0 0;
 }
 
-/* span {
-  text-align: center;
-  font-size: 0.7em;
-  bottom: 0;
-  position: absolute;
-  color: #6296ff;
-} */
-
-/* .slide:has(iframe[src^="https://www.myopenmath.com"]) {
-  display: flex;
-  flex-direction: column;
-
-}
-
-.slide iframe[src^="https://www.myopenmath.com"] {
-  flex: 1;
-} */
-
 .small{
   font-size: 60%;
 }
@@ -384,15 +202,23 @@ iframe[src^="https://www.myopenmath.com"] {
   /* background-color: #ffeec4; */
 }
 
-/* .MathJax {
-  font-size: 0.9em;
-} */
-
 mjx-container[jax="SVG"][display="true"]{
-  margin: 0.6em 0 !important;
+  margin: 0.5em 0 !important;
+}
+
+.theorem::before {
+  content: "Theorem:";
+  color: #120fdf;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.theorem {
+  border: 0.1em solid rgb(65, 170, 223);
+  padding-left: 0.5em;
 }
 </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css,npm/@xiee/utils/css/heading-anchor.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils@1.13.44/css/key-buttons.min.css,npm/@xiee/utils@1.13.44/css/heading-anchor.min.css">
 <script>
 $(document).ready(function(){
     if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
@@ -403,23 +229,21 @@ $(document).ready(function(){
     }
 });
 </script>
-<link href="C:\Users\Fei\AppData\Local\R\win-library\4.3\kableExtra\lightable-0.0.1\lightable.css" rel="stylesheet" />
+<link href="C:\LocalApps\R\library\kableExtra\lightable-0.0.1\lightable.css" rel="stylesheet" />
 </head>
 <body>
-<div class="include-before">
-</div>
 <div class="frontmatter">
-<div class="title"><h1>Confidence Intervals for Median</h1></div>
+<div class="title"><h1>Confidence Intervals for Median (Optional)</h1></div>
 <div class="author"><h2>Fei Ye</h2></div>
-<div class="date"><h3>September 2023</h3></div>
+<div class="date"><h3>November 2024</h3></div>
 </div>
 <div class="body">
-<h2 id="learning-goals-for-confidence-intervals"><span class="section-number">1.</span> Learning Goals for Confidence Intervals</h2>
+<h2 id="sec:learning-goals-for-confidence-intervals"><span class="section-number main-number">1</span> Learning Goals for Confidence Intervals</h2>
 <ul>
 <li>Construct and interpret a confidence interval for one population median.</li>
 </ul>
 <hr />
-<h2 id="order-statistics"><span class="section-number">2.</span> Order Statistics</h2>
+<h2 id="sec:order-statistics"><span class="section-number main-number">2</span> Order Statistics</h2>
 <p>Suppose \(X_1\), \(\dots\), \(X_n\) is a sample of independent values from a population. The order statistics \(X_{(1)}\), \(\dots\), \(X_{(n)}\) is an ascending ordered arrangement of the sample. The value \(X_{(i)}\) is called the \(i\)-th order statistic.</p>
 <p><strong>Example:</strong></p>
 <p>Find the \(7\)-th order statistic of the following sample of iris petal length</p>
@@ -429,7 +253,7 @@ $(document).ready(function(){
 <p>1.3, 1.4, 1.4, 1.9, 4.5, 4.9, 5.1, 5.1, 5.4, 6.6</p>
 <p>The \(7\)-th order statistic is 5.1, the 7-th value in this ordered set.</p>
 <hr />
-<h2 id="distribution-free-confidence-intervals-for-medians-method-1-of-2"><span class="section-number">3.</span> Distribution-Free Confidence Intervals for Medians: Method (1 of 2)</h2>
+<h2 id="sec:distribution-free-confidence-intervals-for-medians-method-1-of-2"><span class="section-number main-number">3</span> Distribution-Free Confidence Intervals for Medians: Method (1 of 2)</h2>
 <p>Suppose \(m\) is the median of the population. Fixed a confidence level \(1-\alpha\) and the size \(n\) of samples, We are looking for \(i\) and \(j\) so that the probability \(P(X_{(i)}\le m\le X_{(j)})\) of \(m\) being contained in the interval \([X_{(i)}, X_{(j)}]\) of a random sample is \(1-\alpha\). For symmetric reason, we may take \(j=n+1-i\).</p>
 <p>The probability that the interval \([X_{(k)}, X_{(k+1)}]\) of a ransom sample contains the median \(m\) is equivalent to that exactly \(k\) values in the sample are no greater than the population median. Denote by \(Z\) the number of \(X_i\) with \(X_i\le m\). Then \(Z\) is a binomial random variable  with \(n\) mutually independent trials and probability of success \(p=P(X_i\le m)=0.5\).
 Then
@@ -437,7 +261,7 @@ $$P(X_{(k)}\le m\le X_{(k+1)}=P(Z=k)={n\choose k}p^k(1-p)^{n-k}={n\choose k}\lef
 and
 $$1-\alpha=P(X_{(i)}\le m\le X_{(n+1-i)})=\sum\limits_{k=i}^{n+1-i}P(Z=k)=\sum\limits_{k=i}^{n+1-i}{n\choose k}\left(\frac12\right)^n.$$</p>
 <hr />
-<h2 id="distribution-free-confidence-intervals-for-medians-method-2-of-2"><span class="section-number">4.</span> Distribution-Free Confidence Intervals for Medians: Method (2 of 2)</h2>
+<h2 id="sec:distribution-free-confidence-intervals-for-medians-method-2-of-2"><span class="section-number main-number">4</span> Distribution-Free Confidence Intervals for Medians: Method (2 of 2)</h2>
 <p>To determine \(i\) for a given \(n\), we need to calculate the cumulated probability \(\sum\limits_{k=i}^{n+1-i}P(Z=k)\) for the binomial variable \(Z\).</p>
 <div class="row">
 <div class="pull-left">
@@ -548,7 +372,7 @@ $$1-\alpha=P(X_{(i)}\le m\le X_{(n+1-i)})=\sum\limits_{k=i}^{n+1-i}P(Z=k)=\sum\l
 </div>
 </div>
 <hr />
-<h2 id="distribution-free-confidence-intervals-for-medians-by-normal-approximation"><span class="section-number">5.</span> Distribution-Free Confidence Intervals for Medians by Normal Approximation</h2>
+<h2 id="sec:distribution-free-confidence-intervals-for-medians-by-normal-approximation"><span class="section-number main-number">5</span> Distribution-Free Confidence Intervals for Medians by Normal Approximation</h2>
 <p>When \(n&gt;21\), the binomial distribution \(Z\) is approximately normal with the mean \(\mu=np=0.5n\) and the standard deviation \(\sigma=\sqrt{np(1-p)}=\sqrt{0.25n}\).</p>
 <p>Then the confidence interval \([X_{(i)}, X_{(j)}]\) at the confidence level \(1-\alpha\) is approximately given by
 $$i=\lfloor \mu-z_{\alpha/2}\sigma \rfloor=\lfloor 0.5n-z_{\alpha/2}\sqrt{0.25n}\rfloor$$
@@ -558,7 +382,7 @@ $$j=\lceil \mu+z_{\alpha/2}\sigma\rceil=\lceil 0.5n+z_{\alpha/2}\sqrt{0.25n}\rce
 <a href="https://stats.stackexchange.com/questions/45124/central-limit-theorem-for-sample-medians?noredirect=1&amp;lq=1">https://stats.stackexchange.com/questions/45124/central-limit-theorem-for-sample-medians?noredirect=1&amp;lq=1</a></p>
 </div>
 <hr />
-<h2 id="example-median-house-price-1-of-2"><span class="section-number">6.</span> Example: Median House Price (1 of 2)</h2>
+<h2 id="sec:example-median-house-price-1-of-2"><span class="section-number main-number">6</span> Example: Median House Price (1 of 2)</h2>
 <p>The following are prices (in thousands) of 24 randomly selected houses in a certain city. Find a confidence interval for the median hourse price in that city.</p>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <tbody>
@@ -595,7 +419,7 @@ $$j=\lceil \mu+z_{\alpha/2}\sigma\rceil=\lceil 0.5n+z_{\alpha/2}\sqrt{0.25n}\rce
 <p><strong>Solution:</strong></p>
 <p>Since the size of the sample is 24, we may use the normal approximation to get the confidence intervals. The mean and standard deviation for the normal approximation of the binomial distribution with the success rate \(p=0.5\) and \(n=24\) trials are \(\mu=np=12\), \(\sigma=\sqrt{np(1-p)}=\sqrt{6}\). At the \(1-\alpha=95\%\) confidence level, the \(z\)-score \(z_{\alpha/2}\) is approximately 1.96.</p>
 <hr />
-<h2 id="example-median-house-price-2-of-2"><span class="section-number">7.</span> Example: Median House Price (2 of 2)</h2>
+<h2 id="sec:example-median-house-price-2-of-2"><span class="section-number main-number">7</span> Example: Median House Price (2 of 2)</h2>
 <p>Then the orders of the bounds of the confidence interval are</p>
 <p>$$i=\lfloor 12-1.96*\sqrt{6} \rfloor \approx 7,$$
 $$j=\lceil 12+1.96*\sqrt{6}\rceil \approx 17.$$</p>
@@ -610,7 +434,7 @@ $$P(X_{(7)}\le m\le X_{(17)})\approx 0.977.$$</p>
 <p>Lab Instructions in Excel</p>
 </div>
 <hr />
-<h2 id="normal-distributions-and-marginal-errors"><span class="section-number">8.</span> Normal Distributions and Marginal Errors</h2>
+<h2 id="sec:normal-distributions-and-marginal-errors"><span class="section-number main-number">8</span> Normal Distributions and Marginal Errors</h2>
 <ul>
 <li>
 <p>Let \(Z\) be a standard normal random varaible. In Excel, \(P(Z&lt;z)\) is given by <code>NORM.S.DIST(z,TRUE)</code>.</p>
@@ -630,154 +454,10 @@ $$P(X_{(7)}\le m\le X_{(17)})\approx 0.977.$$</p>
 </li>
 </ul>
 </div>
-<div class="include-after">
-</div>
-<script>
-(function(d) {
-  let p = d.body;  // container of slides; assume <body> for now
-  const s1 = ':scope > hr:not([class])', s2 = ':scope > h2';
-  // find a container that has at least n "slides"
-  function findContainer(s, n = 1) {
-    if (p.querySelectorAll(s).length >= n) return true;
-    // if body doesn't contain headings or <hr>s, look into children
-    for (let i = 0; i < p.children.length; i++) {
-      if (p.children[i].querySelectorAll(s).length >= n) {
-        p = p.children[i]; break;
-      }
-    }
-    return false;
-  }
-  function newEl(tag, cls) {
-    const el = d.createElement(tag);
-    if (cls) el.className = cls;
-    return el;
-  }
-  if (!findContainer(s1, 3)) {
-    // if not enough <hr>s found in children; look for <h2> instead
-    if (p.tagName === 'BODY') {
-      // not enough h2 found, this page is not appropriate for slides
-      if (!findContainer(s2) && p.tagName === 'BODY') return;
-      p.querySelectorAll(s2).forEach(h2 => h2.before(newEl('hr')));
-    }
-  }
-  p.classList.add('slide-container');
-  // add 'slide' class to the frontmatter div and toc
-  ['.frontmatter', '#TOC'].forEach(s => {
-    d.body.querySelector(s)?.classList.add('slide');
-  });
-
-  function newSlide(s) {
-    return (s?.innerText === '') ? s : newEl('div', 'slide');
-  }
-  function isSep(el) {
-    return el.tagName === 'HR' && el.attributes.length === 0;
-  }
-  let el = p.firstElementChild; if (isSep(el)) el.remove();
-  el = p.firstElementChild; if (!el) return;
-  let s = newSlide(); el.before(s);
-  while (true) {
-    let el = s.nextSibling;
-    if (!el) break;
-    // remove slide separators (<hr>) and create new slide
-    if (isSep(el)) {
-      s = newSlide(s);
-      el.before(s); el.remove();
-    } else if (el.classList?.contains('slide')) {
-      s = newSlide(s);
-      el.after(s);
-    } else {
-      s.append(el);
-    }
-  }
-  function setAttr(el, attr) {
-    const m = newEl('div');
-    m.innerHTML = `<div ${attr}></div>`;
-    const attrs = m.firstElementChild.attributes;
-    for (let i = 0; i < attrs.length; i++) {
-      let a = attrs[i];
-      el.setAttribute(a.name, a.value);
-    }
-    m.remove();
-  }
-  const slides = d.querySelectorAll('div.slide'), N = slides.length,
-        tm = d.querySelector('span.timer'), fn = d.querySelector('.footnotes');
-  slides.forEach((s, i) => {
-    // append footnotes
-    if (fn) s.querySelectorAll('.footnote-ref > a[href^="#fn"]').forEach(a => {
-      const li = fn.querySelector('li' + a.getAttribute('href'));
-      if (!li) return;
-      let f = s.querySelector('div.footnotes');
-      if (!f) {
-        f = newEl('div', 'footnotes'); s.append(f);
-      }
-      f.append(li);
-      li.firstElementChild?.insertAdjacentHTML('afterbegin', `[${a.innerHTML}] `);
-      li.outerHTML = li.innerHTML;
-    });
-    // add a timer
-    s.append(tm ? tm.cloneNode() : newEl('span', 'timer'));
-    // add page numbers
-    const n = newEl('span', 'page-number');
-    n.innerText = i + 1 + '/' + N;
-    n.onclick = e => location.hash = i + 1;
-    s.append(n);
-    // apply slide attributes in <!--# -->
-    for (let k in s.childNodes) {
-      const node = s.childNodes[k];
-      if (node.nodeType !== Node.COMMENT_NODE) continue;
-      let t = node.textContent;
-      if (!/^#/.test(t)) continue;
-      t = t.replace(/^#/, '');
-      const r = /[\s\n]class="([^"]+)"/, m = t.match(r);
-      if (m) {
-        t = t.replace(r, '').trim();
-        s.className += ' ' + m[1];
-      }
-      if (t) setAttr(s, t);
-      break;
-    }
-    s.classList.contains('extend') && s.append(newEl('div', 'spacer fade'));
-    location.hash === ('#' + (i + 1)) && s.scrollIntoView();
-    s.addEventListener('click', e => {
-      if (!e.altKey) return;
-      d.body.classList.toggle('overview');
-      setTimeout(() => e.target.scrollIntoView(), 100);
-    });
-  });
-  [...d.querySelectorAll('a.footnote-backref'), fn, tm].forEach(el => el?.remove());
-  const tms = d.querySelectorAll('span.timer'), t1 = 1000 * tms[0].dataset.total;
-  let t0;
-  function startTimers() {
-    t0 = new Date();
-    setInterval(setTimers, 1000);
-  }
-  function setTimers() {
-    let t = (new Date() - t0);
-    if (t1) t = t1 - t;
-    const t2 = new Date(Math.abs(t)).toISOString().substr(11, 8).replace(/^00:/, '');
-    tms.forEach(el => {
-      el.innerText = t2;
-      if (t < 0) el.style.display = el.style.display === 'none' ? '' : 'none';
-    });
-  }
-  // press f for fullscreen mode
-  d.addEventListener('keyup', (e) => {
-    if (e.target !== d.body) return;
-    e.key === 'f' && d.documentElement.requestFullscreen();
-    e.key === 'o' && d.body.classList.toggle('overview');
-    e.key === 'm' && d.body.classList.toggle('mirrored');
-    sessionStorage.setItem('body-class', d.body.className);
-  });
-  // start timer on fullscreen
-  d.onfullscreenchange = (e) => d.fullscreenElement && !t0 && startTimers();
-  tms.forEach(el => el.addEventListener('click', e => startTimers()));
-  // restore previsouly saved body class
-  const bc = sessionStorage.getItem('body-class');
-  if (bc) d.body.className += ' ' + bc;
-})(document);
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
-<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/key-buttons.min.js,npm/@xiee/utils/js/external-link.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/js/mathjax-config.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/js/snap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils@1.13.44/js/key-buttons.min.js,npm/@xiee/utils@1.13.44/js/external-link.min.js,npm/@xiee/utils@1.13.44/js/heading-anchor.min.js" defer></script>
 <script>
 // Function to format the current date and time as "MM/DD/YYYY HH:MM:SS" format
 function getCurrentDateTime() {
@@ -803,17 +483,6 @@ function addLastUpdated() {
 }
 
 window.addEventListener('load', addLastUpdated);
-</script>
-<script>
-window.MathJax = {
-  svg: {
-    fontCache: 'global',
-    scale: 0.9
-  },
-  startup: {
-    output: option: {scale: 0.9}
-  }
-};
 </script>
 </body>
 </html>
