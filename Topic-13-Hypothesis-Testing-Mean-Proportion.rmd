@@ -3,28 +3,28 @@ title: "Hypothesis Testing for Mean and Proportion"
 author: "Fei Ye"
 date: '`r format(Sys.time(), "%B %Y")`'
 output:
-  markdown::html_format:
+  litedown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "meta-data/lastupdated.js", "meta-data/mathjax-font.js"]
-      header-includes: "meta-data/Hypothesis-config.html"
+      css: ["@default", "@snap", "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
+      js: ["@snap", "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "meta-data/lastupdated.js"]
+      # header-includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
     options:
+      includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
       number_sections: true
       latex_math: true
       js_math:
         package: mathjax
         version: 3
-        js: es5/tex-svg.js
+        js: es5/tex-mml-chtml.js
 ---
 
 ```{r, echo=FALSE, warning=FALSE}
 knitr::opts_chunk$set(comment="#", fig.retina=2, crayon.enabled = TRUE, dpi=600)
 set.seed(15)
 library(knitr)
-library(ggplot2)
+library(kableExtra)
 library(dplyr,warn.conflicts = FALSE)
-library(latex2exp)
 ```
 
 ## Learning Goals for Hypothesis Tests
@@ -48,7 +48,7 @@ library(latex2exp)
 
 5. Calculate the $P$-value.  
   ::: {.center}
-  |Sign in $H_a$ | $\ne$ | $<$ | $>$  |
+  |Sign in $H_a$ | $\ne$ | $<$ | $>$ |
   |---|---|---|---|
   | Test | Two-tailed | Left-tailed | Right-tailed|
   :::
@@ -69,23 +69,23 @@ To test the claim of the residences, we set $H_0:\mu=25$ and $H_a: \mu >25$.
 
 Because $H_a$ contains the $>$ sign and $\sigma$ is known, we use right-tailed $Z$-test.
 
-Since the population standard deviation is  $\sigma=4$. We use the standard normal distribution to find the $P$-value.
+Since the population standard deviation is $\sigma=4$. We use the normal distribution to find the $P$-value.
 
 ---
 
 ## Example: Test a Mean with Known SD (2 of 2)
 
-The $Z$-test statistic is $z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}=\frac{26-25}{4/\sqrt{100}}=2.5$. 
+The $Z$-test statistic is $z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}=\frac{26-25}{4/\sqrt{100}}=2.5$.
 
 Since $H_a:\mu>25$, the $P$-value is the right-tailed area calculated as
-\\(P(Z>2.5)=\\)`1-NORM.S.DIST(2.5,TRUE)`\\(\approx 0.006\\).
+\\(P(Z>2.5)=\\)`=1-NORM.S.DIST(2.5,TRUE)`\\(\approx 0.006\\).
 
 Because the $P$-value is less than the significance level $\alpha=0.05%
 
 At 5% level of significance, there is enough evidence to support the claim of the residences that the average speed of automobile is above the speed limit.
 
 ::: {.footmark}
-Note: Without calculating the \\(Z\\)-test statistic, the \\(P\\)-value can also be calculated by the Excel function `1-NORM.DIST(26, 25, 4/SQRT(100), TRUE)`.
+Note: Without calculating the \\(Z\\)-test statistic, the \\(P\\)-value can also be calculated by the Excel function `=1-NORM.DIST(26, 25, 4/SQRT(100), TRUE)`.
 :::
 
 ---
@@ -104,7 +104,7 @@ Since $H_a$ has the $\ne$ sign and the population standard deviation is unknown,
 
 ## Example: Test a Mean with Unknown SD (2 of 2)
 
-The $t$-test statistics is $t=\frac{18-20}{2.7/\sqrt{10}}\approx`r round((18-20)/2.7*sqrt(10), 3)`.$ Using the Excel, we find that the $P$-value is \\(p\approx\\)`2*T.DIST(-2.342,9,TRUE)`=`r round(2*pt(round((18-20)/2.7*sqrt(10), 3),9),4)`.
+The $t$-test statistics is $t=\frac{18-20}{2.7/\sqrt{10}}\approx`r round((18-20)/2.7*sqrt(10), 3)`.$ In Excel, the $P$-value can be calculated as \\(p\approx\\)`=2*T.DIST(-2.342,9,TRUE)`=`r round(2*pt(round((18-20)/2.7*sqrt(10), 3),9),4)`.
 
 Since the $P$-value is smaller than the 5% significance level, we reject $H_0$ can conclude that there is enough evidence to deny the manufacturer's claim.
 
@@ -113,9 +113,10 @@ Since the $P$-value is smaller than the 5% significance level, we reject $H_0$ c
 ## Example: Test a Mean from a Data Set (1 of 2)
 <!--# style="font-size: 0.95em;"-->
 
-An instructor would like to know if the students enrolled in a math course in the  current semester performed better than students in the last semester. The mean final exam from last semester is 75.5. The final exam scores of 40 randomly selected 40 students were obtained
+An instructor would like to know if the students enrolled in a math course in the current semester performed better than students in the last semester. The mean final exam from last semester is 75.5. The final exam scores of 40 randomly selected 40 students were obtained
 
 ```{r echo=FALSE}
+set.seed(15)
 finalgrade <- c(93,88,69,74,76,81,78,77,74,63,67,81,80,82,68,88,76,69,75,78,75,77,94,87,74,88,63,75,94,88,91,77,76,68,80,88,68,83,72,72)
 finalgrade.df=matrix(finalgrade,ncol=20,byrow=TRUE)
 finalgrade.df <- as.data.frame(finalgrade.df)
@@ -149,7 +150,7 @@ $$t=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}=\frac{(78.17-75.5)}{8.39/\sqrt{40}}\approx 
 
 Because $H_a$ contains the $>$ sign and $\sigma$ is unknown, we use the right-tailed $t$-test.
 
-The degree of freedom is $\text{df}=40-1$ The $P$-value is the right tail area under the $t$-curve, that is `1-T.DIST(2.013, 39, TRUE)`=`r round(1-pt(2.013, 39),4)` which can also be obtained by `T.DIST.RT(2.013, 39)`.
+The degree of freedom is $\text{df}=40-1$ The $P$-value is the right tail area under the $t$-curve, that is `=1-T.DIST(2.013, 39, TRUE)`=`r round(1-pt(2.013, 39),4)`.
 
 Since the $P$-value is less than 5%, at the 5% level of significance, we may reject $H_0$. So at 5% level of significance, there is enough evidence to support the claim that the students in this semester performed significantly better on the final than last semester.
 
@@ -169,7 +170,7 @@ To test the coin, we set the null hypothesis as $H_0$: $p=0.5$. The experiment s
 The test statistic is $\hat{p}=\frac{16}{50}=0.32$ and the standardization is
 $$\textstyle z=\frac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)/n}}=\frac{0.32-0.5}{\sqrt{0.5(1-0.5)/50}}\approx `r round((0.32-0.5)/sqrt(0.5*0.5/50),2)`.$$
 
-Because $H_a$ contains the $<$ sign, the test is left-tailed and the $P$-value is then `NORM.S.DIST(-2.55,TRUE)`\\(\approx 0.008\\).
+Because $H_a$ contains the $<$ sign, the test is left-tailed and the $P$-value is then `=NORM.S.DIST(-2.55,TRUE)`\\(\approx 0.008\\).
 
 Because $0.008<0.01=\alpha$, we reject the null hypothesis $H_0$. Therefore, at the significance level 0.01, there is enough evidence to claim that the coin favors the tail.
 
@@ -179,7 +180,7 @@ Because $0.008<0.01=\alpha$, we reject the null hypothesis $H_0$. Therefore, at 
 
 Globally the long-term proportion of newborns who are male is 51.46%. A researcher believes that the proportion of boys at birth changes under severe economic conditions. To test this belief randomly selected birth records of 5,000 babies born during a period of economic recession were examined. It was found in the sample that 52.55% of the newborns were boys. Determine whether there is sufficient evidence, at the 10% level of significance, to support the researcher’s belief.
 
-**Solution:** Since $n\hat{p}\approx `r round(5000*0.5255, 0)`$ and $n(1-\hat{p})\approx `r round(5000*(1-0.5255), 0)`$, a $Z$-test is valid. we will use the $P$-value to test the hypothesis.
+**Solution:** Since $n\hat{p}\approx `r round(5000*0.5255, 0)`$ and $n(1-\hat{p})\approx `r round(5000*(1-0.5255), 0)`$, a $Z$-test is valid. We will use the $P$-value to test the hypothesis.
 
 To test the researcher's claim, we set the null hypothesis as $H_0$: $p=0.5146$. The experiment suggests that we should set the alternative hypothesis as $H_a$: $p\neq 0.5146$.
 
@@ -194,7 +195,7 @@ $$
 
 From $H_a$, we know that the test is two-tailed. The $P$-value is then
 $$2\cdot(1-P(Z<0.5255))\approx`r 2*(1-round(pnorm(newbornstat, 0,1),3))`$$
-which can be calculated by the Excel formula  `2*(1-NORM.S.DIST(0.5255,TRUE))`.
+which can be calculated by the Excel formula  `=2*(1-NORM.S.DIST(0.5255,TRUE))`.
 
 Since the significance level is $\alpha=0.1$ and the $P$-value $0.122>0.1=\alpha$, we fail to reject the null hypothesis $H_0$.
 

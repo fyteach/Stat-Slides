@@ -3,19 +3,20 @@ title: "Sampling Distributions"
 author: "Fei Ye"
 date: '`r format(Sys.time(), "%B %Y")`'
 output:
-  markdown::html_format:
+  litedown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "meta-data/lastupdated.js", "meta-data/mathjax-font.js", "meta-data/iframe.js"]
-      header-includes: "meta-data/Hypothesis-config.html"
+      css: ["@default", "@snap", "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
+      js: ["@snap", "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "meta-data/lastupdated.js"]
+      # header-includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
     options:
+      includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
       number_sections: true
       latex_math: true
       js_math:
         package: mathjax
         version: 3
-        js: es5/tex-svg.js
+        js: es5/tex-mml-chtml.js
 ---
 
 ```{r, echo=FALSE, warning=FALSE}
@@ -94,17 +95,23 @@ As the sample size $n$ increases, the sampling distribution of the sample mean, 
 In terms of standardization, the central limit theorem says that the random variable $\bar{Z}=\dfrac{\bar{x}-\mu}{\sigma/\sqrt{n}}$ has an approximately standard normal distribution.
 :::
 
+<!-- --- -->
+
+<!-- ## Visualization: Central Limit Theorem for Mean -->
+
+<!-- ::: {.iframecontainer} -->
+<!-- `r knitr::include_url('https://seeing-theory.brown.edu/probability-distributions/index.html#section3', height='550px')` -->
+<!-- ::: -->
+
+<!-- ::: {.footmark} -->
+<!--   Source: [https://seeing-theory.brown.edu/probability-distributions/index.html#section3](https://seeing-theory.brown.edu/probability-distributions/index.html#section3) -->
+<!-- ::: -->
+
 ---
 
-## Visualization: Central Limit Theorem for Mean
+## But What is the Central Limit Theorem?
 
-::: {.iframecontainer}
-`r knitr::include_url('https://seeing-theory.brown.edu/probability-distributions/index.html#section3', height='550px')`
-:::
-
-::: {.footmark}
-  Source: [https://seeing-theory.brown.edu/probability-distributions/index.html#section3](https://seeing-theory.brown.edu/probability-distributions/index.html#section3)
-:::
+<iframe width="550" height="315" src="https://www.youtube.com/embed/zeJD6dqJ5lo?si=zsbChFbzj-pm2w5f&amp;start=256" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ---
 
@@ -169,9 +176,9 @@ popdf <- data.frame(pop)
 colnames(popdf) <- c("x")
 
 popplot <- ggplot(popdf, aes(x=x), dpi=600) +
-  geom_histogram(aes(y=..density..),bins=3,fill="lightblue", col="white") +
+  geom_histogram(aes(y=after_stat(density)),bins=3,fill="lightblue", col="white") +
   theme_bw(base_size = 12) +
-geom_vline(aes(xintercept=mean(x)),       color="blue", linetype="dashed", size=1)+
+geom_vline(aes(xintercept=mean(x)),       color="blue", linetype="dashed")+
 labs(x = TeX('$x$'), y = "rel. freq.")
 
 popplot
@@ -190,9 +197,9 @@ smdf <- data.frame(samplemean)
 colnames(smdf) <- c("xbar")
 
 clt <- ggplot(smdf, aes(x=xbar), dpi=600) +
-  geom_histogram(aes(y=..density..), bins=4,fill="lightblue", col="white") +
+  geom_histogram(aes(y=after_stat(density)), bins=4,fill="lightblue", col="white") +
   theme_bw(base_size = 12) +
-geom_vline(aes(xintercept=mean(xbar)),       color="blue", linetype="dashed", size=1)+
+geom_vline(aes(xintercept=mean(xbar)),       color="blue", linetype="dashed")+
 labs(x = TeX('$\\bar{X}$'), y = "rel. freq.")
 
 clt +  stat_function( fun = dnorm, args = list(mean=mean(samplemean), sd=sd(samplemean)),color="gold", xlim = c(0.5, 4.5) )
@@ -295,16 +302,11 @@ which can be obtained by
 
 Suppose that in 36% of all car accidents involve injury. Find the probability that the injury rate in a random sample of 250 car accidents is between 30% and 45%.
 
-**Solution:** The injury rate of all car accidents is $p=10\%=0.3$ and the sample size is $250$. Because $np=250\cdot 0.36=`r 250*0.36`>10$ and $n(1-p)=250\cdot(1-0.36)=`r 250*(1-0.36)`>10$, the sample size is considered large enough. By the Central Limit Theorem, we can assume that the sample proportion $\hat{P}$ is approximately normally distributed with the mean $\mu_{\hat{P}}=p=0.36$ and standard deviation $\sigma_{\hat{P}}=\sqrt{\frac{p(1-p)}{n}}\approx `r sigma<-round(sqrt(0.36*(1-0.36)/250),3); sigma`$
+**Solution:** The injury rate of all car accidents is $p=36\%=0.36$ and the sample size is $250$. Because $np=250\cdot 0.36=`r 250*0.36`>10$ and $n(1-p)=250-`r 250*0.36`=`r 250*(1-0.36)`>10$, the sample size is considered large enough. By the Central Limit Theorem, the sample proportion $\hat{P}$ is approximately normally distributed with the mean $\mu_{\hat{P}}=p=0.36$ and standard deviation $\sigma_{\hat{P}}=\sqrt{\frac{p(1-p)}{n}}\approx `r sigma<-round(sqrt(0.36*(1-0.36)/250),3); sigma`$
 
-Using the Excel function, `NORM.DIST(x, mean, SD, TRUE)`, we find the probability of a random sample of 250 car accidents with the injury rate between 30% and 45% is
-$$\textstyle P(0.30<\hat{P}<0.45)=P(\hat{P}<0.45)-P(\hat{P}<0.30) \approx `r p1<-round(pnorm(0.45, 0.36, sigma), 3); p1`-`r p2<-round(pnorm(0.30, 0.36, sigma), 3); p2`  =`r p1-p2`$$
+Then the probability of a random sample of 250 car accidents with the injury rate between 30% and 45% is
+$\textstyle P(0.30<\hat{P}<0.45)=P(\hat{P}<0.45)-P(\hat{P}<0.30)=$ ``=NORM.DIST(30%, 36%,`r sigma`, TRUE)-NORM.DIST(45%, 36%,`r sigma`, TRUE)`` $\approx `r p1<-round(pnorm(0.45, 0.36, sigma), 3); p2<-round(pnorm(0.30, 0.36, sigma), 3);` `r p1-p2`$
 
----
-
-## Practice: Sample Mean within an Interval {.unnumbered}
-
-An unknown distribution has a mean of 28 and a standard deviation 6. Samples of size n = 30 are drawn randomly from the population. Find the probability that the sample mean is between 27 and 30.
 
 ---
 
@@ -326,9 +328,11 @@ The numerical population of grade point averages at a college has mean 2.61 and 
 
 ---
 
-## Practice: Proportion of Voting {.unnumbered}
+## Practice: Minimal Mean Weight of a Particular Fruit {.unnumbered}
 
-In a mayoral election, based on a poll, a newspaper reported that the current mayor received 45% of the vote. If this is true, what is the probability that a random sample of 100 voters had less than 35% voting for the current mayor?
+::: {.iframecontainer}
+`r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=33379&seed=2020&showansafter", height="560px")`
+:::
 
 ---
 
@@ -387,11 +391,9 @@ Suppose that 8% of all males suffer some form of color blindness. Find the proba
 
 ---
 
-## Practice: Minimal Mean Weight of a Particular Fruit {.unnumbered}
+## Practice: Proportion of Voting {.unnumbered}
 
-::: {.iframecontainer}
-`r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=33379&seed=2020&showansafter", height="560px")`
-:::
+In a mayoral election, based on a poll, a newspaper reported that the current mayor received 45% of the vote. If this is true, what is the probability that a random sample of 100 voters had less than 35% voting for the current mayor?
 
 ---
 

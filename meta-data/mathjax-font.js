@@ -4,6 +4,6 @@ window.MathJax = {
     scale: 0.9
   },
   startup: {
-    output: option: {scale: 0.9}
+    output: {options: {scale: 0.9}}
   }
 };

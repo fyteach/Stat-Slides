@@ -3,177 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="generator" content="litedown 0.4">
 <title>Topic 1: Statistical Studies</title>
-<style type="text/css">
-body {
-  font-family: sans-serif;
-  max-width: 800px;
-  margin: auto;
-  padding: 1em;
-  line-height: 1.5;
-  box-sizing: border-box;
-}
-body, .footnotes, code { font-size: .9em; }
-li li { font-size: .95em; }
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-pre, img { max-width: 100%; }
-pre, pre:hover {
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-pre code {
-  display: block;
-  overflow-x: auto;
-}
-code { font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace; }
-:not(pre) > code, code[class] { background-color: #F8F8F8; }
-code.language-undefined, pre > code:not([class]) {
-  background-color: inherit;
-  border: 1px solid #eee;
-}
-table {
-  margin: auto;
-  border-top: 1px solid #666;
-}
-table thead th { border-bottom: 1px solid #ddd; }
-th, td { padding: 5px; }
-thead, tfoot, tr:nth-child(even) { background: #eee; }
-blockquote {
-  color: #666;
-  margin: 0;
-  padding-left: 1em;
-  border-left: 0.5em solid #eee;
-}
-hr, .footnotes::before { border: 1px dashed #ddd; }
-.frontmatter { text-align: center; }
-#TOC .numbered li { list-style: none; }
-#TOC .numbered { padding-left: 0; }
-#TOC .numbered ul { padding-left: 1em; }
-table, .body h2 { border-bottom: 1px solid #666; }
-.body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }
-.footnote-ref a::before { content: "["; }
-.footnote-ref a::after { content: "]"; }
-.footnotes::before {
-  content: "";
-  display: block;
-  max-width: 20em;
-}
-
-@media print {
-  body {
-    font-size: 12pt;
-    max-width: 100%;
-  }
-  tr, img { page-break-inside: avoid; }
-}
-@media only screen and (min-width: 992px) {
-  pre { white-space: pre; }
-}
-</style>
-<style type="text/css">
-:root { --slide-width: 100%; }
-html { scroll-snap-type: y mandatory; }
-th, td { padding: .2em .5em; }
-.slide {
-  padding: 1em;
-  position: relative;
-}
-.slide > h2, .slide > h3 { margin-top: unset; }
-body {
-  max-width: fit-content;
-  padding: 0;
-}
-a { color: #eb4a47; }
-:not(pre) > code { background-color: #fdfded; }
-#TOC { columns: 2; }
-#TOC::before {
-  font-size: 1.3em;
-  font-weight: bold;
-  display: block;
-  border-bottom: 1px solid #666;
-}
-.frontmatter, .middle {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-.page-number, .timer {
-  position: absolute;
-  bottom: 0;
-  opacity: .5;
-  font: .7em monospace;
-}
-.page-number { right: 0; }
-.timer { left: 0; }
-.inverse {
-  background-color: #eee;
-  filter: invert(1);
-}
-.fade {
-  background: repeating-linear-gradient(135deg, white, white 30px, #ddd 32px, #ddd 32px);
-  opacity: 0.6;
-}
-.center { text-align: center; }
-.slide-container h2 .section-number {
-  display: inline-block;
-  background-color: #666;
-  color: white;
-  padding: 0 .1em;
-  margin-right: .3em;
-}
-.overview {
-  font-size: .8em;
-  max-width: none;
-}
-.overview .slide {
-  min-height: unset;
-  scroll-snap-align: unset;
-}
-.overview .slide-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.overview .slide-container .slide {
-  width: var(--slide-width);
-  border: 1px dotted #ccc;
-  margin-bottom: 0.5em;
-}
-.mirrored { transform: scale(-1, 1); }
-.spacer { height: 50vh; }
-.overview .timer, .overview .spacer { display: none; }
-.overview .footnotes { position: unset; }
-html:fullscreen::-webkit-scrollbar { display: none; }
-html:fullscreen {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-@media (min-width: 992px) {
- :root { --slide-width: 49%; }
-  body { font-size: 2em; }
-  .slide {
-    min-height: 100vh;
-    scroll-snap-align: start;
-  }
-  li li { font-size: .9em; }
-  .footnotes {
-    position: absolute;
-    bottom: 1em;
-    font-size: .8em;
-  }
-}
-@media (min-width: 1400px) {
- :root { --slide-width: 33%; }
-}
-@media (min-width: 1800px) {
- :root { --slide-width: 24.67%; }
-}
-@media print, (max-width: 991.98px) {
-  .timer, .spacer { display: none; }
-}
-</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/css/default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/css/snap.min.css">
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital@0;1&family=Noto+Sans+Mono&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Source+Code+Pro&display=swap');
 
@@ -240,7 +73,6 @@ code {
 
 .row {
   display: flex;
-  justify-content: top;
   align-items: flex-start;
 }
 
@@ -358,24 +190,6 @@ iframe[src^="https://www.myopenmath.com"] {
   transform-origin: 0 0;
 }
 
-/* span {
-  text-align: center;
-  font-size: 0.7em;
-  bottom: 0;
-  position: absolute;
-  color: #6296ff;
-} */
-
-/* .slide:has(iframe[src^="https://www.myopenmath.com"]) {
-  display: flex;
-  flex-direction: column;
-
-}
-
-.slide iframe[src^="https://www.myopenmath.com"] {
-  flex: 1;
-} */
-
 .small{
   font-size: 60%;
 }
@@ -388,31 +202,32 @@ iframe[src^="https://www.myopenmath.com"] {
   /* background-color: #ffeec4; */
 }
 
-/* .MathJax {
-  font-size: 0.9em;
-} */
-
 mjx-container[jax="SVG"][display="true"]{
-  margin: 0.6em 0 !important;
+  margin: 0.5em 0 !important;
+}
+
+.theorem::before {
+  content: "Theorem:";
+  color: #120fdf;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.theorem {
+  border: 0.1em solid rgb(65, 170, 223);
+  padding-left: 0.5em;
 }
 </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css,npm/@xiee/utils/css/ heading-anchor.min.css">
-<script type="application/json" class="js-hypothesis-config">
-  {
-    "openSidebar": false
-  }
-</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils@1.13.44/css/key-buttons.min.css,npm/@xiee/utils@1.13.44/css/heading-anchor.min.css">
 </head>
 <body>
-<div class="include-before">
-</div>
 <div class="frontmatter">
 <div class="title"><h1>Topic 1: Statistical Studies</h1></div>
 <div class="author"><h2>Fei Ye</h2></div>
-<div class="date"><h3>September 2023</h3></div>
+<div class="date"><h3>November 2024</h3></div>
 </div>
 <div class="body">
-<h2 id="references" class="unnumbered">References</h2>
+<h2 id="sec:references" class="unnumbered">References</h2>
 <div style="font-size: 125%;">
 <ul>
 <li>
@@ -424,7 +239,7 @@ mjx-container[jax="SVG"][display="true"]{
 </ul>
 </div>
 <hr />
-<h2 id="learning-goals" class="unnumbered">Learning Goals</h2>
+<h2 id="sec:learning-goals" class="unnumbered">Learning Goals</h2>
 <ul>
 <li>Distinguish between a population and a sample.</li>
 <li>Determine whether a study is an observational study or an experiment.</li>
@@ -436,7 +251,7 @@ mjx-container[jax="SVG"][display="true"]{
 <li>Identify the lurking variable and confounding variable.</li>
 </ul>
 <hr />
-<h2 id="why-study-statistics"><span class="section-number">1.</span> Why Study Statistics?</h2>
+<h2 id="sec:why-study-statistics"><span class="section-number main-number">1</span> Why Study Statistics?</h2>
 <ul>
 <li>Allow you to critically evaluate the work of others and reports appeared in journals or media.</li>
 <li>Provide you with the tools you need to make informed judgments.</li>
@@ -444,7 +259,7 @@ mjx-container[jax="SVG"][display="true"]{
 <li>Success in your professional life.</li>
 </ul>
 <hr />
-<h2 id="process-of-statistical-studies"><span class="section-number">2.</span> Process of Statistical Studies</h2>
+<h2 id="sec:process-of-statistical-studies"><span class="section-number main-number">2</span> Process of Statistical Studies</h2>
 <div class="row" style="padding-top:1em;">
 <div class="pull-left">
 <ol>
@@ -464,7 +279,7 @@ mjx-container[jax="SVG"][display="true"]{
 <p>Image source: <a href="https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/why-it-matters-why-it-matters-types-of-statistical-studies-and-producing-data/">Concepts in Statistics (lumen learning)</a></p>
 </div>
 <hr />
-<h2 id="population-vs-sample"><span class="section-number">3.</span> Population vs Sample</h2>
+<h2 id="sec:population-vs-sample"><span class="section-number main-number">3</span> Population vs Sample</h2>
 <ul>
 <li>
 <p><strong>Data:</strong> collection of observations such as counts, measurements, responses or experiments.</p>
@@ -483,7 +298,7 @@ mjx-container[jax="SVG"][display="true"]{
 </li>
 </ul>
 <hr />
-<h2 id="example-identify-statistic-concepts"><span class="section-number">4.</span> Example: Identify Statistic Concepts</h2>
+<h2 id="sec:example-identify-statistic-concepts"><span class="section-number main-number">4</span> Example: Identify Statistic Concepts</h2>
 <div class="row">
 <div class="pull-left">
 <ol>
@@ -516,7 +331,7 @@ mjx-container[jax="SVG"][display="true"]{
 </div>
 </div>
 <hr />
-<h2 id="type-of-variables"><span class="section-number">5.</span> Type of Variables</h2>
+<h2 id="sec:type-of-variables"><span class="section-number main-number">5</span> Type of Variables</h2>
 <ul>
 <li>
 <p><strong>Variable:</strong> a characteristic, or attribute of interest that we gather about individuals or objects. There are two types of variables according to their values.</p>
@@ -539,7 +354,7 @@ mjx-container[jax="SVG"][display="true"]{
 </li>
 </ul>
 <hr />
-<h2 id="example-college-choice-do-over"><span class="section-number">6.</span> Example: College Choice Do-Over</h2>
+<h2 id="sec:example-college-choice-do-over"><span class="section-number main-number">6</span> Example: College Choice Do-Over</h2>
 <blockquote>
 <p>The Higher Education Research Institute at UCLA surveys over 20,000 college seniors each year. One question on the survey asks seniors the following question: If you could make your college choice over, would you still choose to enroll at your current college? Possible responses are definitely yes (DY), probably yes (PY), probably no (PN), and definitely no (DN).</p>
 </blockquote>
@@ -560,13 +375,13 @@ mjx-container[jax="SVG"][display="true"]{
 </div>
 </div>
 <hr />
-<h2 id="practice-basic-statistical-concepts" class="unnumbered">Practice: Basic Statistical Concepts</h2>
+<h2 id="sec:practice-basic-statistical-concepts" class="unnumbered">Practice: Basic Statistical Concepts</h2>
 <p>Identify the population, sample, the variable of study, the type of the variable, the population parameter and the sample statistics.</p>
 <blockquote>
 <p>An administrator wishes to estimate the passing rate of a certain course. She takes a random sample of 50 students and obtains their letter grades of that course. Among the 50 students, 32 students earned a grade C or better.</p>
 </blockquote>
 <hr />
-<h2 id="types-of-statistical-studies"><span class="section-number">7.</span> Types of Statistical Studies</h2>
+<h2 id="sec:types-of-statistical-studies"><span class="section-number main-number">7</span> Types of Statistical Studies</h2>
 <p>A statistical study can usually be categorized as an <strong>observational study</strong> or an <strong>experiment</strong> by the mean of study.</p>
 <ul>
 <li>An observational study observes individuals and measures variables of interest. The main purpose of an observational study is to describe a group of individuals or to investigate an association between two variables.</li>
@@ -576,7 +391,7 @@ mjx-container[jax="SVG"][display="true"]{
 <p>In an observational study, it is not possible to draw clear cause-and-effect conclusions because we cannot rule out the possibility that the observed effect is due to some other variables not being studied, known as <strong>extraneous variables</strong>.</p>
 </div>
 <hr />
-<h2 id="example-types-of-statistical-studies"><span class="section-number">8.</span> Example: Types of Statistical Studies</h2>
+<h2 id="sec:example-types-of-statistical-studies"><span class="section-number main-number">8</span> Example: Types of Statistical Studies</h2>
 <p>Which type of study will answer the question.</p>
 <ol>
 <li>
@@ -595,7 +410,7 @@ mjx-container[jax="SVG"][display="true"]{
 <p>See <a href="https://courses.lumenlearning.com/wmopen-concepts-statistics/chapter/types-of-statistical-studies-2-of-4/">Types of Statistical Studies (2 of 4) in the textbook Concepts in Statistics</a> for more examples.</p>
 </div>
 <hr />
-<h2 id="practice-observational-vs-experimental" class="unnumbered">Practice: Observational vs Experimental</h2>
+<h2 id="sec:practice-observational-vs-experimental-i" class="unnumbered">Practice: Observational vs Experimental I</h2>
 <p>Identify the type of statistical study:</p>
 <ol>
 <li>
@@ -609,7 +424,12 @@ mjx-container[jax="SVG"][display="true"]{
 <p>Source: <a href="https://www.khanacademy.org/math/probability/study-design-a1/observational-studies-experiments/a/observational-studies-and-experiments">Khan Academy</a></p>
 </div>
 <hr />
-<h2 id="questions-about-population-1-of-2"><span class="section-number">9.</span> Questions about Population (1 of 2)</h2>
+<h2 id="sec:practice-observational-vs-experimental-ii" class="unnumbered">Practice: Observational vs Experimental II</h2>
+<div class="iframecontainer">
+<iframe src="https://www.myopenmath.com/embedq2.php?id=277257&amp;seed=2024&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
+</div>
+<hr />
+<h2 id="sec:questions-about-population-1-of-2"><span class="section-number main-number">9</span> Questions about Population (1 of 2)</h2>
 <table>
 <thead>
 <tr>
@@ -629,7 +449,7 @@ mjx-container[jax="SVG"][display="true"]{
 </tbody>
 </table>
 <hr />
-<h2 id="questions-about-population-2-of-2"><span class="section-number">10.</span> Questions about Population (2 of 2)</h2>
+<h2 id="sec:questions-about-population-2-of-2"><span class="section-number main-number">10</span> Questions about Population (2 of 2)</h2>
 <table>
 <thead>
 <tr>
@@ -649,7 +469,7 @@ mjx-container[jax="SVG"][display="true"]{
 </tbody>
 </table>
 <hr />
-<h2 id="question-on-cause-and-effect"><span class="section-number">11.</span> Question on Cause-and-Effect</h2>
+<h2 id="sec:question-on-cause-and-effect"><span class="section-number main-number">11</span> Question on Cause-and-Effect</h2>
 <ul>
 <li>
 <p>A research question that focuses on a cause-and-effect relationship is common in disciplines that use experiments, such as medicine or psychology.</p>
@@ -665,7 +485,7 @@ mjx-container[jax="SVG"][display="true"]{
 </li>
 </ul>
 <hr />
-<h2 id="example-cause-and-effect-or-correlation"><span class="section-number">12.</span> Example: Cause-and-Effect or Correlation</h2>
+<h2 id="sec:example-cause-and-effect-or-correlation"><span class="section-number main-number">12</span> Example: Cause-and-Effect or Correlation</h2>
 <p>Determine if the question is a cause-and-effect question? What are the explanatory and response variables?</p>
 <ol>
 <li>Does use of computer-aided instruction in college math classes improve test scores?</li>
@@ -677,17 +497,17 @@ mjx-container[jax="SVG"][display="true"]{
 <p>This question investigates a cause-and-effect relationship. The explanatory variable is computer-aided instruction and the response variable is the test scores.</p>
 </li>
 <li>
-<p>This question investigates a correlation between variables in a population and is not a cause-and-effect question. The explanatory variable is tutoring and the response variable is the performance.</p>
+<p>This question investigates a correlation between variables in a population and is not a cause-and-effect question. The explanatory variable is tutoring, and the response variable is the performance.</p>
 </li>
 </ol>
 <hr />
-<h2 id="example-appropriate-conclusion"><span class="section-number">13.</span> Example: Appropriate Conclusion</h2>
+<h2 id="sec:example-appropriate-conclusion"><span class="section-number main-number">13</span> Example: Appropriate Conclusion</h2>
 <p><em><strong>In general, we should not make cause-and-effect statements from observational studies unless impact of confounding variables can be significantly decreased.</strong></em></p>
 <p><strong>Example:</strong> A researcher studies the medical records of 500 randomly selected patients. Based on the information in the records, he divides the patients into two groups: those given the recommendation to take an aspirin every day and those with no such recommendation. He reports the percentage of each group that developed heart disease.<br />
 Determine whether the study supports the conclusion that taking aspirin lowers the risk of heart attacks.</p>
 <p><strong>Answer:</strong> The conclusion claims a cause-and-effect relationship. To answer the question, we need an experimental study. However, the study has no control on data which makes it inappropriate.</p>
 <hr />
-<h2 id="practice-cause-and-effect-or-correlation" class="unnumbered">Practice: Cause-and-Effect or Correlation</h2>
+<h2 id="sec:practice-cause-and-effect-or-correlation" class="unnumbered">Practice: Cause-and-Effect or Correlation</h2>
 <p>Does higher education attainment lead to higher salary?</p>
 <ol>
 <li>Determine if the question is a cause-and-effect question?</li>
@@ -695,7 +515,12 @@ Determine whether the study supports the conclusion that taking aspirin lowers t
 <li>If a student want to study this question, what type of statistical study can be used? What kind of conclusion can be drawn?</li>
 </ol>
 <hr />
-<h2 id="sampling-plans"><span class="section-number">14.</span> Sampling Plans</h2>
+<h2 id="sec:practice-correlation-or-causation" class="unnumbered">Practice: Correlation or Causation</h2>
+<div class="iframecontainer">
+<iframe src="https://www.myopenmath.com/embedq2.php?id=307471&amp;seed=2024&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
+</div>
+<hr />
+<h2 id="sec:sampling-plans"><span class="section-number main-number">14</span> Sampling Plans</h2>
 <p>To make accurate inference, the sample must be representative of the population.</p>
 <ul>
 <li>
@@ -709,7 +534,7 @@ Determine whether the study supports the conclusion that taking aspirin lowers t
 </li>
 </ul>
 <hr />
-<h2 id="methods-of-random-sampling-1-of-2"><span class="section-number">15.</span> Methods of Random Sampling (1 of 2)</h2>
+<h2 id="sec:methods-of-random-sampling-1-of-2"><span class="section-number main-number">15</span> Methods of Random Sampling (1 of 2)</h2>
 <ul>
 <li>
 <p><strong>Simple random sample</strong>: groups of the same size are randomly selected. Table of random numbers, calculator and softwares are often used to generate random numbers.</p>
@@ -725,7 +550,7 @@ Determine whether the study supports the conclusion that taking aspirin lowers t
 </li>
 </ul>
 <hr />
-<h2 id="methods-of-random-sampling-2-of-2"><span class="section-number">16.</span> Methods of Random Sampling (2 of 2)</h2>
+<h2 id="sec:methods-of-random-sampling-2-of-2"><span class="section-number main-number">16</span> Methods of Random Sampling (2 of 2)</h2>
 <ul>
 <li>
 <p><strong>Cluster sample</strong>: The population is first split into groups. Then some groups are selected randomly.</p>
@@ -741,7 +566,7 @@ Determine whether the study supports the conclusion that taking aspirin lowers t
 </li>
 </ul>
 <hr />
-<h2 id="practice-sampling-methods" class="unnumbered">Practice: Sampling Methods</h2>
+<h2 id="sec:practice-sampling-methods" class="unnumbered">Practice: Sampling Methods</h2>
 <p>Determine the type of sampling method.</p>
 <ol>
 <li>
@@ -755,15 +580,15 @@ Determine whether the study supports the conclusion that taking aspirin lowers t
 </li>
 </ol>
 <hr />
-<h2 id="common-types-of-selection-bias-in-sampling"><span class="section-number">17.</span> Common Types of Selection Bias in Sampling</h2>
+<h2 id="sec:common-types-of-selection-bias-in-sampling"><span class="section-number main-number">17</span> Common Types of Selection Bias in Sampling</h2>
 <ul>
 <li>
-<p><strong>Voluntary Response Bias / Self-Selection Bias:</strong> participants can choose whether or not to participate in the study.
+<p><strong>Voluntary Response Bias / Self-Selection Bias:</strong> participants can choose whether to participate in the study.
 Example: “non-scientific” polls taken on television or websites</p>
 </li>
 <li>
 <p><strong>Measurement or Response Bias:</strong> observations tends to produce values that systematically.
-Example: The question “How many bottles of bier do you drink each day?” will likely suffers a response bias.</p>
+Example: The question “How many bottles of bier do you drink each day?” will likely suffer a response bias.</p>
 </li>
 <li>
 <p><strong>Nonresponse bias;</strong> response are not obtained from all selected individuals.
@@ -771,11 +596,11 @@ Example: Mall surveys</p>
 </li>
 <li>
 <p><strong>Undercoverage Bias:</strong> sample too few observations from a segment of the population.
-Example: random survey math students to estimate the average GPA or a college.</p>
+Example: random survey some classmates to estimate the average GPA or a college. This sampling method is known as <strong>convenience sampling</strong>.</p>
 </li>
 </ul>
 <hr />
-<h2 id="example-appropriate-sampling-design"><span class="section-number">18.</span> Example: Appropriate Sampling Design</h2>
+<h2 id="sec:example-appropriate-sampling-design"><span class="section-number main-number">18</span> Example: Appropriate Sampling Design</h2>
 <p>Suppose that you want to estimate the proportion of students at your college that use the library.</p>
 <p>Which sampling plan will produce the most reliable results?</p>
 <ol>
@@ -787,7 +612,11 @@ Example: random survey math students to estimate the average GPA or a college.</
 <p><strong>Answer:</strong> The 4th sampling plan is the most reliable plan. The first three and undercover the college.</p>
 <p>In general, the larger sample size, the more accurate of conclusion. However, we have to avoid bad sampling.</p>
 <hr />
-<h2 id="elements-of-experimental-design-1-of-2"><span class="section-number">19.</span> Elements of Experimental Design (1 of 2)</h2>
+<h2 id="sec:practice-sampling-techniques" class="unnumbered">Practice: Sampling Techniques</h2>
+<p>Click the link to open the practice in a new window.</p>
+<p><a href="https://www.myopenmath.com/embedq2.php?id=178722&amp;seed=2024&amp;showansafter">Practice on Sampling Techniques</a></p>
+<hr />
+<h2 id="sec:elements-of-experimental-design-1-of-2"><span class="section-number main-number">19</span> Elements of Experimental Design (1 of 2)</h2>
 <ul>
 <li>
 <p><strong>Control</strong> reduces the effects of variables other than the explanatory variables and the response variables, known as extraneous variables.</p>
@@ -808,7 +637,7 @@ Example: random survey math students to estimate the average GPA or a college.</
 </li>
 </ul>
 <hr />
-<h2 id="elements-of-experimental-design-2-of-2"><span class="section-number">20.</span> Elements of Experimental Design (2 of 2)</h2>
+<h2 id="sec:elements-of-experimental-design-2-of-2"><span class="section-number main-number">20</span> Elements of Experimental Design (2 of 2)</h2>
 <ul>
 <li>
 <p><strong>Randomization</strong> ensures that this estimate is statistically valid.</p>
@@ -819,13 +648,13 @@ Example: random survey math students to estimate the average GPA or a college.</
 <li>
 <p><strong>Replication</strong> reduces variability in experimental results and increases their significance.</p>
 <ul>
-<li>Although randomization helps to insure that treatment groups are as similar as possible, the results of a single experiment, applied to a small number of objects or subjects, should not be accepted without question.</li>
+<li>Although randomization helps to ensure that treatment groups are as similar as possible, the results of a single experiment, applied to a few objects or subjects, should not be accepted without question.</li>
 <li>Any good experiment should be reproducible, and in particular, replication should yield similar results.</li>
 </ul>
 </li>
 </ul>
 <hr />
-<h2 id="confounding-variable-vs-lurking-variable"><span class="section-number">21.</span> Confounding Variable vs Lurking Variable</h2>
+<h2 id="sec:confounding-variable-vs-lurking-variable"><span class="section-number main-number">21</span> Confounding Variable vs Lurking Variable</h2>
 <ul>
 <li>
 <p>A confounding variable has at least a partial effect on the response variable.</p>
@@ -842,12 +671,22 @@ Example: random survey math students to estimate the average GPA or a college.</
 </ul>
 <p>Both confounding and lurking variables are extraneous variables which are variable other than the explanatory variables that may have an effect on the response variable.</p>
 <hr />
-<h2 id="practice-experimental-design" class="unnumbered">Practice: Experimental Design</h2>
-<p>There is an ongoing debate about how many spaces should be placed after a period in typed documents. Alana read about a study where 100100100 participants all read the same document typed in Courier New font. Half of the participants were randomly assigned the document with one space after each period, and the other half were given the document with two spaces after each period.</p>
+<h2 id="sec:practice-principles-of-experimental-design" class="unnumbered">Practice: Principles of Experimental Design</h2>
+<div class="iframecontainer">
+<iframe src="https://www.myopenmath.com/embedq2.php?id=438624&amp;seed=2024&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
+</div>
+<hr />
+<h2 id="sec:practice-experimental-design" class="unnumbered">Practice: Experimental Design</h2>
+<p>There is an ongoing debate about how many spaces should be placed after a period in typed documents. Alana read about a study where 100 participants all read the same document typed in Courier New font. Half of the participants were randomly assigned the document with one space after each period, and the other half were given the document with two spaces after each period.</p>
 <p>Participants who read the document with two spaces after each period were able to finish reading significantly faster than those with one space after each period. Alana concluded that using two spaces after each period will help people read all documents faster.</p>
 <p>Is this study appropriate? Why?</p>
 <div class="footmark">
 <p>Source: <a href="https://www.khanacademy.org/math/ap-statistics/gathering-data-ap/statistics-experiments/e/issues-experiments">Khan Academy</a></p>
+</div>
+<hr />
+<h2 id="sec:practice-confounding-variable-definition" class="unnumbered">Practice: Confounding Variable Definition</h2>
+<div class="iframecontainer">
+<iframe src="https://www.myopenmath.com/embedq2.php?id=384958&amp;seed=2024&amp;showansafter" width="100%" height="500px" data-external="1"></iframe>
 </div>
 <hr />
 <!--# class="middle center"-->
@@ -855,7 +694,7 @@ Example: random survey math students to estimate the average GPA or a college.</
 <p>Lab Instructions in Excel</p>
 </div>
 <hr />
-<h2 id="introduction-to-excel-spreadsheets"><span class="section-number">22.</span> Introduction to Excel Spreadsheets</h2>
+<h2 id="sec:introduction-to-excel-spreadsheets"><span class="section-number main-number">22</span> Introduction to Excel Spreadsheets</h2>
 <div class="iframecontainer">
 <iframe style="width=100%" src="Lab-1.html"></iframe>
 </div>
@@ -864,7 +703,7 @@ Example: random survey math students to estimate the average GPA or a college.</
 </a></p>
 </div>
 <hr />
-<h2 id="random-numbers-by-excel"><span class="section-number">23.</span> Random Numbers by Excel</h2>
+<h2 id="sec:random-numbers-by-excel"><span class="section-number main-number">23</span> Random Numbers by Excel</h2>
 <ul>
 <li><code>=RAND()</code> returns a random real number greater than or equal to 0 and less than 1.  To generate a random real number between \(a\) and \(b\), one can use <code>=RAND()*(b-a)+a</code>.</li>
 <li><code>=RANDBETWEEN(bottom, top)</code> returns an integer between <code>bottom</code> and <code>top</code>.</li>
@@ -877,7 +716,7 @@ Example: random survey math students to estimate the average GPA or a college.</
 </ul>
 </div>
 <hr />
-<h2 id="example-usage-of-rand"><span class="section-number">24.</span> Example: Usage of <code>RAND()</code></h2>
+<h2 id="sec:example-usage-of-rand"><span class="section-number main-number">24</span> Example: Usage of <code>RAND()</code></h2>
 <p>Randomly generate a number between 0 and 1.</p>
 <p><strong>Howto:</strong></p>
 <ul>
@@ -896,7 +735,7 @@ Example: random survey math students to estimate the average GPA or a college.</
 </ul>
 <p>Alternatively, you may also manually enter the function: <code>=rand()</code> in the cell and hit enter.</p>
 <hr />
-<h2 id="example-usage-of-randbetween"><span class="section-number">25.</span> Example: Usage of <code>RANDBETWEEN()</code></h2>
+<h2 id="sec:example-usage-of-randbetween"><span class="section-number main-number">25</span> Example: Usage of <code>RANDBETWEEN()</code></h2>
 <p>Generate 10 random integers of 2 digits.</p>
 <p><strong>Howto:</strong></p>
 <ul>
@@ -911,12 +750,12 @@ Example: random survey math students to estimate the average GPA or a college.</
 </li>
 </ul>
 <hr />
-<h2 id="example-usage-of-randarray"><span class="section-number">26.</span> Example: Usage of <code>RANDARRAY()</code></h2>
+<h2 id="sec:example-usage-of-randarray"><span class="section-number main-number">26</span> Example: Usage of <code>RANDARRAY()</code></h2>
 <p>Generate 10 random integers of 2 digits without repetition.</p>
 <p><strong>Howto:</strong></p>
 <p>In the cell with 9 empty cells below it, say <code>A1</code>, apply the Excel function <code>=UNIQUE(RANDARRAY(10, 1, 10, 99, TRUE))</code>. You will get a column array of 10 integers without duplication.</p>
 <hr />
-<h2 id="practice-random-numbers" class="unnumbered">Practice: Random Numbers</h2>
+<h2 id="sec:practice-random-numbers" class="unnumbered">Practice: Random Numbers</h2>
 <ol>
 <li>
 <p>Generate a real number between 1 and 2.</p>
@@ -929,7 +768,7 @@ Example: random survey math students to estimate the average GPA or a college.</
 </li>
 </ol>
 <hr />
-<h2 id="install-the-analysis-toolpak-optional"><span class="section-number">27.</span> Install the Analysis ToolPak (Optional)</h2>
+<h2 id="sec:install-the-analysis-toolpak-optional"><span class="section-number main-number">27</span> Install the Analysis ToolPak (Optional)</h2>
 <p>If you have a desktop version Excel, you may install the Excel add-in, Analysis Toolpak which is frequently used for analyzing data.</p>
 <ul>
 <li>
@@ -954,155 +793,10 @@ Example: random survey math students to estimate the average GPA or a college.</
 </li>
 </ul>
 </div>
-<div class="include-after">
-</div>
-<script>
-(function(d) {
-  let p = d.body;  // container of slides; assume <body> for now
-  const s1 = ':scope > hr:not([class])', s2 = ':scope > h2';
-  // find a container that has at least n "slides"
-  function findContainer(s, n = 1) {
-    if (p.querySelectorAll(s).length >= n) return true;
-    // if body doesn't contain headings or <hr>s, look into children
-    for (let i = 0; i < p.children.length; i++) {
-      if (p.children[i].querySelectorAll(s).length >= n) {
-        p = p.children[i]; break;
-      }
-    }
-    return false;
-  }
-  function newEl(tag, cls) {
-    const el = d.createElement(tag);
-    if (cls) el.className = cls;
-    return el;
-  }
-  if (!findContainer(s1, 3)) {
-    // if not enough <hr>s found in children; look for <h2> instead
-    if (p.tagName === 'BODY') {
-      // not enough h2 found, this page is not appropriate for slides
-      if (!findContainer(s2) && p.tagName === 'BODY') return;
-      p.querySelectorAll(s2).forEach(h2 => h2.before(newEl('hr')));
-    }
-  }
-  p.classList.add('slide-container');
-  // add 'slide' class to the frontmatter div and toc
-  ['.frontmatter', '#TOC'].forEach(s => {
-    d.body.querySelector(s)?.classList.add('slide');
-  });
-
-  function newSlide(s) {
-    return (s?.innerText === '') ? s : newEl('div', 'slide');
-  }
-  function isSep(el) {
-    return el.tagName === 'HR' && el.attributes.length === 0;
-  }
-  let el = p.firstElementChild; if (isSep(el)) el.remove();
-  el = p.firstElementChild; if (!el) return;
-  let s = newSlide(); el.before(s);
-  while (true) {
-    let el = s.nextSibling;
-    if (!el) break;
-    // remove slide separators (<hr>) and create new slide
-    if (isSep(el)) {
-      s = newSlide(s);
-      el.before(s); el.remove();
-    } else if (el.classList?.contains('slide')) {
-      s = newSlide(s);
-      el.after(s);
-    } else {
-      s.append(el);
-    }
-  }
-  function setAttr(el, attr) {
-    const m = newEl('div');
-    m.innerHTML = `<div ${attr}></div>`;
-    const attrs = m.firstElementChild.attributes;
-    for (let i = 0; i < attrs.length; i++) {
-      let a = attrs[i];
-      el.setAttribute(a.name, a.value);
-    }
-    m.remove();
-  }
-  const slides = d.querySelectorAll('div.slide'), N = slides.length,
-        tm = d.querySelector('span.timer'), fn = d.querySelector('.footnotes');
-  slides.forEach((s, i) => {
-    // append footnotes
-    if (fn) s.querySelectorAll('.footnote-ref > a[href^="#fn"]').forEach(a => {
-      const li = fn.querySelector('li' + a.getAttribute('href'));
-      if (!li) return;
-      let f = s.querySelector('div.footnotes');
-      if (!f) {
-        f = newEl('div', 'footnotes'); s.append(f);
-      }
-      f.append(li);
-      li.firstElementChild?.insertAdjacentHTML('afterbegin', `[${a.innerHTML}] `);
-      li.outerHTML = li.innerHTML;
-    });
-    // add a timer
-    s.append(tm ? tm.cloneNode() : newEl('span', 'timer'));
-    // add page numbers
-    const n = newEl('span', 'page-number');
-    n.innerText = i + 1 + '/' + N;
-    n.onclick = e => location.hash = i + 1;
-    s.append(n);
-    // apply slide attributes in <!--# -->
-    for (let k in s.childNodes) {
-      const node = s.childNodes[k];
-      if (node.nodeType !== Node.COMMENT_NODE) continue;
-      let t = node.textContent;
-      if (!/^#/.test(t)) continue;
-      t = t.replace(/^#/, '');
-      const r = /[\s\n]class="([^"]+)"/, m = t.match(r);
-      if (m) {
-        t = t.replace(r, '').trim();
-        s.className += ' ' + m[1];
-      }
-      if (t) setAttr(s, t);
-      break;
-    }
-    s.classList.contains('extend') && s.append(newEl('div', 'spacer fade'));
-    location.hash === ('#' + (i + 1)) && s.scrollIntoView();
-    s.addEventListener('click', e => {
-      if (!e.altKey) return;
-      d.body.classList.toggle('overview');
-      setTimeout(() => e.target.scrollIntoView(), 100);
-    });
-  });
-  [...d.querySelectorAll('a.footnote-backref'), fn, tm].forEach(el => el?.remove());
-  const tms = d.querySelectorAll('span.timer'), t1 = 1000 * tms[0].dataset.total;
-  let t0;
-  function startTimers() {
-    t0 = new Date();
-    setInterval(setTimers, 1000);
-  }
-  function setTimers() {
-    let t = (new Date() - t0);
-    if (t1) t = t1 - t;
-    const t2 = new Date(Math.abs(t)).toISOString().substr(11, 8).replace(/^00:/, '');
-    tms.forEach(el => {
-      el.innerText = t2;
-      if (t < 0) el.style.display = el.style.display === 'none' ? '' : 'none';
-    });
-  }
-  // press f for fullscreen mode
-  d.addEventListener('keyup', (e) => {
-    if (e.target !== d.body) return;
-    e.key === 'f' && d.documentElement.requestFullscreen();
-    e.key === 'o' && d.body.classList.toggle('overview');
-    e.key === 'm' && d.body.classList.toggle('mirrored');
-    sessionStorage.setItem('body-class', d.body.className);
-  });
-  // start timer on fullscreen
-  d.onfullscreenchange = (e) => d.fullscreenElement && !t0 && startTimers();
-  tms.forEach(el => el.addEventListener('click', e => startTimers()));
-  // restore previsouly saved body class
-  const bc = sessionStorage.getItem('body-class');
-  if (bc) d.body.className += ' ' + bc;
-})(document);
-</script>
-<script src="https://hypothes.is/embed.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
-<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/key-buttons.min.js,npm/@xiee/utils/js/ external-link.min.js,npm/@xiee/utils/js/ heading-anchor.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/js/mathjax-config.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils@1.13.44/js/snap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils@1.13.44/js/key-buttons.min.js,npm/@xiee/utils@1.13.44/js/external-link.min.js,npm/@xiee/utils@1.13.44/js/heading-anchor.min.js" defer></script>
 <script>
 // Function to format the current date and time as "MM/DD/YYYY HH:MM:SS" format
 function getCurrentDateTime() {

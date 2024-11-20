@@ -1,21 +1,22 @@
 ---
-title: "Measure of Centeral Tendency and Variability"
+title: "Topic 3: Summarize Data Numerically"
 author: "Fei Ye"
 date: '`r format(Sys.time(), "%B %Y")`'
 output:
-  markdown::html_format:
+  litedown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css, heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "meta-data/lastupdated.js"]
-      header-includes: "meta-data/Hypothesis-config.html"
+      css: ["@default", "@snap", "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
+      js: ["@snap", "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "meta-data/lastupdated.js"]
+      # header-includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
     options:
+      includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
       number_sections: true
       latex_math: true
       js_math:
         package: mathjax
         version: 3
-        js: es5/tex-svg.js
+        js: es5/tex-mml-chtml.js
 ---
 
 ```{r, echo=FALSE, warning=FALSE}
@@ -153,7 +154,7 @@ ggplotly(boxplot)
 
 ## Notations and Calculations about Mean
 
-- Sigma notation: in math, we denote the sum of values  $x_1$, $x_2$, $\dots$, $x_n$ of a variable $x$ by $\sum\limits_{i=1}^n x_i$ or simply by $\sum x$.
+- Sigma notation: in math, we denote the sum of values $x_1$, $x_2$, $\dots$, $x_n$ of a variable $x$ by $\sum\limits_{i=1}^n x_i$ or simply by $\sum x$.
 
 - The **population mean** is $\mu= \frac{\sum x}{N}$, where $N$ is the **population size**, i.e the number of elements in the population.  
 
@@ -193,7 +194,7 @@ In Excel, suppose the data are in the column array `A1:A10`, you may use the fun
 
 ## Example: Course Overall Grade
 
-In a course, the overall grade is determined in the following way: the homework average counts for 10%, the quiz average counts for 10%, the test average counts 50% , and the final exam counts for 30%. What's the overall grade of the student who earned  92 on homework, 95 on quizzes, 90 on tests and 93 on the final.
+In a course, the overall grade is determined in the following way: the homework average counts for 10%, the quiz average counts for 10%, the test average counts 50%, and the final exam counts for 30%. What's the overall grade of the student who earned 92 on homework, 95 on quizzes, 90 on tests and 93 on the final.
 
 **Solution:** The overall grade is the weighted mean
 
@@ -284,7 +285,7 @@ irisPL
 
 ---
 
-## Example: Mean and SD - Best Oscar Winners (1 of 2)
+## Example: Mean and SD - Best Oscar Winners
 
 Find the mean and standard deviation ages of a sample of 32 best actor Oscar winners (1970–2001).
 
@@ -301,7 +302,7 @@ The mean is `r round(mean(actor_age$Age),1)`. The sample standard deviation is `
 
 ---
 
-## Example: Mean and SD - Best Oscar Winners (2 of 2)
+## Example: Mean and SD - Calculation By Hand
 
 ::: {.iframecontainer}
 `r knitr::include_url('https://www.geogebra.org/material/iframe/id/DS6PUaXy/width/1300/height/800/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false', height='600px')`
@@ -322,6 +323,14 @@ A *sample* of GPAs from ten students random chosen from a college are recorded a
 :::
 
 Find the standard deviation of this sample.
+
+---
+
+## Practice: Mean, Standard Deviation and Variance {.unnumbered}
+
+::: {.iframecontainer}
+`r knitr::include_url('https://www.myopenmath.com/embedq.php?id=251836&seed=2024&showansafter', height="550px")`
+:::
 
 ---
 
@@ -368,7 +377,7 @@ A sample of the highest temperature of 10 days has a standard deviation $5^\circ
 When comparing variables that may have different measurement, it is better to use standardized values. Convert a value to a standard value is called standardization which doesn't change the distribution of the data set.
 
 Let $x$ be a data value, $\bar{x}$ the mean, and $s$ the standard deviation of a data set. The **standard value** (or $z$-**score**) of $x$ is defined as
-$$z = \frac{x-\bar{x}}{s}, \quad\text{equivalently}\quad x=zs+\bar{x}$$
+$$z = \frac{x-\bar{x}}{s}, \quad\text{equivalently}\quad x=zs+\bar{x}.$$
 
 In Excel, the $z$-score can be obtained by `=STANDARDIZE(x, mean, sd)`.
 

@@ -3,20 +3,20 @@ title: "Topic 2: Describing Data Graphically"
 author: "Fei Ye"
 date: '`r format(Sys.time(), "%B %Y")`'
 output:
-  markdown::html_format:
+  litedown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css, heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "meta-data/lastupdated.js"]
-      header-includes: "meta-data/Hypothesis-config.html"
+      css: ["@default", "@snap", "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
+      js: ["@snap", "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "meta-data/lastupdated.js"]
+      # header-includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
     options:
+      includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
       number_sections: true
       latex_math: true
       js_math:
         package: mathjax
         version: 3
-        js: es5/tex-svg.js
-      # smart: false
+        js: es5/tex-mml-chtml.js
 ---
 
 ```{r, echo=FALSE, warning=FALSE}
@@ -218,7 +218,7 @@ carshist <- head(mtcars["mpg"],30)
 ggplot(carshist, aes(x=mpg), dpi=600) +
   geom_histogram(binwidth=Bwidth,boundary=sm,
                  fill="lightblue", col="white",linewidth=1) +
-  stat_density(aes(y=4*..count..), geom="line",
+  stat_density(aes(y=4*after_stat(count)), geom="line",
                colour="blue", linetype="dotdash", linewidth=1, adjust=1.2) +
   geom_vline(aes(xintercept=mean(mpg)),
           color="brown", linetype="dashed", linewidth=1) +
@@ -301,41 +301,49 @@ cat(paste(irispetal, collapse=", "))
 
 ---
 
-## Stem-and-Leaf Plots
+## Practice: Frequency Table and Histogram {.unnumbered}
 
-A stem-and-leaf plot is a kind of histogram that lets you see all your data instead of just class frequency information. The leading digit(s) form stems and the "tailing digits" form leaves.
-
-**How to Construct**
-
-- Select one or more leading digits for the stem values. The trailing digits become the leaves. **Trailing digits for the same stem may further break into two leaves, lower or higher.**
-- List possible stem values in a vertical column.
-- Record the leaf for every observation beside the corresponding stem value.
-- Indicate the units for stems and leaves someplace in the display.
-
----
-
-## Example: Heights of Cherry Trees
-
-Consider the following data of heights of 15 cherry trees. Create a stem-and-leaf plot and describe the distribution.
-
-::: {.center}
-```{r echo=FALSE, results = 'asis'}
-cherrytrees <- sample(trees$Height,15)
-cat(paste(sort(cherrytrees), collapse=", "))
-```
+::: {.iframecontainer}
+`r knitr::include_url("https://www.myopenmath.com/embedq.php?id=1296859&seed=2024&showansafter", height="500px")`
 :::
 
-**Solution:**
+<!-- --- -->
 
-:::: {style="display: flex; align-items: center; justify-content: center;"}
+<!-- ## Stem-and-Leaf Plots -->
 
-```{r stem1, echo=FALSE, comment=NA}
-out1 <- capture.output(stem(cherrytrees, scale = 0.5))
-stemout1 <- paste(out1[nzchar(out1)], collapse="\n")
-cat(stemout1, sep="\n")
-```
+<!-- A stem-and-leaf plot is a kind of histogram that lets you see all your data instead of just class frequency information. The leading digit(s) form stems and the "tailing digits" form leaves. -->
 
-::::
+<!-- **How to Construct** -->
+
+<!-- - Select one or more leading digits for the stem values. The trailing digits become the leaves. **Trailing digits for the same stem may further break into two leaves, lower or higher.** -->
+<!-- - List possible stem values in a vertical column. -->
+<!-- - Record the leaf for every observation beside the corresponding stem value. -->
+<!-- - Indicate the units for stems and leaves someplace in the display. -->
+
+<!-- --- -->
+
+<!-- ## Example: Heights of Cherry Trees -->
+
+<!-- Consider the following data of heights of 15 cherry trees. Create a stem-and-leaf plot and describe the distribution. -->
+
+<!-- ::: {.center} -->
+<!-- ```{r echo=FALSE, results = 'asis'} -->
+<!-- cherrytrees <- sample(trees$Height,15) -->
+<!-- cat(paste(sort(cherrytrees), collapse=", ")) -->
+<!-- ``` -->
+<!-- ::: -->
+
+<!-- **Solution:** -->
+
+<!-- :::: {style="display: flex; align-items: center; justify-content: center;"} -->
+
+<!-- ```{r stem1, echo=FALSE, comment=NA} -->
+<!-- out1 <- capture.output(stem(cherrytrees, scale = 0.5)) -->
+<!-- stemout1 <- paste(out1[nzchar(out1)], collapse="\n") -->
+<!-- cat(stemout1, sep="\n") -->
+<!-- ``` -->
+
+<!-- :::: -->
 
 ---
 
@@ -367,6 +375,14 @@ Create a dot plot for each sample and describe the shape of the distribution of 
 
 ::: {.footmark}
 Source: [Example 2.7.1, OpenStax Introductory Statistics](https://stats.libretexts.org/Bookshelves/Introductory_Statistics)
+:::
+
+---
+
+## Practice: Shapes of Distributions {.unnumbered}
+
+::: {.iframecontainer}
+`r knitr::include_url("https://www.myopenmath.com/embedq2.php?id=6992&seed=2024&showansafter", height="500px")`
 :::
 
 ---
@@ -413,10 +429,10 @@ drhist <- ggplot(dfdrk, aes(x=Alcohol), dpi=600) +
   scale_x_continuous(breaks = seq(0, 36, 1)) + 
   scale_y_continuous(breaks = seq(0, 140,5)) +
   theme_bw(base_size = 16) +
-geom_vline(aes(xintercept=mean(Alcohol)),       color="blue", linetype="dashed", size=1) +
-geom_vline(aes(xintercept=median(Alcohol)), color="red", linetype="dashed", size=1) + 
-# geom_vline(aes(xintercept=quantile(Alcohol)[2]), color="black", linetype="dashed", size=1) + 
-#geom_vline(aes(xintercept=quantile(Alcohol)[4]), color="yellow", linetype="dashed", size=1) + 
+geom_vline(aes(xintercept=mean(Alcohol)),       color="blue", linetype="dashed", linewidth=1) +
+geom_vline(aes(xintercept=median(Alcohol)), color="red", linetype="dashed", linewidth=1) + 
+# geom_vline(aes(xintercept=quantile(Alcohol)[2]), color="black", linetype="dashed", linewidth=1) + 
+#geom_vline(aes(xintercept=quantile(Alcohol)[4]), color="yellow", linetype="dashed", linewidth=1) + 
 ylab("Frequency")
 #ggplot(dfdrk, aes(x="", y=Alcohol), dpi=600)+
 #geom_boxplot(fill = "green")
@@ -468,7 +484,7 @@ The counts of majors of 100 students in a sample are shown in the table on the r
 
 :::: {.pull-right}
 ::: {.center}
-| Grade | Frequency (Counts) |
+| Major | Frequency (Counts) |
 | :----- | ------ |
 | Art     | 30      |
 | Engineering | 50      |
@@ -525,6 +541,14 @@ titanic <- data.frame(
 )
 knitr::kable(titanic, 'pipe', align = "cc")
 ```
+
+---
+
+## Practice: Pie Chart {.unnumbered}
+
+::: {.iframecontainer}
+`r knitr::include_url("https://www.myopenmath.com/embedq.php?id=278180&seed=2024&showansafter", height="500px")`
+:::
 
 ---
 

@@ -2,9 +2,9 @@ Xaringan/
 .R
 .Rhistory
 .Rproj
-BaysideHousePrice.csv
-Figures/
-Data-Frames-SUNY-Concepts-in-Statistics/
+# BaysideHousePrice.csv
+# Figures/
+# Data-Frames-SUNY-Concepts-in-Statistics/
 Assets/
 .Rproj.user/
 Topic*.md

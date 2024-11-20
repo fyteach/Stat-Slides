@@ -3,19 +3,20 @@ title: "Continuous Random Variables"
 author: "Fei Ye"
 date: '`r format(Sys.time(), "%B %Y")`'
 output:
-  markdown::html_format:
+  litedown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "meta-data/lastupdated.js", "meta-data/mathjax-font.js"]
-      header-includes: "meta-data/Hypothesis-config.html"
+      css: ["@default", "@snap", "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
+      js: ["@snap", "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "meta-data/lastupdated.js"]
+      # header-includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
     options:
+      includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
       number_sections: true
       latex_math: true
       js_math:
         package: mathjax
         version: 3
-        js: es5/tex-svg.js
+        js: es5/tex-mml-chtml.js
 ---
 
 
@@ -42,7 +43,7 @@ library(latex2exp)
 The probability distribution of a continuous random variable $X$ is characterized by its **probability density function** $f(X)$ satisfying that the probability $P(a\leq X\leq b)$ equals the area above the interval $[a, b]$ but under the graph of the density function $f(X)$ which is also called a **density curve**.
 
 ::: {.center}
-```{r echo=FALSE, fig.width=8, fig.asp=0.5}
+```{r echo=FALSE, fig.width=8, fig.asp=0.5, warning=FALSE}
 puniform <- ggplot(
     data = data.frame(x = c(-0.5, 0.5)), aes(x)
   ) +
@@ -118,7 +119,7 @@ puniform <- ggplot(
 
 puniform
 ```
-```{r echo=FALSE, fig.width=8, fig.asp=0.5}
+```{r echo=FALSE, fig.width=8, fig.asp=0.5, warning=FALSE}
 pnormal <- ggplot(
     data = data.frame(x = c(-3, 3)), aes(x)
   ) +
@@ -215,7 +216,7 @@ What is the probability that the commuter's waiting time is less than 4 minutes?
 :::
 
 ::: {.pull-right}
-```{r echo=FALSE, fig.width=8, fig.asp=0.5, fig.align="center"}
+```{r echo=FALSE, fig.width=8, fig.asp=0.5, fig.align="center", warning=FALSE}
 puniform <- ggplot(
     data = data.frame(x = c(0, 10)), aes(x)
   ) +
@@ -226,7 +227,7 @@ puniform <- ggplot(
     colour = "blue"
   ) +
   xlab("X") +
-  ylab("Probability") +
+  ylab("Density") +
   theme_bw() +
   scale_x_continuous(
     expand = c(0,0),
@@ -253,7 +254,7 @@ puniform <- ggplot(
       yend = 0.1
     ),
     color="blue",
-    size=1.25
+    linewidth=1.25
   ) +
   geom_segment(
     aes(
@@ -263,7 +264,7 @@ puniform <- ggplot(
       yend = 0.1
     ),
     color="blue",
-    size=1.25
+    linewidth=1.25
   ) +
   geom_segment(
     aes(
@@ -273,7 +274,7 @@ puniform <- ggplot(
       yend =0
     ),
     color="blue",
-    size=2
+    linewidth=2
   ) +
   geom_segment(
     aes(
@@ -283,7 +284,7 @@ puniform <- ggplot(
       yend = 0.1
     ),
     color="blue",
-    size=2
+    linewidth=2
   ) +
   theme(
     panel.grid.major = element_blank(),
@@ -326,7 +327,7 @@ where $\mu$ is the mean, $\sigma$ is the standard deviation, $\pi\approx `r roun
   - The normal curve is *bell shaped and __symmetric__* with respect to the mean.
   - The *total area* under the curve and above the $x$-axis is $1$.
   - The normal curve *approaches, but never touches, the $x$-axis* as $x$ goes to $\pm\infty$.
-  - Between $\mu-\sigma$ and $\mu+\sigma$, the graph *curves downward*. On the left side of $\mu-\sigma$ or the right side of $\mu+\sigma$, the graph *curves upward*.  
+  <!-- - Between $\mu-\sigma$ and $\mu+\sigma$, the graph *curves downward*. On the left side of $\mu-\sigma$ or the right side of $\mu+\sigma$, the graph *curves upward*.   -->
   <!-- - A point at which the curve changes the direction of curving is called an **inflection point**. -->
 
 ---
@@ -334,7 +335,7 @@ where $\mu$ is the mean, $\sigma$ is the standard deviation, $\pi\approx `r roun
 ## Normal Curves with Different Means and Standard Deviations
 
 ::: {.center}
-```{r echo=FALSE, fig.width=10, fig.asp=0.5}
+```{r echo=FALSE, fig.width=10, fig.asp=0.5, warning=FALSE}
 m1 <-0
 m2 <- 1
 m3 <- -1.5
@@ -346,19 +347,19 @@ pmean <- ggplot(
     fun = dnorm,
     args = list(mean = m1, sd = 1),
     aes(colour = "B"),
-    size = 1.25
+    linewidth = 1.25
   ) +
   stat_function(
     fun = dnorm,
     args = list(mean = m2, sd = 1),
     aes(colour = "G"),
-    size = 1.25
+    linewidth = 1.25
   ) +
   stat_function(
     fun = dnorm,
     args = list(mean = m3, sd = 1),
     aes(colour = "R"),
-    size = 1.25
+    linewidth = 1.25
   ) +
   xlab("") +
   ylab("") +
@@ -366,36 +367,27 @@ pmean <- ggplot(
   theme_bw() +
   ggtitle(TeX('Normal Curves with $\\sigma = 1$')) +
   geom_hline(yintercept=0)+
-  geom_segment(
-    aes(
-      x = m1,
-      y = 0,
-      xend = m1,
-      yend = dnorm(m1, m1, 1),
-    ),
-    color="blue",
-    linetype="dashed"
-  ) +
-  geom_segment(
-    aes(
-      x = m2,
-      y = 0,
-      xend = m2,
-      yend = dnorm(m2, m2, 1),
-    ),
-    color="red",
-    linetype="dashed"
-  ) +
-  geom_segment(
-    aes(
-      x = m3,
-      y = 0,
-      xend = m3,
-      yend = dnorm(m3, m3, 1),
-    ),
-    color="red",
-    linetype="dashed"
-  ) +
+  annotate("segment", 
+           x = m1, 
+           xend = m1, 
+           y = 0, 
+           yend = dnorm(m1, m1, 1), 
+           color = "blue", 
+           linetype = "dashed") +
+  annotate("segment", 
+           x = m2, 
+           xend = m2, 
+           y = 0, 
+           yend = dnorm(m2, m2, 1), 
+           color = "red", 
+           linetype = "dashed") +
+  annotate("segment", 
+           x = m3, 
+           xend = m3, 
+           y = 0, 
+           yend = dnorm(m3, m3, 1), 
+           color = "red", 
+           linetype = "dashed") +
   theme(
     panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
     plot.title = element_text(hjust = 0.5, size=24), panel.border = element_blank(),
@@ -427,19 +419,19 @@ psd <- ggplot(
     fun = dnorm,
     args = list(mean = 0, sd = sd1),
     aes(color="B"),
-    size = 1.25
+    linewidth = 1.25
   ) +
   stat_function(
     fun = dnorm,
     args = list(mean = 0, sd = sd2),
     aes(color="G"),
-    size = 1.25
+    linewidth = 1.25
   ) +
   stat_function(
     fun = dnorm,
     args = list(mean = 0, sd = sd3),
     aes(color="R"),
-    size = 1.25
+    linewidth = 1.25
   ) +
   xlab("") +
   ylab("") +
@@ -447,13 +439,11 @@ psd <- ggplot(
   theme_bw() +
   ggtitle(TeX('Normal Curves with $\\mu = 0$')) +
   geom_hline(yintercept=0)+
-  geom_segment(
-    aes(
+  annotate("segment",
       x = 0,
       y = 0,
       xend = 0,
       yend = dnorm(0, 0, sd1),
-    ),
     color="blue",
     linetype="dashed"
   ) +
@@ -498,7 +488,7 @@ ms <- ggplot(data = data.frame(x = c(-6, 6)), aes(x)) +
     fun = dnorm,
     args = list(mean = 0, sd = 1.5),
     color="blue",
-    size = 1.25,
+    linewidth = 1.25,
   ) +
   xlab("") +
   ylab("") +
@@ -535,7 +525,8 @@ ms <- ggplot(data = data.frame(x = c(-6, 6)), aes(x)) +
 
 for (i in br) {
   if( i != 0){
-    ms <- ms + geom_segment(
+    ms <- ms + annotate(
+      "segment",
       x = i,
       y = 0,
       xend = i,
@@ -545,64 +536,62 @@ for (i in br) {
   }
 }
 
-ms <- ms + geom_segment(
-    aes(
+ms <- ms +  annotate(
+   "segment",
       x = 0,
       y = 0,
       xend = 0,
-      yend = dnorm(0, 0, sgma)
-    ),
+      yend = dnorm(0, 0, sgma),
     color="blue"
 )
 
+# ms <- ms +
+#   geom_point(
+#     aes(x=sgma, y=dnorm(sgma, 0, sgma)),
+#     size=3
+#   ) +
+#   geom_point(
+#     aes(x=-sgma, y=dnorm(-sgma, 0, sgma)),
+#     size=3
+#   )
+
+# ms <- ms + annotate(
+#   "segment",
+#   x = 2*sgma,
+#   xend = sgma,
+#   y = 0.23,
+#   yend = dnorm(sgma, 0, sgma),
+#   colour = "purple",
+#   alpha=0.6,
+#   arrow=arrow()
+# )+
+#   annotate(
+#     "segment",
+#     x = 2*sgma,
+#     xend = -sgma,
+#     y = 0.23,
+#     yend = dnorm(-sgma, 0, sgma),
+#     colour = "purple",
+#     alpha=0.6,
+#     arrow=arrow()
+#   ) #+
+  # annotate(
+  #   geom='text',
+  #   x=3.1,
+  #   y=0.24,
+  #   label="Inflection Points",
+  #   color = "purple",
+  #   size=6
+  # )
+
+
 ms <- ms +
-  geom_point(
-    aes(x=sgma, y=dnorm(sgma, 0, sgma)),
-    size=3
-  ) +
-  geom_point(
-    aes(x=-sgma, y=dnorm(-sgma, 0, sgma)),
-    size=3
-  )
-
-ms <- ms + annotate(
-  "segment",
-  x = 2*sgma,
-  xend = sgma,
-  y = 0.23,
-  yend = dnorm(sgma, 0, sgma),
-  colour = "purple",
-  alpha=0.6,
-  arrow=arrow()
-)+
-  annotate(
-    "segment",
-    x = 2*sgma,
-    xend = -sgma,
-    y = 0.23,
-    yend = dnorm(-sgma, 0, sgma),
-    colour = "purple",
-    alpha=0.6,
-    arrow=arrow()
-  ) +
-  annotate(
-    geom='text',
-    x=3.1,
-    y=0.24,
-    label="Inflection Points",
-    color = "purple",
-    size=6
-  )
-
-
-ms <- ms +
-  geom_segment(
-    aes(
+   annotate(
+   "segment",
       x=-sgma,
       y=(dnorm(sgma, 0, sgma)+0.1+0.06),
       xend=sgma,
-      yend=(dnorm(sgma, 0, sgma)+0.1+0.06)
-    ),
+      yend=(dnorm(sgma, 0, sgma)+0.1+0.06),
     color="blue",
   ) +
   geom_label(
@@ -612,13 +601,12 @@ ms <- ms +
   )
 
 ms <- ms +
-  geom_segment(
-    aes(
+ annotate(
+   "segment",
       x=-2*sgma,
       y=(dnorm(sgma, 0, sgma)+0.1+0.06*2),
       xend=2*sgma,
-      yend=(dnorm(sgma, 0, sgma)+0.1+0.06*2)
-    ),
+      yend=(dnorm(sgma, 0, sgma)+0.1+0.06*2),
     color="blue"
   ) +
   geom_label(
@@ -628,13 +616,12 @@ ms <- ms +
   )
 
 ms <- ms +
-  geom_segment(
-    aes(
+ annotate(
+   "segment",
       x=-3*sgma,
       y=(dnorm(sgma, 0, sgma)+0.1+0.06*3),
       xend=3*sgma,
-      yend=(dnorm(sgma, 0, sgma)+0.1+0.06*3)
-    ),
+      yend=(dnorm(sgma, 0, sgma)+0.1+0.06*3),
     color="blue",
   ) +
   geom_label(
@@ -651,7 +638,7 @@ ms
 
 ---
 
-## Example: Foot length (1 of 2)
+## Example: Foot length (1 of 3)
 
 Suppose that foot length of a randomly chosen adult male is a normal random variable with the mean $\mu=11$ and the standard deviation $\sigma=1.5$.
 
@@ -673,7 +660,7 @@ foot <- ggplot(
     fun = dnorm,
     args = list(mean = footmu, sd = footsigma),
     color="blue",
-    size = 1.25
+    linewidth = 1.25
   ) +
   stat_function(
     fun=dnorm,
@@ -704,7 +691,8 @@ foot <- ggplot(
   )
 
 for (i in -1:1) {
-    foot <- foot + geom_segment(
+    foot <- foot +  annotate(
+      "segment",
       x = i*footsigma+footmu,
       y = -0.01,
       xend = i*footsigma+footmu,
@@ -714,31 +702,28 @@ for (i in -1:1) {
 }
 
 foot +
-geom_segment( # Horizontal segment
-  aes(
+ annotate(
+   "segment",
       x=-footsigma+footmu,
       y=(dnorm(footmu, footmu, footsigma)+0.1),
       xend=footsigma+footmu,
-      yend=(dnorm(footmu, footmu, footsigma)+0.1)
-    ),
+      yend=(dnorm(footmu, footmu, footsigma)+0.1),
     color="blue",
   ) +
-  geom_segment( # Left vertical segment
-    aes(
+ annotate(
+   "segment",
       x=-footsigma+footmu,
       y=(dnorm(footsigma+footmu, footmu, footsigma)),
       xend=-footsigma+footmu,
-      yend=(dnorm(footmu, footmu, footsigma)+0.1)
-    ),
+      yend=(dnorm(footmu, footmu, footsigma)+0.1),
     color="blue",
   ) +
-  geom_segment( # Right vertical segment
-    aes(
+ annotate(
+   "segment",
       x=footsigma+footmu,
       y=(dnorm(footsigma+footmu, footmu, footsigma)),
       xend=footsigma+footmu,
-      yend=(dnorm(footmu, footmu, footsigma)+0.1)
-    ),
+      yend=(dnorm(footmu, footmu, footsigma)+0.1),
     color="blue",
   ) +
   geom_label(
@@ -759,7 +744,7 @@ foot2 <- ggplot(
     fun = dnorm,
     args = list(mean = footmu, sd = footsigma),
     color="blue",
-    size = 1.25
+    linewidth = 1.25
   ) +
   stat_function(
     fun=dnorm,
@@ -790,7 +775,8 @@ foot2 <- ggplot(
   )
 
 for (i in c(-2, 0, 2) ) {
-    foot2 <- foot2 + geom_segment(
+    foot2 <- foot2 +  annotate(
+   "segment",
       x = i*footsigma+footmu,
       y = -0.01,
       xend = i*footsigma+footmu,
@@ -800,31 +786,27 @@ for (i in c(-2, 0, 2) ) {
 }
 
 foot2+
-geom_segment( # Horizontal segment
-  aes(
+ annotate(
+   "segment",
       x=-2*footsigma+footmu,
       y=(dnorm(footmu, footmu, footsigma)+0.1),
-      xend=2*footsigma+footmu,
-      yend=(dnorm(footmu, footmu, footsigma)+0.1)
-    ),
+      xend=2*footsigma+footmu,,
     color="blue",
   ) +
-  geom_segment( # Left vertical segment
-    aes(
+   annotate(
+   "segment",
       x=-2*footsigma+footmu,
       y=(dnorm(2*footsigma+footmu, footmu, footsigma)),
       xend=-2*footsigma+footmu,
-      yend=(dnorm(footmu, footmu, footsigma)+0.1)
-    ),
+      yend=(dnorm(footmu, footmu, footsigma)+0.1),
     color="blue",
   ) +
-  geom_segment( # Right vertical segment
-    aes(
+   annotate(
+   "segment",
       x=2*footsigma+footmu,
       y=(dnorm(2*footsigma+footmu, footmu, footsigma)),
       xend=2*footsigma+footmu,
-      yend=(dnorm(footmu, footmu, footsigma)+0.1)
-    ),
+      yend=(dnorm(footmu, footmu, footsigma)+0.1),
     color="blue",
   ) +
   geom_label(
@@ -837,22 +819,28 @@ geom_segment( # Horizontal segment
 
 ---
 
-## Example: Foot length (2 of 2)
+## Example: Foot length (2 of 3)
 
-Note that $9.5=11-1.5=\mu-\sigma$. By the symmetry of normal curve, we know that the probability $P(X<9.5)$ is the shaded area on the left. Because the probability of getting a foot length within 1 standard deviation away from the mean is 0.683. Then
-$$\scriptstyle P(X<9.5)=\frac12(1-P(9.5<X<12.5))\approx\frac12(1-0.683)=0.1585.$$
+**Method 1: Using the Empirical Rule**
 
+Note that $9.5 = 11 - 1.5 = \mu - \sigma$. By the symmetry of normal curve, we know that the probability $P(X<9.5)$ is the shaded area on the left.
+Because the probability of getting a foot length within 1 standard deviation away from the mean is 0.683. Then
+$$P(X<9.5)=\frac12(1-P(9.5<X<12.5))\approx\frac12(1-0.683)=0.1585.$$
 Note that $8=11-2\cdot 1.5=\mu-2\sigma$. Because the probability of getting a foot length within 2 standard deviation away from the mean is 0.954. Then
-$$\scriptstyle P(X>8)=(1-P(X<8))=1-\frac12(1- P(8<X<14))=1-\frac12(1-0.954)=0.977.$$
+$$P(X>8)=(1-P(X<8))=1-\frac12(1- P(8<X<14))=1-\frac12(1-0.954)=0.977.$$
 
-::: {.footmark}
+---
+
+## Example: Foot length (3 of 3)
+
+**Method 2: Using Excel**
+
 The probability $P(X<x)$ for a normal random variable $X$ can be calculated using the Excel function `NORM.DIST(x, mean, sd, TRUE)`.
 
-In this case,
-$P(X<9.5)=$ `NORM.DIST(9.5, 11, 1.5, TRUE)` $\approx 0.1587.$
+In this case, $P(X<9.5)=$ `=NORM.DIST(9.5, 11, 1.5, TRUE)` $\approx 0.1587.$
 
-$P(X>8)=1-P(X\le 8)=1-$ `NORM.DIST(8, 11, 1.5, TRUE)` $\approx 1-0.02275=0.97725$.
-:::
+Since $P(X>8) = 1 - P(X < 8)$ and $P(X < 8)=$ `NORM.DIST(8, 11, 1.5, TRUE)`, it follows that
+$$P(X>8) \approx 1 - 0.02275 = 0.97725.$$
 
 ---
 
@@ -865,13 +853,13 @@ $P(X>8)=1-P(X\le 8)=1-$ `NORM.DIST(8, 11, 1.5, TRUE)` $\approx 1-0.02275=0.97725
 - Standardization preserves probability:
   $$\textstyle P(a<X<b)=P\left(\frac{a-\mu}{\sigma}< Z < \frac{b-\mu}{\sigma}\right).$$
 
-- The probability $P(Z< z)$ of a standard normal random variable $Z$ can be found using the Excel function `NORM.S,DIST(z, TRUE)` or the [standard normal distribution table](https://yfei.page/teaching/statistics/normal-tables.html).
+- The probability $P(Z< z)$ of a standard normal random variable $Z$ can be found using the Excel function `NORM.S.DIST(z, TRUE)` or the [standard normal distribution table](tables/normal-tables.html).
 
-- The probability $P(X< x)$ of a normal random variable $X$ can be calculated using the Excel function `NORM.DIST(x, mean, sd, TRUE)`.
+- Recall that the probability $P(X< x)$ of a normal random variable $X$ can be calculated using the Excel function `NORM.DIST(x, mean, sd, TRUE)`.
 
 ---
 
-## Example: Find the Standard Score
+## Example: Standardization Revisited
 
 Let $X$ be a normal random variable with the mean $\mu = 8$ and the standard deviation $\sigma=2$.
 
@@ -890,27 +878,27 @@ $$x=z\cdot\sigma+\mu=-0.6\cdot 2+8=-1.2+8=6.8.$$
 
 Let $Z$ be a standard normal random variable.
 
-:::: {.row}
-::: {.pull-left}
+<!-- :::: {.row} -->
+<!-- ::: {.pull-left} -->
 1. Find $P(Z<1.21)$.
 2. Find $P(Z\geq 1.21)$.
 3. Find $P(0<Z\leq 1.21)$.
-:::
-::: {.pull-right}
-| Z   | 0      | 0.01   | 0.02   |
-|-----|--------|--------|--------|
-| 1.2 | <span class="red">0.8849</span> | 0.8869 | 0.8888 |
-| 1.3 | 0.9856 | 0.9856 | 0.9857 |
-:::
-::::
+<!-- ::: -->
+<!-- ::: {.pull-right} -->
+<!-- | Z   | 0      | 0.01   | 0.02   | -->
+<!-- |-----|--------|--------|--------| -->
+<!-- | 1.2 | <span class="red">0.8849</span> | 0.8869 | 0.8888 | -->
+<!-- | 1.3 | 0.9856 | 0.9856 | 0.9857 | -->
+<!-- ::: -->
+<!-- :::: -->
 
-**Solution:** To find the probability, we may use the standard normal distribution table, or the Excel function `NORM.S.DIST(z,TRUE)`.
+**Solution:** To find the probability of getting a value less than $z$, we may use the Excel function `NORM.S.DIST(z,TRUE)`.
 
-1. From the table, we see that $P(Z<1.21)\approx `r round(pnorm(1.21,0,1),4)`$.
+1. In this case, $P(Z<1.21)$ `=NORM.S.DIST(1.21, TRUE)` $\approx `r round(pnorm(1.21,0,1),4)`$.
 2. Since the total area under the normal curve is 1, 
-  $P(Z\geq 1.21)\approx 1-`r round(pnorm(1.21,0,1),4)`=`r round(1-pnorm(1.21,0,1),4)`.$
+   $$P(Z\geq 1.21) = 1 - P(Z < 1.21) \approx 1-`r round(pnorm(1.21,0,1),4)`=`r round(1-pnorm(1.21,0,1),4)`.$$
 3. By the symmetry, $P(Z<0)=0.5$ and
-  $P(0<Z<1.21)\approx `r round(pnorm(1.21,0,1),4)`-0.5=`r round(pnorm(1.21,0,1)-0.5,4)`.$
+   $$P(0<Z<1.21) = P(Z < 1.21) - P(Z < 0) \approx `r round(pnorm(1.21,0,1),4)`-0.5=`r round(pnorm(1.21,0,1)-0.5,4)`.$$
 
 ---
 
@@ -918,81 +906,17 @@ Let $Z$ be a standard normal random variable.
 
 The heights of 25-year-old women in a certain region are approximately normally distributed with mean 62 inches and standard deviation 4 inches. Find the probability that a randomly selected 25-year-old woman is more than 67 inches tall.
 
-**Solution:** Let's first sketch the normal curve.
+**Solution:** Let $X$ be the height of a randomly selected 25-year-old. From the question, $X$ is approximately normally distributed with mean 62 inches and standard deviation 4 inches. Since $P(X>67)=1-P(X\leq 67)$, to find $P(X>67)$, we find $P(X\leq 67)$ first.
 
-:::: {.row}
-::: {.pull-left}
+**Method 1: Using `NORM.DIST(x, mean, SD, TRUE)`**
 
-```{r echo=FALSE, fig.width=6, fig.asp=0.25}
+$P(X\le 67)$ `NORM.DIST(67, 62, 4, TRUE)` $\approx `r round(pnorm(67, 62, 4), 4)`$.
 
-heightsigma <- 5
-heightmu <- 62
-heightbr=c(62, 67)
+**Method 2: Using `NORM.S.DIST(z, TRUE)`**
 
-height <- ggplot(
-  data = data.frame(x=c(52, 72) ), aes(x)
-) +
-  stat_function(
-    fun = dnorm,
-    args = list(mean = heightmu, sd = heightsigma),
-    color="blue",
-    size = 1.25
-  ) +
-  stat_function(
-    fun=dnorm,
-    args=c(heightmu,heightsigma),
-    xlim=c(67, 72),
-    geom="area",
-    fill="#5185ed",
-    alpha=0.2
-  ) +
-  xlab("") +
-  ylab("") +
-  scale_y_continuous(breaks=NULL) +
-  scale_x_continuous(
-    breaks=heightbr,
-    labels=heightbr
-  ) +
-  theme_bw() +
-  geom_hline(yintercept=0) +
-  theme(
-    panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-    plot.title = element_text(hjust = 0.5, size=24), panel.border = element_blank(),
-    axis.title.x = element_text(
-    margin = margin(t = -20),
-    hjust=0.95,
-    size=24
-    ),
-    axis.text.x = element_text(size=20)
-  ) +
-  geom_segment(
-      x = heightmu,
-      y = 0,
-      xend = heightmu,
-      yend = dnorm(heightmu, heightmu, heightsigma),
-      color="blue"
-  ) +
-  geom_segment(
-      x = 67,
-      y = 0,
-      xend = 67,
-      yend = dnorm(67, heightmu, heightsigma),
-      color="blue"
-  )
+The $Z$-score is $z=\frac{67-62}{4}=1.25$ and $P(X\le 67)=P(Z<1.25)=$ `NORM.S.DIST(1.25,TRUE)` $\approx `r round(pnorm(1.25, 0, 1), 4)`$.
 
-height
-```
-:::
-::: {.pull-right}
-| Z    | 0.04   | 0.05   | 0.06   |
-| ---- | ------ | ------ | ------ |
-| 1.2  | 0.8925 | <span class="red">0.8944</span> | 0.8962 |
-:::
-::::
-
-The probability is $P(X>67)=1-P(X<67)$. To calculate $P(X<67)$, one way is to use the standard normal distribution table. First find the $Z$-score is $z=\frac{67-62}{4}=1.25$. Then $P(Z<1.25)\approx 0.8944$.
-
-Another way is to use the Excel function `NORM.DIST(67, 62, 4, TRUE)` which gives $P(X>67)=1-P(X\le 67)\approx 1-`r round(pnorm(67, 62, 4),4)`=0.1056$.
+Therefore, $P(X>67) \approx 1-`r round(pnorm(1.25, 0, 1), 4)`=`r round(1-pnorm(1.25, 0, 1), 4)`.$
 
 ---
 
@@ -1000,11 +924,11 @@ Another way is to use the Excel function `NORM.DIST(67, 62, 4, TRUE)` which give
 
 - The $k$-th percentile for a random variable $X$ is the value $x_k$ that cuts off a left tail with the area $k/100$, that is $P(X<x_k)=\frac{k}{100}$, where $0\leq k\leq 100$.
 
-- Let $c$ be a nonnegative number less than or equal to 1. The $(100c)$-th percentile for the standard normal distribution is usually denoted as $-z_c$, that is $P(Z<-z_c)=c$. By symmetry, $z_c$ is the value such that $P(Z> z_c)=c$, that is $P(Z<z_c)=1-c$.
+- Let $c$ be a nonnegative number less than 0.5. The $(100c)$-th percentile for the standard normal distribution is usually denoted as $-z_c$, that is $P(Z<-z_c)=c<0.5$. By symmetry, $z_c$ is the value such that $P(Z> z_c)=c$, that is $P(Z<z_c)=1-c$.
+  - **Note:** the cutoff value $z_c$ is positive if $c<0.5$.
+  - In Excel, if $c<0.5$, the cutoff value $z_c$ such that $P(Z > z_c)=c$ can be calculated using the function `NORM.S.INV(1-c)`.
 
-- For a noraml random variable $X$ with the mean $\mu$ and standard deviation $\sigma$, the cutoff value $x^*$ with a **tail area** $c$, can be calculated using the standardization formula, that is,
-  $x^*=z^*\cdot \sigma+\mu,$
-  where $z^*$ is the cutoff $z$-score with the tail area $c$, that is $z^*=-z_c$ given that $c$ is the left-tail area and $z^*=z_c$ given that $c$ is the right tail area.
+- For a normal random variable $X$ with the mean $\mu$ and standard deviation $\sigma$, the cutoff value $x^*$ with a **tail area** $p$, can be calculated using the Excel function `NORM.INV(p, mean, sd)`, or the standardization formula, that is, $x^*=z^*\cdot \sigma+\mu,$ where $z^*$ is the cutoff $z$-score with the tail area $p$, that is $z^*=$ `NORM.S.INV(p)`.
 
 ---
 
@@ -1012,35 +936,25 @@ Another way is to use the Excel function `NORM.DIST(67, 62, 4, TRUE)` which give
 
 Let $X$ be the normal random variable with mean $6$ and standard deviation $3$. Suppose the value $x^*$ cuts off a left-tail area $0.05$. Find the value $x^*$.
 
-**Solution:** One way to find the value $x^*$ is to use the Excel function `NORM.INV(0.05, 6, 3)`:
-$$x^* \approx `r round(qnorm(0.05, 6, 3), 3)`.$$
+**Solution:** Since the $x^*$ cuts off a left-tail, to find the value $x^*$:
 
-Another way is to use the standardization formula. Using the standard normal distrution table or the Excel function `NORM.S.INV(0.05)`, we find that $-z_{0.05}=`r round(qnorm(0.05, 0, 1), 3)`$. Then
-$x^*=-z_{0.05}\cdot 3+6=`r round(qnorm(0.05, 0, 1), 3)*3+6`.$
+**Method 1:** $x^*=$ `NORM.INV(0.05, 6, 3)` $\approx `r round(qnorm(0.05, 6, 3), 3)`.$
 
-| z    | − 0.04 | − 0.05  |
-|------|--------|---------|
-| -1.6 | 0.0505 | 0.04947 |
-
-::: {.footmark}
-**Note:** if the value $c$ is between two cells in the standard deviation table, we take $z^*$ be the average of the two $z$-scores associated to the values in the two cells.
-:::
+**Method 2:** Let $z^*$ be the cutoff $z$-score with the tail area $0.05$. Then $z^*=$ `NORM.S.INV(0.05)` $\approx `r round(qnorm(0.05, 0, 1), 3)`.$ Then $$x^*=z^*\cdot \sigma+\mu=`r round(qnorm(0.05, 0, 1), 3)`\cdot 3+6=`r round(qnorm(0.05, 0, 1), 3)*3+6`.$$
 
 ---
 
 ## Example: Math Course Placement
 
-Scores on a standardized college placement examination are normally distributed with mean 60 and standard deviation 13. Students whose scores are in the top 5% will be placed in a Calculus II course. Find the minimum score needed to be placed in a Calculus II course.
+Scores on a standardized college placement examination are normally distributed with mean 60 and standard deviation 13. Students whose scores are in the top $5\%$ will be placed in a Calculus II course. Find the minimum score needed to be placed in a Calculus II course.
 
-**Solution:** Let $x^*$ be the minimum score. From the question, we know that $P(X\geq x^*)=0.05$. Equivalently, $P(X<x^*)=1-0.05=0.95$.
+**Solution:** Let $x^*$ be the minimum score. From the question, we know that $P(X\geq x^*)=5\%$. Equivalently, $P(X<x^*)=1 - 5\%$.
 
-Using the function `NORM.INV(0.95, 60, 13)`, we find the $x^*$ score is
-$x^*=`r round(qnorm(0.95, 60, 13), 2)`.$
+**Method 1:** $x^*=$ `NORM.INV(1-5%, 60, 13)` $\approx `r round(qnorm(0.95, 60, 13), 2)`.$
 
-Another way is to find $z_{0.05}$ first, then use the standardization formula. Use the standard normal distribution table or the Excel function, you will find that the $z$-score is $z^*=z_{0.05}=`r round(qnorm(0.95, 0, 1), 2)`$. Then
-$x^*=z^*\sigma+\mu=`r round(qnorm(0.95, 0, 1), 2)`\cdot 13+60=`r  13*round(qnorm(0.95, 0, 1), 2)+60`$
+**Method 2:** Let $z^*$ be the cutoff $z$-score with the tail area $1-5%$. Then $z^*=$ `NORM.S.INV(1-5%)` $\approx `r round(qnorm(0.95, 0, 1), 2)`.$ Then $$x^*=z^*\cdot \sigma+\mu=`r round(qnorm(0.95, 0, 1), 2)`\cdot 13+60=`r round(qnorm(0.95, 0, 1), 2)*13+60`.$$
 
-So the minimum score needed is $`r ceiling(qnorm(0.95, 60, 13))`$.
+So the minimum score needed to be placed in a Calculus II course is $`r ceiling(qnorm(0.95, 60, 13))`$.
 
 ::: {.footmark}
   **Note:** The minimum score is the same as the 95th percentile.

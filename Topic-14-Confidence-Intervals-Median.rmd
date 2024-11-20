@@ -1,29 +1,29 @@
 ---
-title: "Confidence Intervals for Median"
+title: "Confidence Intervals for Median (Optional)"
 author: "Fei Ye"
 date: '`r format(Sys.time(), "%B %Y")`'
 output:
-  markdown::html_format:
+  litedown::html_format:
     keep_md: true
     meta:
-      css: [default, slides, "Assets/css/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
-      js: [slides, "@npm/@xiee/utils/js/key-buttons.min.js,external-link.min.js,heading-anchor.min.js", "Assets/js/lastupdated.js", "Assets/js/mathjax-font.js"]
+      css: ["@default", "@snap", "meta-data/custom.css", "@npm/@xiee/utils/css/key-buttons.min.css,heading-anchor.min.css"]
+      js: ["@snap", "@npm/@xiee/utils/js/key-buttons.min.js, external-link.min.js, heading-anchor.min.js", "meta-data/lastupdated.js"]
+      # header-includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
     options:
+      includes: ["meta-data/Hypothesis-config.html", "meta-data/mathjax-config.html"]
       number_sections: true
       latex_math: true
       js_math:
         package: mathjax
         version: 3
-        js: es5/tex-svg.js
+        js: es5/tex-mml-chtml.js
 ---
 
 ```{r, echo=FALSE, warning=FALSE}
 knitr::opts_chunk$set(comment="#", fig.retina=2, crayon.enabled = TRUE, dpi=600)
 set.seed(15)
 library(knitr)
-library(ggplot2)
-library(dplyr,warn.conflicts = FALSE)
-library(latex2exp)
+library(kableExtra)
 ```
 
 ## Learning Goals for Confidence Intervals
@@ -139,12 +139,16 @@ For more information, see the discussion on the central limit theorem for median
 The following are prices (in thousands) of 24 randomly selected houses in a certain city. Find a confidence interval for the median hourse price in that city.
 
 ```{r echo=FALSE}
-house <- c(1500, 929, 745, 1350, 1100, 1600, 1240, 808, 1880, 1090, 1430, 5600, 3360, 988, 949, 899, 1150, 1500, 2000, 2450, 2480, 1140, 1190,1130)
+# Create and sort the house data
+house <- c(1500, 929, 745, 1350, 1100, 1600, 1240, 808, 1880, 1090, 1430, 5600, 3360, 988, 949, 899, 1150, 1500, 2000, 2450, 2480, 1140, 1190, 1130)
 house <- sort(house)
-house.df=matrix(house,ncol=12,byrow=TRUE)
+
+# Convert the house data to a data frame
+house.df <- matrix(house, ncol = 12, byrow = TRUE)
 house.df <- as.data.frame(house.df)
 
-kable(house.df, col.names = NULL, escape = F, align = "c", "html", booktabs = T) %>%
+# Create the table with kable and apply kable_styling
+kable(house.df, col.names = NULL, escape = F, align = "c", format = "html", booktabs = T) %>%
   kable_styling()
 ```
 
