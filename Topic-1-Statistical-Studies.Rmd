@@ -167,7 +167,7 @@ Image source: [Concepts in Statistics (lumen learning)](https://courses.lumenlea
 **Answer:**
 
 1. A variable in the study is students do-over choice. It is categorical variable.
-2. A data set is the collection of do-over choice of some or all students being surveyed. The data set would be univariate.
+2. A data set is the collection of do-over choice of some or all students being surveyed. The data set is univariate.
 
 :::
 ::::
