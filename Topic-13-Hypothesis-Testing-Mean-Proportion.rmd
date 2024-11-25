@@ -59,7 +59,7 @@ library(dplyr,warn.conflicts = FALSE)
 
 ---
 
-## Example: Test a Mean with Known SD (1 of 2)
+## Example: Test a Mean with Known $\sigma$ (1 of 2)
 
 Residences on a certain street claim that the mean speed of automobiles run through the street is greater than the speed limit of 25 miles per hour. A random sample of 100 automobiles has a mean speed of 26 miles per hour. Assume the population standard deviation is 4 miles per hour. Is there enough evidence to support the claim of the residences at the significance level $\alpha = 0.05$?
 
@@ -73,7 +73,7 @@ Since the population standard deviation is $\sigma=4$. We use the normal distrib
 
 ---
 
-## Example: Test a Mean with Known SD (2 of 2)
+## Example: Test a Mean with Known $\sigma$ (2 of 2)
 
 The $Z$-test statistic is $z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}=\frac{26-25}{4/\sqrt{100}}=2.5$.
 
@@ -90,7 +90,7 @@ Note: Without calculating the \\(Z\\)-test statistic, the \\(P\\)-value can also
 
 ---
 
-## Example: Test a Mean with Unknown SD (1 of 2)
+## Example: Test a Mean with Unknown $\sigma$ (1 of 2)
 
 **Example:** A certain manufacturer claims that average numbers of candies in a certain sized bag that they produce is 20. To test the claims, you collected a random sample of 10 bags and find the mean is 18 and the standard deviation is 2.7. Assume the numbers of candies are normally distributed. At the significance level $\alpha=0.05$, does your analysis support the manufacturer's claim?
 
@@ -102,7 +102,7 @@ Since $H_a$ has the $\ne$ sign and the population standard deviation is unknown,
 
 ---
 
-## Example: Test a Mean with Unknown SD (2 of 2)
+## Example: Test a Mean with Unknown $\sigma$ (2 of 2)
 
 The $t$-test statistics is $t=\frac{18-20}{2.7/\sqrt{10}}\approx`r round((18-20)/2.7*sqrt(10), 3)`.$ In Excel, the $P$-value can be calculated as \\(p\approx\\)`=2*T.DIST(-2.342,9,TRUE)`=`r round(2*pt(round((18-20)/2.7*sqrt(10), 3),9),4)`.
 
@@ -170,9 +170,9 @@ To test the coin, we set the null hypothesis as $H_0$: $p=0.5$. The experiment s
 The test statistic is $\hat{p}=\frac{16}{50}=0.32$ and the standardization is
 $$\textstyle z=\frac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)/n}}=\frac{0.32-0.5}{\sqrt{0.5(1-0.5)/50}}\approx `r round((0.32-0.5)/sqrt(0.5*0.5/50),2)`.$$
 
-Because $H_a$ contains the $<$ sign, the test is left-tailed and the $P$-value is then `=NORM.S.DIST(-2.55,TRUE)`\\(\approx 0.008\\).
+Because $H_a$ contains the $<$ sign, the test is left-tailed and the $P$-value is then `=NORM.S.DIST(-2.55,TRUE)`\\(\approx 0.005\\).
 
-Because $0.008<0.01=\alpha$, we reject the null hypothesis $H_0$. Therefore, at the significance level 0.01, there is enough evidence to claim that the coin favors the tail.
+Because $0.005<0.01=\alpha$, we reject the null hypothesis $H_0$. Therefore, at the significance level 0.01, there is enough evidence to claim that the coin favors the tail.
 
 ---
 
@@ -194,7 +194,7 @@ z=\dfrac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)/n}}=\dfrac{0.5255-0.5146}{\sqrt{0.5146\cd
 $$
 
 From $H_a$, we know that the test is two-tailed. The $P$-value is then
-$$2\cdot(1-P(Z<0.5255))\approx`r 2*(1-round(pnorm(newbornstat, 0,1),3))`$$
+$$2\cdot(1-P(Z<`rnewbornstat`))\approx`r 2*(1-round(pnorm(newbornstat, 0,1),3))`$$
 which can be calculated by the Excel formula  `=2*(1-NORM.S.DIST(0.5255,TRUE))`.
 
 Since the significance level is $\alpha=0.1$ and the $P$-value $0.122>0.1=\alpha$, we fail to reject the null hypothesis $H_0$.
